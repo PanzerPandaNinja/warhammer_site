@@ -156,7 +156,6 @@ button.danger { color: var(--warn); }
     background: var(--line);
     color: var(--accent-ink);
 }
-.toolbar-home { color: #f8f5ec; text-decoration: none; font-size: 1.4rem; line-height: 1; }
 .toolbar-slot { flex: 1 1 200px; max-width: 360px; }
 .toolbar-slot select { background: var(--field); color: var(--ink); }
 .toolbar-actions { display: flex; flex-wrap: wrap; gap: 6px; }
