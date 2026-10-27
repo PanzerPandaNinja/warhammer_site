@@ -611,7 +611,6 @@
         const t = e.target;
         if (t.dataset.path) {
             setPath(character, t.dataset.path, readInput(t));
-            if (t.dataset.path === 'portrait') updatePortrait();
         } else if (t.dataset.listField) {
             setPath(character, t.dataset.listField, readInput(t));
         } else if (t.dataset.tracker) {
@@ -709,6 +708,15 @@
         reader.readAsText(file);
     }
 
+    // The portrait URL has no visible field; the button asks for it.
+    function changePortrait() {
+        const answer = prompt('Picture URL (leave empty to use the default picture):', character.portrait || '');
+        if (answer === null) return; // cancelled
+        character.portrait = answer.trim();
+        updatePortrait();
+        scheduleSave();
+    }
+
     function clearSlot() {
         if (isCharacterEmpty(character)) return;
         if (!confirm(`Delete "${character.name || 'Unnamed character'}" from slot ${store.active + 1}? Download it first if you want a backup.`)) return;
@@ -759,6 +767,8 @@
         });
         document.getElementById('printBtn').addEventListener('click', () => window.print());
         document.getElementById('clearBtn').addEventListener('click', clearSlot);
+
+        document.getElementById('portraitBtn').addEventListener('click', changePortrait);
 
         const img = document.getElementById('portraitImg');
         img.addEventListener('error', () => {
