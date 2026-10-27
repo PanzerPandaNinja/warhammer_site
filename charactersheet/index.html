@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WFRP Character Sheet</title>
+    <meta name="description" content="Warhammer Fantasy Roleplay character sheet. Saves up to five characters in your browser and imports/exports YAML.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@400;600&family=IM+Fell+English+SC&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/sheet.css">
+</head>
+
+<body>
+    <!-- Toolbar: character slots and file actions -->
+    <header class="toolbar">
+        <a class="toolbar-home" href="../" title="Back to warhammer.no">&#8962;</a>
+        <label class="toolbar-slot">
+            <span class="sr-only">Character</span>
+            <select id="slotSelect"></select>
+        </label>
+        <div class="toolbar-actions">
+            <button type="button" id="downloadBtn" title="Download this character as a YAML file">&#8595; Download</button>
+            <button type="button" id="uploadBtn" title="Load a character from a YAML file into this slot">&#8593; Upload</button>
+            <button type="button" id="printBtn" title="Print the sheet">Print</button>
+            <button type="button" id="clearBtn" class="danger" title="Delete the character in this slot">Delete</button>
+            <input type="file" id="uploadInput" accept=".yaml,.yml,text/yaml,application/x-yaml" hidden>
+        </div>
+        <span id="status" class="toolbar-status" role="status" aria-live="polite"></span>
+    </header>
+
+    <main class="sheet">
+
+        <!-- Name, species, appearance and portrait -->
+        <section class="panel identity span-lg-6 span-md-12">
+            <figure class="portrait">
+                <img id="portraitImg" src="img/default-portrait.svg" alt="Character portrait">
+            </figure>
+            <div class="identity-fields">
+                <label class="field"><span>Name</span><input type="text" data-path="name"></label>
+                <label class="field"><span>Species</span><input type="text" data-path="species"></label>
+                <label class="field"><span>Appearance</span><textarea rows="2" data-path="appearance"></textarea></label>
+                <label class="field"><span>Portrait URL <small>(optional)</small></span><input type="url" data-path="portrait" placeholder="https://…"></label>
+            </div>
+        </section>
+
+        <section class="panel span-lg-3 span-md-6">
+            <h2>XP</h2>
+            <div class="trio">
+                <label class="field"><span>Current</span><input type="number" data-path="xp.current"></label>
+                <label class="field"><span>Spent</span><input type="number" data-path="xp.spent"></label>
+                <label class="field"><span>Total</span><output data-calc="xp.total"></output></label>
+            </div>
+        </section>
+
+        <section class="panel span-lg-3 span-md-6">
+            <h2>Fate &amp; Movement</h2>
+            <div class="trio">
+                <label class="field"><span>Fate</span><input type="number" data-path="fate"></label>
+                <div class="field">
+                    <span>Fortune</span>
+                    <div class="fraction">
+                        <input type="number" data-path="fortune.current" aria-label="Fortune current">
+                        <span aria-hidden="true">/</span>
+                        <input type="number" data-path="fortune.max" aria-label="Fortune maximum">
+                    </div>
+                </div>
+            </div>
+            <div class="trio">
+                <label class="field"><span>Movement</span><input type="number" data-path="movement"></label>
+                <label class="field"><span>Walk (M×2)</span><output data-calc="move.walk"></output></label>
+                <label class="field"><span>Run (M×4)</span><output data-calc="move.run"></output></label>
+            </div>
+        </section>
+
+        <section class="panel span-lg-12">
+            <h2>Careers</h2>
+            <div id="careers" class="careers"></div>
+            <p class="hint">Tick a box on the Career Advancement Tracker when you: purchase a Talent, Skill Advance, or Characteristic Advance, or acquire a Trapping from the <u>next</u> Career Level. Click a skull to mark that level as reached.</p>
+        </section>
+
+        <section class="panel span-lg-8 span-md-12">
+            <h2>Characteristics</h2>
+            <div id="characteristics" class="characteristics"></div>
+        </section>
+
+        <section class="panel span-lg-4 span-md-12">
+            <h2>Known Languages</h2>
+            <div class="list" data-list="languages"></div>
+        </section>
+
+        <section class="panel span-lg-12">
+            <h2>Skills</h2>
+            <div id="basicSkills" class="skills"></div>
+            <h3>Other skills</h3>
+            <div class="list list-columns" data-list="customSkills"></div>
+            <p class="hint">Printed skills are Basic — anyone may attempt them. *These skills are Grouped — they are advanced only as specialisations, such as Ride (Horse) or Art (Painting).</p>
+        </section>
+
+        <section class="panel span-lg-6 span-md-12">
+            <h2>Talents</h2>
+            <div class="list" data-list="talents"></div>
+        </section>
+
+        <div class="stack span-lg-3 span-md-6">
+            <section class="panel">
+                <h2>Personal Ambition</h2>
+                <textarea rows="3" data-path="ambitions.personal" aria-label="Personal ambition"></textarea>
+            </section>
+            <section class="panel">
+                <h2>Party Ambition</h2>
+                <textarea rows="3" data-path="ambitions.party" aria-label="Party ambition"></textarea>
+            </section>
+            <section class="panel">
+                <h2>Current Wounds</h2>
+                <div class="wounds-current">
+                    <input type="number" data-path="wounds.current" aria-label="Current wounds">
+                    <span>/</span>
+                    <output data-calc="wounds.total"></output>
+                </div>
+                <div class="wounds-calc">
+                    <label class="field"><span>SB</span><output data-calc="wounds.sb"></output></label>
+                    <label class="field"><span>TB×2</span><output data-calc="wounds.tb2"></output></label>
+                    <label class="field"><span>WPB</span><output data-calc="wounds.wpb"></output></label>
+                    <label class="field"><span>Hardy</span><input type="number" data-path="wounds.hardy"></label>
+                    <label class="field"><span>Total</span><output data-calc="wounds.total"></output></label>
+                </div>
+            </section>
+        </div>
+
+        <section class="panel span-lg-3 span-md-6">
+            <h2>Armour Points</h2>
+            <div class="armour-points">
+                <label class="ap ap-head"><small>01–09</small><input type="number" data-path="armourPoints.head"><span>Head</span></label>
+                <label class="ap ap-larm"><small>10–24</small><input type="number" data-path="armourPoints.leftArm"><span>Left arm</span></label>
+                <label class="ap ap-rarm"><small>25–44</small><input type="number" data-path="armourPoints.rightArm"><span>Right arm</span></label>
+                <label class="ap ap-body"><small>45–79</small><input type="number" data-path="armourPoints.body"><span>Body</span></label>
+                <label class="ap ap-rleg"><small>90–00</small><input type="number" data-path="armourPoints.rightLeg"><span>Right leg</span></label>
+                <label class="ap ap-lleg"><small>80–89</small><input type="number" data-path="armourPoints.leftLeg"><span>Left leg</span></label>
+                <label class="ap ap-shield"><small>&nbsp;</small><input type="number" data-path="armourPoints.shield"><span>Shield</span></label>
+                <svg class="ap-figure" viewBox="0 0 60 140" aria-hidden="true">
+                    <circle cx="30" cy="14" r="10" />
+                    <path d="M16 28h28l8 46h-8l-4-30v40l4 50h-10l-4-44-4 44H16l4-50V44l-4 30H8z" />
+                </svg>
+            </div>
+        </section>
+
+        <section class="panel span-lg-2 span-md-6">
+            <h2>Wealth</h2>
+            <div class="wealth">
+                <label class="field"><span>GC</span><input type="number" data-path="wealth.gc"></label>
+                <label class="field"><span>SS</span><input type="number" data-path="wealth.ss"></label>
+                <label class="field"><span>D</span><input type="number" data-path="wealth.d"></label>
+            </div>
+            <p class="hint">1 Gold Crown (GC) = 20 Silver Shillings = 240 Brass Pennies (D)</p>
+        </section>
+
+        <section class="panel span-lg-3 span-md-6">
+            <h2>Encumbrance</h2>
+            <dl class="enc">
+                <dt>Weapons</dt><dd><output data-calc="enc.weapons"></output></dd>
+                <dt>Armour</dt><dd><output data-calc="enc.armour"></output></dd>
+                <dt>Trappings</dt><dd><output data-calc="enc.trappings"></output></dd>
+                <dt>Other</dt><dd><input type="number" data-path="encumbrance.other" aria-label="Other encumbrance"></dd>
+                <dt>Max Enc (SB+TB)</dt><dd><output data-calc="enc.max"></output></dd>
+                <dt>Total</dt><dd><output data-calc="enc.total"></output></dd>
+            </dl>
+            <p class="hint">Weapons, armour and trappings are summed from their ENC columns.</p>
+        </section>
+
+        <section class="panel span-lg-7 span-md-12">
+            <h2>Corruption &amp; Mutation</h2>
+            <div class="corruption">
+                <span class="corruption-label">Corruption Points <output data-calc="corruption"></output></span>
+                <div id="corruptionTrack" class="corruption-track"></div>
+            </div>
+            <div class="list" data-list="mutations"></div>
+        </section>
+
+        <section class="panel span-lg-12">
+            <h2>Weapons</h2>
+            <div class="list" data-list="weapons"></div>
+        </section>
+
+        <section class="panel span-lg-12">
+            <h2>Armour</h2>
+            <div class="list" data-list="armour"></div>
+        </section>
+
+        <section class="panel span-lg-6 span-md-12">
+            <h2>Trappings</h2>
+            <div class="list list-columns" data-list="trappings"></div>
+        </section>
+
+        <section class="panel span-lg-6 span-md-12">
+            <h2>Notes</h2>
+            <textarea class="notes" rows="10" data-path="notes" aria-label="Notes"></textarea>
+        </section>
+
+        <section class="panel span-lg-12">
+            <h2>Spells and Prayers</h2>
+            <div class="list" data-list="spells"></div>
+            <label class="field field-inline sin"><span>Sin</span><input type="number" data-path="sin"></label>
+        </section>
+    </main>
+
+    <footer class="footer">
+        Characters are stored in this browser only. Use <em>Download</em> to keep a backup.
+        Warhammer Fantasy Roleplay is © Games Workshop / Cubicle 7 Entertainment. Unofficial fan page.
+    </footer>
+
+    <script src="js/vendor/js-yaml.min.js"></script>
+    <script src="js/sheet.js"></script>
+</body>
+
+</html>
