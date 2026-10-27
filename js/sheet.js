@@ -1,0 +1,744 @@
+/* WFRP character sheet
+ * - Up to five characters saved in localStorage, picked from a drop-down.
+ * - Download / upload a character as a YAML file (js-yaml).
+ * - Inputs are bound to the character object with data-path="a.b.c".
+ * - Read-only values are calculated from <output data-calc="name">.
+ */
+(function () {
+    'use strict';
+
+    const STORAGE_KEY = 'wfrp-character-sheet';
+    const SLOT_COUNT = 5;
+    const DEFAULT_PORTRAIT = 'img/default-portrait.svg';
+
+    const CHARACTERISTICS = ['WS', 'BS', 'S', 'T', 'I', 'Ag', 'Dex', 'Int', 'WP', 'Fel'];
+
+    // Basic skills as printed on the sheet. "grouped" skills take a specialisation.
+    const BASIC_SKILLS = [
+        { id: 'art', name: 'Art', char: 'Dex', grouped: true },
+        { id: 'athletics', name: 'Athletics', char: 'Ag' },
+        { id: 'bribery', name: 'Bribery', char: 'Fel' },
+        { id: 'charm', name: 'Charm', char: 'Fel' },
+        { id: 'charmAnimal', name: 'Charm Animal', char: 'WP' },
+        { id: 'climb', name: 'Climb', char: 'S' },
+        { id: 'consumeAlcohol', name: 'Consume Alcohol', char: 'T' },
+        { id: 'cool', name: 'Cool', char: 'WP' },
+        { id: 'dodge', name: 'Dodge', char: 'Ag' },
+        { id: 'drive', name: 'Drive', char: 'Ag' },
+        { id: 'endurance', name: 'Endurance', char: 'T' },
+        { id: 'entertain', name: 'Entertain', char: 'Fel', grouped: true },
+        { id: 'gamble', name: 'Gamble', char: 'Int' },
+        { id: 'gossip', name: 'Gossip', char: 'Fel' },
+        { id: 'haggle', name: 'Haggle', char: 'Fel' },
+        { id: 'intimidate', name: 'Intimidate', char: 'S' },
+        { id: 'intuition', name: 'Intuition', char: 'I' },
+        { id: 'leadership', name: 'Leadership', char: 'Fel' },
+        { id: 'melee1', name: 'Melee', char: 'WS', grouped: true },
+        { id: 'melee2', name: 'Melee', char: 'WS', grouped: true },
+        { id: 'meleeBasic', name: 'Melee (Basic)', char: 'WS' },
+        { id: 'navigation', name: 'Navigation', char: 'Int' },
+        { id: 'outdoorSurvival', name: 'Outdoor Survival', char: 'Int' },
+        { id: 'perception', name: 'Perception', char: 'I' },
+        { id: 'ride', name: 'Ride', char: 'Ag', grouped: true },
+        { id: 'row', name: 'Row', char: 'S' },
+        { id: 'stealthRural', name: 'Stealth (Rural)', char: 'Ag' },
+        { id: 'stealthUrban', name: 'Stealth (Urban)', char: 'Ag' },
+        { id: 'stealthUnderground', name: 'Stealth (Underground)', char: 'Ag' }
+    ];
+
+    // Career advancement tracker: boxes before skull 2, 3 and 4.
+    const TRACKER_SEGMENTS = [10, 12, 14];
+    const CAREER_ROWS = 3;
+    const CORRUPTION_MAX = 15;
+
+    // Editable tables. type: text | number | check | char | calc
+    // "wide" fields span the full row on small screens.
+    const LISTS = {
+        languages: {
+            rows: 3,
+            cols: '2rem 1fr 3.5rem 3.5rem 3.5rem',
+            fields: [
+                { key: 'tick', label: '✓', type: 'check' },
+                { key: 'name', label: 'Name', wide: true },
+                { key: 'int', label: 'Int', type: 'calc', calc: (r, c) => (r.name || num(r.adv) !== null) ? charValue(c, 'Int') : '' },
+                { key: 'adv', label: 'Adv', type: 'number' },
+                { key: 'skill', label: 'Skill', type: 'calc', calc: (r, c) => (r.name || num(r.adv) !== null) ? skillValue(c, 'Int', r.adv) : '' }
+            ]
+        },
+        customSkills: {
+            rows: 6,
+            cols: '2rem 1fr 4.5rem 3.5rem 3.5rem',
+            fields: [
+                { key: 'tick', label: '✓', type: 'check' },
+                { key: 'name', label: 'Name', wide: true },
+                { key: 'char', label: 'Char.', type: 'char' },
+                { key: 'adv', label: 'Adv', type: 'number' },
+                { key: 'skill', label: 'Skill', type: 'calc', calc: (r, c) => r.char ? skillValue(c, r.char, r.adv) : '' }
+            ]
+        },
+        talents: {
+            rows: 8,
+            cols: '1fr 2fr 3.5rem',
+            fields: [
+                { key: 'name', label: 'Talent name', wide: true },
+                { key: 'description', label: 'Description', wide: true, multiline: true },
+                { key: 'pg', label: 'pg.' }
+            ]
+        },
+        mutations: {
+            rows: 4,
+            cols: '1fr 2fr',
+            fields: [
+                { key: 'mutation', label: 'Mutation', wide: true },
+                { key: 'effect', label: 'Effect', wide: true, multiline: true }
+            ]
+        },
+        weapons: {
+            rows: 4,
+            cols: '2fr 1fr 3.5rem 1fr 1fr 2fr',
+            fields: [
+                { key: 'name', label: 'Name', wide: true },
+                { key: 'group', label: 'Group' },
+                { key: 'enc', label: 'ENC', type: 'number' },
+                { key: 'range', label: 'Range/Reach' },
+                { key: 'damage', label: 'Damage' },
+                { key: 'qualities', label: 'Qualities', wide: true }
+            ]
+        },
+        armour: {
+            rows: 5,
+            cols: '2fr 1.5fr 3.5rem 3.5rem 2fr',
+            fields: [
+                { key: 'name', label: 'Name', wide: true },
+                { key: 'locations', label: 'Locations', wide: true },
+                { key: 'enc', label: 'ENC', type: 'number' },
+                { key: 'ap', label: 'AP', type: 'number' },
+                { key: 'qualities', label: 'Qualities', wide: true }
+            ]
+        },
+        trappings: {
+            rows: 8,
+            cols: '1fr 3.5rem',
+            fields: [
+                { key: 'name', label: 'Trapping' },
+                { key: 'enc', label: 'ENC', type: 'number' }
+            ]
+        },
+        spells: {
+            rows: 5,
+            cols: '1.5fr 3rem 1fr 1fr 1fr 2.5fr',
+            fields: [
+                { key: 'name', label: 'Name', wide: true },
+                { key: 'cn', label: 'CN', type: 'number' },
+                { key: 'range', label: 'Range' },
+                { key: 'target', label: 'Target' },
+                { key: 'duration', label: 'Duration' },
+                { key: 'effect', label: 'Effect', wide: true, multiline: true }
+            ]
+        }
+    };
+
+    /* ---------- helpers ---------- */
+
+    function num(v) {
+        if (v === null || v === undefined || v === '') return null;
+        const n = Number(v);
+        return Number.isFinite(n) ? n : null;
+    }
+
+    function sum(values) {
+        return values.reduce((total, v) => total + (num(v) || 0), 0);
+    }
+
+    function el(tag, attrs, children) {
+        const node = document.createElement(tag);
+        Object.entries(attrs || {}).forEach(([k, v]) => {
+            if (v === undefined || v === null || v === false) return;
+            if (k === 'text') node.textContent = v;
+            else if (k === 'html') node.innerHTML = v;
+            else node.setAttribute(k, v === true ? '' : v);
+        });
+        (children || []).forEach(c => node.append(c));
+        return node;
+    }
+
+    function getPath(obj, path) {
+        return path.split('.').reduce((o, k) => (o == null ? undefined : o[k]), obj);
+    }
+
+    function setPath(obj, path, value) {
+        const keys = path.split('.');
+        const last = keys.pop();
+        const target = keys.reduce((o, k) => (o[k] = o[k] ?? {}), obj);
+        target[last] = value;
+    }
+
+    function charValue(c, key) {
+        const ch = c.characteristics[key];
+        if (!ch || (num(ch.initial) === null && num(ch.advances) === null)) return '';
+        return (num(ch.initial) || 0) + (num(ch.advances) || 0);
+    }
+
+    function bonus(c, key) {
+        const v = charValue(c, key);
+        return v === '' ? '' : Math.floor(v / 10);
+    }
+
+    function skillValue(c, charKey, adv) {
+        const base = charValue(c, charKey);
+        if (base === '' && num(adv) === null) return '';
+        return (base || 0) + (num(adv) || 0);
+    }
+
+    /* ---------- data model ---------- */
+
+    function blankRow(listName) {
+        const row = {};
+        LISTS[listName].fields.forEach(f => {
+            if (f.type === 'calc') return;
+            row[f.key] = f.type === 'check' ? false : (f.type === 'number' ? null : '');
+        });
+        return row;
+    }
+
+    function blankCharacter() {
+        const c = {
+            name: '', species: '', appearance: '', portrait: '',
+            careers: [],
+            xp: { current: null, spent: null },
+            characteristics: {},
+            fate: null,
+            fortune: { current: null, max: null },
+            movement: null,
+            skills: {},
+            ambitions: { personal: '', party: '' },
+            wounds: { current: null, hardy: null },
+            armourPoints: { head: null, leftArm: null, rightArm: null, body: null, rightLeg: null, leftLeg: null, shield: null },
+            wealth: { gc: null, ss: null, d: null },
+            encumbrance: { other: null },
+            corruption: 0,
+            notes: '',
+            sin: null
+        };
+        for (let i = 0; i < CAREER_ROWS; i++) {
+            c.careers.push({
+                class: '', career: '', pg: '', status: '',
+                tracker: TRACKER_SEGMENTS.map(n => '-'.repeat(n)),
+                reached: [false, false, false]
+            });
+        }
+        CHARACTERISTICS.forEach(k => { c.characteristics[k] = { initial: null, advances: null }; });
+        BASIC_SKILLS.forEach(s => {
+            c.skills[s.id] = s.grouped ? { spec: '', tick: false, adv: null } : { tick: false, adv: null };
+        });
+        Object.keys(LISTS).forEach(name => {
+            c[name] = Array.from({ length: LISTS[name].rows }, () => blankRow(name));
+        });
+        return c;
+    }
+
+    // Merge loaded data onto a blank template so missing fields get defaults.
+    function normalize(data) {
+        const blank = blankCharacter();
+        if (!data || typeof data !== 'object') return blank;
+
+        function merge(template, src) {
+            if (src === undefined || src === null) return template;
+            if (Array.isArray(template)) return template; // arrays handled below
+            if (typeof template === 'object' && template !== null) {
+                if (typeof src !== 'object') return template;
+                const out = {};
+                Object.keys(template).forEach(k => { out[k] = merge(template[k], src[k]); });
+                return out;
+            }
+            return typeof src === 'object' ? template : src;
+        }
+
+        const c = merge(blank, data);
+
+        if (Array.isArray(data.careers)) {
+            c.careers = blank.careers.map((b, i) => {
+                const src = data.careers[i] || {};
+                const row = merge(b, src);
+                row.tracker = TRACKER_SEGMENTS.map((n, s) => {
+                    const str = String((src.tracker || [])[s] || '');
+                    return Array.from({ length: n }, (_, j) => (str[j] === 'x' ? 'x' : '-')).join('');
+                });
+                row.reached = [0, 1, 2].map(j => !!(src.reached || [])[j]);
+                return row;
+            });
+        }
+
+        Object.keys(LISTS).forEach(name => {
+            const src = Array.isArray(data[name]) ? data[name] : [];
+            const rows = src.filter(r => r && typeof r === 'object').map(r => merge(blankRow(name), r));
+            while (rows.length < LISTS[name].rows) rows.push(blankRow(name));
+            c[name] = rows;
+        });
+
+        c.corruption = Math.max(0, Math.min(CORRUPTION_MAX, num(c.corruption) || 0));
+        return c;
+    }
+
+    function isRowEmpty(row) {
+        return Object.values(row).every(v => v === '' || v === null || v === false);
+    }
+
+    function isCharacterEmpty(c) {
+        return JSON.stringify(c) === JSON.stringify(blankCharacter());
+    }
+
+    // Copy for export: drop blank table rows to keep the YAML tidy.
+    function exportable(c) {
+        const out = JSON.parse(JSON.stringify(c));
+        Object.keys(LISTS).forEach(name => { out[name] = out[name].filter(r => !isRowEmpty(r)); });
+        return out;
+    }
+
+    /* ---------- storage ---------- */
+
+    let store = { active: 0, slots: new Array(SLOT_COUNT).fill(null) };
+    let character = blankCharacter();
+    let storageOk = true;
+
+    function loadStore() {
+        try {
+            const raw = localStorage.getItem(STORAGE_KEY);
+            if (raw) {
+                const parsed = JSON.parse(raw);
+                store.active = Math.min(SLOT_COUNT - 1, Math.max(0, parsed.active | 0));
+                for (let i = 0; i < SLOT_COUNT; i++) {
+                    store.slots[i] = parsed.slots && parsed.slots[i] ? normalize(parsed.slots[i]) : null;
+                }
+            }
+        } catch (e) {
+            storageOk = false;
+        }
+        character = store.slots[store.active] || blankCharacter();
+    }
+
+    function saveStore() {
+        store.slots[store.active] = isCharacterEmpty(character) ? null : character;
+        try {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
+            return true;
+        } catch (e) {
+            storageOk = false;
+            showStatus('Could not save – browser storage unavailable', true);
+            return false;
+        }
+    }
+
+    let saveTimer = null;
+    function scheduleSave() {
+        clearTimeout(saveTimer);
+        saveTimer = setTimeout(() => {
+            if (saveStore()) showStatus('Saved');
+            renderSlotSelect();
+        }, 400);
+    }
+
+    let statusTimer = null;
+    function showStatus(text, isError) {
+        const node = document.getElementById('status');
+        node.textContent = text;
+        node.classList.toggle('error', !!isError);
+        clearTimeout(statusTimer);
+        if (!isError) statusTimer = setTimeout(() => { node.textContent = ''; }, 2000);
+    }
+
+    /* ---------- rendering ---------- */
+
+    function slotLabel(i) {
+        const c = store.slots[i];
+        if (!c) return `${i + 1}. — empty —`;
+        const career = (c.careers.find(r => r.career) || {}).career;
+        return `${i + 1}. ${c.name || 'Unnamed character'}${career ? ' – ' + career : ''}`;
+    }
+
+    function renderSlotSelect() {
+        const select = document.getElementById('slotSelect');
+        select.innerHTML = '';
+        for (let i = 0; i < SLOT_COUNT; i++) {
+            select.append(el('option', { value: i, text: slotLabel(i) }));
+        }
+        select.value = store.active;
+    }
+
+    function renderCareers() {
+        const box = document.getElementById('careers');
+        box.innerHTML = '';
+        box.append(el('div', { class: 'career-head' }, [
+            el('span', { text: 'Class' }), el('span', { text: 'Career' }), el('span', { text: 'pg.' }),
+            el('span', { text: 'Career Advancement Tracker' }), el('span', { text: 'Status' })
+        ]));
+        for (let i = 0; i < CAREER_ROWS; i++) {
+            const tracker = el('div', { class: 'tracker' });
+            TRACKER_SEGMENTS.forEach((n, s) => {
+                const seg = el('div', { class: 'tracker-seg', style: `--n:${n / 2}` });
+                for (let j = 0; j < n; j++) {
+                    seg.append(el('input', {
+                        type: 'checkbox', 'data-tracker': `${i}.${s}.${j}`,
+                        'aria-label': `Career ${i + 1}, level ${s + 1} advance ${j + 1}`
+                    }));
+                }
+                tracker.append(seg);
+                tracker.append(el('button', {
+                    type: 'button', class: 'skull level', 'data-reached': `${i}.${s}`,
+                    'aria-pressed': 'false', title: `Career level ${s + 2} reached`,
+                    html: skullSvg(false) + `<b>${s + 2}</b>`
+                }));
+            });
+            box.append(el('div', { class: 'career-row' }, [
+                field('Class', el('input', { type: 'text', 'data-path': `careers.${i}.class` })),
+                field('Career', el('input', { type: 'text', 'data-path': `careers.${i}.career` })),
+                field('pg.', el('input', { type: 'text', 'data-path': `careers.${i}.pg` }), 'pg'),
+                tracker,
+                field('Status', el('input', { type: 'text', 'data-path': `careers.${i}.status` }))
+            ]));
+        }
+    }
+
+    function field(label, input, cls) {
+        return el('label', { class: 'cell' + (cls ? ' ' + cls : '') }, [el('span', { class: 'cell-label', text: label }), input]);
+    }
+
+    function renderCharacteristics() {
+        const box = document.getElementById('characteristics');
+        box.innerHTML = '';
+        box.append(el('div', { class: 'char-legend' }, [
+            el('span', { text: '' }), el('span', { text: 'Initial' }), el('span', { text: 'Advances' }), el('span', { text: 'Current' })
+        ]));
+        CHARACTERISTICS.forEach(k => {
+            box.append(el('div', { class: 'char' }, [
+                el('span', { class: 'char-name', text: k }),
+                el('input', { type: 'number', 'data-path': `characteristics.${k}.initial`, 'aria-label': `${k} initial`, placeholder: 'Init' }),
+                el('input', { type: 'number', 'data-path': `characteristics.${k}.advances`, 'aria-label': `${k} advances`, placeholder: 'Adv' }),
+                el('output', { 'data-calc': `char.${k}`, 'aria-label': `${k} current` })
+            ]));
+        });
+    }
+
+    function renderBasicSkills() {
+        const box = document.getElementById('basicSkills');
+        box.innerHTML = '';
+        BASIC_SKILLS.forEach(s => {
+            const name = el('span', { class: 'skill-name' }, [s.grouped ? s.name + '* (' : s.name]);
+            if (s.grouped) {
+                name.append(el('input', { type: 'text', class: 'spec', 'data-path': `skills.${s.id}.spec`, 'aria-label': `${s.name} specialisation` }), ')');
+            }
+            box.append(el('div', { class: 'skill' }, [
+                el('input', { type: 'checkbox', 'data-path': `skills.${s.id}.tick`, 'aria-label': `${s.name} career skill` }),
+                name,
+                el('span', { class: 'skill-char', text: s.char }),
+                el('input', { type: 'number', 'data-path': `skills.${s.id}.adv`, 'aria-label': `${s.name} advances`, placeholder: 'Adv' }),
+                el('output', { 'data-calc': `skill.${s.id}`, 'aria-label': `${s.name} skill` })
+            ]));
+        });
+    }
+
+    function renderList(name) {
+        const def = LISTS[name];
+        const box = document.querySelector(`[data-list="${name}"]`);
+        box.innerHTML = '';
+        box.style.setProperty('--cols', def.cols + ' 1.75rem');
+
+        // Lists that flow into several columns get one header per column (extra ones shown by CSS).
+        const heads = box.classList.contains('list-columns') ? 3 : 1;
+        for (let h = 1; h <= heads; h++) {
+            const head = el('div', { class: h === 1 ? 'list-head' : `list-head extra extra-${h}`, 'aria-hidden': h > 1 ? 'true' : null },
+                def.fields.map(f => el('span', { text: f.label })));
+            head.append(el('span'));
+            box.append(head);
+        }
+
+        character[name].forEach((row, index) => {
+            const rowEl = el('div', { class: 'list-row' });
+            def.fields.forEach(f => {
+                const attrs = { 'data-list-field': `${name}.${index}.${f.key}`, 'aria-label': f.label };
+                let input;
+                if (f.type === 'check') input = el('input', Object.assign({ type: 'checkbox' }, attrs));
+                else if (f.type === 'number') input = el('input', Object.assign({ type: 'number' }, attrs));
+                else if (f.type === 'calc') input = el('output', { 'data-calc': `list.${name}.${index}.${f.key}` });
+                else if (f.type === 'char') {
+                    input = el('select', attrs, [el('option', { value: '', text: '–' })].concat(
+                        CHARACTERISTICS.map(k => el('option', { value: k, text: k }))));
+                } else if (f.multiline) input = el('textarea', Object.assign({ rows: 1 }, attrs));
+                else input = el('input', Object.assign({ type: 'text' }, attrs));
+
+                const cls = ['cell', f.wide ? 'wide' : '', f.type === 'check' ? 'check' : ''].join(' ').trim();
+                rowEl.append(el('label', { class: cls }, [el('span', { class: 'cell-label', text: f.label }), input]));
+            });
+            rowEl.append(el('button', {
+                type: 'button', class: 'row-remove', 'data-remove': `${name}.${index}`,
+                title: 'Remove row', 'aria-label': 'Remove row', text: '×'
+            }));
+            box.append(rowEl);
+        });
+
+        box.append(el('button', { type: 'button', class: 'row-add', 'data-add': name, text: '+ Add row' }));
+    }
+
+    function renderCorruption() {
+        const box = document.getElementById('corruptionTrack');
+        box.innerHTML = '';
+        for (let i = 1; i <= CORRUPTION_MAX; i++) {
+            box.append(el('button', {
+                type: 'button', class: 'skull', 'data-corruption': i,
+                title: `${i} corruption point${i > 1 ? 's' : ''}`, 'aria-label': `${i} corruption`,
+                html: skullSvg(i > 8)
+            }));
+        }
+    }
+
+    function skullSvg(horned) {
+        const horns = horned ? '<path d="M5 8 2 1l6 5zM19 8l3-7-6 5z"/>' : '';
+        return `<svg viewBox="0 0 24 24" aria-hidden="true">${horns}<path d="M12 3C7 3 4 6.5 4 11c0 2.5 1.2 4.3 3 5.3V20h2v-2h2v2h2v-2h2v2h2v-3.7c1.8-1 3-2.8 3-5.3 0-4.5-3-8-8-8zM8.5 13a2 2 0 1 1 0-4 2 2 0 0 1 0 4zm7 0a2 2 0 1 1 0-4 2 2 0 0 1 0 4zM12 16l-1-2h2z"/></svg>`;
+    }
+
+    // Push the character object into every bound control.
+    function fillForm() {
+        document.querySelectorAll('[data-path]').forEach(input => {
+            const value = getPath(character, input.dataset.path);
+            if (input.type === 'checkbox') input.checked = !!value;
+            else input.value = value ?? '';
+        });
+        document.querySelectorAll('[data-list-field]').forEach(input => {
+            const value = getPath(character, input.dataset.listField);
+            if (input.type === 'checkbox') input.checked = !!value;
+            else input.value = value ?? '';
+        });
+        document.querySelectorAll('[data-tracker]').forEach(box => {
+            const [i, s, j] = box.dataset.tracker.split('.').map(Number);
+            box.checked = character.careers[i].tracker[s][j] === 'x';
+        });
+        document.querySelectorAll('[data-reached]').forEach(btn => {
+            const [i, s] = btn.dataset.reached.split('.').map(Number);
+            btn.setAttribute('aria-pressed', character.careers[i].reached[s] ? 'true' : 'false');
+        });
+        updatePortrait();
+        recalc();
+    }
+
+    function updatePortrait() {
+        const img = document.getElementById('portraitImg');
+        const url = (character.portrait || '').trim();
+        const src = url || DEFAULT_PORTRAIT;
+        if (img.getAttribute('src') !== src) img.setAttribute('src', src);
+    }
+
+    function calc(name) {
+        const c = character;
+        const [kind, a, b, d] = name.split('.');
+        switch (kind) {
+            case 'char': return charValue(c, a);
+            case 'skill': {
+                const def = BASIC_SKILLS.find(s => s.id === a);
+                return skillValue(c, def.char, c.skills[a].adv);
+            }
+            case 'xp': return (num(c.xp.current) === null && num(c.xp.spent) === null) ? '' : sum([c.xp.current, c.xp.spent]);
+            case 'move': {
+                const m = num(c.movement);
+                if (m === null) return '';
+                return a === 'walk' ? m * 2 : m * 4;
+            }
+            case 'wounds': {
+                const sb = bonus(c, 'S'), tb = bonus(c, 'T'), wpb = bonus(c, 'WP');
+                if (a === 'sb') return sb;
+                if (a === 'tb2') return tb === '' ? '' : tb * 2;
+                if (a === 'wpb') return wpb;
+                if (sb === '' && tb === '' && wpb === '' && num(c.wounds.hardy) === null) return '';
+                return sum([sb, tb === '' ? 0 : tb * 2, wpb, c.wounds.hardy]);
+            }
+            case 'enc': {
+                const weapons = sum(c.weapons.map(r => r.enc));
+                const armour = sum(c.armour.map(r => r.enc));
+                const trappings = sum(c.trappings.map(r => r.enc));
+                if (a === 'weapons') return weapons;
+                if (a === 'armour') return armour;
+                if (a === 'trappings') return trappings;
+                if (a === 'max') {
+                    const sb = bonus(c, 'S'), tb = bonus(c, 'T');
+                    return (sb === '' && tb === '') ? '' : sum([sb, tb]);
+                }
+                return weapons + armour + trappings + (num(c.encumbrance.other) || 0);
+            }
+            case 'corruption': return c.corruption;
+            case 'list': {
+                const f = LISTS[a].fields.find(x => x.key === d);
+                return f.calc(c[a][b], c);
+            }
+        }
+        return '';
+    }
+
+    function recalc() {
+        document.querySelectorAll('[data-calc]').forEach(out => { out.value = calc(out.dataset.calc); });
+
+        const enc = calc('enc.total'), max = calc('enc.max');
+        document.querySelectorAll('[data-calc="enc.total"]').forEach(o => o.classList.toggle('over', max !== '' && enc > max));
+
+        document.querySelectorAll('[data-corruption]').forEach(btn => {
+            btn.setAttribute('aria-pressed', Number(btn.dataset.corruption) <= character.corruption ? 'true' : 'false');
+        });
+    }
+
+    function renderAll() {
+        renderSlotSelect();
+        Object.keys(LISTS).forEach(renderList);
+        fillForm();
+    }
+
+    /* ---------- events ---------- */
+
+    function readInput(input) {
+        if (input.type === 'checkbox') return input.checked;
+        if (input.type === 'number') return num(input.value);
+        return input.value;
+    }
+
+    function onInput(e) {
+        const t = e.target;
+        if (t.dataset.path) {
+            setPath(character, t.dataset.path, readInput(t));
+            if (t.dataset.path === 'portrait') updatePortrait();
+        } else if (t.dataset.listField) {
+            setPath(character, t.dataset.listField, readInput(t));
+        } else if (t.dataset.tracker) {
+            const [i, s, j] = t.dataset.tracker.split('.').map(Number);
+            const chars = character.careers[i].tracker[s].split('');
+            chars[j] = t.checked ? 'x' : '-';
+            character.careers[i].tracker[s] = chars.join('');
+        } else {
+            return;
+        }
+        recalc();
+        scheduleSave();
+    }
+
+    function onClick(e) {
+        const btn = e.target.closest('button');
+        if (!btn) return;
+
+        if (btn.dataset.corruption) {
+            const n = Number(btn.dataset.corruption);
+            character.corruption = character.corruption === n ? n - 1 : n;
+        } else if (btn.dataset.reached) {
+            const [i, s] = btn.dataset.reached.split('.').map(Number);
+            character.careers[i].reached[s] = !character.careers[i].reached[s];
+            btn.setAttribute('aria-pressed', character.careers[i].reached[s] ? 'true' : 'false');
+        } else if (btn.dataset.add) {
+            character[btn.dataset.add].push(blankRow(btn.dataset.add));
+            renderList(btn.dataset.add);
+            fillForm();
+            const rows = document.querySelectorAll(`[data-list="${btn.dataset.add}"] .list-row`);
+            const first = rows[rows.length - 1].querySelector('input:not([type=checkbox]), textarea');
+            if (first) first.focus();
+        } else if (btn.dataset.remove) {
+            const [name, index] = btn.dataset.remove.split('.');
+            const row = character[name][index];
+            if (!isRowEmpty(row) && !confirm('Remove this row?')) return;
+            character[name].splice(Number(index), 1);
+            renderList(name);
+            fillForm();
+        } else {
+            return;
+        }
+        recalc();
+        scheduleSave();
+    }
+
+    function switchSlot(index) {
+        clearTimeout(saveTimer);
+        saveStore();
+        store.active = index;
+        character = store.slots[index] ? normalize(store.slots[index]) : blankCharacter();
+        saveStore();
+        renderAll();
+    }
+
+    function slugify(text) {
+        return (text || 'character').toLowerCase().normalize('NFKD')
+            .replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-') || 'character';
+    }
+
+    function download() {
+        const yaml = '# Warhammer Fantasy Roleplay character – warhammer.no\n' +
+            jsyaml.dump(exportable(character), { lineWidth: -1, noRefs: true });
+        const blob = new Blob([yaml], { type: 'text/yaml' });
+        const a = el('a', { href: URL.createObjectURL(blob), download: slugify(character.name) + '.yaml' });
+        document.body.append(a);
+        a.click();
+        a.remove();
+        setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+    }
+
+    function upload(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+            let data;
+            try {
+                data = jsyaml.load(reader.result);
+            } catch (err) {
+                showStatus('Not a valid YAML file', true);
+                return;
+            }
+            if (!data || typeof data !== 'object' || Array.isArray(data)) {
+                showStatus('The file does not contain a character', true);
+                return;
+            }
+            if (!isCharacterEmpty(character) &&
+                !confirm(`Replace "${character.name || 'Unnamed character'}" in slot ${store.active + 1} with the uploaded character?`)) {
+                return;
+            }
+            character = normalize(data);
+            saveStore();
+            renderAll();
+            showStatus('Character loaded');
+        };
+        reader.readAsText(file);
+    }
+
+    function clearSlot() {
+        if (isCharacterEmpty(character)) return;
+        if (!confirm(`Delete "${character.name || 'Unnamed character'}" from slot ${store.active + 1}? Download it first if you want a backup.`)) return;
+        character = blankCharacter();
+        saveStore();
+        renderAll();
+        showStatus('Slot cleared');
+    }
+
+    function init() {
+        renderCareers();
+        renderCharacteristics();
+        renderBasicSkills();
+        renderCorruption();
+        loadStore();
+        renderAll();
+        if (!storageOk) showStatus('Browser storage unavailable – use Download to keep your character', true);
+
+        document.addEventListener('input', onInput);
+        document.addEventListener('change', onInput);
+        document.addEventListener('click', onClick);
+
+        document.getElementById('slotSelect').addEventListener('change', e => switchSlot(Number(e.target.value)));
+        document.getElementById('downloadBtn').addEventListener('click', download);
+        document.getElementById('uploadBtn').addEventListener('click', () => document.getElementById('uploadInput').click());
+        document.getElementById('uploadInput').addEventListener('change', e => {
+            if (e.target.files[0]) upload(e.target.files[0]);
+            e.target.value = '';
+        });
+        document.getElementById('printBtn').addEventListener('click', () => window.print());
+        document.getElementById('clearBtn').addEventListener('click', clearSlot);
+
+        const img = document.getElementById('portraitImg');
+        img.addEventListener('error', () => {
+            if (img.getAttribute('src') !== DEFAULT_PORTRAIT) img.setAttribute('src', DEFAULT_PORTRAIT);
+        });
+
+        // Flush pending edits when leaving the page.
+        window.addEventListener('pagehide', () => { clearTimeout(saveTimer); saveStore(); });
+    }
+
+    init();
+})();
