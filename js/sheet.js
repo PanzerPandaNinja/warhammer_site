@@ -9,7 +9,7 @@
 
     const STORAGE_KEY = 'wfrp-character-sheet';
     const THEME_KEY = 'wfrp-sheet-theme';
-    const SLOT_COUNT = 5;
+    const MAX_CHARACTERS = 50;
     const DEFAULT_PORTRAIT = 'img/default-portrait.svg';
 
     const CHARACTERISTICS = ['WS', 'BS', 'S', 'T', 'I', 'Ag', 'Dex', 'Int', 'WP', 'Fel'];
@@ -298,28 +298,49 @@
 
     /* ---------- storage ---------- */
 
-    let store = { active: 0, slots: new Array(SLOT_COUNT).fill(null) };
+    // The characters are kept in a list with no gaps. `active` is the position of the
+    // character being edited; when it equals the list length it is the free "new character"
+    // slot, which only joins the list once something has been entered into it.
+    let store = { active: 0, characters: [] };
     let character = blankCharacter();
     let storageOk = true;
+
+    function maxActive() {
+        return Math.min(store.characters.length, MAX_CHARACTERS - 1);
+    }
 
     function loadStore() {
         try {
             const raw = localStorage.getItem(STORAGE_KEY);
             if (raw) {
                 const parsed = JSON.parse(raw);
-                store.active = Math.min(SLOT_COUNT - 1, Math.max(0, parsed.active | 0));
-                for (let i = 0; i < SLOT_COUNT; i++) {
-                    store.slots[i] = parsed.slots && parsed.slots[i] ? normalize(parsed.slots[i]) : null;
+                if (Array.isArray(parsed.characters)) {
+                    store.characters = parsed.characters.slice(0, MAX_CHARACTERS).map(normalize);
+                    store.active = parsed.active | 0;
+                } else if (Array.isArray(parsed.slots)) {
+                    // Older version: five fixed slots, some of them empty
+                    const old = parsed.slots.slice(0, MAX_CHARACTERS);
+                    const wanted = parsed.active | 0;
+                    store.active = old[wanted] ? old.slice(0, wanted).filter(Boolean).length : old.filter(Boolean).length;
+                    store.characters = old.filter(Boolean).map(normalize);
                 }
             }
         } catch (e) {
             storageOk = false;
         }
-        character = store.slots[store.active] || blankCharacter();
+        store.active = Math.min(maxActive(), Math.max(0, store.active));
+        character = store.characters[store.active] || blankCharacter();
     }
 
     function saveStore() {
-        store.slots[store.active] = isCharacterEmpty(character) ? null : character;
+        const list = store.characters;
+        if (store.active < list.length) {
+            list[store.active] = character;
+            // A blank character at the end of the list turns back into the free slot
+            if (isCharacterEmpty(character) && store.active === list.length - 1) list.pop();
+        } else if (!isCharacterEmpty(character) && list.length < MAX_CHARACTERS) {
+            list.push(character);
+        }
         try {
             localStorage.setItem(STORAGE_KEY, JSON.stringify(store));
             return true;
@@ -360,17 +381,18 @@
     /* ---------- rendering ---------- */
 
     function slotLabel(i) {
-        const c = store.slots[i];
-        if (!c) return `${i + 1}. — empty —`;
+        const c = store.characters[i];
         const career = (c.careers.find(r => r.career) || {}).career;
         return `${i + 1}. ${c.name || 'Unnamed character'}${career ? ' – ' + career : ''}`;
     }
 
+    // Lists the saved characters plus one free slot for a new character.
     function renderSlotSelect() {
         const select = document.getElementById('slotSelect');
         select.innerHTML = '';
-        for (let i = 0; i < SLOT_COUNT; i++) {
-            select.append(el('option', { value: i, text: slotLabel(i) }));
+        store.characters.forEach((c, i) => select.append(el('option', { value: i, text: slotLabel(i) })));
+        if (store.characters.length < MAX_CHARACTERS) {
+            select.append(el('option', { value: store.characters.length, text: '+ New character' }));
         }
         select.value = store.active;
     }
@@ -660,28 +682,37 @@
     function switchSlot(index) {
         clearTimeout(saveTimer);
         saveStore();
-        store.active = index;
-        character = store.slots[index] ? normalize(store.slots[index]) : blankCharacter();
+        store.active = Math.min(index, maxActive());
+        character = store.characters[store.active] || blankCharacter();
         saveStore();
         renderAll();
     }
 
-    function slugify(text) {
-        return (text || 'character').toLowerCase().normalize('NFKD')
-            .replace(/[^\w\s-]/g, '').trim().replace(/[\s_]+/g, '-') || 'character';
-    }
-
     function download() {
-        const yaml = '# Warhammer Fantasy Roleplay character – warhammer.no\n' +
-            jsyaml.dump(exportable(character), { lineWidth: -1, noRefs: true });
+        clearTimeout(saveTimer);
+        saveStore();
+        if (!store.characters.length) {
+            showStatus('There are no characters to download', true);
+            return;
+        }
+        const data = {
+            format: 'warhammer-characters',
+            version: 1,
+            characters: store.characters.map(exportable)
+        };
+        const yaml = '# Warhammer Fantasy Roleplay characters – warhammer.no\n' +
+            jsyaml.dump(data, { lineWidth: -1, noRefs: true });
         const blob = new Blob([yaml], { type: 'text/yaml' });
-        const a = el('a', { href: URL.createObjectURL(blob), download: slugify(character.name) + '.yaml' });
+        const a = el('a', { href: URL.createObjectURL(blob), download: 'warhammer-characters.yaml' });
         document.body.append(a);
         a.click();
         a.remove();
         setTimeout(() => URL.revokeObjectURL(a.href), 1000);
+        showStatus(`Downloaded ${store.characters.length} character${store.characters.length === 1 ? '' : 's'}`);
     }
 
+    // Loads a file with all characters (replacing the current ones). A file with a single
+    // character, as written by earlier versions, is added as a new character instead.
     function upload(file) {
         const reader = new FileReader();
         reader.onload = () => {
@@ -692,18 +723,44 @@
                 showStatus('Not a valid YAML file', true);
                 return;
             }
-            if (!data || typeof data !== 'object' || Array.isArray(data)) {
-                showStatus('The file does not contain a character', true);
+            const isList = Array.isArray(data) || (data && Array.isArray(data.characters));
+            const list = (Array.isArray(data) ? data : (isList ? data.characters : [data]))
+                .filter(c => c && typeof c === 'object' && !Array.isArray(c));
+            if (!data || typeof data !== 'object' || !list.length) {
+                showStatus('The file does not contain any characters', true);
                 return;
             }
-            if (!isCharacterEmpty(character) &&
-                !confirm(`Replace "${character.name || 'Unnamed character'}" in slot ${store.active + 1} with the uploaded character?`)) {
+
+            clearTimeout(saveTimer);
+            saveStore();
+
+            if (!isList) {
+                if (store.characters.length >= MAX_CHARACTERS) {
+                    showStatus(`The limit of ${MAX_CHARACTERS} characters is reached`, true);
+                    return;
+                }
+                character = normalize(list[0]);
+                store.characters.push(character);
+                store.active = store.characters.length - 1;
+                saveStore();
+                renderAll();
+                showStatus('Character added');
                 return;
             }
-            character = normalize(data);
+
+            const count = Math.min(list.length, MAX_CHARACTERS);
+            if (store.characters.length &&
+                !confirm(`Replace all ${store.characters.length} saved character${store.characters.length === 1 ? '' : 's'} with the ${count} in the file?`)) {
+                return;
+            }
+            store.characters = list.slice(0, MAX_CHARACTERS).map(normalize);
+            store.active = 0;
+            character = store.characters[0];
             saveStore();
             renderAll();
-            showStatus('Character loaded');
+            showStatus(list.length > MAX_CHARACTERS
+                ? `Loaded ${count} characters (the file had ${list.length}, the limit is ${MAX_CHARACTERS})`
+                : `Loaded ${count} character${count === 1 ? '' : 's'}`);
         };
         reader.readAsText(file);
     }
@@ -732,12 +789,16 @@
     }
 
     function clearSlot() {
-        if (isCharacterEmpty(character)) return;
-        if (!confirm(`Delete "${character.name || 'Unnamed character'}" from slot ${store.active + 1}? Download it first if you want a backup.`)) return;
-        character = blankCharacter();
+        clearTimeout(saveTimer);
+        saveStore();
+        if (store.active >= store.characters.length) return; // the free slot has nothing to delete
+        if (!confirm(`Delete "${character.name || 'Unnamed character'}"? Download your characters first if you want a backup.`)) return;
+        store.characters.splice(store.active, 1);
+        store.active = Math.min(store.active, maxActive());
+        character = store.characters[store.active] || blankCharacter();
         saveStore();
         renderAll();
-        showStatus('Slot cleared');
+        showStatus('Character deleted');
     }
 
     // Style drop-down. The saved style is already applied by a script in <head>.

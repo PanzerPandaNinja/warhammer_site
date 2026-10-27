@@ -45,11 +45,11 @@
             </select>
         </label>
         <div class="toolbar-actions">
-            <button type="button" id="downloadBtn" title="Download this character as a YAML file">&#8595; Download</button>
-            <button type="button" id="uploadBtn" title="Load a character from a YAML file into this slot">&#8593; Upload</button>
+            <button type="button" id="downloadBtn" title="Download all characters as one YAML file">&#8595; Download all</button>
+            <button type="button" id="uploadBtn" title="Load characters from a YAML file (replaces all saved characters)">&#8593; Upload all</button>
             <button type="button" id="portraitBtn" title="Set the portrait from an image URL">Change picture</button>
             <button type="button" id="printBtn" title="Print the sheet">Print</button>
-            <button type="button" id="clearBtn" class="danger" title="Delete the character in this slot">Delete</button>
+            <button type="button" id="clearBtn" class="danger" title="Delete the selected character">Delete</button>
             <input type="file" id="uploadInput" accept=".yaml,.yml,text/yaml,application/x-yaml" hidden>
         </div>
         <span id="status" class="toolbar-status" role="status" aria-live="polite"></span>
@@ -247,7 +247,7 @@
     </main>
 
     <footer class="footer">
-        Characters are stored in this browser only. Use <em>Download</em> to keep a backup.
+        Characters are stored in this browser only. Use <em>Download all</em> to keep a backup.
         Warhammer Fantasy Roleplay is © Games Workshop / Cubicle 7 Entertainment. Unofficial fan page.
     </footer>
 
