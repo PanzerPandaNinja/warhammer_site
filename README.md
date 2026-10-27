@@ -5,6 +5,7 @@ A page for warhammer.no
 
 The site is a Warhammer Fantasy Roleplay character sheet (https://warhammer.no/).
 
+- The menu (character selector, style, download/upload, print, delete) is hidden by default; the menu icon in the top right corner shows and hides it.
 - Up to five characters are saved in the browser's localStorage and picked from the drop-down at the top.
 - **Download** saves the current character as a YAML file, **Upload** loads a YAML file into the current slot.
 - The portrait uses an optional image URL; without one a default horned silhouette is shown.

@@ -232,6 +232,7 @@ button.danger { color: var(--warn); }
 .field-inline { flex-direction: row; align-items: center; gap: 8px; }
 
 /* ---------- 3. Toolbar ---------- */
+.toolbar[hidden] { display: none; }
 .toolbar {
     position: sticky;
     top: 0;
@@ -242,10 +243,34 @@ button.danger { color: var(--warn); }
     gap: 8px;
     padding: 8px 12px;
     padding-left: max(12px, env(safe-area-inset-left));
-    padding-right: max(12px, env(safe-area-inset-right));
+    padding-right: max(56px, env(safe-area-inset-right)); /* room for the menu button */
     background: var(--bar);
     color: var(--bar-ink);
 }
+/* Menu button: always visible in the top right corner */
+.menu-btn {
+    position: fixed;
+    top: 8px;
+    right: max(8px, env(safe-area-inset-right));
+    z-index: 20;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.5rem;
+    height: 2.5rem;
+    padding: 0;
+    background: var(--bar);
+    color: var(--bar-ink);
+    border: 1px solid var(--bar-ink);
+    border-radius: var(--radius);
+    opacity: 0.9;
+}
+.menu-btn:hover { background: var(--bar); opacity: 1; }
+.menu-btn svg { width: 1.5rem; height: 1.5rem; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; }
+.menu-btn[aria-expanded="true"] { opacity: 1; }
+/* While the menu is hidden, keep the button clear of the first panel */
+.menu-btn[aria-expanded="false"] ~ .sheet { padding-top: calc(var(--gap) + 2.5rem); }
+
 .toolbar-slot { flex: 1 1 200px; max-width: 360px; }
 .toolbar-style { flex: 0 1 140px; }
 .toolbar select { background: var(--field); color: var(--ink); }
@@ -565,7 +590,7 @@ button.danger { color: var(--warn); }
 /* ---------- 7. Print ---------- */
 @media print {
     :root { --paper: #fff; --panel: #fff; --field: #fff; --calc: #fff; --font-size: 11px; }
-    .toolbar, .footer, .row-add, .row-remove, .hint, .identity-fields .field:last-child { display: none !important; }
+    .toolbar, .menu-btn, .footer, .row-add, .row-remove, .hint, .identity-fields .field:last-child { display: none !important; }
     .sheet { padding: 0; }
     .panel { break-inside: avoid; }
 }

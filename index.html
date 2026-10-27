@@ -21,8 +21,13 @@
 </head>
 
 <body>
-    <!-- Toolbar: character slots and file actions -->
-    <header class="toolbar">
+    <!-- Menu button; shows or hides the toolbar -->
+    <button type="button" id="menuBtn" class="menu-btn" aria-controls="toolbar" aria-expanded="false" aria-label="Menu" title="Menu">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+
+    <!-- Toolbar: character slots, style and file actions (hidden until the menu button is pressed) -->
+    <header class="toolbar" id="toolbar" hidden>
         <label class="toolbar-slot">
             <span class="sr-only">Character</span>
             <select id="slotSelect"></select>

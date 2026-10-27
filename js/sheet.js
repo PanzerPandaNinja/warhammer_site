@@ -339,11 +339,20 @@
         }, 400);
     }
 
+    function setMenu(open) {
+        document.getElementById('toolbar').hidden = !open;
+        const btn = document.getElementById('menuBtn');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        btn.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+        btn.title = open ? 'Close menu' : 'Menu';
+    }
+
     let statusTimer = null;
     function showStatus(text, isError) {
         const node = document.getElementById('status');
         node.textContent = text;
         node.classList.toggle('error', !!isError);
+        if (isError) setMenu(true); // errors live in the toolbar, so make sure it is visible
         clearTimeout(statusTimer);
         if (!isError) statusTimer = setTimeout(() => { node.textContent = ''; }, 2000);
     }
@@ -725,6 +734,9 @@
     }
 
     function init() {
+        document.getElementById('menuBtn').addEventListener('click', () => {
+            setMenu(document.getElementById('toolbar').hidden);
+        });
         initTheme();
         renderCareers();
         renderCharacteristics();
