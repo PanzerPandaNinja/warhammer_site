@@ -8,6 +8,7 @@
     'use strict';
 
     const STORAGE_KEY = 'wfrp-character-sheet';
+    const THEME_KEY = 'wfrp-sheet-theme';
     const SLOT_COUNT = 5;
     const DEFAULT_PORTRAIT = 'img/default-portrait.svg';
 
@@ -708,7 +709,23 @@
         showStatus('Slot cleared');
     }
 
+    // Style drop-down. The saved style is already applied by a script in <head>.
+    function initTheme() {
+        const select = document.getElementById('themeSelect');
+        select.value = document.documentElement.getAttribute('data-theme') || '';
+        select.addEventListener('change', () => {
+            const theme = select.value;
+            if (theme) document.documentElement.setAttribute('data-theme', theme);
+            else document.documentElement.removeAttribute('data-theme');
+            try {
+                if (theme) localStorage.setItem(THEME_KEY, theme);
+                else localStorage.removeItem(THEME_KEY);
+            } catch (e) { /* style just isn't remembered */ }
+        });
+    }
+
     function init() {
+        initTheme();
         renderCareers();
         renderCharacteristics();
         renderBasicSkills();
