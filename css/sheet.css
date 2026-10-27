@@ -2,6 +2,7 @@
    WFRP Character Sheet – stylesheet
    ---------------------------------------------------------------------
    1. Theme      – change colours, fonts and sizes here
+      Themes     – the styles in the drop-down (death, forest, ...)
    2. Base       – page and form defaults
    3. Toolbar
    4. Layout     – the grid of panels (mobile first)
@@ -23,6 +24,9 @@
     --field: #fffdf7;          /* input background */
     --calc: #efe8d6;           /* calculated values background */
     --warn: #b3261e;
+    --bar: #3b3427;            /* toolbar background */
+    --bar-ink: #f8f5ec;        /* toolbar text */
+    --bar-error: #ffb4ab;
 
     --font-head: 'IM Fell English SC', Georgia, serif;
     --font-body: 'EB Garamond', Georgia, 'Times New Roman', serif;
@@ -47,8 +51,94 @@
         --field: #1f1c17;
         --calc: #312d25;
         --warn: #ff8a80;
+        --bar: #12100d;
     }
 }
+
+/* ---------- Themes ----------
+   Picked with the style drop-down, which sets data-theme on <html>.
+   Each one only redefines the colour variables above.
+   Without data-theme the sheet follows the system light/dark setting. */
+:root[data-theme="death"] {
+    --paper: #0c0c0e;
+    --panel: #17171a;
+    --ink: #d9d9d4;
+    --ink-soft: #8b8b86;
+    --line: #5a5a5f;
+    --line-soft: #34343a;
+    --accent: #a3b18a;
+    --accent-ink: #0c0c0e;
+    --field: #101013;
+    --calc: #212126;
+    --warn: #e05a4f;
+    --bar: #000;
+    --bar-ink: #d9d9d4;
+    --font-head: 'IM Fell English SC', Georgia, serif;
+}
+:root[data-theme="forest"] {
+    --paper: #d4dcc3;
+    --panel: #eef2e2;
+    --ink: #1f2d1a;
+    --ink-soft: #55684b;
+    --line: #2f4a2a;
+    --line-soft: #b7c5a3;
+    --accent: #3d6b2e;
+    --accent-ink: #f2f7e8;
+    --field: #f9fbf2;
+    --calc: #dfe8cd;
+    --warn: #a83225;
+    --bar: #2f4a2a;
+    --bar-ink: #eef2e2;
+}
+:root[data-theme="water"] {
+    --paper: #cfe3ec;
+    --panel: #eaf5fa;
+    --ink: #12303f;
+    --ink-soft: #4a6b7a;
+    --line: #1f4e66;
+    --line-soft: #a9cadb;
+    --accent: #11708f;
+    --accent-ink: #eaf5fa;
+    --field: #f7fcfe;
+    --calc: #d3e8f1;
+    --warn: #b3261e;
+    --bar: #1f4e66;
+    --bar-ink: #eaf5fa;
+}
+:root[data-theme="dessert"] {
+    --paper: #ecd9b0;
+    --panel: #f8ecd0;
+    --ink: #3a2a14;
+    --ink-soft: #7a6240;
+    --line: #8a5a24;
+    --line-soft: #dcc28f;
+    --accent: #b5651d;
+    --accent-ink: #fff4dc;
+    --field: #fffaec;
+    --calc: #efdcaf;
+    --warn: #a3281c;
+    --bar: #8a5a24;
+    --bar-ink: #fff4dc;
+}
+:root[data-theme="bubblegum"] {
+    --paper: #ffc9e3;
+    --panel: #fff0f8;
+    --ink: #4a1d3a;
+    --ink-soft: #94597d;
+    --line: #d94a9a;
+    --line-soft: #f5b3d6;
+    --accent: #d6267f;
+    --accent-ink: #fff0f8;
+    --field: #fffafd;
+    --calc: #ffdcee;
+    --warn: #c0172b;
+    --bar: #ff5fb0;
+    --bar-ink: #3a0f2b;
+    --font-body: 'Comic Neue', 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+    --font-head: 'Comic Neue', 'Comic Sans MS', 'Trebuchet MS', sans-serif;
+}
+:root[data-theme="bubblegum"] h2,
+:root[data-theme="bubblegum"] h3 { font-weight: 700; }
 
 /* ---------- 2. Base ---------- */
 *,
@@ -153,16 +243,17 @@ button.danger { color: var(--warn); }
     padding: 8px 12px;
     padding-left: max(12px, env(safe-area-inset-left));
     padding-right: max(12px, env(safe-area-inset-right));
-    background: var(--line);
-    color: var(--accent-ink);
+    background: var(--bar);
+    color: var(--bar-ink);
 }
 .toolbar-slot { flex: 1 1 200px; max-width: 360px; }
-.toolbar-slot select { background: var(--field); color: var(--ink); }
+.toolbar-style { flex: 0 1 140px; }
+.toolbar select { background: var(--field); color: var(--ink); }
 .toolbar-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .toolbar-actions button { padding: 4px 10px; color: var(--ink); }
 .toolbar-actions button.danger { color: var(--warn); }
-.toolbar-status { font-size: 0.9rem; color: #f8f5ec; }
-.toolbar-status.error { color: #ffb4ab; }
+.toolbar-status { font-size: 0.9rem; color: var(--bar-ink); }
+.toolbar-status.error { color: var(--bar-error); }
 
 /* ---------- 4. Layout ---------- */
 /* Mobile first: one column. Panels get wider spans as the screen grows.
