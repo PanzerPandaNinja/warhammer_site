@@ -336,8 +336,7 @@ button.danger { color: var(--warn); }
 
 /* Identity and portrait */
 .identity { display: grid; grid-template-columns: 120px minmax(0, 1fr); gap: var(--pad); align-items: start; }
-.portrait { margin: 0; display: grid; gap: 6px; }
-.portrait-btn { padding: 4px 6px; font-size: 0.9rem; }
+.portrait { margin: 0; }
 .portrait img {
     display: block;
     width: 100%;
@@ -588,10 +587,25 @@ button.danger { color: var(--warn); }
     [data-list="customSkills"] > .list-head.extra-3 { display: grid; }
 }
 
+/* Dialogs (Change picture) */
+.dialog {
+    width: min(92vw, 28rem);
+    padding: var(--pad);
+    background: var(--panel);
+    color: var(--ink);
+    border: 2px solid var(--line);
+    border-radius: var(--radius);
+}
+.dialog::backdrop { background: rgba(0, 0, 0, 0.55); }
+.dialog h2 { margin-bottom: 10px; }
+.dialog-actions { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 12px; }
+button.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+button.primary:hover { background: var(--accent); filter: brightness(1.1); }
+
 /* ---------- 7. Print ---------- */
 @media print {
     :root { --paper: #fff; --panel: #fff; --field: #fff; --calc: #fff; --font-size: 11px; }
-    .toolbar, .menu-btn, .portrait-btn, .footer, .row-add, .row-remove, .hint { display: none !important; }
+    .toolbar, .menu-btn, .dialog, .footer, .row-add, .row-remove, .hint { display: none !important; }
     .sheet { padding: 0; }
     .panel { break-inside: avoid; }
 }

@@ -708,13 +708,27 @@
         reader.readAsText(file);
     }
 
-    // The portrait URL has no visible field; the button asks for it.
-    function changePortrait() {
-        const answer = prompt('Picture URL (leave empty to use the default picture):', character.portrait || '');
-        if (answer === null) return; // cancelled
-        character.portrait = answer.trim();
+    // The portrait URL has no visible field; the Change picture button opens a dialog for it.
+    // (A <dialog> is used instead of prompt(), which many mobile browsers block.)
+    function openPortraitDialog() {
+        const dialog = document.getElementById('portraitDialog');
+        document.getElementById('portraitUrl').value = character.portrait || '';
+        if (typeof dialog.showModal === 'function') dialog.showModal();
+        else dialog.setAttribute('open', '');
+        document.getElementById('portraitUrl').focus();
+    }
+
+    function closePortraitDialog() {
+        const dialog = document.getElementById('portraitDialog');
+        if (typeof dialog.close === 'function') dialog.close();
+        else dialog.removeAttribute('open');
+    }
+
+    function setPortrait(url) {
+        character.portrait = url.trim();
         updatePortrait();
         scheduleSave();
+        closePortraitDialog();
     }
 
     function clearSlot() {
@@ -768,7 +782,13 @@
         document.getElementById('printBtn').addEventListener('click', () => window.print());
         document.getElementById('clearBtn').addEventListener('click', clearSlot);
 
-        document.getElementById('portraitBtn').addEventListener('click', changePortrait);
+        document.getElementById('portraitBtn').addEventListener('click', openPortraitDialog);
+        document.getElementById('portraitForm').addEventListener('submit', e => {
+            e.preventDefault();
+            setPortrait(document.getElementById('portraitUrl').value);
+        });
+        document.getElementById('portraitDefault').addEventListener('click', () => setPortrait(''));
+        document.getElementById('portraitCancel').addEventListener('click', closePortraitDialog);
 
         const img = document.getElementById('portraitImg');
         img.addEventListener('error', () => {

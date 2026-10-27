@@ -46,6 +46,7 @@
         <div class="toolbar-actions">
             <button type="button" id="downloadBtn" title="Download this character as a YAML file">&#8595; Download</button>
             <button type="button" id="uploadBtn" title="Load a character from a YAML file into this slot">&#8593; Upload</button>
+            <button type="button" id="portraitBtn" title="Set the portrait from an image URL">Change picture</button>
             <button type="button" id="printBtn" title="Print the sheet">Print</button>
             <button type="button" id="clearBtn" class="danger" title="Delete the character in this slot">Delete</button>
             <input type="file" id="uploadInput" accept=".yaml,.yml,text/yaml,application/x-yaml" hidden>
@@ -53,13 +54,29 @@
         <span id="status" class="toolbar-status" role="status" aria-live="polite"></span>
     </header>
 
+    <!-- Dialog for the portrait URL, opened by the Change picture button -->
+    <dialog id="portraitDialog" class="dialog" aria-labelledby="portraitDialogTitle">
+        <form id="portraitForm" method="dialog">
+            <h2 id="portraitDialogTitle">Change picture</h2>
+            <label class="field">
+                <span>Picture URL</span>
+                <input type="url" id="portraitUrl" placeholder="https://…" autocomplete="off" inputmode="url">
+            </label>
+            <p class="hint">Paste the address of an image. Leave it empty to use the default picture.</p>
+            <div class="dialog-actions">
+                <button type="submit" id="portraitSave" class="primary">Save</button>
+                <button type="button" id="portraitDefault">Use default</button>
+                <button type="button" id="portraitCancel">Cancel</button>
+            </div>
+        </form>
+    </dialog>
+
     <main class="sheet">
 
         <!-- Name, species, appearance and portrait -->
         <section class="panel identity span-lg-6 span-md-12">
             <figure class="portrait">
                 <img id="portraitImg" src="img/default-portrait.svg" alt="Character portrait">
-                <button type="button" id="portraitBtn" class="portrait-btn" title="Set the portrait from an image URL">Change picture</button>
             </figure>
             <div class="identity-fields">
                 <label class="field"><span>Name</span><input type="text" data-path="name"></label>
