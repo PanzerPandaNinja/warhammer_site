@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 240 110' width='240' height='110'>
+<g fill='none' stroke='#b5651d' stroke-width='2' stroke-linecap='round'>
+<path d='M0 60Q60 20 120 60T240 60' stroke-opacity='.15'/><path d='M0 88Q60 54 120 88T240 88' stroke-opacity='.11'/><path d='M0 30Q60 0 120 30T240 30' stroke-opacity='.08'/></g>
+<g fill='#b5651d' fill-opacity='.18'><circle cx='30' cy='72' r='1.2'/><circle cx='88' cy='40' r='1'/><circle cx='150' cy='100' r='1.2'/><circle cx='200' cy='48' r='1'/><circle cx='60' cy='100' r='1'/><circle cx='180' cy='78' r='1.1'/></g>
+</svg>

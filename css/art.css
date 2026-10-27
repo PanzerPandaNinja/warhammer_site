@@ -1,0 +1,153 @@
+/* =====================================================================
+   WFRP Character Sheet – theme artwork
+   ---------------------------------------------------------------------
+   Decorations for the styles in the Style drop-down. Loaded after
+   sheet.css. The pictures are small SVG files in img/art/:
+
+     <theme>-tile.svg     repeating page background
+     <theme>-corner.svg   ornament in the top left and bottom right of every panel
+     <theme>-divider.svg  flourish under every heading
+
+   To change a look, edit those SVG files or the variables below.
+   To add a style, add a block like the ones below and the colours in
+   sheet.css (see the README).
+   ===================================================================== */
+
+/* ---------- Variables (default = Parchment) ---------- */
+:root {
+    --bg-image: url("../img/art/parchment-tile.svg");
+    --bg-size: 200px;
+    --corner: url("../img/art/parchment-corner.svg");
+    --corner-size: 24px;
+    --corner-offset: 3px;
+    --divider: url("../img/art/parchment-divider.svg");
+    --panel-radius: var(--radius);
+    --panel-shadow: none;
+    --heading-glow: none;
+}
+
+:root[data-theme="death"] {
+    --bg-image: radial-gradient(ellipse at 50% 0, rgba(163, 177, 138, 0.12), transparent 60%),
+                url("../img/art/death-tile.svg");
+    --bg-size: auto, 220px;
+    --corner: url("../img/art/death-corner.svg");
+    --corner-size: 30px;
+    --divider: url("../img/art/death-divider.svg");
+    --panel-shadow: 0 0 14px rgba(163, 177, 138, 0.12);
+    --heading-glow: 0 0 10px rgba(163, 177, 138, 0.45);
+}
+:root[data-theme="forest"] {
+    --bg-image: url("../img/art/forest-tile.svg");
+    --bg-size: 180px;
+    --corner: url("../img/art/forest-corner.svg");
+    --corner-size: 30px;
+    --divider: url("../img/art/forest-divider.svg");
+    --panel-radius: 8px;
+}
+:root[data-theme="water"] {
+    --bg-image: linear-gradient(180deg, rgba(255, 255, 255, 0.35), transparent 40%),
+                url("../img/art/water-tile.svg");
+    --bg-size: auto, 120px;
+    --corner: url("../img/art/water-corner.svg");
+    --corner-size: 30px;
+    --divider: url("../img/art/water-divider.svg");
+    --panel-radius: 14px;
+    --panel-shadow: 0 3px 12px rgba(17, 112, 143, 0.22);
+}
+:root[data-theme="dessert"] {
+    --bg-image: linear-gradient(180deg, rgba(255, 230, 160, 0.4), transparent 35%),
+                url("../img/art/dessert-tile.svg");
+    --bg-size: auto, 240px;
+    --corner: url("../img/art/dessert-corner.svg");
+    --corner-size: 30px;
+    --divider: url("../img/art/dessert-divider.svg");
+    --panel-shadow: inset 0 0 0 4px var(--panel), inset 0 0 0 5px var(--line-soft);
+}
+:root[data-theme="bubblegum"] {
+    --bg-image: url("../img/art/bubblegum-tile.svg");
+    --bg-size: 150px;
+    --corner: url("../img/art/bubblegum-corner.svg");
+    --corner-size: 30px;
+    --corner-offset: 8px;
+    --divider: url("../img/art/bubblegum-divider.svg");
+    --panel-radius: 22px;
+    --panel-shadow: 4px 4px 0 rgba(214, 38, 127, 0.3);
+}
+
+/* ---------- Page background ---------- */
+body {
+    background-image: var(--bg-image);
+    background-size: var(--bg-size);
+    background-repeat: repeat;
+}
+
+/* ---------- Panels: corner ornaments ---------- */
+.panel {
+    position: relative;
+    isolation: isolate;                 /* keeps the ornaments behind the fields */
+    border-radius: var(--panel-radius);
+    box-shadow: var(--panel-shadow);
+}
+.panel::before,
+.panel::after {
+    content: "";
+    position: absolute;
+    width: var(--corner-size);
+    height: var(--corner-size);
+    background: var(--corner) center / contain no-repeat;
+    z-index: -1;
+    pointer-events: none;
+}
+.panel::before { top: var(--corner-offset); left: var(--corner-offset); }
+.panel::after { bottom: var(--corner-offset); right: var(--corner-offset); transform: rotate(180deg); }
+
+/* ---------- Headings: flourish underneath ---------- */
+h2 { text-shadow: var(--heading-glow); }
+h2::after {
+    content: "";
+    display: block;
+    width: 160px;
+    max-width: 100%;
+    height: 16px;
+    margin: 2px auto 0;
+    background: var(--divider) center / contain no-repeat;
+}
+
+/* ---------- Portrait frame ---------- */
+.portrait img { box-shadow: 0 0 0 3px var(--panel), 0 0 0 5px var(--line); }
+
+/* ---------- Theme details ---------- */
+:root[data-theme="death"] { color-scheme: dark; }
+:root[data-theme="death"] .panel { border-style: double; border-width: 4px; }
+:root[data-theme="death"] .portrait img[src$="default-portrait.svg"] { filter: invert(0.88) grayscale(1); }
+
+:root[data-theme="forest"] .portrait img[src$="default-portrait.svg"] { filter: sepia(0.5) hue-rotate(30deg) saturate(0.8); }
+:root[data-theme="water"] .portrait img[src$="default-portrait.svg"] { filter: sepia(0.4) hue-rotate(140deg) saturate(0.9); }
+:root[data-theme="dessert"] .portrait img[src$="default-portrait.svg"] { filter: sepia(0.4) saturate(1.2); }
+
+:root[data-theme="bubblegum"] .portrait img { border-radius: 18px; }
+:root[data-theme="bubblegum"] .portrait img[src$="default-portrait.svg"] { filter: sepia(0.6) hue-rotate(290deg) saturate(1.5); }
+:root[data-theme="bubblegum"] input[type="text"],
+:root[data-theme="bubblegum"] input[type="number"],
+:root[data-theme="bubblegum"] input[type="url"],
+:root[data-theme="bubblegum"] select,
+:root[data-theme="bubblegum"] textarea,
+:root[data-theme="bubblegum"] output { border-radius: 10px; }
+:root[data-theme="bubblegum"] button { border-radius: 999px; }
+:root[data-theme="bubblegum"] .row-remove { border-radius: 50%; }
+
+:root[data-theme="water"] input[type="text"],
+:root[data-theme="water"] input[type="number"],
+:root[data-theme="water"] input[type="url"],
+:root[data-theme="water"] select,
+:root[data-theme="water"] textarea,
+:root[data-theme="water"] output { border-radius: 8px; }
+
+/* ---------- Print: plain ---------- */
+@media print {
+    body { background-image: none; }
+    .panel { box-shadow: none; }
+    .panel::before, .panel::after, h2::after { display: none; }
+    .portrait img { box-shadow: none; filter: none !important; }
+    h2 { text-shadow: none; }
+}

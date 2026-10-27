@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 16' width='160' height='16'>
+<g fill='none' stroke='#3d6b2e' stroke-opacity='.65' stroke-width='1.4' stroke-linecap='round'>
+<path d='M6 9C26 3 46 15 70 8M154 9C134 3 114 15 90 8'/></g>
+<g transform='translate(70 -1) scale(.8)' fill='#3d6b2e' fill-opacity='.75'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g><g transform='translate(90 1) scale(.8) rotate(90 10 10)' fill='#3d6b2e' fill-opacity='.75'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<g transform='translate(26 1) scale(.45) rotate(-20 10 10)' fill='#3d6b2e' fill-opacity='.6'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g><g transform='translate(132 1) scale(.45) rotate(70 10 10)' fill='#3d6b2e' fill-opacity='.6'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+</svg>

@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28'>
+<g fill='none' stroke='#11708f' stroke-linecap='round' stroke-width='1.5'>
+<path d='M2 10A8 8 0 0 0 10 2' stroke-opacity='.7'/><path d='M2 17A15 15 0 0 0 17 2' stroke-opacity='.5'/><path d='M2 24A22 22 0 0 0 24 2' stroke-opacity='.3'/></g>
+<circle cx='14' cy='14' r='2' fill='none' stroke='#11708f' stroke-opacity='.5'/><circle cx='5' cy='5' r='1' fill='#11708f' fill-opacity='.7'/>
+</svg>

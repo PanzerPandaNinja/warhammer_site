@@ -1,0 +1,9 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180' width='180' height='180'>
+<g fill='#3d6b2e' fill-opacity='.08'>
+<g transform='translate(14 14) scale(1.6) rotate(20 10 10)'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<g transform='translate(100 30) scale(1.2) rotate(-50 10 10)'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<g transform='translate(50 96) scale(1.9) rotate(110 10 10)'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<g transform='translate(130 120) scale(1.4) rotate(160 10 10)'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<g transform='translate(8 150) scale(1) rotate(-80 10 10)'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g></g>
+<g stroke='#3d6b2e' stroke-opacity='.08' stroke-width='1.2' fill='none'><path d='M80 70C100 80 110 100 120 98M20 60C30 80 20 100 24 120'/></g>
+</svg>

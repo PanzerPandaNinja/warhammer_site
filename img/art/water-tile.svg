@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 80' width='120' height='80'>
+<g fill='none' stroke='#1f4e66' stroke-width='2' stroke-linecap='round'>
+<path d='M0 24Q15 10 30 24T60 24T90 24T120 24' stroke-opacity='.12'/>
+<path d='M-15 58Q0 44 15 58T45 58T75 58T105 58T135 58' stroke-opacity='.09'/></g>
+<g fill='none' stroke='#1f4e66' stroke-opacity='.14'><circle cx='20' cy='8' r='3'/><circle cx='95' cy='44' r='4'/><circle cx='60' cy='72' r='2.5'/><circle cx='104' cy='10' r='1.8'/></g>
+</svg>

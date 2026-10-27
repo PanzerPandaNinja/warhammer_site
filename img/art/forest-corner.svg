@@ -1,0 +1,5 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 28 28' width='28' height='28'>
+<path d='M2 27C2 15 8 6 27 2' fill='none' stroke='#3d6b2e' stroke-opacity='.7' stroke-width='1.6' stroke-linecap='round'/>
+<g transform='translate(7 0) scale(.45) rotate(10 10 10)' fill='#3d6b2e' fill-opacity='.75'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g><g transform='translate(0 8) scale(.45) rotate(80 10 10)' fill='#3d6b2e' fill-opacity='.75'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g><g transform='translate(10 9) scale(.4) rotate(-30 10 10)' fill='#3d6b2e' fill-opacity='.55'><path d='M2 18C2 8 8 2 18 2C18 12 12 18 2 18Z'/></g>
+<circle cx='3' cy='24' r='1.6' fill='#3d6b2e' fill-opacity='.6'/>
+</svg>

@@ -1,0 +1,6 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 160 16' width='160' height='16'>
+<g fill='none' stroke='#11708f' stroke-opacity='.6' stroke-width='1.4' stroke-linecap='round'>
+<path d='M6 8Q14 2 22 8T38 8T54 8T70 8M154 8Q146 2 138 8T122 8T106 8T90 8'/></g>
+<circle cx='80' cy='8' r='5' fill='#11708f' fill-opacity='.8'/><circle cx='78.2' cy='6.2' r='1.6' fill='#fff' fill-opacity='.8'/>
+<circle cx='8' cy='3' r='1.5' fill='none' stroke='#11708f' stroke-opacity='.5'/><circle cx='152' cy='13' r='1.5' fill='none' stroke='#11708f' stroke-opacity='.5'/>
+</svg>

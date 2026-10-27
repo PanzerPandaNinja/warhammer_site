@@ -1,0 +1,7 @@
+<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200' width='200' height='200'>
+<g fill='#8a6a2b'>
+<circle cx='30' cy='40' r='38' fill-opacity='.03'/><circle cx='150' cy='70' r='46' fill-opacity='.03'/><circle cx='90' cy='160' r='42' fill-opacity='.03'/>
+<circle cx='12' cy='12' r='1' fill-opacity='.14'/><circle cx='70' cy='30' r='1.2' fill-opacity='.12'/><circle cx='120' cy='10' r='.9' fill-opacity='.14'/>
+<circle cx='180' cy='120' r='1.1' fill-opacity='.12'/><circle cx='40' cy='110' r='1' fill-opacity='.14'/><circle cx='110' cy='95' r='.8' fill-opacity='.14'/>
+<circle cx='160' cy='185' r='1.2' fill-opacity='.12'/><circle cx='20' cy='175' r='.9' fill-opacity='.14'/><circle cx='135' cy='140' r='1' fill-opacity='.12'/></g>
+</svg>
