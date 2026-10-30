@@ -50,6 +50,13 @@
             <button type="button" id="portraitBtn" title="Set the portrait from an image URL">Change picture</button>
             <button type="button" id="printBtn" title="Print the sheet">Print</button>
             <button type="button" id="clearBtn" class="danger" title="Delete the selected character">Delete</button>
+            <span class="toolbar-draw">
+                <button type="button" id="drawBtn" title="Open a FlockMod drawing room in a new tab">Draw</button>
+                <label>
+                    <span class="sr-only">Drawing room name</span>
+                    <input type="text" id="drawRoom" class="short" placeholder="Name your drawing room" autocomplete="off" spellcheck="false">
+                </label>
+            </span>
             <input type="file" id="uploadInput" accept=".yaml,.yml,text/yaml,application/x-yaml" hidden>
         </div>
         <span id="status" class="toolbar-status" role="status" aria-live="polite"></span>

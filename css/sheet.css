@@ -277,6 +277,10 @@ button.danger { color: var(--warn); }
 .toolbar-actions { display: flex; flex-wrap: wrap; gap: 6px; }
 .toolbar-actions button { padding: 4px 10px; color: var(--ink); }
 .toolbar-actions button.danger { color: var(--warn); }
+.toolbar-draw { display: flex; gap: 6px; }
+.toolbar-draw input { width: 13rem; padding: 4px 8px; background: var(--field); color: var(--ink); }
+.toolbar-draw input::placeholder { color: #888; opacity: 1; }
+.toolbar-draw input.short { color: var(--warn); } /* fewer than 8 letters */
 .toolbar-status { font-size: 0.9rem; color: var(--bar-ink); }
 .toolbar-status.error { color: var(--bar-error); }
 

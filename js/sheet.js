@@ -816,11 +816,31 @@
         });
     }
 
+    // Draw button: opens a FlockMod drawing room named after the text field.
+    // The name is shown in red until it is at least 8 letters long.
+    const DRAW_URL = 'https://flockmod.com/r/';
+    const DRAW_MIN = 8;
+
+    function initDraw() {
+        const input = document.getElementById('drawRoom');
+        const open = () => {
+            const room = input.value.trim();
+            if (!room) { input.focus(); return; }
+            window.open(DRAW_URL + encodeURIComponent(room), '_blank', 'noopener');
+        };
+        input.addEventListener('input', () => {
+            input.classList.toggle('short', input.value.trim().length < DRAW_MIN);
+        });
+        input.addEventListener('keydown', e => { if (e.key === 'Enter') open(); });
+        document.getElementById('drawBtn').addEventListener('click', open);
+    }
+
     function init() {
         document.getElementById('menuBtn').addEventListener('click', () => {
             setMenu(document.getElementById('toolbar').hidden);
         });
         initTheme();
+        initDraw();
         renderCareers();
         renderCharacteristics();
         renderBasicSkills();
