@@ -1,0 +1,1321 @@
+# Warhammer Fantasy Roleplay characters – warhammer.no
+# Five level 1 starting characters
+format: warhammer-characters
+version: 1
+characters:
+- name: Ottilie Brandt
+  species: Human (Reiklander)
+  appearance: Broad-shouldered, cropped red hair, a drummer's calloused hands.
+  portrait: ''
+  careers:
+  - class: Warriors
+    career: Soldier – Recruit
+    pg: ''
+    status: Silver 1
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  xp:
+    current: 50
+    spent: 0
+  characteristics:
+    WS:
+      initial: 39
+      advances: 2
+    BS:
+      initial: 29
+      advances: null
+    S:
+      initial: 33
+      advances: null
+    T:
+      initial: 35
+      advances: 2
+    I:
+      initial: 28
+      advances: null
+    Ag:
+      initial: 31
+      advances: null
+    Dex:
+      initial: 26
+      advances: null
+    Int:
+      initial: 32
+      advances: null
+    WP:
+      initial: 30
+      advances: 1
+    Fel:
+      initial: 29
+      advances: null
+  fate: 3
+  fortune:
+    current: 4
+    max: 4
+  movement: 4
+  skills:
+    art:
+      spec: ''
+      tick: false
+      adv: null
+    athletics:
+      tick: true
+      adv: 5
+    bribery:
+      tick: false
+      adv: null
+    charm:
+      tick: false
+      adv: 3
+    charmAnimal:
+      tick: false
+      adv: null
+    climb:
+      tick: true
+      adv: 5
+    consumeAlcohol:
+      tick: false
+      adv: null
+    cool:
+      tick: true
+      adv: 10
+    dodge:
+      tick: true
+      adv: 5
+    drive:
+      tick: false
+      adv: null
+    endurance:
+      tick: true
+      adv: 5
+    entertain:
+      spec: ''
+      tick: false
+      adv: null
+    gamble:
+      tick: false
+      adv: null
+    gossip:
+      tick: false
+      adv: 5
+    haggle:
+      tick: false
+      adv: 3
+    intimidate:
+      tick: false
+      adv: null
+    intuition:
+      tick: false
+      adv: null
+    leadership:
+      tick: false
+      adv: 3
+    melee1:
+      spec: ''
+      tick: false
+      adv: null
+    melee2:
+      spec: ''
+      tick: false
+      adv: null
+    meleeBasic:
+      tick: true
+      adv: 10
+    navigation:
+      tick: false
+      adv: null
+    outdoorSurvival:
+      tick: false
+      adv: null
+    perception:
+      tick: false
+      adv: null
+    ride:
+      spec: ''
+      tick: false
+      adv: null
+    row:
+      tick: false
+      adv: null
+    stealthRural:
+      tick: false
+      adv: null
+    stealthUrban:
+      tick: false
+      adv: null
+    stealthUnderground:
+      tick: false
+      adv: null
+  ambitions:
+    personal: Earn a sergeant's sash before she turns thirty.
+    party: Get the company through the season without losing anyone.
+  wounds:
+    current: 12
+    hardy: null
+  armourPoints:
+    head: null
+    leftArm: null
+    rightArm: null
+    body: 1
+    rightLeg: null
+    leftLeg: null
+    shield: null
+  wealth:
+    gc: null
+    ss: 6
+    d: null
+  encumbrance:
+    other: null
+  corruption: 0
+  notes: Joined the state troops to escape her father's debts. Beats the march on her old drum.
+  sin: 0
+  languages:
+  - tick: false
+    name: Reikspiel
+    adv: null
+  - tick: true
+    name: Battle Tongue
+    adv: 5
+  customSkills:
+  - tick: true
+    name: Play (Drum)
+    char: Dex
+    adv: 5
+  talents:
+  - name: Doomed
+    description: A soothsayer foretold how she will die.
+    pg: ''
+  - name: Savvy
+    description: +5 Intelligence (already added to Initial).
+    pg: ''
+  - name: Luck
+    description: Maximum Fortune is one higher than Fate.
+    pg: ''
+  - name: Orientation
+    description: Always knows which way is north.
+    pg: ''
+  - name: Strong Legs
+    description: Jumps further than most.
+    pg: ''
+  - name: Warrior Born
+    description: +5 Weapon Skill (already added to Initial).
+    pg: ''
+  mutations: []
+  weapons:
+  - name: Hand Weapon (Sword)
+    group: Basic
+    enc: 1
+    range: Average
+    damage: +SB+4
+    qualities: ''
+  - name: Dagger
+    group: Basic
+    enc: 0
+    range: Very Short
+    damage: +SB+2
+    qualities: ''
+  armour:
+  - name: Leather Breastplate
+    locations: Body
+    enc: 1
+    ap: 1
+    qualities: ''
+  trappings:
+  - name: Uniform
+    enc: 0
+  - name: Pouch
+    enc: 0
+  - name: Drum
+    enc: 1
+  spells: []
+- name: Durgin Ashenbeard
+  species: Dwarf
+  appearance: Orange crest of hair, tattoos from scalp to waist, missing two fingers.
+  portrait: ''
+  careers:
+  - class: Warriors
+    career: Slayer – Troll Slayer
+    pg: ''
+    status: Brass 2
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  xp:
+    current: 50
+    spent: 0
+  characteristics:
+    WS:
+      initial: 41
+      advances: 2
+    BS:
+      initial: 27
+      advances: null
+    S:
+      initial: 32
+      advances: 2
+    T:
+      initial: 44
+      advances: null
+    I:
+      initial: 29
+      advances: null
+    Ag:
+      initial: 18
+      advances: null
+    Dex:
+      initial: 40
+      advances: null
+    Int:
+      initial: 26
+      advances: null
+    WP:
+      initial: 53
+      advances: 1
+    Fel:
+      initial: 19
+      advances: null
+  fate: 1
+  fortune:
+    current: 1
+    max: 1
+  movement: 3
+  skills:
+    art:
+      spec: ''
+      tick: false
+      adv: null
+    athletics:
+      tick: false
+      adv: null
+    bribery:
+      tick: false
+      adv: null
+    charm:
+      tick: false
+      adv: null
+    charmAnimal:
+      tick: false
+      adv: null
+    climb:
+      tick: false
+      adv: null
+    consumeAlcohol:
+      tick: true
+      adv: 10
+    cool:
+      tick: true
+      adv: 10
+    dodge:
+      tick: true
+      adv: 5
+    drive:
+      tick: false
+      adv: null
+    endurance:
+      tick: true
+      adv: 8
+    entertain:
+      spec: ''
+      tick: false
+      adv: null
+    gamble:
+      tick: true
+      adv: 5
+    gossip:
+      tick: false
+      adv: null
+    haggle:
+      tick: false
+      adv: null
+    intimidate:
+      tick: false
+      adv: 3
+    intuition:
+      tick: false
+      adv: null
+    leadership:
+      tick: false
+      adv: null
+    melee1:
+      spec: ''
+      tick: false
+      adv: null
+    melee2:
+      spec: ''
+      tick: false
+      adv: null
+    meleeBasic:
+      tick: true
+      adv: 10
+    navigation:
+      tick: false
+      adv: null
+    outdoorSurvival:
+      tick: false
+      adv: null
+    perception:
+      tick: false
+      adv: null
+    ride:
+      spec: ''
+      tick: false
+      adv: null
+    row:
+      tick: false
+      adv: null
+    stealthRural:
+      tick: false
+      adv: null
+    stealthUrban:
+      tick: false
+      adv: null
+    stealthUnderground:
+      tick: false
+      adv: null
+  ambitions:
+    personal: Find a death worthy enough to wipe away his shame.
+    party: Track down the troll that has been raiding the river villages.
+  wounds:
+    current: 16
+    hardy: null
+  armourPoints:
+    head: null
+    leftArm: null
+    rightArm: null
+    body: null
+    rightLeg: null
+    leftLeg: null
+    shield: null
+  wealth:
+    gc: null
+    ss: null
+    d: 22
+  encumbrance:
+    other: null
+  corruption: 0
+  notes: Took the Slayer oath after failing to protect his clan's mine. Will not speak of it.
+  sin: 0
+  languages:
+  - tick: false
+    name: Khazalid
+    adv: 3
+  - tick: false
+    name: Reikspiel
+    adv: null
+  customSkills:
+  - tick: true
+    name: Heal
+    char: Int
+    adv: 5
+  - tick: true
+    name: Lore (Trolls)
+    char: Int
+    adv: 5
+  talents:
+  - name: Magic Resistance
+    description: Spells aimed at him are harder to cast.
+    pg: ''
+  - name: Night Vision
+    description: Sees well in dim light.
+    pg: ''
+  - name: Read/Write
+    description: Can read and write the languages he speaks.
+    pg: ''
+  - name: Resolute
+    description: Hits harder on the turn he charges.
+    pg: ''
+  - name: Sturdy
+    description: Can carry more before being encumbered.
+    pg: ''
+  - name: Frenzy
+    description: 'Can work himself into a battle rage: fearless, but cannot retreat.'
+    pg: ''
+  mutations: []
+  weapons:
+  - name: Axe
+    group: Basic
+    enc: 1
+    range: Average
+    damage: +SB+4
+    qualities: ''
+  - name: Axe (off hand)
+    group: Basic
+    enc: 1
+    range: Average
+    damage: +SB+4
+    qualities: ''
+  armour: []
+  trappings:
+  - name: Flask of Spirits
+    enc: 0
+  - name: Pouch
+    enc: 0
+  spells: []
+- name: Pip Greenbottle
+  species: Halfling
+  appearance: Curly brown hair, an innocent smile and very quick fingers.
+  portrait: ''
+  careers:
+  - class: Rogues
+    career: Thief – Prowler
+    pg: ''
+    status: Brass 1
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  xp:
+    current: 70
+    spent: 0
+  characteristics:
+    WS:
+      initial: 18
+      advances: null
+    BS:
+      initial: 42
+      advances: null
+    S:
+      initial: 19
+      advances: null
+    T:
+      initial: 31
+      advances: null
+    I:
+      initial: 33
+      advances: 1
+    Ag:
+      initial: 35
+      advances: 3
+    Dex:
+      initial: 40
+      advances: null
+    Int:
+      initial: 29
+      advances: null
+    WP:
+      initial: 41
+      advances: 1
+    Fel:
+      initial: 42
+      advances: null
+  fate: 2
+  fortune:
+    current: 2
+    max: 2
+  movement: 3
+  skills:
+    art:
+      spec: ''
+      tick: false
+      adv: null
+    athletics:
+      tick: true
+      adv: 5
+    bribery:
+      tick: false
+      adv: null
+    charm:
+      tick: false
+      adv: 5
+    charmAnimal:
+      tick: false
+      adv: null
+    climb:
+      tick: true
+      adv: 5
+    consumeAlcohol:
+      tick: false
+      adv: null
+    cool:
+      tick: true
+      adv: 5
+    dodge:
+      tick: true
+      adv: 5
+    drive:
+      tick: false
+      adv: null
+    endurance:
+      tick: true
+      adv: 5
+    entertain:
+      spec: ''
+      tick: false
+      adv: null
+    gamble:
+      tick: false
+      adv: null
+    gossip:
+      tick: false
+      adv: null
+    haggle:
+      tick: false
+      adv: 3
+    intimidate:
+      tick: false
+      adv: null
+    intuition:
+      tick: true
+      adv: 8
+    leadership:
+      tick: false
+      adv: null
+    melee1:
+      spec: ''
+      tick: false
+      adv: null
+    melee2:
+      spec: ''
+      tick: false
+      adv: null
+    meleeBasic:
+      tick: false
+      adv: null
+    navigation:
+      tick: false
+      adv: null
+    outdoorSurvival:
+      tick: false
+      adv: null
+    perception:
+      tick: true
+      adv: 8
+    ride:
+      spec: ''
+      tick: false
+      adv: null
+    row:
+      tick: false
+      adv: null
+    stealthRural:
+      tick: false
+      adv: null
+    stealthUrban:
+      tick: true
+      adv: 10
+    stealthUnderground:
+      tick: false
+      adv: null
+  ambitions:
+    personal: Retire to the Moot with a pantry that never empties.
+    party: Steal back the deeds to the inn the party is staying at.
+  wounds:
+    current: 10
+    hardy: null
+  armourPoints:
+    head: null
+    leftArm: 1
+    rightArm: 1
+    body: 1
+    rightLeg: null
+    leftLeg: null
+    shield: null
+  wealth:
+    gc: null
+    ss: null
+    d: 13
+  encumbrance:
+    other: null
+  corruption: 0
+  notes: Halflings do not add Strength Bonus to Wounds, so the sheet shows one more than his true 10.
+  sin: 0
+  languages:
+  - tick: false
+    name: Mootish
+    adv: null
+  - tick: false
+    name: Reikspiel
+    adv: null
+  customSkills:
+  - tick: false
+    name: Sleight of Hand
+    char: Dex
+    adv: 5
+  talents:
+  - name: Acute Sense (Taste)
+    description: Can tell what is in any dish – or any poison.
+    pg: ''
+  - name: Night Vision
+    description: Sees well in dim light.
+    pg: ''
+  - name: Resistance (Chaos)
+    description: Hard for the Ruinous Powers to corrupt.
+    pg: ''
+  - name: Small
+    description: 'Halfling sized: shorter reach and slower on foot.'
+    pg: ''
+  - name: Mimic
+    description: Copies accents and voices with ease.
+    pg: ''
+  - name: Sixth Sense
+    description: Gets a prickle of warning before danger.
+    pg: ''
+  - name: Alley Cat
+    description: Moves unseen through streets and alleys.
+    pg: ''
+  mutations: []
+  weapons:
+  - name: Dagger
+    group: Basic
+    enc: 0
+    range: Very Short
+    damage: +SB+2
+    qualities: ''
+  armour:
+  - name: Leather Jack
+    locations: Arms, Body
+    enc: 1
+    ap: 1
+    qualities: ''
+  trappings:
+  - name: Crowbar
+    enc: 1
+  - name: Sack
+    enc: 0
+  - name: Pouch
+    enc: 0
+  spells: []
+- name: Aelindra Sunweaver
+  species: High Elf
+  appearance: Tall and pale, silver-blond hair bound with white ribbons.
+  portrait: ''
+  careers:
+  - class: Academics
+    career: Wizard – Wizard's Apprentice
+    pg: ''
+    status: Brass 3
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  xp:
+    current: 50
+    spent: 0
+  characteristics:
+    WS:
+      initial: 37
+      advances: 1
+    BS:
+      initial: 39
+      advances: null
+    S:
+      initial: 26
+      advances: null
+    T:
+      initial: 30
+      advances: null
+    I:
+      initial: 52
+      advances: null
+    Ag:
+      initial: 41
+      advances: null
+    Dex:
+      initial: 38
+      advances: null
+    Int:
+      initial: 45
+      advances: 2
+    WP:
+      initial: 49
+      advances: 2
+    Fel:
+      initial: 30
+      advances: null
+  fate: 1
+  fortune:
+    current: 1
+    max: 1
+  movement: 5
+  skills:
+    art:
+      spec: ''
+      tick: false
+      adv: null
+    athletics:
+      tick: false
+      adv: null
+    bribery:
+      tick: false
+      adv: null
+    charm:
+      tick: false
+      adv: null
+    charmAnimal:
+      tick: false
+      adv: null
+    climb:
+      tick: false
+      adv: null
+    consumeAlcohol:
+      tick: false
+      adv: null
+    cool:
+      tick: true
+      adv: 8
+    dodge:
+      tick: true
+      adv: 3
+    drive:
+      tick: false
+      adv: null
+    endurance:
+      tick: false
+      adv: null
+    entertain:
+      spec: Sing
+      tick: false
+      adv: 3
+    gamble:
+      tick: false
+      adv: null
+    gossip:
+      tick: false
+      adv: null
+    haggle:
+      tick: false
+      adv: null
+    intimidate:
+      tick: false
+      adv: null
+    intuition:
+      tick: true
+      adv: 3
+    leadership:
+      tick: false
+      adv: null
+    melee1:
+      spec: Polearm
+      tick: true
+      adv: 3
+    melee2:
+      spec: ''
+      tick: false
+      adv: null
+    meleeBasic:
+      tick: false
+      adv: null
+    navigation:
+      tick: false
+      adv: 3
+    outdoorSurvival:
+      tick: false
+      adv: null
+    perception:
+      tick: true
+      adv: 8
+    ride:
+      spec: ''
+      tick: false
+      adv: null
+    row:
+      tick: false
+      adv: null
+    stealthRural:
+      tick: false
+      adv: null
+    stealthUrban:
+      tick: false
+      adv: null
+    stealthUnderground:
+      tick: false
+      adv: null
+  ambitions:
+    personal: Be accepted into the Light College as a full magister.
+    party: Learn what wrote the strange runes in the cellar of the old mill.
+  wounds:
+    current: 13
+    hardy: null
+  armourPoints:
+    head: null
+    leftArm: null
+    rightArm: null
+    body: null
+    rightLeg: null
+    leftLeg: null
+    shield: null
+  wealth:
+    gc: null
+    ss: null
+    d: 30
+  encumbrance:
+    other: null
+  corruption: 0
+  notes: Studying under a human master in Altdorf, which she finds faintly embarrassing.
+  sin: 0
+  languages:
+  - tick: false
+    name: Eltharin
+    adv: 5
+  - tick: false
+    name: Reikspiel
+    adv: null
+  - tick: true
+    name: Magick
+    adv: 10
+  customSkills:
+  - tick: true
+    name: Channelling (Hysh)
+    char: WP
+    adv: 10
+  - tick: true
+    name: Lore (Magic)
+    char: Int
+    adv: 5
+  - tick: false
+    name: Evaluate
+    char: Int
+    adv: 3
+  talents:
+  - name: Acute Sense (Sight)
+    description: Spots small details at a distance.
+    pg: ''
+  - name: Coolheaded
+    description: +5 Willpower (already added to Initial).
+    pg: ''
+  - name: Night Vision
+    description: Sees well in dim light.
+    pg: ''
+  - name: Second Sight
+    description: Can see the Winds of Magic.
+    pg: ''
+  - name: Read/Write
+    description: Can read and write the languages she speaks.
+    pg: ''
+  - name: Petty Magic
+    description: Knows a few petty spells (CN 0).
+    pg: ''
+  mutations: []
+  weapons:
+  - name: Quarterstaff
+    group: Polearm
+    enc: 2
+    range: Long
+    damage: +SB+4
+    qualities: Defensive, Pummel
+  - name: Dagger
+    group: Basic
+    enc: 0
+    range: Very Short
+    damage: +SB+2
+    qualities: ''
+  armour: []
+  trappings:
+  - name: Grimoire
+    enc: 1
+  - name: Robes
+    enc: 0
+  - name: Writing Kit
+    enc: 0
+  spells:
+  - name: Dart
+    cn: 0
+    range: Willpower yards
+    target: '1'
+    duration: Instant
+    effect: A dart of light strikes the target as a magic missile.
+  - name: Light
+    cn: 0
+    range: Touch
+    target: 1 object
+    duration: Willpower Bonus hours
+    effect: The object glows as bright as a torch.
+  - name: Protection from Rain
+    cn: 0
+    range: Touch
+    target: '1'
+    duration: Willpower Bonus hours
+    effect: Keeps the target dry in the rain.
+  - name: Sounds
+    cn: 0
+    range: Willpower yards
+    target: Special
+    duration: Willpower Bonus rounds
+    effect: Creates small, harmless noises nearby.
+- name: Caelith Thornwhisper
+  species: Wood Elf
+  appearance: Lean and watchful, leaf-green cloak, braids threaded with feathers.
+  portrait: ''
+  careers:
+  - class: Rangers
+    career: Hunter – Trapper
+    pg: ''
+    status: Brass 2
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  - class: ''
+    career: ''
+    pg: ''
+    status: ''
+    tracker:
+    - '----------'
+    - '------------'
+    - '--------------'
+    reached:
+    - false
+    - false
+    - false
+  xp:
+    current: 70
+    spent: 0
+  characteristics:
+    WS:
+      initial: 39
+      advances: null
+    BS:
+      initial: 44
+      advances: null
+    S:
+      initial: 28
+      advances: 1
+    T:
+      initial: 31
+      advances: 2
+    I:
+      initial: 50
+      advances: null
+    Ag:
+      initial: 43
+      advances: null
+    Dex:
+      initial: 39
+      advances: 2
+    Int:
+      initial: 37
+      advances: null
+    WP:
+      initial: 38
+      advances: null
+    Fel:
+      initial: 26
+      advances: null
+  fate: 1
+  fortune:
+    current: 1
+    max: 1
+  movement: 5
+  skills:
+    art:
+      spec: ''
+      tick: false
+      adv: null
+    athletics:
+      tick: false
+      adv: null
+    bribery:
+      tick: false
+      adv: null
+    charm:
+      tick: false
+      adv: null
+    charmAnimal:
+      tick: true
+      adv: 5
+    climb:
+      tick: true
+      adv: 8
+    consumeAlcohol:
+      tick: false
+      adv: null
+    cool:
+      tick: false
+      adv: null
+    dodge:
+      tick: false
+      adv: null
+    drive:
+      tick: false
+      adv: null
+    endurance:
+      tick: true
+      adv: 5
+    entertain:
+      spec: ''
+      tick: false
+      adv: null
+    gamble:
+      tick: false
+      adv: null
+    gossip:
+      tick: false
+      adv: null
+    haggle:
+      tick: false
+      adv: null
+    intimidate:
+      tick: false
+      adv: null
+    intuition:
+      tick: false
+      adv: null
+    leadership:
+      tick: false
+      adv: null
+    melee1:
+      spec: ''
+      tick: false
+      adv: null
+    melee2:
+      spec: ''
+      tick: false
+      adv: null
+    meleeBasic:
+      tick: false
+      adv: null
+    navigation:
+      tick: false
+      adv: null
+    outdoorSurvival:
+      tick: true
+      adv: 8
+    perception:
+      tick: true
+      adv: 10
+    ride:
+      spec: ''
+      tick: false
+      adv: null
+    row:
+      tick: false
+      adv: null
+    stealthRural:
+      tick: false
+      adv: 5
+    stealthUrban:
+      tick: false
+      adv: null
+    stealthUnderground:
+      tick: false
+      adv: null
+  ambitions:
+    personal: Bring a pelt from the Drakwald's great white stag home to Laurelorn.
+    party: Guide the others safely through the forest roads.
+  wounds:
+    current: 14
+    hardy: 3
+  armourPoints:
+    head: null
+    leftArm: null
+    rightArm: null
+    body: null
+    rightLeg: null
+    leftLeg: null
+    shield: null
+  wealth:
+    gc: null
+    ss: null
+    d: 24
+  encumbrance:
+    other: null
+  corruption: 0
+  notes: Left the Laurelorn Forest to learn why the beasts at its edge are growing strange.
+  sin: 0
+  languages:
+  - tick: false
+    name: Eltharin
+    adv: null
+  - tick: false
+    name: Reikspiel
+    adv: null
+  customSkills:
+  - tick: true
+    name: Lore (Beasts)
+    char: Int
+    adv: 5
+  - tick: true
+    name: Ranged (Sling)
+    char: BS
+    adv: 5
+  - tick: true
+    name: Set Trap
+    char: Dex
+    adv: 5
+  - tick: false
+    name: Ranged (Bow)
+    char: BS
+    adv: 5
+  - tick: false
+    name: Track
+    char: I
+    adv: 3
+  talents:
+  - name: Acute Sense (Sight)
+    description: Spots small details at a distance.
+    pg: ''
+  - name: Hardy
+    description: Extra Wounds equal to Toughness Bonus (entered as Hardy).
+    pg: ''
+  - name: Night Vision
+    description: Sees well in dim light.
+    pg: ''
+  - name: Read/Write
+    description: Can read and write the languages they speak.
+    pg: ''
+  - name: Rover
+    description: Moves quietly through the wilds.
+    pg: ''
+  - name: Strider (Woodlands)
+    description: Ignores difficult terrain in forests.
+    pg: ''
+  mutations: []
+  weapons:
+  - name: Hand Weapon (Hatchet)
+    group: Basic
+    enc: 1
+    range: Average
+    damage: +SB+4
+    qualities: ''
+  - name: Sling
+    group: Sling
+    enc: 0
+    range: '60'
+    damage: '+6'
+    qualities: ''
+  - name: Dagger
+    group: Basic
+    enc: 0
+    range: Very Short
+    damage: +SB+2
+    qualities: ''
+  armour: []
+  trappings:
+  - name: Animal Traps
+    enc: 2
+  - name: Sling Stones (10)
+    enc: 0
+  - name: Sturdy Boots and Cloak
+    enc: 1
+  spells: []
