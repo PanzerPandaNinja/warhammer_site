@@ -12,6 +12,7 @@
     const MAX_CHARACTERS = 50;
     const DEFAULT_PORTRAIT = 'img/default-portrait.svg';
     const REFERENCE_URL = 'data/reference.yaml';
+    const MAX_FIELD_LINES = 10;
 
     const CHARACTERISTICS = ['WS', 'BS', 'S', 'T', 'I', 'Ag', 'Dex', 'Int', 'WP', 'Fel'];
 
@@ -425,9 +426,9 @@
             box.append(el('div', { class: 'career-row' }, [
                 field('Class', el('input', { type: 'text', 'data-path': `careers.${i}.class`, list: 'ref-classes', 'data-ref': 'classes' })),
                 field('Career', el('input', { type: 'text', 'data-path': `careers.${i}.career`, list: 'ref-careers', 'data-ref': 'careers' })),
-                field('pg.', el('input', { type: 'text', 'data-path': `careers.${i}.pg` }), 'pg'),
+                field('pg.', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.pg` }), 'pg'),
                 tracker,
-                field('Status', el('input', { type: 'text', 'data-path': `careers.${i}.status` }))
+                field('Status', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.status` }))
             ]));
         }
     }
@@ -501,7 +502,8 @@
                     input = el('select', attrs, [el('option', { value: '', text: '–' })].concat(
                         CHARACTERISTICS.map(k => el('option', { value: k, text: k }))));
                 } else if (f.multiline) input = el('textarea', Object.assign({ rows: 1 }, attrs));
-                else input = el('input', Object.assign({ type: 'text' }, attrs));
+                else if (f.ref) input = el('input', Object.assign({ type: 'text' }, attrs)); // keeps its drop-down
+                else input = el('textarea', Object.assign({ rows: 1, class: 'oneline' }, attrs));
 
                 const cls = ['cell', f.wide ? 'wide' : '', f.type === 'check' ? 'check' : ''].join(' ').trim();
                 rowEl.append(el('label', { class: cls }, [el('span', { class: 'cell-label', text: f.label }), input]));
@@ -555,7 +557,27 @@
         });
         updatePortrait();
         describeAll();
+        autosizeAll();
         recalc();
+    }
+
+    // Grow a text field to fit its content, from its rows attribute up to MAX_FIELD_LINES lines;
+    // longer content scrolls.
+    function autosize(area) {
+        if (!area.offsetParent) return; // hidden, nothing to measure
+        const style = getComputedStyle(area);
+        const line = parseFloat(style.lineHeight) || parseFloat(style.fontSize) * 1.3;
+        const frame = parseFloat(style.paddingTop) + parseFloat(style.paddingBottom) +
+            parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+        const max = Math.max(MAX_FIELD_LINES, area.rows || 1) * line + frame;
+        area.style.height = 'auto';
+        const needed = area.scrollHeight + parseFloat(style.borderTopWidth) + parseFloat(style.borderBottomWidth);
+        area.style.height = Math.min(needed, max) + 'px';
+        area.style.overflowY = needed > max + 1 ? 'auto' : 'hidden';
+    }
+
+    function autosizeAll() {
+        document.querySelectorAll('textarea').forEach(autosize);
     }
 
     function updatePortrait() {
@@ -989,6 +1011,22 @@
         renderAll();
         if (!storageOk) showStatus('Browser storage unavailable – use Download to keep your character', true);
 
+        // One-line text fields wrap and grow, but never hold line breaks
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Enter' && e.target.classList.contains('oneline')) e.preventDefault();
+        });
+        document.addEventListener('input', e => {
+            const t = e.target;
+            if (t.tagName !== 'TEXTAREA') return;
+            if (t.classList.contains('oneline') && /\n/.test(t.value)) t.value = t.value.replace(/\s*\n\s*/g, ' ');
+            autosize(t);
+        });
+        let resizeFrame = 0;
+        window.addEventListener('resize', () => {
+            cancelAnimationFrame(resizeFrame);
+            resizeFrame = requestAnimationFrame(autosizeAll);
+        });
+        if (document.fonts) document.fonts.ready.then(autosizeAll);
         document.addEventListener('input', onInput);
         document.addEventListener('change', onInput);
         document.addEventListener('click', onClick);
