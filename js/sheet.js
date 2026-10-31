@@ -981,12 +981,13 @@
         } else if (kind === 'status' && found) {
             text = statusText(found, input);
         } else if (kind === 'species' && found) {
-            const pr = found.profile || {};
-            const stats = CHARACTERISTICS.map(k => `${k} ${pr[k]}`).join(' · ');
+            const cr = found.creation || {};
+            const chars = CHARACTERISTICS.map(k => `${k} ${(cr.characteristics || {})[k]}`).join(' · ');
             text = [`${found.name} – ${found.short}`, found.description,
-                `Average (Bestiary): M ${pr.movement} · ${stats} · W ${pr.wounds}\nSkills: ${pr.skills}${pr.traits ? '\nTraits: ' + pr.traits : ''}`,
-                `Mutation: ${found.mutation}`,
-                `Careers (${found.careers.length}): ${found.careers.join(', ')}`].join('\n\n');
+                `Characteristics: ${chars}\nMovement ${cr.movement} · Fate ${cr.fate} · Fortune ${cr.fortune}`,
+                `Languages: ${cr.languages.join(' and ')}, fluent (+30)\nSkills — +5 to any five of: ${cr.skills.join(', ')}\nTalents: ${cr.talents.join(', ')}`,
+                cr.option, `Mutation: ${found.mutation}`,
+                `Careers (${found.careers.length}): ${found.careers.join(', ')}`].filter(Boolean).join('\n\n');
         } else if (kind === 'mutations' && found) {
             text = `${found.name} (${found.type}, d100 ${found.roll}) – ${found.short}\n\nEffect: ${found.effect}`;
         } else if (kind === 'weapons' && found) {
@@ -1019,10 +1020,45 @@
         setInfoButton(input, text);
 
         if (kind === 'classes' || kind === 'species' || kind === 'careers') updateCareerSuggestions();
+        if (kind === 'species') updateCharacteristicHints(found);
         if (kind === 'careers') {
             const status = document.querySelector(`[data-path="careers.${input.dataset.path.split('.')[1]}.status"]`);
             if (status) describe(status); // its tooltip lists this career's levels
         }
+    }
+
+    // The Initial boxes show the species' roll, e.g. "2d10+30"
+    function updateCharacteristicHints(species) {
+        const bases = species && species.creation ? species.creation.characteristics : null;
+        CHARACTERISTICS.forEach(k => {
+            const input = document.querySelector(`[data-path="characteristics.${k}.initial"]`);
+            if (!input) return;
+            input.placeholder = bases ? bases[k] : 'Init';
+            input.title = bases ? `${species.name}: ${bases[k]}, plus up to +6 shared among your career's three characteristics` : '';
+        });
+    }
+
+    // A picked species fills in empty Movement, Fate and Fortune, and adds its fluent languages (+30)
+    function applySpecies(species) {
+        const cr = species.creation;
+        if (!cr) return;
+        fillIfEmpty('movement', cr.movement);
+        fillIfEmpty('fate', cr.fate);
+        fillIfEmpty('fortune.current', cr.fortune);
+        fillIfEmpty('fortune.max', cr.fortune);
+        const known = name => character.languages.some(l => {
+            const found = findEntry('languages', l.name);
+            return (found ? found.name : String(l.name).trim()).toLowerCase() === name.toLowerCase();
+        });
+        const missing = cr.languages.filter(l => !known(l));
+        if (!missing.length) return;
+        missing.forEach(name => {
+            let row = character.languages.find(isRowEmpty);
+            if (!row) character.languages.push(row = blankRow('languages'));
+            Object.assign(row, { name, adv: 30 });
+        });
+        renderList('languages');
+        fillForm();
     }
 
     // Career suggestions: each career plus its four levels
@@ -1166,6 +1202,7 @@
             'Social Tests: Charm, Gossip and most Fellowship Tests suffer −1 SL per tier between you and the other person. ' +
             'You gain Advantage on Leadership over lower Status, and Gold gains Advantage on Intimidate against lower Status in civilised places.',
             'Without the trappings of your career level you count as the highest level whose trappings you have.',
+            `Starting wealth for a new ${tier.name} character: ${tier.starting_wealth}.`,
             levels ? `${career.career.name}:\n${levels}` : ''].filter(Boolean).join('\n\n');
     }
 
@@ -1266,6 +1303,8 @@
         } else if (kind === 'trappings') {
             const item = findItem(input.value);
             if (item) fillIfEmpty(`trappings.${input.dataset.listField.split('.')[1]}.enc`, item[1].enc, true);
+        } else if (kind === 'species') {
+            applySpecies(found);
         } else if (kind === 'mutations') {
             const row = input.dataset.listField.split('.')[1];
             fillIfEmpty(`mutations.${row}.type`, found.type, true);

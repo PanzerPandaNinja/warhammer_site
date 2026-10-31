@@ -1,5 +1,5 @@
 # Warhammer Fantasy Roleplay characters – warhammer.no
-# Five level 1 starting characters
+# Five level 1 starting characters, made with the 5th edition character creation rules
 format: warhammer-characters
 version: 1
 characters:
@@ -45,18 +45,18 @@ characters:
     - false
     - false
   xp:
-    current: 50
+    current: 0
     spent: 0
   characteristics:
     WS:
-      initial: 39
-      advances: 2
+      initial: 41
+      advances: null
     BS:
-      initial: 29
-      advances: 2
+      initial: 31
+      advances: null
     S:
-      initial: 33
-      advances: 1
+      initial: 35
+      advances: null
     T:
       initial: 35
       advances: null
@@ -78,10 +78,10 @@ characters:
     Fel:
       initial: 29
       advances: null
-  fate: 3
+  fate: 4
   fortune:
-    current: 4
-    max: 4
+    current: 3
+    max: 3
   movement: 4
   skills:
     art:
@@ -96,13 +96,13 @@ characters:
       adv: null
     charm:
       tick: false
-      adv: 3
+      adv: 5
     charmAnimal:
       tick: false
       adv: null
     climb:
       tick: true
-      adv: 5
+      adv: null
     consumeAlcohol:
       tick: false
       adv: null
@@ -111,7 +111,7 @@ characters:
       adv: 10
     dodge:
       tick: true
-      adv: 5
+      adv: 10
     drive:
       tick: false
       adv: null
@@ -124,13 +124,13 @@ characters:
       adv: null
     gamble:
       tick: true
-      adv: 5
+      adv: null
     gossip:
       tick: false
       adv: 5
     haggle:
       tick: false
-      adv: 3
+      adv: null
     intimidate:
       tick: false
       adv: null
@@ -139,18 +139,17 @@ characters:
       adv: null
     leadership:
       tick: false
-      adv: 3
+      adv: 5
     melee1:
-      spec: ''
-      tick: false
+      spec: Polearm
+      tick: true
       adv: null
     melee2:
-      spec: ''
       tick: false
       adv: null
     meleeBasic:
       tick: true
-      adv: 10
+      adv: 15
     navigation:
       tick: false
       adv: null
@@ -193,29 +192,30 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 55
+    d: 72
   encumbrance:
     other: null
   corruption: 0
-  notes: Joined the state troops to escape her father's debts. Picked the sword as her weapon.
+  notes: Joined the state troops to escape her father's debts. Picked the sword as her weapon. (Enc of worn clothing, armour and bags is already reduced by 1.)
   sin: 0
   languages:
   - tick: false
     name: Reikspiel
-    adv: null
+    adv: 30
   - tick: true
     name: Battle
     adv: 5
-  customSkills: []
+  customSkills:
+  - tick: true
+    name: Ranged (Crossbow)
+    char: BS
+    adv: null
   talents:
   - name: Doomed
     description: Agree a Doom with the GM. If you die as foretold, allies refresh Fortune and your next character gains a Fate Point.
     pg: ''
   - name: Savvy
     description: +5 Intelligence (does not count as Advances). Already added to Initial.
-    pg: ''
-  - name: Luck
-    description: +1 maximum Fortune. Can be taken up to three times.
     pg: ''
   - name: Orientation
     description: Advantage on Navigation Tests, and you always know which way is north.
@@ -226,6 +226,9 @@ characters:
   - name: Warrior Born
     description: +5 Weapon Skill (does not count as Advances). Already added to Initial.
     pg: ''
+  - name: Drilled
+    description: Allies can freely Disengage from enemies you are also fighting, and you can share Momentum with drilled comrades beside you.
+    pg: ''
   mutations: []
   weapons:
   - name: Sword
@@ -234,6 +237,12 @@ characters:
     range: Average
     damage: +SB+4
     qualities: ''
+  - name: Hand Weapon
+    group: Basic
+    enc: 1
+    range: Average
+    damage: +SB+4
+    qualities: Unbalanced
   - name: Dagger
     group: Basic
     enc: 0
@@ -243,13 +252,15 @@ characters:
   armour:
   - name: Leather Jack
     locations: Arms, Body
-    enc: 1
+    enc: 0
     ap: 1
     qualities: ''
   trappings:
-  - name: Uniform
+  - name: Clothing
     enc: 0
   - name: Pouch
+    enc: 0
+  - name: Uniform
     enc: 0
   spells: []
 - name: Durgin Ashenbeard
@@ -294,18 +305,18 @@ characters:
     - false
     - false
   xp:
-    current: 50
+    current: 0
     spent: 0
   characteristics:
     WS:
-      initial: 41
-      advances: 2
+      initial: 43
+      advances: null
     BS:
       initial: 27
       advances: null
     S:
-      initial: 32
-      advances: 2
+      initial: 34
+      advances: null
     T:
       initial: 44
       advances: null
@@ -322,15 +333,15 @@ characters:
       initial: 26
       advances: null
     WP:
-      initial: 53
-      advances: 1
+      initial: 55
+      advances: null
     Fel:
       initial: 19
       advances: null
-  fate: 1
+  fate: 2
   fortune:
-    current: 1
-    max: 1
+    current: 2
+    max: 2
   movement: 3
   skills:
     art:
@@ -357,16 +368,16 @@ characters:
       adv: 10
     cool:
       tick: true
-      adv: 10
+      adv: 5
     dodge:
       tick: true
-      adv: 5
+      adv: 10
     drive:
       tick: false
       adv: null
     endurance:
       tick: true
-      adv: 8
+      adv: 5
     entertain:
       spec: ''
       tick: false
@@ -382,7 +393,7 @@ characters:
       adv: null
     intimidate:
       tick: false
-      adv: 3
+      adv: 5
     intuition:
       tick: false
       adv: null
@@ -394,12 +405,11 @@ characters:
       tick: false
       adv: null
     melee2:
-      spec: ''
       tick: false
       adv: null
     meleeBasic:
       tick: true
-      adv: 10
+      adv: 15
     navigation:
       tick: false
       adv: null
@@ -442,18 +452,21 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 22
+    d: 41
   encumbrance:
     other: null
   corruption: 0
-  notes: Took the Slayer oath after failing to protect his clan's mine. Will not speak of it.
+  notes: Took the Slayer oath after failing to protect his clan's mine. Will not speak of it. (Enc of worn clothing, armour and bags is already reduced by 1.)
   sin: 0
   languages:
   - tick: false
     name: Khazalid
-    adv: 3
+    adv: 30
   - tick: false
     name: Reikspiel
+    adv: 30
+  - tick: true
+    name: Battle
     adv: null
   customSkills:
   - tick: true
@@ -464,6 +477,10 @@ characters:
     name: Lore (Trolls)
     char: Int
     adv: 5
+  - tick: true
+    name: Play (Horn)
+    char: Dex
+    adv: null
   talents:
   - name: Magic Resistance
     description: Spells affecting you lose 3 SL. You can never learn magic or priestly talents, or Channelling.
@@ -491,20 +508,28 @@ characters:
     range: Average
     damage: +SB+4
     qualities: Unbalanced
-  - name: Hand Weapon (Axe, off hand)
+  - name: Hand Weapon
     group: Basic
     enc: 1
     range: Average
     damage: +SB+4
     qualities: Unbalanced
+  - name: Dagger
+    group: Basic
+    enc: 0
+    range: Very Short
+    damage: +SB+2
+    qualities: ''
   armour: []
   trappings:
-  - name: Flask of Spirits
-    enc: 0
-  - name: Tattoo
+  - name: Clothing
     enc: 0
   - name: Pouch
     enc: 0
+  - name: Flask of Spirits
+    enc: 0
+  - name: Tattoos
+    enc: null
   spells: []
 - name: Pip Greenbottle
   species: Halfling
@@ -548,7 +573,7 @@ characters:
     - false
     - false
   xp:
-    current: 70
+    current: 0
     spent: 0
   characteristics:
     WS:
@@ -558,8 +583,8 @@ characters:
       initial: 42
       advances: null
     S:
-      initial: 19
-      advances: 1
+      initial: 21
+      advances: null
     T:
       initial: 21
       advances: null
@@ -567,11 +592,11 @@ characters:
       initial: 53
       advances: null
     Ag:
-      initial: 35
-      advances: 3
+      initial: 37
+      advances: null
     Dex:
-      initial: 40
-      advances: 1
+      initial: 42
+      advances: null
     Int:
       initial: 29
       advances: null
@@ -583,8 +608,8 @@ characters:
       advances: null
   fate: 2
   fortune:
-    current: 2
-    max: 2
+    current: 3
+    max: 3
   movement: 3
   skills:
     art:
@@ -593,7 +618,7 @@ characters:
       adv: null
     athletics:
       tick: true
-      adv: 5
+      adv: null
     bribery:
       tick: false
       adv: null
@@ -611,10 +636,10 @@ characters:
       adv: null
     cool:
       tick: true
-      adv: 5
+      adv: null
     dodge:
       tick: true
-      adv: 5
+      adv: null
     drive:
       tick: false
       adv: null
@@ -633,13 +658,13 @@ characters:
       adv: null
     haggle:
       tick: false
-      adv: 3
+      adv: 5
     intimidate:
-      tick: false
+      tick: true
       adv: null
     intuition:
       tick: false
-      adv: 3
+      adv: null
     leadership:
       tick: false
       adv: null
@@ -648,11 +673,10 @@ characters:
       tick: false
       adv: null
     melee2:
-      spec: ''
       tick: false
       adv: null
     meleeBasic:
-      tick: false
+      tick: true
       adv: null
     navigation:
       tick: false
@@ -662,7 +686,7 @@ characters:
       adv: null
     perception:
       tick: true
-      adv: 8
+      adv: 10
     ride:
       spec: ''
       tick: false
@@ -675,7 +699,7 @@ characters:
       adv: null
     stealthUrban:
       tick: true
-      adv: 10
+      adv: 15
     stealthUnderground:
       tick: false
       adv: null
@@ -696,28 +720,28 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 33
+    d: 53
   encumbrance:
     other: null
   corruption: 0
-  notes: Grew up in the Moot; came to Altdorf to cook and stayed to pick pockets.
+  notes: Grew up in the Moot; came to Altdorf to cook and stayed to pick pockets. (Enc of worn clothing, armour and bags is already reduced by 1.)
   sin: 0
   languages:
   - tick: false
-    name: Mootish
-    adv: null
+    name: Haffennaff
+    adv: 30
   - tick: false
     name: Reikspiel
-    adv: null
+    adv: 30
   customSkills:
-  - tick: true
-    name: Sleight of Hand
-    char: Dex
-    adv: 10
   - tick: true
     name: Pick Lock
     char: Dex
-    adv: 5
+    adv: 10
+  - tick: true
+    name: Sleight of Hand
+    char: Dex
+    adv: 15
   talents:
   - name: Acute Sense (Taste)
     description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
@@ -725,17 +749,14 @@ characters:
   - name: Night Vision
     description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
     pg: ''
-  - name: Resistant (Corruption)
+  - name: Resistant (Chaos)
     description: Once per session automatically pass a Test against the chosen threat (disease, poison, magic…), with Advantage on later Tests.
-    pg: ''
-  - name: Small
-    description: 'Halfling sized: shorter reach and slower on foot.'
     pg: ''
   - name: Mimic
     description: Advantage on Entertain (Acting, Comedy) and Perform (Clowning), and you can pick up any accent you hear for a day.
     pg: ''
-  - name: Sixth Sense
-    description: Before springing a trap or ambush, test Intuition to notice it at the last moment.
+  - name: Catfall
+    description: Every fall counts as deliberate, so you can test Athletics to reduce Damage, with Advantage.
     pg: ''
   - name: Alley Cat
     description: Advantage on Stealth (Urban) Tests, and you know the quickest or quietest way across a town you are familiar with.
@@ -751,16 +772,26 @@ characters:
   armour:
   - name: Leather Jerkin
     locations: Body
-    enc: 1
+    enc: 0
     ap: 1
     qualities: ''
   trappings:
-  - name: Crowbar
-    enc: 1
-  - name: Sack
+  - name: Clothing
     enc: 0
   - name: Pouch
     enc: 0
+  - name: Sling Bag
+    enc: 0
+  - name: Candles (2)
+    enc: 0
+  - name: Matches (1d10)
+    enc: 0
+  - name: Hood or Mask
+    enc: 0
+  - name: Crowbar
+    enc: 1
+  - name: Sack
+    enc: 2
   spells: []
 - name: Aelindra Sunweaver
   species: High Elf
@@ -804,7 +835,7 @@ characters:
     - false
     - false
   xp:
-    current: 50
+    current: 0
     spent: 0
   characteristics:
     WS:
@@ -820,8 +851,8 @@ characters:
       initial: 30
       advances: null
     I:
-      initial: 52
-      advances: 1
+      initial: 54
+      advances: null
     Ag:
       initial: 41
       advances: null
@@ -829,18 +860,18 @@ characters:
       initial: 38
       advances: null
     Int:
-      initial: 45
-      advances: 2
+      initial: 47
+      advances: null
     WP:
-      initial: 49
-      advances: 2
+      initial: 51
+      advances: null
     Fel:
       initial: 30
       advances: null
   fate: 1
   fortune:
-    current: 1
-    max: 1
+    current: 2
+    max: 2
   movement: 5
   skills:
     art:
@@ -867,7 +898,7 @@ characters:
       adv: null
     cool:
       tick: true
-      adv: 8
+      adv: 5
     dodge:
       tick: false
       adv: null
@@ -880,12 +911,12 @@ characters:
     entertain:
       spec: Singing
       tick: false
-      adv: 3
+      adv: 5
     gamble:
       tick: false
       adv: null
     gossip:
-      tick: false
+      tick: true
       adv: null
     haggle:
       tick: false
@@ -902,9 +933,8 @@ characters:
     melee1:
       spec: Polearm
       tick: true
-      adv: 3
+      adv: 5
     melee2:
-      spec: ''
       tick: false
       adv: null
     meleeBasic:
@@ -912,13 +942,13 @@ characters:
       adv: null
     navigation:
       tick: false
-      adv: 3
+      adv: 5
     outdoorSurvival:
       tick: false
       adv: null
     perception:
       tick: true
-      adv: 8
+      adv: 5
     ride:
       spec: ''
       tick: false
@@ -952,30 +982,34 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 30
+    d: 51
   encumbrance:
     other: null
   corruption: 0
-  notes: Studying under a human master in Altdorf, which she finds faintly embarrassing.
+  notes: Studying under a human master in Altdorf, which she finds faintly embarrassing. (Enc of worn clothing, armour and bags is already reduced by 1.)
   sin: 0
   languages:
   - tick: false
-    name: Eltharin
-    adv: 5
+    name: Elthárin
+    adv: 30
   - tick: false
     name: Reikspiel
+    adv: 30
+  - tick: true
+    name: Classical
     adv: null
   - tick: true
     name: Magick
-    adv: 10
-  - tick: true
-    name: Classical
-    adv: 3
+    adv: 15
   customSkills:
   - tick: true
     name: Channelling (Hysh)
     char: WP
-    adv: 10
+    adv: 15
+  - tick: false
+    name: Evaluate
+    char: Int
+    adv: 5
   - tick: true
     name: Lore (Magic)
     char: Int
@@ -983,11 +1017,7 @@ characters:
   - tick: true
     name: Research
     char: Int
-    adv: 3
-  - tick: false
-    name: Evaluate
-    char: Int
-    adv: 3
+    adv: null
   talents:
   - name: Acute Sense (Sight)
     description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
@@ -1023,12 +1053,18 @@ characters:
     qualities: ''
   armour: []
   trappings:
-  - name: Grimoire
-    enc: 1
-  - name: Robes
+  - name: Clothing
+    enc: 0
+  - name: Pouch
+    enc: 0
+  - name: Sling Bag
     enc: 0
   - name: Writing Kit
     enc: 0
+  - name: Parchment (1d10 sheets)
+    enc: 0
+  - name: Grimoire
+    enc: 1
   spells:
   - name: Dart
     cn: 0
@@ -1090,7 +1126,7 @@ characters:
     - false
     - false
   xp:
-    current: 70
+    current: 0
     spent: 0
   characteristics:
     WS:
@@ -1106,17 +1142,17 @@ characters:
       initial: 31
       advances: null
     I:
-      initial: 50
-      advances: 1
+      initial: 52
+      advances: null
     Ag:
-      initial: 43
-      advances: 2
+      initial: 45
+      advances: null
     Dex:
       initial: 39
       advances: null
     Int:
-      initial: 37
-      advances: 2
+      initial: 39
+      advances: null
     WP:
       initial: 38
       advances: null
@@ -1125,8 +1161,8 @@ characters:
       advances: null
   fate: 1
   fortune:
-    current: 1
-    max: 1
+    current: 2
+    max: 2
   movement: 5
   skills:
     art:
@@ -1134,7 +1170,7 @@ characters:
       tick: false
       adv: null
     athletics:
-      tick: false
+      tick: true
       adv: null
     bribery:
       tick: false
@@ -1144,10 +1180,10 @@ characters:
       adv: null
     charmAnimal:
       tick: true
-      adv: 5
+      adv: null
     climb:
       tick: true
-      adv: 8
+      adv: 5
     consumeAlcohol:
       tick: false
       adv: null
@@ -1162,7 +1198,7 @@ characters:
       adv: null
     endurance:
       tick: true
-      adv: 5
+      adv: null
     entertain:
       spec: ''
       tick: false
@@ -1190,7 +1226,6 @@ characters:
       tick: false
       adv: null
     melee2:
-      spec: ''
       tick: false
       adv: null
     meleeBasic:
@@ -1201,10 +1236,10 @@ characters:
       adv: null
     outdoorSurvival:
       tick: true
-      adv: 8
+      adv: 5
     perception:
       tick: true
-      adv: 10
+      adv: 15
     ride:
       spec: ''
       tick: false
@@ -1238,38 +1273,42 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 24
+    d: 44
   encumbrance:
     other: null
   corruption: 0
-  notes: Left the Laurelorn Forest to learn why the beasts at its edge are growing strange.
+  notes: Left the Laurelorn Forest to learn why the beasts at its edge are growing strange. (Enc of worn clothing, armour and bags is already reduced by 1.)
   sin: 0
   languages:
   - tick: false
-    name: Eltharin
-    adv: null
+    name: Elthárin
+    adv: 30
   - tick: false
     name: Reikspiel
-    adv: null
+    adv: 30
   customSkills:
   - tick: true
-    name: Set Trap
-    char: Dex
-    adv: 5
-  - tick: true
-    name: Track
-    char: I
-    adv: 8
+    name: Animal Care
+    char: Int
+    adv: null
   - tick: false
     name: Ranged (Bow)
     char: BS
     adv: 5
+  - tick: true
+    name: Set Trap
+    char: Dex
+    adv: 15
+  - tick: true
+    name: Track
+    char: I
+    adv: 10
   talents:
   - name: Acute Sense (Sight)
     description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
     pg: ''
   - name: Hardy
-    description: Add your Toughness Bonus to your Wounds a second time. Entered in the Hardy box.
+    description: Add your Toughness Bonus to your Wounds a second time.
     pg: ''
   - name: Night Vision
     description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
@@ -1280,8 +1319,8 @@ characters:
   - name: Rover
     description: Advantage on Stealth (Rural), and you can find the easiest route, game, water and shelter.
     pg: ''
-  - name: Striding Gait (Woodland)
-    description: Ignore movement penalties in your chosen terrain and gain +2 SL in Pursuits there. Can be taken again.
+  - name: Trapper
+    description: Advantage on Set Trap Tests, and you can build a small trap or covered pit in an hour.
     pg: ''
   mutations: []
   weapons:
@@ -1299,8 +1338,18 @@ characters:
     qualities: ''
   armour: []
   trappings:
+  - name: Clothing
+    enc: 0
+  - name: Pouch
+    enc: 0
+  - name: Cloak
+    enc: 0
+  - name: Sling Bag
+    enc: 0
+  - name: Rations (1 day)
+    enc: 0
   - name: Selection of Animal Traps
-    enc: 2
+    enc: null
   - name: Sturdy Boots and Cloak
-    enc: 1
+    enc: null
   spells: []

@@ -1,6 +1,87 @@
 # Reference data for the character sheet: status, species, classes, careers, skills, talents, mutations, equipment, spells and prayers.
 source: Warhammer Fantasy Roleplay 5th edition – status, species, classes, careers, skills, talents, mutations, equipment,
   spells and prayers. Descriptions are short summaries, see the rulebook for the full rules.
+random_talents:
+- roll: 01–02
+  name: Acute Sense (Sight)
+- roll: 03–05
+  name: Ambidextrous
+- roll: 06–07
+  name: Artistic
+- roll: 08–10
+  name: Attractive
+- roll: 11–12
+  name: Briber
+- roll: 13–15
+  name: Cardsharp
+- roll: 16–17
+  name: Catfall
+- roll: 18–20
+  name: Coolheaded
+- roll: 21–22
+  name: Contortionist
+- roll: 23–25
+  name: Flee!
+- roll: 26–27
+  name: Gregarious
+- roll: 28–30
+  name: Iron Jaw
+- roll: 31–32
+  name: Lightning Reflexes
+- roll: 33–35
+  name: Linguistics
+- roll: 36–37
+  name: Marksman
+- roll: 38–40
+  name: Mimic
+- roll: 41–42
+  name: Night Vision
+- roll: 43–45
+  name: Nimble-fingered
+- roll: 46–47
+  name: Noble Blood
+- roll: 48–50
+  name: Nose for Trouble
+- roll: 51–52
+  name: Orientation
+- roll: 53–55
+  name: Perfect Pitch
+- roll: 56–57
+  name: Pure Soul
+- roll: 58–60
+  name: Read/Write
+- roll: 61–62
+  name: Resistant (Poison)
+- roll: 63–65
+  name: Rover
+- roll: 66–67
+  name: Savvy
+- roll: 68–70
+  name: Sharp
+- roll: 71–72
+  name: Stone Soup
+- roll: 73–75
+  name: Strong Back
+- roll: 76–77
+  name: Strong Legs
+- roll: 78–80
+  name: Sturdy
+- roll: 81–82
+  name: Suave
+- roll: 83–85
+  name: Super Numerate
+- roll: 86–87
+  name: Supportive
+- roll: 88–90
+  name: Tinker
+- roll: 91–92
+  name: Tunnel Fighter
+- roll: 93–95
+  name: Very Resilient
+- roll: 96–97
+  name: Very Strong
+- roll: 98–00
+  name: Warrior Born
 everyone_trappings:
 - name: Clothing
 - name: Dagger
@@ -9,26 +90,67 @@ status:
 - name: Brass
   description: Labourers, peasants, unskilled workers and the poor — and many criminals and drifters.
   income: 2d10 brass pennies (d) per Standing
+  starting_wealth: 20 brass pennies + 2d10 per Standing
   standing:
   - 0
   - 5
 - name: Silver
   description: 'Skilled professionals, merchants, artisans and respected tradesfolk: comfortable and respectable, not rich.'
   income: 1d10 silver shillings (ss) per Standing
+  starting_wealth: 10 silver shillings + 1d10 per Standing
   standing:
   - 1
   - 5
 - name: Gold
   description: The rulers of society, their advisers, protectors and magistrates, and the independently wealthy.
   income: 1 gold crown (GC) per Standing
+  starting_wealth: 2 gold crowns + 1 per Standing
   standing:
   - 1
   - 7
 species:
 - name: Dwarf
-  short: Stout, stubborn, long-lived mountain folk who never forget a grudge.
-  description: Dwarfs are tough and strong-willed, master miners, smiths and engineers from the mountain holds; many live
-    in Imperial towns as craftsfolk, merchants and soldiers. They see in the dark, shrug off magic and hate orcs and goblins.
+  short: Tough, proud, long-lived mountain folk who never forget a grudge.
+  description: Dwarfs are tough, resourceful and honourable, and bear grudges for generations — even their ancestors'. Squat,
+    powerful and long-lived, they prize their beards above all. Most live in the great mountain holds of Karaz Ankor, a once-mighty
+    empire now in decline. Their friendship is hard to win but lasts.
+  creation:
+    characteristics:
+      WS: 2d10+30
+      BS: 2d10+20
+      S: 2d10+20
+      T: 2d10+30
+      I: 2d10+10
+      Ag: 2d10+10
+      Dex: 2d10+30
+      Int: 2d10+20
+      WP: 2d10+40
+      Fel: 2d10+10
+    movement: 3
+    fate: 2
+    fortune: 2
+    languages:
+    - Khazalid
+    - Reikspiel
+    skills:
+    - Consume Alcohol
+    - Cool
+    - Endurance
+    - Entertain (Storytelling)
+    - Evaluate
+    - Intimidate
+    - Lore (Dwarfs)
+    - Lore (Geology)
+    - Lore (Metallurgy)
+    - Melee (Basic)
+    - Trade (Any One)
+    talents:
+    - Magic Resistance
+    - Night Vision
+    - Read/Write or Relentless
+    - Resolute or Strong-minded
+    - Sturdy
+    option: 'Option: many dwarfs have Animosity (Elves) after the War of Vengeance — groups may ignore it between party members.'
   profile:
     movement: 3
     WS: 40
@@ -96,9 +218,45 @@ species:
   - Watchman
   - Wrecker
 - name: Halfling
-  short: Small, quick, sharp-eyed folk who love food, comfort and gossip.
-  description: Halflings hail from the Moot but live all over the Empire, often as cooks, servants, traders and thieves. They
-    are not strong or tough, but they are quick to react, good shots, hard to fool and able to see in the dark.
+  short: Cheerful, hungry, light-fingered folk who are easy to underestimate.
+  description: Halflings love good food, strong drink and company far more than politics or war, and are notorious as thieves
+    and scoundrels — unattended property is fair game. Their childlike looks make people underestimate them. Most live in
+    the Moot, but every Imperial city has its halfling families and taverns.
+  creation:
+    characteristics:
+      WS: 2d10+10
+      BS: 2d10+30
+      S: 2d10+10
+      T: 2d10+10
+      I: 2d10+40
+      Ag: 2d10+20
+      Dex: 2d10+30
+      Int: 2d10+20
+      WP: 2d10+30
+      Fel: 2d10+30
+    movement: 3
+    fate: 2
+    fortune: 3
+    languages:
+    - Haffennaff
+    - Reikspiel
+    skills:
+    - Charm
+    - Consume Alcohol
+    - Dodge
+    - Gamble
+    - Haggle
+    - Intuition
+    - Lore (Reikland)
+    - Perception
+    - Sleight of Hand
+    - Stealth (Any)
+    - Trade (Cook)
+    talents:
+    - Acute Sense (Taste)
+    - Night Vision
+    - Resistant (Chaos)
+    - 2 Random Talents
   profile:
     movement: 3
     WS: 20
@@ -168,9 +326,46 @@ species:
   - Watchman
   - Wrecker
 - name: High Elf
-  short: Proud, ancient elves from Ulthuan across the sea.
-  description: High Elves are graceful, quick and keen-eyed, gifted with magic and fine navigators. In the Old World they
-    are mostly traders, envoys and scholars, and often look down on the younger races. They see in the dark.
+  short: Proud, cultured elves from Ulthuan across the sea.
+  description: 'The Asur of Ulthuan are among the oldest civilisations in the world: proud, cultured and disciplined, keeping
+    their strong emotions in check through ritual. Others find them aloof, and they still distrust dwarfs. Adventurous "sea
+    elves" travel the world as mariners, traders and diplomats.'
+  creation:
+    characteristics:
+      WS: 2d10+30
+      BS: 2d10+30
+      S: 2d10+20
+      T: 2d10+20
+      I: 2d10+40
+      Ag: 2d10+30
+      Dex: 2d10+30
+      Int: 2d10+30
+      WP: 2d10+30
+      Fel: 2d10+20
+    movement: 5
+    fate: 1
+    fortune: 2
+    languages:
+    - Elthárin
+    - Reikspiel
+    skills:
+    - Cool
+    - Entertain (Singing)
+    - Evaluate
+    - Leadership
+    - Melee (Basic)
+    - Navigation
+    - Perception
+    - Play (Any One)
+    - Ranged (Bow)
+    - Sail
+    - Swim
+    talents:
+    - Acute Sense (Sight)
+    - Coolheaded or Savvy
+    - Night Vision
+    - Second Sight or Sixth Sense
+    - Read/Write
   profile:
     movement: 5
     WS: 40
@@ -227,9 +422,43 @@ species:
   - Watchman
   - Wizard
 - name: Human
-  short: The most numerous people of the Empire — short-lived, ambitious and adaptable.
-  description: Humans fill every walk of life in the Empire, from peasants and burghers to nobles, priests and wizards, and
-    can take more careers than any other species.
+  short: The Empire's most numerous people — versatile, ambitious and short-lived.
+  description: Reiklanders are friendly, open and confident — to outsiders, arrogant meddlers. Humans live short lives but
+    make up for it with vigour, versatility and ambition, and dominate the Old World; yet more of them fall to Chaos than
+    any other people. Most are devout followers of Sigmar.
+  creation:
+    characteristics:
+      WS: 2d10+20
+      BS: 2d10+20
+      S: 2d10+20
+      T: 2d10+20
+      I: 2d10+20
+      Ag: 2d10+20
+      Dex: 2d10+20
+      Int: 2d10+20
+      WP: 2d10+20
+      Fel: 2d10+20
+    movement: 4
+    fate: 4
+    fortune: 3
+    languages:
+    - Reikspiel
+    skills:
+    - Animal Care
+    - Charm
+    - Cool
+    - Evaluate
+    - Gossip
+    - Haggle
+    - Language (Bretonnian)
+    - Language (Wastelander)
+    - Leadership
+    - Lore (Reikland)
+    - Melee (Basic)
+    - Ranged (Bow)
+    talents:
+    - Doomed
+    - 4 Random Talents
   profile:
     movement: 4
     WS: 30
@@ -310,9 +539,46 @@ species:
   - Wizard
   - Wrecker
 - name: Wood Elf
-  short: Reclusive elves of the deep forests.
-  description: Wood Elves guard woodland realms such as Athel Loren and Laurelorn. Quick and keen-eyed, they are wary of outsiders
-    and make superb hunters, scouts and warriors in the wilds. They see in the dark.
+  short: Secretive forest elves bound to the spirits of the woods.
+  description: 'Wood elves live entwined with nature and the forest spirits, hidden behind illusions. Two kindreds are met
+    in the Empire: the secretive Asrai of Athel Loren, who leave the forest mostly for war, and the more approachable elves
+    of the Laurelorn. Others are never quite sure where their loyalties lie.'
+  creation:
+    characteristics:
+      WS: 2d10+30
+      BS: 2d10+30
+      S: 2d10+20
+      T: 2d10+20
+      I: 2d10+40
+      Ag: 2d10+30
+      Dex: 2d10+30
+      Int: 2d10+30
+      WP: 2d10+30
+      Fel: 2d10+20
+    movement: 5
+    fate: 1
+    fortune: 2
+    languages:
+    - Elthárin
+    - Reikspiel
+    skills:
+    - Athletics
+    - Climb
+    - Endurance
+    - Entertain (Singing)
+    - Intimidate
+    - Melee (Basic)
+    - Outdoor Survival
+    - Perception
+    - Ranged (Bow)
+    - Stealth (Rural)
+    - Track
+    talents:
+    - Acute Sense (Sight)
+    - Hardy or Second Sight
+    - Night Vision
+    - Read/Write or Very Resilient
+    - Rover
   profile:
     movement: 5
     WS: 40
@@ -3582,6 +3848,7 @@ talents:
   description: When an opponent Disengages you can test to chase them, and gain +1 SL as pursuer in a Pursuit.
 - name: Resistant
   specialisations:
+  - Chaos
   - Corruption
   - Disease
   - Magic
