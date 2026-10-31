@@ -101,7 +101,7 @@
             rows: 4,
             cols: '2fr 1fr 3.5rem 1fr 1fr 2fr',
             fields: [
-                { key: 'name', label: 'Name', wide: true },
+                { key: 'name', label: 'Name', wide: true, ref: 'weapons' },
                 { key: 'group', label: 'Group' },
                 { key: 'enc', label: 'ENC', type: 'number' },
                 { key: 'range', label: 'Range/Reach' },
@@ -113,7 +113,7 @@
             rows: 5,
             cols: '2fr 1.5fr 3.5rem 3.5rem 2fr',
             fields: [
-                { key: 'name', label: 'Name', wide: true },
+                { key: 'name', label: 'Name', wide: true, ref: 'armour' },
                 { key: 'locations', label: 'Locations', wide: true },
                 { key: 'enc', label: 'ENC', type: 'number' },
                 { key: 'ap', label: 'AP', type: 'number' },
@@ -124,7 +124,7 @@
             rows: 8,
             cols: '1fr 3.5rem',
             fields: [
-                { key: 'name', label: 'Trapping' },
+                { key: 'name', label: 'Trapping', ref: 'trappings' },
                 { key: 'enc', label: 'ENC', type: 'number' }
             ]
         },
@@ -880,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['classes', 'careers', 'skills', 'talents', 'mutations'].forEach(k => {
+                ['classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 buildDatalists();
@@ -914,6 +914,7 @@
         });
         const language = reference.skills.get('language');
         setSuggestions('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
+        ['weapons', 'armour', 'trappings'].forEach(k => setSuggestions(`ref-${k}`, [...reference[k].values()].map(e => [e.name, e.short])));
         setSuggestions('ref-mutations', [...reference.mutations.values()].map(m => [m.name, `${m.type} · ${m.roll} · ${m.short}`]));
         setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
             [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
@@ -954,6 +955,20 @@
             text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
         } else if (kind === 'mutations' && found) {
             text = `${found.name} (${found.type}, d100 ${found.roll}) – ${found.short}\n\nEffect: ${found.effect}`;
+        } else if (kind === 'weapons' && found) {
+            text = [`${found.name} – ${found.skill}${found.two_handed ? ', two-handed' : ''}`,
+                `Price ${found.price} · Enc ${found.enc ?? '–'} · ${found.availability}`,
+                `${found.reach ? 'Reach ' + found.reach : 'Range ' + found.range} · Damage ${found.damage}`,
+                found.note, qualityLines(found.qualities)].filter(Boolean).join('\n\n');
+        } else if (kind === 'armour' && found) {
+            text = [`${found.name} – ${found.category}`,
+                `Price ${found.price} · Enc ${found.enc} · ${found.availability}`,
+                `${found.locations ? found.locations + ' · ' : ''}AP ${found.ap}${found.penalty ? ' · ' + found.penalty : ''}`,
+                found.note, qualityLines(found.qualities)].filter(Boolean).join('\n\n');
+        } else if (kind === 'trappings' && found) {
+            text = [`${found.name} – ${found.category}`,
+                `Price ${found.price} · Enc ${found.enc ?? '–'}${found.carries !== undefined ? ' · Carries ' + found.carries : ''} · ${found.availability}`,
+                found.note].filter(Boolean).join('\n\n');
         } else if (found) {
             text = `${found.name} – ${found.short}\n\n${found.description}`;
         }
@@ -968,13 +983,26 @@
         }
     }
 
+    // "Impale, Reload 2, Inflict (Entangled 50)" → one line per quality with its rule
+    function qualityLines(qualities) {
+        if (!qualities) return '';
+        return String(qualities).split(/,\s*(?![^()]*\))/).map(q => {
+            const base = q.replace(/\s*\(.*\)$/, '').replace(/\s+\d+$/, '').trim().toLowerCase();
+            const entry = reference.qualities.get(base);
+            const rating = (q.match(/\s(\d+)$/) || [])[1]; // "Reload 3": put 3 in place of "Rating"
+            return entry ? `• ${q} – ${rating ? entry.description.replace(/\bRating\b/g, rating) : entry.description}` : `• ${q}`;
+        }).join('\n');
+    }
+
     function describeAll() {
         closeFieldInfo(); // the fields may have been re-rendered
         if (reference) document.querySelectorAll('[data-ref]').forEach(describe);
     }
 
     function fillIfEmpty(path, value, isListField) {
-        if (getPath(character, path)) return;
+        if (value === null || value === undefined || value === '') return;
+        const current = getPath(character, path);
+        if (current !== null && current !== undefined && current !== '') return;
         setPath(character, path, value);
         const input = document.querySelector(isListField ? `[data-list-field="${path}"]` : `[data-path="${path}"]`);
         if (input) {
@@ -995,6 +1023,21 @@
             fillIfEmpty(`talents.${input.dataset.listField.split('.')[1]}.description`, found.description, true);
         } else if (kind === 'skills') {
             fillIfEmpty(`customSkills.${input.dataset.listField.split('.')[1]}.char`, found.characteristic, true);
+        } else if (kind === 'weapons') {
+            const row = `weapons.${input.dataset.listField.split('.')[1]}`;
+            fillIfEmpty(`${row}.group`, found.group + (found.two_handed ? ' (2H)' : ''), true);
+            fillIfEmpty(`${row}.enc`, found.enc, true);
+            fillIfEmpty(`${row}.range`, found.reach || found.range, true);
+            fillIfEmpty(`${row}.damage`, found.damage === '–' ? '' : found.damage, true);
+            fillIfEmpty(`${row}.qualities`, found.qualities, true);
+        } else if (kind === 'armour') {
+            const row = `armour.${input.dataset.listField.split('.')[1]}`;
+            fillIfEmpty(`${row}.locations`, found.locations || 'Shield', true);
+            fillIfEmpty(`${row}.enc`, found.enc, true);
+            fillIfEmpty(`${row}.ap`, found.ap, true);
+            fillIfEmpty(`${row}.qualities`, [found.qualities, found.penalty].filter(Boolean).join('; '), true);
+        } else if (kind === 'trappings') {
+            fillIfEmpty(`trappings.${input.dataset.listField.split('.')[1]}.enc`, found.enc, true);
         } else if (kind === 'mutations') {
             const row = input.dataset.listField.split('.')[1];
             fillIfEmpty(`mutations.${row}.type`, found.type, true);

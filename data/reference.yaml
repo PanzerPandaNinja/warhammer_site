@@ -1,6 +1,6 @@
-# Reference data for the character sheet: classes, careers, skills, talents and mutations.
-source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills, talents and mutations. Descriptions are short summaries,
-  see the rulebook for the full rules.
+# Reference data for the character sheet: classes, careers, skills, talents, mutations and equipment.
+source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills, talents, mutations and equipment. Descriptions
+  are short summaries, see the rulebook for the full rules.
 classes:
 - name: Academic
   short: Educated folk whose power comes from learning.
@@ -2482,3 +2482,2020 @@ mutations:
   roll: 96–00
   short: Twitchy, nervous energy.
   effect: +5 Agility, −5 Fellowship
+weapons:
+- name: Dagger
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: 16/–
+  enc: 0
+  availability: Common
+  reach: Very Short
+  damage: +SB+2
+  short: Melee (Basic) · Very Short · +SB+2
+- name: Knife
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: 8/–
+  enc: 0
+  availability: Common
+  reach: Very Short
+  damage: +SB+1
+  qualities: Undamaging
+  short: Melee (Basic) · Very Short · +SB+1 · Undamaging
+- name: Hand Weapon
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: 2 GC
+  enc: 1
+  availability: Common
+  reach: Average
+  damage: +SB+4
+  qualities: Unbalanced
+  short: Melee (Basic) · Average · +SB+4 · Unbalanced
+  note: An axe, mace, club or similar one-handed weapon.
+- name: Improvised Weapon
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: –
+  enc: null
+  availability: –
+  reach: Varies
+  damage: +SB+1
+  qualities: Unbalanced, Undamaging
+  short: Melee (Basic) · Varies · +SB+1 · Unbalanced, Undamaging
+  note: Chairs, stools, sword pommels, gun butts and other everyday objects.
+- name: Net
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: 6/–
+  enc: 1
+  availability: Common
+  reach: Short
+  damage: –
+  qualities: Defensive, Inflict (Entangled 50)
+  short: Melee (Basic) · Short · Defensive, Inflict (Entangled 50)
+- name: Sword
+  kind: Melee
+  group: Basic
+  skill: Melee (Basic)
+  price: 4 GC
+  enc: 1
+  availability: Common
+  reach: Average
+  damage: +SB+4
+  short: Melee (Basic) · Average · +SB+4
+- name: Garrote
+  kind: Melee
+  group: Brawling
+  skill: Melee (Brawling)
+  two_handed: true
+  price: 1/–
+  enc: 0
+  availability: Rare
+  reach: Personal
+  damage: +SB+2
+  qualities: Inflict (Entangled your Strength), Undamaging
+  short: Melee (Brawling), two-handed · Personal · +SB+2 · Inflict (Entangled your Strength), Undamaging
+- name: Knuckledusters
+  kind: Melee
+  group: Brawling
+  skill: Melee (Brawling)
+  price: 2/6
+  enc: 0
+  availability: Common
+  reach: Personal
+  damage: +SB+2
+  short: Melee (Brawling) · Personal · +SB+2
+- name: Unarmed
+  kind: Melee
+  group: Brawling
+  skill: Melee (Brawling)
+  price: –
+  enc: 0
+  availability: –
+  reach: Personal
+  damage: +SB
+  qualities: Undamaging
+  short: Melee (Brawling) · Personal · +SB · Undamaging
+- name: Cavalry Hammer
+  kind: Melee
+  group: Cavalry
+  skill: Melee (Cavalry)
+  two_handed: true
+  price: 4 GC
+  enc: 3
+  availability: Rare
+  reach: Long
+  damage: +SB+5
+  qualities: Pummel
+  short: Melee (Cavalry), two-handed · Long · +SB+5 · Pummel
+- name: Lance
+  kind: Melee
+  group: Cavalry
+  skill: Melee (Cavalry)
+  price: 1 GC
+  enc: 3
+  availability: Rare
+  reach: Very Long
+  damage: +SB+6
+  qualities: Damaging, Impale
+  short: Melee (Cavalry) · Very Long · +SB+6 · Damaging, Impale
+  note: Counts as an Improvised Weapon on a Turn when you did not Charge.
+- name: Buckler
+  kind: Melee
+  group: Fencing
+  skill: Melee (Fencing)
+  price: 1 GC
+  enc: 1
+  availability: Common
+  reach: Personal
+  damage: +SB+1
+  qualities: Parry, Undamaging
+  short: Melee (Fencing) · Personal · +SB+1 · Parry, Undamaging
+- name: Foil
+  kind: Melee
+  group: Fencing
+  skill: Melee (Fencing)
+  price: 5 GC
+  enc: 1
+  availability: Scarce
+  reach: Average
+  damage: +SB+3
+  qualities: Fast, Impale, Precise, Undamaging
+  short: Melee (Fencing) · Average · +SB+3 · Fast, Impale, Precise, Undamaging
+- name: Main Gauche
+  kind: Melee
+  group: Fencing
+  skill: Melee (Fencing)
+  price: 1 GC
+  enc: 0
+  availability: Scarce
+  reach: Short
+  damage: +SB+2
+  qualities: Defensive, Impale, Parry
+  short: Melee (Fencing) · Short · +SB+2 · Defensive, Impale, Parry
+- name: Rapier
+  kind: Melee
+  group: Fencing
+  skill: Melee (Fencing)
+  price: 5 GC
+  enc: 1
+  availability: Scarce
+  reach: Long
+  damage: +SB+4
+  qualities: Fast, Impale
+  short: Melee (Fencing) · Long · +SB+4 · Fast, Impale
+- name: Swordbreaker
+  kind: Melee
+  group: Fencing
+  skill: Melee (Fencing)
+  price: 1 GC 2/6
+  enc: 0
+  availability: Rare
+  reach: Short
+  damage: +SB+1
+  qualities: Defensive, Parry, Trap Blade
+  short: Melee (Fencing) · Short · +SB+1 · Defensive, Parry, Trap Blade
+- name: Flail
+  kind: Melee
+  group: Flail
+  skill: Melee (Flail)
+  price: 2 GC
+  enc: 1
+  availability: Scarce
+  reach: Average
+  damage: +SB+4
+  qualities: Pummel, Wrap, Unbalanced
+  short: Melee (Flail) · Average · +SB+4 · Pummel, Wrap, Unbalanced
+- name: Grain Flail
+  kind: Melee
+  group: Flail
+  skill: Melee (Flail)
+  two_handed: true
+  price: 5/–
+  enc: 2
+  availability: Common
+  reach: Long
+  damage: +SB+3
+  qualities: Pummel, Imprecise
+  short: Melee (Flail), two-handed · Long · +SB+3 · Pummel, Imprecise
+- name: Military Flail
+  kind: Melee
+  group: Flail
+  skill: Melee (Flail)
+  two_handed: true
+  price: 3 GC
+  enc: 3
+  availability: Rare
+  reach: Long
+  damage: +SB+5
+  qualities: Damaging, Pummel, Wrap, Unbalanced
+  short: Melee (Flail), two-handed · Long · +SB+5 · Damaging, Pummel, Wrap, Unbalanced
+- name: Whip
+  kind: Melee
+  group: Flail
+  skill: Melee (Flail)
+  price: 5/–
+  enc: 1
+  availability: Common
+  reach: Very Long
+  damage: +SB+2
+  qualities: Wrap, Unbalanced, Undamaging
+  short: Melee (Flail) · Very Long · +SB+2 · Wrap, Unbalanced, Undamaging
+- name: Halberd
+  kind: Melee
+  group: Polearm
+  skill: Melee (Polearm)
+  two_handed: true
+  price: 2 GC
+  enc: 3
+  availability: Common
+  reach: Long
+  damage: +SB+5
+  qualities: Defensive, Hack, Impale
+  short: Melee (Polearm), two-handed · Long · +SB+5 · Defensive, Hack, Impale
+- name: Pike
+  kind: Melee
+  group: Polearm
+  skill: Melee (Polearm)
+  two_handed: true
+  price: 18/–
+  enc: 4
+  availability: Rare
+  reach: Massive
+  damage: +SB+4
+  qualities: Impale
+  short: Melee (Polearm), two-handed · Massive · +SB+4 · Impale
+- name: Quarterstaff
+  kind: Melee
+  group: Polearm
+  skill: Melee (Polearm)
+  two_handed: true
+  price: 3/–
+  enc: 2
+  availability: Common
+  reach: Long
+  damage: +SB+3
+  qualities: Defensive, Pummel, Undamaging
+  short: Melee (Polearm), two-handed · Long · +SB+3 · Defensive, Pummel, Undamaging
+- name: Spear
+  kind: Melee
+  group: Polearm
+  skill: Melee (Polearm)
+  two_handed: true
+  price: 15/–
+  enc: 2
+  availability: Common
+  reach: Very Long
+  damage: +SB+4
+  qualities: Fast, Impale
+  short: Melee (Polearm), two-handed · Very Long · +SB+4 · Fast, Impale
+  note: Can be used one-handed, losing 1 Damage and the Fast quality.
+- name: Bastard Sword
+  kind: Melee
+  group: Two-handed
+  skill: Melee (Two-handed)
+  two_handed: true
+  price: 10 GC
+  enc: 2
+  availability: Scarce
+  reach: Long
+  damage: +SB+5
+  qualities: Damaging, Defensive
+  short: Melee (Two-handed), two-handed · Long · +SB+5 · Damaging, Defensive
+  note: Can be used one-handed with Melee (Basic), but then loses Damaging and gains Unbalanced.
+- name: Greataxe
+  kind: Melee
+  group: Two-handed
+  skill: Melee (Two-handed)
+  two_handed: true
+  price: 4 GC
+  enc: 3
+  availability: Scarce
+  reach: Long
+  damage: +SB+6
+  qualities: Damaging, Hack, Unbalanced
+  short: Melee (Two-handed), two-handed · Long · +SB+6 · Damaging, Hack, Unbalanced
+- name: Pick
+  kind: Melee
+  group: Two-handed
+  skill: Melee (Two-handed)
+  two_handed: true
+  price: 2 GC
+  enc: 3
+  availability: Common
+  reach: Long
+  damage: +SB+5
+  qualities: Damaging, Penetrating, Unbalanced
+  short: Melee (Two-handed), two-handed · Long · +SB+5 · Damaging, Penetrating, Unbalanced
+- name: Warhammer
+  kind: Melee
+  group: Two-handed
+  skill: Melee (Two-handed)
+  two_handed: true
+  price: 4 GC
+  enc: 3
+  availability: Scarce
+  reach: Long
+  damage: +SB+6
+  qualities: Damaging, Pummel, Unbalanced
+  short: Melee (Two-handed), two-handed · Long · +SB+6 · Damaging, Pummel, Unbalanced
+- name: Zweihänder
+  kind: Melee
+  group: Two-handed
+  skill: Melee (Two-handed)
+  two_handed: true
+  price: 16 GC
+  enc: 3
+  availability: Scarce
+  reach: Long
+  damage: +SB+5
+  qualities: Damaging, Hack
+  short: Melee (Two-handed), two-handed · Long · +SB+5 · Damaging, Hack
+- name: Blunderbuss
+  kind: Ranged
+  group: Blackpowder
+  skill: Ranged (Blackpowder)
+  two_handed: true
+  price: 10 GC
+  enc: 2
+  availability: Scarce
+  range: '20'
+  damage: '+8'
+  qualities: Blackpowder, Damaging, Blast 2, Dangerous, Reload 3
+  short: Ranged (Blackpowder), two-handed · 20 yd · +8 · Blackpowder, Damaging, Blast 2, Dangerous, Reload 3
+- name: Handgun
+  kind: Ranged
+  group: Blackpowder
+  skill: Ranged (Blackpowder)
+  two_handed: true
+  price: 16 GC
+  enc: 2
+  availability: Scarce
+  range: '40'
+  damage: '+10'
+  qualities: Blackpowder, Damaging, Reload 3
+  short: Ranged (Blackpowder), two-handed · 40 yd · +10 · Blackpowder, Damaging, Reload 3
+- name: Pistol
+  kind: Ranged
+  group: Blackpowder
+  skill: Ranged (Blackpowder)
+  price: 20 GC
+  enc: 0
+  availability: Rare
+  range: '20'
+  damage: '+9'
+  qualities: Blackpowder, Damaging, Pistol, Reload 2
+  short: Ranged (Blackpowder) · 20 yd · +9 · Blackpowder, Damaging, Pistol, Reload 2
+- name: Bow
+  kind: Ranged
+  group: Bow
+  skill: Ranged (Bow)
+  two_handed: true
+  price: 4 GC
+  enc: 2
+  availability: Common
+  range: '50'
+  damage: '+7'
+  short: Ranged (Bow), two-handed · 50 yd · +7
+- name: Longbow
+  kind: Ranged
+  group: Bow
+  skill: Ranged (Bow)
+  two_handed: true
+  price: 8 GC
+  enc: 3
+  availability: Scarce
+  range: '60'
+  damage: '+8'
+  qualities: Damaging
+  short: Ranged (Bow), two-handed · 60 yd · +8 · Damaging
+- name: Shortbow
+  kind: Ranged
+  group: Bow
+  skill: Ranged (Bow)
+  two_handed: true
+  price: 3 GC
+  enc: 1
+  availability: Common
+  range: '40'
+  damage: '+6'
+  short: Ranged (Bow), two-handed · 40 yd · +6
+- name: Crossbow
+  kind: Ranged
+  group: Crossbow
+  skill: Ranged (Crossbow)
+  two_handed: true
+  price: 5 GC
+  enc: 2
+  availability: Common
+  range: '40'
+  damage: '+9'
+  qualities: Reload 1
+  short: Ranged (Crossbow), two-handed · 40 yd · +9 · Reload 1
+- name: Crossbow Pistol
+  kind: Ranged
+  group: Crossbow
+  skill: Ranged (Crossbow)
+  price: 6 GC
+  enc: 0
+  availability: Rare
+  range: '20'
+  damage: '+7'
+  qualities: Pistol, Reload 1
+  short: Ranged (Crossbow) · 20 yd · +7 · Pistol, Reload 1
+- name: Heavy Crossbow
+  kind: Ranged
+  group: Crossbow
+  skill: Ranged (Crossbow)
+  two_handed: true
+  price: 8 GC
+  enc: 3
+  availability: Scarce
+  range: '50'
+  damage: '+10'
+  qualities: Reload 2
+  short: Ranged (Crossbow), two-handed · 50 yd · +10 · Reload 2
+- name: Repeater Handgun
+  kind: Ranged
+  group: Engineering
+  skill: Ranged (Engineering)
+  two_handed: true
+  price: 50 GC
+  enc: 3
+  availability: Rare
+  range: '40'
+  damage: '+10'
+  qualities: Blackpowder, Damaging, Repeater 4, Dangerous, Reload 5
+  short: Ranged (Engineering), two-handed · 40 yd · +10 · Blackpowder, Damaging, Repeater 4, Dangerous, Reload 5
+- name: Repeater Pistol
+  kind: Ranged
+  group: Engineering
+  skill: Ranged (Engineering)
+  price: 40 GC
+  enc: 1
+  availability: Rare
+  range: '20'
+  damage: '+9'
+  qualities: Blackpowder, Damaging, Pistol, Repeater 4, Dangerous, Reload 4
+  short: Ranged (Engineering) · 20 yd · +9 · Blackpowder, Damaging, Pistol, Repeater 4, Dangerous, Reload 4
+- name: Hochland Long Rifle
+  kind: Ranged
+  group: Engineering
+  skill: Ranged (Engineering)
+  two_handed: true
+  price: 100 GC
+  enc: 3
+  availability: Exotic
+  range: '100'
+  damage: '+10'
+  qualities: Blackpowder, Damaging, Precise, Reload 4
+  short: Ranged (Engineering), two-handed · 100 yd · +10 · Blackpowder, Damaging, Precise, Reload 4
+- name: Bolas
+  kind: Ranged
+  group: Entangling
+  skill: Ranged (Entangling)
+  price: 10/–
+  enc: 0
+  availability: Rare
+  range: SB×3
+  damage: +SB
+  qualities: Inflict (Entangled 35), Inflict (Prone), Undamaging
+  short: Ranged (Entangling) · SB×3 · +SB · Inflict (Entangled 35), Inflict (Prone), Undamaging
+  note: Only entangles and knocks Prone on a hit to a leg.
+- name: Lasso
+  kind: Ranged
+  group: Entangling
+  skill: Ranged (Entangling)
+  two_handed: true
+  price: 6/–
+  enc: 1
+  availability: Common
+  range: SB×2
+  damage: –
+  qualities: Inflict (Entangled 45)
+  short: Ranged (Entangling), two-handed · SB×2 · Inflict (Entangled 45)
+  note: No range bands — just the listed range.
+- name: Net (thrown)
+  kind: Ranged
+  group: Entangling
+  skill: Ranged (Entangling)
+  price: 6/–
+  enc: 1
+  availability: Common
+  range: SB
+  damage: –
+  qualities: Inflict (Entangled 50)
+  short: Ranged (Entangling) · SB · Inflict (Entangled 50)
+- name: Bomb
+  kind: Ranged
+  group: Explosives
+  skill: Ranged (Explosives)
+  price: 3 GC
+  enc: 0
+  availability: Rare
+  range: SB
+  damage: '12'
+  qualities: Blackpowder, Damaging, Blast 10, Inflict (Deafened), Dangerous
+  short: Ranged (Explosives) · SB · 12 · Blackpowder, Damaging, Blast 10, Inflict (Deafened), Dangerous
+- name: Incendiary
+  kind: Ranged
+  group: Explosives
+  skill: Ranged (Explosives)
+  price: 1 GC
+  enc: 0
+  availability: Scarce
+  range: SB
+  damage: '8'
+  qualities: Blackpowder, Damaging, Blast 6, Inflict (Ablaze), Dangerous
+  short: Ranged (Explosives) · SB · 8 · Blackpowder, Damaging, Blast 6, Inflict (Ablaze), Dangerous
+- name: Sling
+  kind: Ranged
+  group: Sling
+  skill: Ranged (Sling)
+  price: 1/–
+  enc: 0
+  availability: Common
+  range: '40'
+  damage: '+6'
+  short: Ranged (Sling) · 40 yd · +6
+- name: Staff Sling
+  kind: Ranged
+  group: Sling
+  skill: Ranged (Sling)
+  two_handed: true
+  price: 4/–
+  enc: 2
+  availability: Common
+  range: '50'
+  damage: '+7'
+  short: Ranged (Sling), two-handed · 50 yd · +7
+- name: Javelin
+  kind: Ranged
+  group: Throwing
+  skill: Ranged (Throwing)
+  price: 10/6
+  enc: 1
+  availability: Scarce
+  range: SB×3
+  damage: +SB+3
+  qualities: Impale
+  short: Ranged (Throwing) · SB×3 · +SB+3 · Impale
+- name: Rock
+  kind: Ranged
+  group: Throwing
+  skill: Ranged (Throwing)
+  price: –
+  enc: 0
+  availability: –
+  range: SB×3
+  damage: +SB+1
+  qualities: Undamaging
+  short: Ranged (Throwing) · SB×3 · +SB+1 · Undamaging
+- name: Throwing Axe
+  kind: Ranged
+  group: Throwing
+  skill: Ranged (Throwing)
+  price: 1 GC
+  enc: 1
+  availability: Scarce
+  range: SB×2
+  damage: +SB+3
+  qualities: Hack
+  short: Ranged (Throwing) · SB×2 · +SB+3 · Hack
+- name: Throwing Knife
+  kind: Ranged
+  group: Throwing
+  skill: Ranged (Throwing)
+  price: 18/–
+  enc: 0
+  availability: Scarce
+  range: SB×2
+  damage: +SB+2
+  short: Ranged (Throwing) · SB×2 · +SB+2
+armour:
+- name: Buckler (shield)
+  category: Shield
+  price: 1 GC
+  enc: 1
+  availability: Common
+  ap: 1
+  qualities: Shield
+  short: AP 1 · Shield
+- name: Shield
+  category: Shield
+  price: 2 GC
+  enc: 2
+  availability: Common
+  ap: 2
+  qualities: Shield
+  short: AP 2 · Shield
+- name: Large Shield
+  category: Shield
+  price: 3 GC
+  enc: 3
+  availability: Common
+  ap: 3
+  qualities: Shield
+  short: AP 3 · Shield
+- name: Leather Coif
+  category: Leather
+  price: 2 GC
+  enc: 0
+  availability: Common
+  locations: Head
+  ap: 1
+  qualities: Partial
+  short: Leather · Head · AP 1 · Partial
+  note: Leather can be worn under any other armour without penalty.
+- name: Leather Jack
+  category: Leather
+  price: 3 GC
+  enc: 1
+  availability: Common
+  locations: Arms, Body
+  ap: 1
+  short: Leather · Arms, Body · AP 1
+  note: Leather can be worn under any other armour without penalty.
+- name: Leather Jerkin
+  category: Leather
+  price: 2 GC 10/–
+  enc: 1
+  availability: Common
+  locations: Body
+  ap: 1
+  short: Leather · Body · AP 1
+  note: Leather can be worn under any other armour without penalty.
+- name: Leather Leggings
+  category: Leather
+  price: 3 GC
+  enc: 1
+  availability: Common
+  locations: Legs
+  ap: 1
+  short: Leather · Legs · AP 1
+  note: Leather can be worn under any other armour without penalty.
+- name: Mail Chausses
+  category: Mail
+  price: 10 GC
+  enc: 3
+  availability: Scarce
+  locations: Legs
+  ap: 2
+  qualities: Flexible
+  short: Mail · Legs · AP 2 · Flexible
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Mail Coat
+  category: Mail
+  price: 20 GC
+  enc: 3
+  availability: Scarce
+  locations: Arms, Body
+  ap: 2
+  qualities: Flexible
+  short: Mail · Arms, Body · AP 2 · Flexible
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Mail Coif
+  category: Mail
+  price: 6 GC
+  enc: 1
+  availability: Scarce
+  locations: Head
+  ap: 2
+  qualities: Flexible, Partial
+  short: Mail · Head · AP 2 · Flexible, Partial
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Mail Shirt
+  category: Mail
+  price: 16 GC
+  enc: 2
+  availability: Common
+  locations: Body
+  ap: 2
+  qualities: Flexible
+  short: Mail · Body · AP 2 · Flexible
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Bracers
+  category: Plate
+  price: 12 GC
+  enc: 2
+  availability: Rare
+  locations: Arms
+  ap: 2
+  qualities: Impenetrable, Weakpoints
+  short: Plate · Arms · AP 2 · Impenetrable, Weakpoints
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Breastplate
+  category: Plate
+  price: 15 GC
+  enc: 3
+  availability: Scarce
+  locations: Body
+  ap: 2
+  qualities: Impenetrable, Weakpoints
+  short: Plate · Body · AP 2 · Impenetrable, Weakpoints
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Helm
+  category: Plate
+  price: 5 GC
+  enc: 2
+  availability: Rare
+  penalty: −2 SL Perception
+  locations: Head
+  ap: 2
+  qualities: Impenetrable, Weakpoints
+  short: Plate · Head · AP 2 · Impenetrable, Weakpoints · −2 SL Perception
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Open Helm
+  category: Plate
+  price: 3 GC
+  enc: 1
+  availability: Common
+  locations: Head
+  ap: 2
+  qualities: Partial
+  short: Plate · Head · AP 2 · Partial
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Plate Leggings
+  category: Plate
+  price: 12 GC
+  enc: 3
+  availability: Rare
+  locations: Legs
+  ap: 2
+  qualities: Impenetrable, Weakpoints
+  short: Plate · Legs · AP 2 · Impenetrable, Weakpoints
+  note: Each piece of mail or plate worn gives −1 SL to Stealth Tests.
+- name: Light Armour
+  category: Quick armour
+  price: 8 GC
+  enc: 0
+  availability: Common
+  locations: All
+  ap: 1
+  short: Quick armour · All · AP 1
+  note: 'Quick armour rules: one simple suit instead of separate pieces. Light is a suit of leather.'
+- name: Medium Armour
+  category: Quick armour
+  price: 44 GC
+  enc: 4
+  availability: Scarce
+  penalty: −1 SL Stealth
+  locations: All
+  ap: 3
+  qualities: Flexible
+  short: Quick armour · All · AP 3 · Flexible · −1 SL Stealth
+  note: 'Quick armour rules: one simple suit instead of separate pieces. Medium adds mail.'
+- name: Heavy Armour
+  category: Quick armour
+  price: 88 GC
+  enc: 10
+  availability: Rare
+  penalty: −2 SL Perception, −2 SL Stealth
+  locations: All
+  ap: 5
+  qualities: Impenetrable, Weakpoints
+  short: Quick armour · All · AP 5 · Impenetrable, Weakpoints · −2 SL Perception, −2 SL Stealth
+  note: 'Quick armour rules: one simple suit instead of separate pieces. Heavy adds plate.'
+trappings:
+- name: Backpack
+  category: Packs and containers
+  price: 5/–
+  enc: 2
+  availability: Common
+  carries: 4
+  short: 5/– · Enc 2 · Counts as worn when strapped to your back.
+  note: Counts as worn when strapped to your back.
+- name: Barrel
+  category: Packs and containers
+  price: 8/–
+  enc: 6
+  availability: Common
+  carries: 12
+  short: 8/– · Enc 6 · Holds 32 gallons of liquid.
+  note: Holds 32 gallons of liquid.
+- name: Cask
+  category: Packs and containers
+  price: 3/–
+  enc: 2
+  availability: Common
+  carries: 4
+  short: 3/– · Enc 2 · Holds 10 gallons of liquid.
+  note: Holds 10 gallons of liquid.
+- name: Flask
+  category: Packs and containers
+  price: 5/–
+  enc: 0
+  availability: Common
+  short: 5/– · Enc 0 · Holds 1 pint of liquid.
+  note: Holds 1 pint of liquid.
+- name: Jug
+  category: Packs and containers
+  price: 3/–
+  enc: 1
+  availability: Common
+  carries: 1
+  short: 3/– · Enc 1 · Holds 1 gallon of liquid.
+  note: Holds 1 gallon of liquid.
+- name: Pewter Stein
+  category: Packs and containers
+  price: 7/–
+  enc: 0
+  availability: Common
+  short: 7/– · Enc 0 · Packs and containers
+- name: Pouch
+  category: Packs and containers
+  price: 4d
+  enc: 0
+  availability: Common
+  carries: 1
+  short: 4d · Enc 0 · Packs and containers
+- name: Sack
+  category: Packs and containers
+  price: 1/–
+  enc: 2
+  availability: Common
+  carries: 4
+  short: 1/– · Enc 2 · Needs one hand to carry.
+  note: Needs one hand to carry.
+- name: Sack, Large
+  category: Packs and containers
+  price: 1/6
+  enc: 3
+  availability: Common
+  carries: 6
+  short: 1/6 · Enc 3 · Needs one hand to carry, or two when full.
+  note: Needs one hand to carry, or two when full.
+- name: Saddlebags
+  category: Packs and containers
+  price: 18/–
+  enc: 4
+  availability: Common
+  carries: 8
+  short: 18/– · Enc 4 · Packs and containers
+- name: Sling Bag
+  category: Packs and containers
+  price: 1/–
+  enc: 1
+  availability: Common
+  carries: 2
+  short: 1/– · Enc 1 · Counts as worn when slung over your shoulder.
+  note: Counts as worn when slung over your shoulder.
+- name: Scroll Case
+  category: Packs and containers
+  price: 16/–
+  enc: 0
+  availability: Scarce
+  short: 16/– · Enc 0 · Packs and containers
+- name: Waterskin
+  category: Packs and containers
+  price: 1/–
+  enc: 1
+  availability: Common
+  carries: 1
+  short: 1/– · Enc 1 · Holds 1 gallon of liquid.
+  note: Holds 1 gallon of liquid.
+- name: Amulet
+  category: Clothing and accessories
+  price: 2d
+  enc: 0
+  availability: Common
+  short: 2d · Enc 0 · A brass badge with an embossed design or a semi-precious stone.
+  note: A brass badge with an embossed design or a semi-precious stone.
+- name: Boots
+  category: Clothing and accessories
+  price: 3 GC
+  enc: 1
+  availability: Common
+  short: 3 GC · Enc 1 · Clothing and accessories
+- name: Cloak
+  category: Clothing and accessories
+  price: 2 GC
+  enc: 1
+  availability: Common
+  short: 2 GC · Enc 1 · Keeps off the weather.
+  note: Keeps off the weather.
+- name: Clothing
+  category: Clothing and accessories
+  price: 3 GC
+  enc: 1
+  availability: Common
+  short: 3 GC · Enc 1 · Clothing and accessories
+- name: Coat
+  category: Clothing and accessories
+  price: 3 GC
+  enc: 1
+  availability: Common
+  short: 3 GC · Enc 1 · Keeps out the cold; without one you suffer penalties against cold exposure.
+  note: Keeps out the cold; without one you suffer penalties against cold exposure.
+- name: Costume
+  category: Clothing and accessories
+  price: 1 GC
+  enc: 1
+  availability: Scarce
+  short: 1 GC · Enc 1 · Clothing and accessories
+- name: Courtly Garb
+  category: Clothing and accessories
+  price: 16 GC
+  enc: 1
+  availability: Scarce
+  short: 16 GC · Enc 1 · Fine noble fashion. The plainer servants' version costs half.
+  note: Fine noble fashion. The plainer servants' version costs half.
+- name: Face Powder
+  category: Clothing and accessories
+  price: 10/–
+  enc: 0
+  availability: Common
+  short: 10/– · Enc 0 · Clothing and accessories
+- name: Gloves
+  category: Clothing and accessories
+  price: 8/–
+  enc: 0
+  availability: Common
+  short: 8/– · Enc 0 · Clothing and accessories
+- name: Velvet Cloak
+  category: Clothing and accessories
+  price: 12 GC
+  enc: 1
+  availability: Rare
+  short: 12 GC · Enc 1 · The mark of the nobility; commoners wearing one are getting above their station.
+  note: The mark of the nobility; commoners wearing one are getting above their station.
+- name: Hat
+  category: Clothing and accessories
+  price: 10/6
+  enc: 0
+  availability: Common
+  short: 10/6 · Enc 0 · Fine hats are status symbols — the more flamboyant the better.
+  note: Fine hats are status symbols — the more flamboyant the better.
+- name: Hood or Mask
+  category: Clothing and accessories
+  price: 5/–
+  enc: 0
+  availability: Common
+  short: 5/– · Enc 0 · Clothing and accessories
+- name: Jewellery
+  category: Clothing and accessories
+  price: Varies
+  enc: 0
+  availability: Common
+  short: Varies · Enc 0 · Rings cost about 10 coins of their metal, necklaces about 20.
+  note: Rings cost about 10 coins of their metal, necklaces about 20.
+- name: Perfume
+  category: Clothing and accessories
+  price: 10/–
+  enc: 0
+  availability: Common
+  short: 10/– · Enc 0 · Clothing and accessories
+- name: Pins (6)
+  category: Clothing and accessories
+  price: 10/–
+  enc: 0
+  availability: Scarce
+  short: 10/– · Enc 0 · Clothing and accessories
+- name: Religious Symbol
+  category: Clothing and accessories
+  price: 6/8
+  enc: 0
+  availability: Common
+  short: 6/8 · Enc 0 · Clothing and accessories
+- name: Robes
+  category: Clothing and accessories
+  price: 3 GC
+  enc: 1
+  availability: Common
+  short: 3 GC · Enc 1 · Clothing and accessories
+- name: Sceptre
+  category: Clothing and accessories
+  price: 8 GC
+  enc: 1
+  availability: Rare
+  short: 8 GC · Enc 1 · Carried by the highest legal officials as a sign of office.
+  note: Carried by the highest legal officials as a sign of office.
+- name: Shoes
+  category: Clothing and accessories
+  price: 2 GC
+  enc: 0
+  availability: Common
+  short: 2 GC · Enc 0 · Clothing and accessories
+- name: Signet Ring
+  category: Clothing and accessories
+  price: 5 GC
+  enc: 0
+  availability: Rare
+  short: 5 GC · Enc 0 · Stamps heraldry or insignia into sealing wax.
+  note: Stamps heraldry or insignia into sealing wax.
+- name: Tattoo
+  category: Clothing and accessories
+  price: 4/–
+  enc: 0
+  availability: Scarce
+  short: 4/– · Enc 0 · Clothing and accessories
+- name: Uniform
+  category: Clothing and accessories
+  price: 2 GC
+  enc: 1
+  availability: Scarce
+  short: 2 GC · Enc 1 · Clothing and accessories
+- name: Walking Cane
+  category: Clothing and accessories
+  price: 3 GC
+  enc: 1
+  availability: Common
+  short: 3 GC · Enc 1 · A status symbol among wealthier townsfolk.
+  note: A status symbol among wealthier townsfolk.
+- name: Ale, pint
+  category: Food and drink
+  price: 3d
+  enc: 0
+  availability: Common
+  short: 3d · Enc 0 · Food and drink
+- name: Ale, keg
+  category: Food and drink
+  price: 3/–
+  enc: 2
+  availability: Common
+  short: 3/– · Enc 2 · Holds 3 gallons; refills cost 18d.
+  note: Holds 3 gallons; refills cost 18d.
+- name: Dwarf Ale, pint
+  category: Food and drink
+  price: 9d
+  enc: 0
+  availability: Exotic
+  short: 9d · Enc 0 · Needs a Very Hard (−3 SL) Consume Alcohol Test; grants immunity to fear for 1d10 hours.
+  note: Needs a Very Hard (−3 SL) Consume Alcohol Test; grants immunity to fear for 1d10 hours.
+- name: Food, groceries/day
+  category: Food and drink
+  price: 10d
+  enc: 1
+  availability: Common
+  short: 10d · Enc 1 · Food and drink
+- name: Rations, 1 day
+  category: Food and drink
+  price: 2/–
+  enc: 0
+  availability: Common
+  short: 2/– · Enc 0 · Food and drink
+- name: Spirits, pint
+  category: Food and drink
+  price: 2/–
+  enc: 0
+  availability: Common
+  short: 2/– · Enc 0 · Food and drink
+- name: Wine, bottle
+  category: Food and drink
+  price: 10d
+  enc: 0
+  availability: Common
+  short: 10d · Enc 0 · Food and drink
+- name: Abacus
+  category: Tools and kits
+  price: 3/4
+  enc: 0
+  availability: Scarce
+  short: 3/4 · Enc 0 · Tools and kits
+- name: Animal Trap
+  category: Tools and kits
+  price: 2/6
+  enc: 1
+  availability: Common
+  short: 2/6 · Enc 1 · For catching game when foraging.
+  note: For catching game when foraging.
+- name: Antitoxin Kit
+  category: Tools and kits
+  price: 3 GC
+  enc: 0
+  availability: Scarce
+  short: 3 GC · Enc 0 · A successful Heal Test with it removes all Poisoned Conditions; takes at least two Rounds.
+  note: A successful Heal Test with it removes all Poisoned Conditions; takes at least two Rounds.
+- name: Boat Hook
+  category: Tools and kits
+  price: 5/–
+  enc: 1
+  availability: Common
+  short: 5/– · Enc 1 · Tools and kits
+- name: Broom
+  category: Tools and kits
+  price: 10d
+  enc: 2
+  availability: Common
+  short: 10d · Enc 2 · Tools and kits
+- name: Bucket
+  category: Tools and kits
+  price: 2/6
+  enc: 1
+  availability: Common
+  short: 2/6 · Enc 1 · Tools and kits
+- name: Chisel
+  category: Tools and kits
+  price: 4/2
+  enc: 0
+  availability: Common
+  short: 4/2 · Enc 0 · Tools and kits
+- name: Comb
+  category: Tools and kits
+  price: 10d
+  enc: 0
+  availability: Common
+  short: 10d · Enc 0 · Tools and kits
+- name: Crowbar
+  category: Tools and kits
+  price: 2/6
+  enc: 1
+  availability: Common
+  short: 2/6 · Enc 1 · The GM may let it count as a Hand Weapon.
+  note: The GM may let it count as a Hand Weapon.
+- name: Crutch
+  category: Tools and kits
+  price: 3/–
+  enc: 2
+  availability: Common
+  short: 3/– · Enc 2 · Tools and kits
+- name: Disguise Kit
+  category: Tools and kits
+  price: 6/6
+  enc: 0
+  availability: Scarce
+  short: 6/6 · Enc 0 · Wigs, make-up and props for four disguises.
+  note: Wigs, make-up and props for four disguises.
+- name: Ear Pick
+  category: Tools and kits
+  price: 2/–
+  enc: 0
+  availability: Scarce
+  short: 2/– · Enc 0 · Tools and kits
+- name: Fish Hooks (12)
+  category: Tools and kits
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · For catching fish when foraging.
+  note: For catching fish when foraging.
+- name: Floor Brush
+  category: Tools and kits
+  price: 1/6
+  enc: 0
+  availability: Common
+  short: 1/6 · Enc 0 · Tools and kits
+- name: Gavel
+  category: Tools and kits
+  price: 1 GC
+  enc: 0
+  availability: Scarce
+  short: 1 GC · Enc 0 · Tools and kits
+- name: Hammer
+  category: Tools and kits
+  price: 3/–
+  enc: 0
+  availability: Common
+  short: 3/– · Enc 0 · Tools and kits
+- name: Hand Mirror
+  category: Tools and kits
+  price: 1 GC 1/6
+  enc: 0
+  availability: Rare
+  short: 1 GC 1/6 · Enc 0 · Tools and kits
+- name: Hoe
+  category: Tools and kits
+  price: 4/–
+  enc: 2
+  availability: Common
+  short: 4/– · Enc 2 · Tools and kits
+- name: Key
+  category: Tools and kits
+  price: 1 GC
+  enc: 0
+  availability: Common
+  short: 1 GC · Enc 0 · Tools and kits
+- name: Lockpicks
+  category: Tools and kits
+  price: 2 GC
+  enc: 0
+  availability: Scarce
+  short: 2 GC · Enc 0 · Needed to use Pick Lock without a penalty. Carrying them looks suspicious.
+  note: Needed to use Pick Lock without a penalty. Carrying them looks suspicious.
+- name: Manacles
+  category: Tools and kits
+  price: 2 GC
+  enc: 0
+  availability: Scarce
+  short: 2 GC · Enc 0 · Entangled with Strength 65; only one escape attempt per hour without tools.
+  note: Entangled with Strength 65; only one escape attempt per hour without tools.
+- name: Mantrap
+  category: Tools and kits
+  price: 2 GC
+  enc: 2
+  availability: Scarce
+  short: 2 GC · Enc 2 · Tools and kits
+- name: Mop
+  category: Tools and kits
+  price: 1/–
+  enc: 2
+  availability: Common
+  short: 1/– · Enc 2 · Tools and kits
+- name: Nails (12)
+  category: Tools and kits
+  price: 2d
+  enc: 0
+  availability: Common
+  short: 2d · Enc 0 · Tools and kits
+- name: Paint Brush
+  category: Tools and kits
+  price: 4/–
+  enc: 0
+  availability: Common
+  short: 4/– · Enc 0 · Tools and kits
+- name: Pestle and Mortar
+  category: Tools and kits
+  price: 14/–
+  enc: 0
+  availability: Common
+  short: 14/– · Enc 0 · Tools and kits
+- name: Pick (tool)
+  category: Tools and kits
+  price: 2 GC
+  enc: 1
+  availability: Scarce
+  short: 2 GC · Enc 1 · Tools and kits
+- name: Pole (3 yards)
+  category: Tools and kits
+  price: 5/–
+  enc: 3
+  availability: Common
+  short: 5/– · Enc 3 · For poling a barge; counts as an Improvised Weapon.
+  note: For poling a barge; counts as an Improvised Weapon.
+- name: Quill Pen
+  category: Tools and kits
+  price: 3/–
+  enc: 0
+  availability: Common
+  short: 3/– · Enc 0 · Tools and kits
+- name: Rake
+  category: Tools and kits
+  price: 4/6
+  enc: 2
+  availability: Common
+  short: 4/6 · Enc 2 · Tools and kits
+- name: Reading Lens
+  category: Tools and kits
+  price: 3 GC
+  enc: 0
+  availability: Rare
+  short: 3 GC · Enc 0 · +2 SL to read tiny writing or search for fine details such as secret doors.
+  note: +2 SL to read tiny writing or search for fine details such as secret doors.
+- name: Saw
+  category: Tools and kits
+  price: 6/–
+  enc: 1
+  availability: Common
+  short: 6/– · Enc 1 · Tools and kits
+- name: Sickle
+  category: Tools and kits
+  price: 1 GC
+  enc: 1
+  availability: Common
+  short: 1 GC · Enc 1 · The GM may let it count as a Hand Weapon.
+  note: The GM may let it count as a Hand Weapon.
+- name: Spade
+  category: Tools and kits
+  price: 8/–
+  enc: 2
+  availability: Common
+  short: 8/– · Enc 2 · Tools and kits
+- name: Spike
+  category: Tools and kits
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Tools and kits
+- name: Stamp, engraved
+  category: Tools and kits
+  price: 5 GC
+  enc: 0
+  availability: Scarce
+  short: 5 GC · Enc 0 · Tools and kits
+- name: Tongs, steel
+  category: Tools and kits
+  price: 16/–
+  enc: 0
+  availability: Common
+  short: 16/– · Enc 0 · Tools and kits
+- name: Telescope
+  category: Tools and kits
+  price: 5 GC
+  enc: 0
+  availability: Rare
+  short: 5 GC · Enc 0 · Tools and kits
+- name: Tweezers
+  category: Tools and kits
+  price: 1/–
+  enc: 0
+  availability: Scarce
+  short: 1/– · Enc 0 · Tools and kits
+- name: Writing Kit
+  category: Tools and kits
+  price: 4 GC
+  enc: 0
+  availability: Scarce
+  short: 4 GC · Enc 0 · Quill pen, inkpot and blotter.
+  note: Quill pen, inkpot and blotter.
+- name: Trade Tools
+  category: Tools and kits
+  price: 3 GC
+  enc: 1
+  availability: Scarce
+  short: 3 GC · Enc 1 · The tools of one trade, such as an apothecary's, carpenter's or physician's.
+  note: The tools of one trade, such as an apothecary's, carpenter's or physician's.
+- name: Book, Apothecary
+  category: Books and documents
+  price: 8 GC
+  enc: 1
+  availability: Scarce
+  short: 8 GC · Enc 1 · Recipes for tonics, poultices and draughts.
+  note: Recipes for tonics, poultices and draughts.
+- name: Book, Art
+  category: Books and documents
+  price: 5 GC
+  enc: 1
+  availability: Scarce
+  short: 5 GC · Enc 1 · Books and documents
+- name: Book, Cryptography
+  category: Books and documents
+  price: 8 GC
+  enc: 1
+  availability: Exotic
+  short: 8 GC · Enc 1 · Books and documents
+- name: Book, Engineer
+  category: Books and documents
+  price: 3 GC
+  enc: 1
+  availability: Scarce
+  short: 3 GC · Enc 1 · Books and documents
+- name: Book, Law
+  category: Books and documents
+  price: 15 GC
+  enc: 1
+  availability: Rare
+  short: 15 GC · Enc 1 · Books and documents
+- name: Book, Magic
+  category: Books and documents
+  price: 20 GC
+  enc: 1
+  availability: Exotic
+  short: 20 GC · Enc 1 · A spell grimoire. Carrying one is heresy unless its wizard is licensed by the Colleges.
+  note: A spell grimoire. Carrying one is heresy unless its wizard is licensed by the Colleges.
+- name: Book, Medicine
+  category: Books and documents
+  price: 15 GC
+  enc: 1
+  availability: Rare
+  short: 15 GC · Enc 1 · Books and documents
+- name: Book, Religion
+  category: Books and documents
+  price: 1 GC
+  enc: 1
+  availability: Common
+  short: 1 GC · Enc 1 · Books and documents
+- name: Guild Licence
+  category: Books and documents
+  price: n/a
+  enc: 0
+  availability: n/a
+  short: n/a · Enc 0 · Granted by a guild to its members, not bought.
+  note: Granted by a guild to its members, not bought.
+- name: Leaflet
+  category: Books and documents
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Books and documents
+- name: Legal Document
+  category: Books and documents
+  price: 3/–
+  enc: 0
+  availability: Common
+  short: 3/– · Enc 0 · A will, IOU, letter of intent or similar.
+  note: A will, IOU, letter of intent or similar.
+- name: Map
+  category: Books and documents
+  price: 3 GC
+  enc: 0
+  availability: Scarce
+  short: 3 GC · Enc 0 · Books and documents
+- name: Parchment/sheet
+  category: Books and documents
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Books and documents
+- name: Cart
+  category: Animals and vehicles
+  price: 20 GC
+  enc: null
+  availability: Common
+  carries: 25
+  short: 20 GC · Needs one driver and one draught animal.
+  note: Needs one driver and one draught animal.
+- name: Chicken
+  category: Animals and vehicles
+  price: 5d
+  enc: 1
+  availability: Common
+  short: 5d · Enc 1 · Animals and vehicles
+- name: Coach
+  category: Animals and vehicles
+  price: 150 GC
+  enc: null
+  availability: Rare
+  carries: 80
+  short: 150 GC · Normally two drivers and four horses.
+  note: Normally two drivers and four horses.
+- name: Coracle
+  category: Animals and vehicles
+  price: 2 GC
+  enc: 6
+  availability: Scarce
+  carries: 10
+  short: 2 GC · Enc 6 · A light one-person boat that can be carried.
+  note: A light one-person boat that can be carried.
+- name: Destrier
+  category: Animals and vehicles
+  price: 600 GC
+  enc: null
+  availability: Scarce
+  carries: 20
+  short: 600 GC · Animals and vehicles
+- name: Dog Collar
+  category: Animals and vehicles
+  price: 1/7
+  enc: 0
+  availability: Common
+  short: 1/7 · Enc 0 · Animals and vehicles
+- name: Draught Horse
+  category: Animals and vehicles
+  price: 20 GC
+  enc: null
+  availability: Common
+  carries: 20
+  short: 20 GC · Animals and vehicles
+- name: Homing Pigeon
+  category: Animals and vehicles
+  price: 1/–
+  enc: 1
+  availability: Scarce
+  short: 1/– · Enc 1 · Animals and vehicles
+- name: Hunting Dog
+  category: Animals and vehicles
+  price: 2 GC
+  enc: null
+  availability: Rare
+  short: 2 GC · Animals and vehicles
+- name: Light Warhorse
+  category: Animals and vehicles
+  price: 150 GC
+  enc: null
+  availability: Common
+  carries: 18
+  short: 150 GC · Animals and vehicles
+- name: Monkey
+  category: Animals and vehicles
+  price: 10 GC
+  enc: 2
+  availability: Rare
+  carries: 1
+  short: 10 GC · Enc 2 · Animals and vehicles
+- name: Mule
+  category: Animals and vehicles
+  price: 10 GC
+  enc: null
+  availability: Common
+  carries: 14
+  short: 10 GC · Animals and vehicles
+- name: Pony
+  category: Animals and vehicles
+  price: 40 GC
+  enc: null
+  availability: Common
+  carries: 14
+  short: 40 GC · Animals and vehicles
+- name: Riding Horse
+  category: Animals and vehicles
+  price: 60 GC
+  enc: null
+  availability: Common
+  carries: 16
+  short: 60 GC · Animals and vehicles
+- name: River Barge
+  category: Animals and vehicles
+  price: 225 GC
+  enc: null
+  availability: Rare
+  carries: 300
+  short: 225 GC · Animals and vehicles
+- name: Row Boat
+  category: Animals and vehicles
+  price: 6 GC
+  enc: null
+  availability: Scarce
+  carries: 60
+  short: 6 GC · Animals and vehicles
+- name: Saddle and Harness
+  category: Animals and vehicles
+  price: 6 GC
+  enc: 4
+  availability: Common
+  short: 6 GC · Enc 4 · Animals and vehicles
+- name: Wagon
+  category: Animals and vehicles
+  price: 75 GC
+  enc: null
+  availability: Common
+  carries: 30
+  short: 75 GC · Animals and vehicles
+- name: Worms (6)
+  category: Animals and vehicles
+  price: 1d
+  enc: 0
+  availability: Common
+  short: 1d · Enc 0 · Animals and vehicles
+- name: Adder root
+  category: Poisons
+  price: 5d
+  enc: 0
+  availability: Scarce
+  short: 5d · Enc 0 · Poisons
+- name: Black lotus (leaves)
+  category: Poisons
+  price: 6/–
+  enc: 0
+  availability: Exotic
+  short: 6/– · Enc 0 · Poisons
+- name: Black lotus (sap)
+  category: Poisons
+  price: 20 GC
+  enc: 0
+  availability: Exotic
+  short: 20 GC · Enc 0 · Poisons
+- name: Daemon's tand
+  category: Poisons
+  price: 5d
+  enc: 0
+  availability: Scarce
+  short: 5d · Enc 0 · Poisons
+- name: Dwarf bile
+  category: Poisons
+  price: 4/–
+  enc: 0
+  availability: Exotic
+  short: 4/– · Enc 0 · Poisons
+- name: Juck
+  category: Poisons
+  price: 1/–
+  enc: 0
+  availability: Rare
+  short: 1/– · Enc 0 · Poisons
+- name: Rat poison
+  category: Poisons
+  price: 4d
+  enc: 0
+  availability: Common
+  short: 4d · Enc 0 · Poisons
+- name: Schlafenkraut
+  category: Poisons
+  price: 1/–
+  enc: 0
+  availability: Rare
+  short: 1/– · Enc 0 · Poisons
+- name: Spider spittle
+  category: Poisons
+  price: 3/–
+  enc: 0
+  availability: Rare
+  short: 3/– · Enc 0 · Poisons
+- name: Weirdroot
+  category: Poisons
+  price: 4/–
+  enc: 0
+  availability: Rare
+  short: 4/– · Enc 0 · Poisons
+- name: Digestive Tonic
+  category: Herbs and remedies
+  price: 3/–
+  enc: 0
+  availability: Common
+  short: 3/– · Enc 0 · +2 SL to recovery Tests against stomach ailments such as the Bloody Flux.
+  note: +2 SL to recovery Tests against stomach ailments such as the Bloody Flux.
+- name: Faxtoryll
+  category: Herbs and remedies
+  price: 15/–
+  enc: 0
+  availability: Rare
+  short: 15/– · Enc 0 · Smeared on a wound, removes all Bleeding Conditions without a Heal Test. One dose per Critical Wound.
+  note: Smeared on a wound, removes all Bleeding Conditions without a Heal Test. One dose per Critical Wound.
+- name: Healing Poultice
+  category: Herbs and remedies
+  price: 12/–
+  enc: 0
+  availability: Common
+  short: 12/– · Enc 0 · A Critical Wound treated with it cannot become infected.
+  note: A Critical Wound treated with it cannot become infected.
+- name: Nightshade
+  category: Herbs and remedies
+  price: 3 GC
+  enc: 0
+  availability: Rare
+  short: 3 GC · Enc 0 · Sends the drinker into a deep sleep after 2–3 hours unless they resist.
+  note: Sends the drinker into a deep sleep after 2–3 hours unless they resist.
+- name: Remedy (Malaise, Nausea, Pox, Infection)
+  category: Herbs and remedies
+  price: 2/–
+  enc: 0
+  availability: Common
+  short: 2/– · Enc 0 · Treats the named symptoms.
+  note: Treats the named symptoms.
+- name: Remedy (Coughs and Sneezes, Fever, Flux)
+  category: Herbs and remedies
+  price: 3/–
+  enc: 0
+  availability: Common
+  short: 3/– · Enc 0 · Treats the named symptoms.
+  note: Treats the named symptoms.
+- name: Remedy (Blight, Buboes, Convulsions, Gangrene)
+  category: Herbs and remedies
+  price: 4/–
+  enc: 0
+  availability: Common
+  short: 4/– · Enc 0 · Treats the named symptoms.
+  note: Treats the named symptoms.
+- name: Salwort
+  category: Herbs and remedies
+  price: 12/–
+  enc: 0
+  availability: Common
+  short: 12/– · Enc 0 · Herbs and remedies
+- name: Vitality Draught
+  category: Herbs and remedies
+  price: 18/–
+  enc: 0
+  availability: Scarce
+  short: 18/– · Enc 0 · Drinking it removes all Fatigued Conditions at once.
+  note: Drinking it removes all Fatigued Conditions at once.
+- name: Eyepatch
+  category: Prosthetics
+  price: 6d
+  enc: 0
+  availability: Common
+  short: 6d · Enc 0 · Prosthetics
+- name: False Eye
+  category: Prosthetics
+  price: 1 GC
+  enc: 0
+  availability: Rare
+  short: 1 GC · Enc 0 · Prosthetics
+- name: False Leg
+  category: Prosthetics
+  price: 16/–
+  enc: 2
+  availability: Scarce
+  short: 16/– · Enc 2 · Ignore 1 point of Movement lost to the missing leg (a false foot costs half).
+  note: Ignore 1 point of Movement lost to the missing leg (a false foot costs half).
+- name: Gilded Nose
+  category: Prosthetics
+  price: 18/–
+  enc: 0
+  availability: Scarce
+  short: 18/– · Enc 0 · Prosthetics
+- name: Hook
+  category: Prosthetics
+  price: 3/4
+  enc: 1
+  availability: Common
+  short: 3/4 · Enc 1 · Strapped on in place of a hand; counts as a Dagger.
+  note: Strapped on in place of a hand; counts as a Dagger.
+- name: Wooden Teeth
+  category: Prosthetics
+  price: 10/–
+  enc: 0
+  availability: Rare
+  short: 10/– · Enc 0 · Prosthetics
+- name: Enchanted Staff
+  category: Magical items
+  price: 15 GC
+  enc: 0
+  availability: Exotic
+  short: 15 GC · Enc 0 · Spells of its Lore cost 1 less CN (minimum 0) and it extends touch-range spells. Counts as a non-magical
+    Quarterstaff.
+  note: Spells of its Lore cost 1 less CN (minimum 0) and it extends touch-range spells. Counts as a non-magical Quarterstaff.
+- name: Practical Wizard's Robes
+  category: Magical items
+  price: 3 GC
+  enc: 1
+  availability: Exotic
+  short: 3 GC · Enc 1 · +1 SL for magic of their college.
+  note: +1 SL for magic of their college.
+- name: Standard Wizard's Robes
+  category: Magical items
+  price: 9 GC
+  enc: 2
+  availability: Exotic
+  short: 9 GC · Enc 2 · +2 SL for magic of their college.
+  note: +2 SL for magic of their college.
+- name: Elaborate Wizard's Robes
+  category: Magical items
+  price: 27 GC
+  enc: 3
+  availability: Exotic
+  short: 27 GC · Enc 3 · +3 SL for magic of their college.
+  note: +3 SL for magic of their college.
+- name: Ball
+  category: Miscellaneous
+  price: 5d
+  enc: 0
+  availability: Common
+  short: 5d · Enc 0 · Miscellaneous
+- name: Bandage
+  category: Miscellaneous
+  price: 4d
+  enc: 0
+  availability: Common
+  short: 4d · Enc 0 · Removes 1 Bleeding Condition and is used up.
+  note: Removes 1 Bleeding Condition and is used up.
+- name: Baton
+  category: Miscellaneous
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Miscellaneous
+- name: Bedroll
+  category: Miscellaneous
+  price: 6/–
+  enc: 1
+  availability: Common
+  short: 6/– · Enc 1 · Miscellaneous
+- name: Blanket
+  category: Miscellaneous
+  price: 8d
+  enc: 0
+  availability: Common
+  short: 8d · Enc 0 · Miscellaneous
+- name: Candle (dozen)
+  category: Miscellaneous
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Lights 2 yards.
+  note: Lights 2 yards.
+- name: Canvas Tarp
+  category: Miscellaneous
+  price: 8/–
+  enc: 1
+  availability: Common
+  short: 8/– · Enc 1 · Miscellaneous
+- name: Chalk
+  category: Miscellaneous
+  price: 10d
+  enc: 0
+  availability: Common
+  short: 10d · Enc 0 · Miscellaneous
+- name: Charcoal stick
+  category: Miscellaneous
+  price: 10d
+  enc: 0
+  availability: Common
+  short: 10d · Enc 0 · Miscellaneous
+- name: Cutlery
+  category: Miscellaneous
+  price: 3/6
+  enc: 0
+  availability: Common
+  short: 3/6 · Enc 0 · Miscellaneous
+- name: Deck of Cards
+  category: Miscellaneous
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Miscellaneous
+- name: Cooking Pot
+  category: Miscellaneous
+  price: 8/–
+  enc: 1
+  availability: Common
+  short: 8/– · Enc 1 · Miscellaneous
+- name: Cup
+  category: Miscellaneous
+  price: 8d
+  enc: 0
+  availability: Common
+  short: 8d · Enc 0 · Miscellaneous
+- name: Dice
+  category: Miscellaneous
+  price: 10d
+  enc: 0
+  availability: Common
+  short: 10d · Enc 0 · Miscellaneous
+- name: Doll
+  category: Miscellaneous
+  price: 2/–
+  enc: 0
+  availability: Common
+  short: 2/– · Enc 0 · Miscellaneous
+- name: Feinkopf Lamp
+  category: Miscellaneous
+  price: 2 GC
+  enc: 1
+  availability: Rare
+  short: 2 GC · Enc 1 · A miner's safety lamp that flares brightly in explosive gas.
+  note: A miner's safety lamp that flares brightly in explosive gas.
+- name: Grappling Hook
+  category: Miscellaneous
+  price: 1 GC –/10
+  enc: 1
+  availability: Scarce
+  short: 1 GC –/10 · Enc 1 · With a rope, lets you climb otherwise unclimbable surfaces.
+  note: With a rope, lets you climb otherwise unclimbable surfaces.
+- name: Instrument
+  category: Miscellaneous
+  price: 2 GC
+  enc: 1
+  availability: Rare
+  short: 2 GC · Enc 1 · A small instrument; large ones cost double and are 2 Enc.
+  note: A small instrument; large ones cost double and are 2 Enc.
+- name: Lamp Oil
+  category: Miscellaneous
+  price: 2/–
+  enc: 0
+  availability: Common
+  short: 2/– · Enc 0 · Fuel for a torch for 1 hour, a lantern for 4 or a Davrich lamp for 8.
+  note: Fuel for a torch for 1 hour, a lantern for 4 or a Davrich lamp for 8.
+- name: Lantern
+  category: Miscellaneous
+  price: 12/–
+  enc: 1
+  availability: Common
+  short: 12/– · Enc 1 · Miscellaneous
+- name: Storm Lantern
+  category: Miscellaneous
+  price: 1 GC
+  enc: 1
+  availability: Scarce
+  short: '1 GC · Enc 1 · Shuttered: lights 10 yards, or 20 in a directed beam.'
+  note: 'Shuttered: lights 10 yards, or 20 in a directed beam.'
+- name: Match
+  category: Miscellaneous
+  price: 1d
+  enc: 0
+  availability: Common
+  short: 1d · Enc 0 · Miscellaneous
+- name: Pan
+  category: Miscellaneous
+  price: 7/6
+  enc: 1
+  availability: Common
+  short: 7/6 · Enc 1 · Miscellaneous
+- name: Pipe and Tobacco
+  category: Miscellaneous
+  price: 3/4
+  enc: 0
+  availability: Scarce
+  short: 3/4 · Enc 0 · Miscellaneous
+- name: Placard
+  category: Miscellaneous
+  price: 1/–
+  enc: 2
+  availability: Common
+  short: 1/– · Enc 2 · Miscellaneous
+- name: Plate
+  category: Miscellaneous
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Miscellaneous
+- name: Bowl
+  category: Miscellaneous
+  price: 1/–
+  enc: 0
+  availability: Common
+  short: 1/– · Enc 0 · Miscellaneous
+- name: Rags
+  category: Miscellaneous
+  price: 1d
+  enc: 0
+  availability: Common
+  short: 1d · Enc 0 · Miscellaneous
+- name: Rope, 10 yards
+  category: Miscellaneous
+  price: 8/4
+  enc: 1
+  availability: Common
+  short: 8/4 · Enc 1 · Miscellaneous
+- name: Tent
+  category: Miscellaneous
+  price: 3 GC
+  enc: 2
+  availability: Scarce
+  short: 3 GC · Enc 2 · Sleeps four in close quarters; a small tent sleeps two for half the price.
+  note: Sleeps four in close quarters; a small tent sleeps two for half the price.
+- name: Tinderbox
+  category: Miscellaneous
+  price: 4/2
+  enc: 0
+  availability: Common
+  short: 4/2 · Enc 0 · Miscellaneous
+- name: Torch (stick and rags)
+  category: Miscellaneous
+  price: 2d
+  enc: 1
+  availability: Common
+  short: 2d · Enc 1 · Miscellaneous
+qualities:
+- name: Blackpowder
+  kind: weapon quality
+  description: Anyone shot at must pass an Average (+2 SL) Psychology Test or become Broken, even if it misses.
+- name: Blast
+  kind: weapon quality
+  description: Hits everyone in a circle Rating yards across; usually cannot be opposed. Deals Weapon Damage but not SL Damage.
+- name: Damaging
+  kind: weapon quality
+  description: Use the higher of the SL or the units die for Damage.
+- name: Defensive
+  kind: weapon quality
+  description: +1 SL to Melee Tests to oppose an attack.
+- name: Fast
+  kind: weapon quality
+  description: +2 Combat Initiative for attacks with it (lost when fighting with two weapons).
+- name: Hack
+  kind: weapon quality
+  description: A hit damages the struck armour or shield by 1 point before Damage is applied.
+- name: Impale
+  kind: weapon quality
+  description: Critical Hits also on rolls divisible by 10. Lodged arrows and bolts need a Heal Test to remove, bullets a
+    surgeon.
+- name: Inflict
+  kind: weapon quality
+  description: A hit gives the target the listed Condition.
+- name: Magical
+  kind: weapon quality
+  description: Can harm creatures immune to ordinary weapons.
+- name: Parry
+  kind: weapon quality
+  description: No off-hand penalty when defending. When dual wielding, a second attack after a hit is unopposed.
+- name: Penetrating
+  kind: weapon quality
+  description: Ignores 2 Armour Points.
+- name: Pistol
+  kind: weapon quality
+  description: Can attack in melee, without range modifiers.
+- name: Precise
+  kind: weapon quality
+  description: +1 SL to successful attack Tests.
+- name: Pummel
+  kind: weapon quality
+  description: A head hit dealing Wounds at least equal to the target's Toughness Bonus Stuns them.
+- name: Repeater
+  kind: weapon quality
+  description: Holds Rating shots; shoot twice at one target at −1 SL as one Action.
+- name: Trap Blade
+  kind: weapon quality
+  description: On a Critical while defending against a blade, trap it instead — the opponent drops it, and you may try to
+    break it.
+- name: Unbreakable
+  kind: weapon quality
+  description: Will not break, corrode or lose its edge.
+- name: Wrap
+  kind: weapon quality
+  description: Opponents suffer −1 SL when parrying it.
+- name: Dangerous
+  kind: weapon flaw
+  description: A failed Test with a 9 on either die is a Fumble.
+- name: Imprecise
+  kind: weapon flaw
+  description: −1 SL to attack with it.
+- name: Reload
+  kind: weapon flaw
+  description: After firing, spend Rating Actions reloading before it can be used again.
+- name: Unbalanced
+  kind: weapon flaw
+  description: −1 SL when defending with it.
+- name: Undamaging
+  kind: weapon flaw
+  description: Armour Points count double against it, it need not cause a Wound, and Critical Wounds are rolled twice taking
+    the lower.
+- name: Flexible
+  kind: armour quality
+  description: Can be worn under non-Flexible armour, giving the benefit of both.
+- name: Impenetrable
+  kind: armour quality
+  description: Critical Hits from odd-numbered rolls (11, 33…) are ignored.
+- name: Shield
+  kind: armour quality
+  description: +1 SL when opposing with Dodge or Melee, and its AP count if you are hit. With 2+ AP you can Dodge ranged attacks.
+- name: Partial
+  kind: armour flaw
+  description: Hits with an even Hit Location number ignore its AP.
+- name: Weakpoints
+  kind: armour flaw
+  description: A Critical Hit from an Impale weapon ignores its AP.

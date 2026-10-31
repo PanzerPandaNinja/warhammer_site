@@ -228,7 +228,7 @@ characters:
     pg: ''
   mutations: []
   weapons:
-  - name: Hand Weapon (Sword)
+  - name: Sword
     group: Basic
     enc: 1
     range: Average
@@ -490,18 +490,18 @@ characters:
     enc: 1
     range: Average
     damage: +SB+4
-    qualities: ''
-  - name: Axe (off hand)
+    qualities: Unbalanced
+  - name: Hand Weapon (Axe, off hand)
     group: Basic
     enc: 1
     range: Average
     damage: +SB+4
-    qualities: ''
+    qualities: Unbalanced
   armour: []
   trappings:
   - name: Flask of Spirits
     enc: 0
-  - name: Tattoos
+  - name: Tattoo
     enc: 0
   - name: Pouch
     enc: 0
@@ -1010,11 +1010,11 @@ characters:
   mutations: []
   weapons:
   - name: Quarterstaff
-    group: Polearm
+    group: Polearm (2H)
     enc: 2
     range: Long
-    damage: +SB+4
-    qualities: Defensive, Pummel
+    damage: +SB+3
+    qualities: Defensive, Pummel, Undamaging
   - name: Dagger
     group: Basic
     enc: 0
@@ -1290,7 +1290,7 @@ characters:
     enc: 1
     range: Average
     damage: +SB+4
-    qualities: ''
+    qualities: Unbalanced
   - name: Dagger
     group: Basic
     enc: 0
