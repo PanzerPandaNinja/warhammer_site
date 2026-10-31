@@ -531,6 +531,8 @@ button.danger { color: var(--warn); }
 .corruption-label output { min-width: 2.5rem; }
 .corruption-track { display: flex; flex-wrap: wrap; gap: 0; }
 .corruption-track .skull { width: 1.9rem; height: 1.9rem; }
+.corruption-limits { margin: -4px 0 10px; font-size: 0.85rem; color: var(--ink-soft); }
+.corruption-limits.over { color: var(--warn); font-weight: 600; }
 
 .notes { min-height: 12rem; }
 .sin { margin-top: 10px; max-width: 10rem; margin-left: auto; }

@@ -90,9 +90,10 @@
         },
         mutations: {
             rows: 4,
-            cols: '1fr 2fr',
+            cols: '1fr 7rem 2fr',
             fields: [
-                { key: 'mutation', label: 'Mutation', wide: true },
+                { key: 'mutation', label: 'Mutation', wide: true, ref: 'mutations' },
+                { key: 'type', label: 'Type', type: 'select', options: ['Physical', 'Mental'] },
                 { key: 'effect', label: 'Effect', wide: true, multiline: true }
             ]
         },
@@ -498,9 +499,9 @@
                 if (f.type === 'check') input = el('input', Object.assign({ type: 'checkbox' }, attrs));
                 else if (f.type === 'number') input = el('input', Object.assign({ type: 'number' }, attrs));
                 else if (f.type === 'calc') input = el('output', { 'data-calc': `list.${name}.${index}.${f.key}` });
-                else if (f.type === 'char') {
+                else if (f.type === 'char' || f.type === 'select') {
                     input = el('select', attrs, [el('option', { value: '', text: '–' })].concat(
-                        CHARACTERISTICS.map(k => el('option', { value: k, text: k }))));
+                        (f.options || CHARACTERISTICS).map(k => el('option', { value: k, text: k }))));
                 } else if (f.multiline) input = el('textarea', Object.assign({ rows: 1 }, attrs));
                 else input = el('textarea', Object.assign({ rows: 1, class: 'oneline' }, attrs));
 
@@ -640,6 +641,24 @@
         document.querySelectorAll('[data-corruption]').forEach(btn => {
             btn.setAttribute('aria-pressed', Number(btn.dataset.corruption) <= character.corruption ? 'true' : 'false');
         });
+        updateCorruptionLimits();
+    }
+
+    // Above WPB + TB Corruption Points you must test or mutate; more physical mutations than TB,
+    // or mental ones than WPB, and the character is lost to Chaos.
+    function updateCorruptionLimits() {
+        const box = document.getElementById('corruptionLimits');
+        const tb = bonus(character, 'T'), wpb = bonus(character, 'WP');
+        const count = type => character.mutations.filter(m => m.type === type).length;
+        const physical = count('Physical'), mental = count('Mental');
+        const threshold = tb === '' || wpb === '' ? '' : tb + wpb;
+        box.textContent = (threshold === ''
+            ? 'Over WP Bonus + T Bonus points: Endurance Test or mutate.'
+            : `Over ${threshold} points (WP Bonus + T Bonus): Endurance Test or mutate.`) +
+            ` Mutations: ${physical}${tb === '' ? '' : ' of ' + tb} physical (T Bonus), ${mental}${wpb === '' ? '' : ' of ' + wpb} mental (WP Bonus).`;
+        const over = (threshold !== '' && character.corruption > threshold) ||
+            (tb !== '' && physical > tb) || (wpb !== '' && mental > wpb);
+        box.classList.toggle('over', over);
     }
 
     function renderAll() {
@@ -861,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['classes', 'careers', 'skills', 'talents'].forEach(k => {
+                ['classes', 'careers', 'skills', 'talents', 'mutations'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 buildDatalists();
@@ -895,6 +914,7 @@
         });
         const language = reference.skills.get('language');
         setSuggestions('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
+        setSuggestions('ref-mutations', [...reference.mutations.values()].map(m => [m.name, `${m.type} · ${m.roll} · ${m.short}`]));
         setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
             [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
     }
@@ -932,6 +952,8 @@
                 c.levels.map((l, i) => `${i + 1}. ${l.name} – ${l.status}`).join('\n');
         } else if (kind === 'skills' && found) {
             text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
+        } else if (kind === 'mutations' && found) {
+            text = `${found.name} (${found.type}, d100 ${found.roll}) – ${found.short}\n\nEffect: ${found.effect}`;
         } else if (found) {
             text = `${found.name} – ${found.short}\n\n${found.description}`;
         }
@@ -971,6 +993,10 @@
             fillIfEmpty(`talents.${input.dataset.listField.split('.')[1]}.description`, found.description, true);
         } else if (kind === 'skills') {
             fillIfEmpty(`customSkills.${input.dataset.listField.split('.')[1]}.char`, found.characteristic, true);
+        } else if (kind === 'mutations') {
+            const row = input.dataset.listField.split('.')[1];
+            fillIfEmpty(`mutations.${row}.type`, found.type, true);
+            fillIfEmpty(`mutations.${row}.effect`, found.effect, true);
         }
     }
 

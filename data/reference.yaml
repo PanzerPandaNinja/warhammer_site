@@ -1,6 +1,6 @@
-# Reference data for the character sheet: classes, careers, skills and talents.
-source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills and talents. Descriptions are short summaries, see
-  the rulebook for the full rules.
+# Reference data for the character sheet: classes, careers, skills, talents and mutations.
+source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills, talents and mutations. Descriptions are short summaries,
+  see the rulebook for the full rules.
 classes:
 - name: Academic
   short: Educated folk whose power comes from learning.
@@ -2281,3 +2281,204 @@ talents:
   short: Learned magic by trial and error.
   description: Gain one spell from a Colour Lore or Witchcraft, treating its Channelling and Language (Magick) as Basic. Draws
     witch hunters' attention.
+mutations:
+- name: Animalistic Legs
+  type: Physical
+  roll: 01–05
+  short: The legs reshape into a beast's, with backward-bending joints or hooves.
+  effect: +1 Movement
+- name: Corpulent
+  type: Physical
+  roll: 06–10
+  short: The body swells into a huge, heavy bulk.
+  effect: +5 Strength, +5 Toughness, −1 Movement
+- name: Distended Digits
+  type: Physical
+  roll: 11–15
+  short: Fingers grow long, thin and many-jointed.
+  effect: +10 Dexterity
+- name: Emaciated
+  type: Physical
+  roll: 16–20
+  short: Flesh wastes away to skin and bone.
+  effect: +5 Agility, −10 Strength
+- name: Enormous Eye
+  type: Physical
+  roll: 21–25
+  short: One eye grows huge and staring.
+  effect: Gain the Acute Sense (Sight) Talent.
+- name: Extra Leg Joints
+  type: Physical
+  roll: 26–30
+  short: The legs gain an extra joint and bend in unnatural ways.
+  effect: +5 Agility
+- name: Extra Mouth
+  type: Physical
+  roll: 31–35
+  short: A second mouth opens somewhere on the body.
+  effect: Roll on the Hit Locations table to see where.
+- name: Fleshy Tentacle
+  type: Physical
+  roll: 36–40
+  short: A writhing tentacle sprouts from the body.
+  effect: Gain the Tentacles 1 Creature Trait.
+- name: Glowing Skin
+  type: Physical
+  roll: 41–45
+  short: The skin glows with an eerie light.
+  effect: You give off the light of a candle.
+- name: Inhuman Beauty
+  type: Physical
+  roll: 46–50
+  short: Unnaturally perfect, unsettling beauty.
+  effect: +10 Fellowship, and you do not scar.
+- name: Inverted Face
+  type: Physical
+  roll: 51–55
+  short: The face is turned upside down.
+  effect: −20 Fellowship
+- name: Iron Skin
+  type: Physical
+  roll: 56–60
+  short: The skin hardens into grey, metallic plates.
+  effect: +2 Armour Points to all Locations
+- name: Lolling Tongue
+  type: Physical
+  roll: 61–65
+  short: A long tongue hangs from the mouth.
+  effect: −10 to all Language Tests when speaking
+- name: Patchy Feathers
+  type: Physical
+  roll: 66–70
+  short: Clumps of feathers sprout from the skin.
+  effect: Roll on the Hit Locations table twice to see where.
+- name: Short Legs
+  type: Physical
+  roll: 71–75
+  short: The legs shrink to stubby lengths.
+  effect: −1 Movement
+- name: Spiny Protrusions
+  type: Physical
+  roll: 76–80
+  short: Sharp spines push out through the skin.
+  effect: Roll on the Hit Locations table to see where.
+- name: Thorny Scales
+  type: Physical
+  roll: 81–85
+  short: The skin is covered in thorny scales.
+  effect: +1 Armour Point to all Locations
+- name: Uneven Horns
+  type: Physical
+  roll: 86–90
+  short: Mismatched horns grow from the head.
+  effect: +1 Armour Point to the head, and gain the Horns Creature Trait.
+- name: Webbed Feet
+  type: Physical
+  roll: 91–95
+  short: The toes are joined by webbing, like a frog's.
+  effect: Gain the Striding Gait (Wetland) Talent.
+- name: Whiskered Snout
+  type: Physical
+  roll: 96–00
+  short: The face stretches into a whiskered, sniffing snout.
+  effect: Gain the Acute Sense (Smell) Talent and +2 SL to Track Tests.
+- name: Awful Cravings
+  type: Mental
+  roll: 01–05
+  short: Craves something revolting or forbidden.
+  effect: −5 Willpower, −5 Fellowship
+- name: Beast Within
+  type: Mental
+  roll: 06–10
+  short: Savage animal instincts take hold.
+  effect: +10 Willpower, −5 Intelligence, −5 Fellowship
+- name: Chaotic Dreams
+  type: Mental
+  roll: 11–15
+  short: Nights full of twisted, exhausting dreams.
+  effect: Gain a Fatigued Condition for the first two hours of every day.
+- name: Crawling Skin
+  type: Mental
+  roll: 16–20
+  short: A constant feeling of things crawling under the skin.
+  effect: −5 Initiative, −5 Dexterity
+- name: Erratic Fantasist
+  type: Mental
+  roll: 21–25
+  short: Struggles to tell fantasy from reality.
+  effect: −5 Initiative, −5 Willpower
+- name: Fearful Concern
+  type: Mental
+  roll: 26–30
+  short: A gnawing, constant anxiety.
+  effect: −10 Willpower
+- name: Hateful Impulses
+  type: Mental
+  roll: 31–35
+  short: Hates everyone who is not of their own kind.
+  effect: Subject to Animosity towards everyone not of your species.
+- name: Hollow Heart
+  type: Mental
+  roll: 36–40
+  short: Feels nothing for others.
+  effect: +10 Willpower, −10 Fellowship
+- name: Jealous Thoughts
+  type: Mental
+  roll: 41–45
+  short: Envies everyone and everything.
+  effect: −10 Fellowship
+- name: Lonely Spirit
+  type: Mental
+  roll: 46–50
+  short: Cannot bear to be alone.
+  effect: −10 to any Test when alone
+- name: Mental Blocks
+  type: Mental
+  roll: 51–55
+  short: Thoughts stall and slip away.
+  effect: −10 Intelligence
+- name: Profane Urgency
+  type: Mental
+  roll: 56–60
+  short: A restless need to act, right now.
+  effect: +10 Agility, −10 Willpower
+- name: Shaky Morale
+  type: Mental
+  roll: 61–65
+  short: Their nerve breaks easily.
+  effect: Gain the Broken Condition if you fail a Fear Test.
+- name: Suspicious Mind
+  type: Mental
+  roll: 66–70
+  short: Sees plots and enemies everywhere.
+  effect: −5 Initiative, −5 Intelligence
+- name: Thrill Hunter
+  type: Mental
+  roll: 71–75
+  short: Seeks out danger for the thrill of it.
+  effect: +10 Willpower, −10 Initiative
+- name: Tortured Visions
+  type: Mental
+  roll: 76–80
+  short: Haunted by horrifying visions.
+  effect: −10 Initiative
+- name: Totally Unhinged
+  type: Mental
+  roll: 81–85
+  short: A fractured mind and wildly unpredictable behaviour.
+  effect: +10 Willpower, −20 Fellowship
+- name: Unending Malice
+  type: Mental
+  roll: 86–90
+  short: Driven to cause harm.
+  effect: +1 SL on Tests to hurt others, −1 SL on any Test that does not.
+- name: Unholy Rage
+  type: Mental
+  roll: 91–95
+  short: A boiling, uncontrollable fury.
+  effect: +10 Weapon Skill, and subject to Frenzy.
+- name: Worried Jitters
+  type: Mental
+  roll: 96–00
+  short: Twitchy, nervous energy.
+  effect: +5 Agility, −5 Fellowship
