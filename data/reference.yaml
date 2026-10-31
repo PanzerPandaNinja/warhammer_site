@@ -1777,15 +1777,82 @@ skills:
   characteristic: Int
   type: advanced
   specialisations:
-  - Bretonnian
-  - Reikspiel
-  - Wastelander
+  - Albion
   - Battle
+  - Bretonnian
   - Classical
+  - Elthárin
+  - Estalian
+  - Gospodarinyi
+  - Grumbarth
   - Guilder
+  - Haffennaff
   - Khazalid
   - Magick
+  - Norse
+  - Pilgrim Sign
+  - Queekish
+  - Reikspiel
   - Thieves Tongue
+  - Tilean
+  - Wastelander
+  details:
+  - name: Albion
+    description: The folk of Albion, a distant, mist-shrouded island rarely visited.
+  - name: Battle
+    description: 'Battle Tongue: soldiers'' commands and gestures, said to come from Myrmidia. A Language (Battle) Test lets
+      you pass up to 40 words of orders as an Action.'
+    aliases:
+    - Battle Tongue
+  - name: Bretonnian
+    related: Haffennaff, Reikspiel, Wastelander
+    description: The people of Bretonnia, the chivalric kingdom south-west of the Empire.
+  - name: Classical
+    related: Estalian, Tilean
+    description: Scholars everywhere; the ancient tongue of learned books, grimoires and many holy texts.
+  - name: Elthárin
+    description: The elves of Athel Loren, Laurelorn and Ulthuan. A tonal language that is very hard for non-elves.
+    aliases:
+    - Eltharin
+  - name: Estalian
+    related: Classical, Tilean
+    description: The people of Estalia, the hot south-western kingdoms devoted to Myrmidia.
+  - name: Gospodarinyi
+    related: Górelsk, Ungol
+    description: Most people of Kislev, the frozen land east of the Empire (also called Kislevite).
+    aliases:
+    - Kislevite
+    - Kislevarin
+  - name: Grumbarth
+    description: Ogres — a simple tongue that a few mercenary captains pick up.
+  - name: Guilder
+    description: Members of trade guilds; slang that guards trade secrets.
+  - name: Haffennaff
+    related: Bretonnian, Reikspiel, Wastelander
+    description: The halflings of the Moot (also called Mootish).
+    aliases:
+    - Mootish
+  - name: Khazalid
+    description: The dwarfs of the mountain kingdoms; also used in the Cult of Sigmar.
+  - name: Magick
+    description: Spellcasters — the tonal languages that shape the Winds of Magic. Not used for conversation.
+  - name: Norse
+    description: The people of Norsca; widely known in the north of the Empire, the Wasteland and Kislev.
+  - name: Pilgrim Sign
+    description: A sign language of pilgrims under vows of silence, also learned by deaf folk.
+  - name: Queekish
+    description: The skaven of the Under-Empire.
+  - name: Reikspiel
+    related: Bretonnian, Haffennaff, Wastelander
+    description: The people of the Empire — the everyday language of most games.
+  - name: Thieves Tongue
+    description: Street folk and criminals; full of local variants.
+  - name: Tilean
+    related: Classical, Estalian
+    description: The people of Tilea, often met in the Empire as traders and mercenaries.
+  - name: Wastelander
+    related: Bretonnian, Haffennaff, Reikspiel
+    description: Country folk of the Wasteland, west of the Reikland (Marienburg itself speaks Reikspiel).
   short: Speak a language other than your native tongue.
   description: One Advance lets you make yourself understood; complex conversations may need a Test. With 4 Advances you are
     fluent and need not test.
@@ -1835,6 +1902,27 @@ skills:
   - Warfare
   - Witches
   - Wrecks
+  details:
+  - name: Engineering
+    description: Levers, pulleys and simple machines; recognise an artisan's work or how a complex machine works.
+  - name: Geology
+    description: Types of stone, where to dig a well or mine, whether a cave may flood or collapse.
+  - name: Heraldry
+    description: The banners and coats of arms of noble houses and military units, and what their symbols mean.
+  - name: History
+    description: Facts about past events.
+  - name: Law
+    description: What the law says, how to get around it, and how to argue a case.
+  - name: Local
+    description: A place you know well — your home village or a city district. Agree the place with the GM.
+  - name: Magic
+    description: The Winds of Magic and their effects, magical traditions, and whether a grimoire is genuine.
+  - name: Metallurgy
+    description: What metal an item is made of, how it was forged and how to repair it.
+  - name: Science
+    description: Natural philosophy — how the world seems to work, and making compounds such as blackpowder or soap.
+  - name: Theology
+    description: The beliefs and practices of the religions of your culture.
   short: Knowledge of a particular subject.
   description: Basic facts are known without testing; obscure or unusual details need a Test. For Lore (Local), pick a place
     you know well.

@@ -883,6 +883,12 @@
                 ['species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
+                // Languages come from the Language skill's details, also found by their other names (Mootish…)
+                const language = reference.skills.get('language');
+                reference.languages = new Map();
+                ((language && language.details) || []).forEach(l => {
+                    [l.name, ...(l.aliases || [])].forEach(n => reference.languages.set(n.toLowerCase(), l));
+                });
                 buildDatalists();
                 describeAll();
             })
@@ -906,10 +912,15 @@
             ? s.specialisations.map(spec => [`${s.name} (${spec})`, `${s.characteristic} · ${s.short}`])
             : [[s.name, `${s.characteristic} · ${s.short}`]]));
         reference.skills.forEach(s => {
-            if (s.specialisations) setSuggestions(`ref-spec-${s.name}`, s.specialisations.map(spec => [spec, null]));
+            if (!s.specialisations) return;
+            // Melee (Basic) has its own row, so the Melee boxes offer the other groups
+            const specs = s.name === 'Melee' ? s.specialisations.filter(x => x !== 'Basic') : s.specialisations;
+            const notes = new Map((s.details || []).map(d => [d.name, d.description]));
+            setSuggestions(`ref-spec-${s.name}`, specs.map(spec => [spec, notes.get(spec) || null]));
         });
-        const language = reference.skills.get('language');
-        setSuggestions('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
+        setSuggestions('ref-languages', [...new Set(reference.languages.values())].flatMap(l =>
+            [[l.name, (l.related ? `Related: ${l.related} · ` : '') + l.description]].concat(
+                (l.aliases || []).map(a => [a, `Another name for ${l.name}`]))));
         ['weapons', 'armour', 'trappings', 'spells'].forEach(k => setSuggestions(`ref-${k}`, [...reference[k].values()].map(e => [e.name, e.short])));
         setSuggestions('ref-mutations', [...reference.mutations.values()].map(m => [m.name, `${m.type} · ${m.roll} · ${m.short}`]));
         setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
@@ -934,7 +945,7 @@
     function findEntry(kind, value) {
         if (!reference || !value) return null;
         if (kind === 'careers') return findCareer(value);
-        const map = reference[kind]; // none for languages
+        const map = reference[kind];
         return map ? map.get(String(value).trim().toLowerCase()) || map.get(baseName(value)) || null : null;
     }
 
@@ -949,6 +960,11 @@
                 c.levels.map((l, i) => `${i + 1}. ${l.name} – ${l.status}`).join('\n');
         } else if (kind === 'skills' && found) {
             text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
+            const spec = specDetail(found, input.value);
+            if (spec) text += `\n\n${found.name} (${spec.name}): ${spec.description}${spec.related ? '\nRelated languages: ' + spec.related : ''}`;
+        } else if (kind === 'languages' && found) {
+            text = `${found.name}${found.aliases ? ' (' + found.aliases.join(', ') + ')' : ''} – spoken by ${found.description.charAt(0).toLowerCase() + found.description.slice(1)}` +
+                (found.related ? `\n\nRelated languages: ${found.related}. Native speakers of these can hold a basic conversation in it.` : '');
         } else if (kind === 'species' && found) {
             const pr = found.profile || {};
             const stats = CHARACTERISTICS.map(k => `${k} ${pr[k]}`).join(' · ');
@@ -1007,6 +1023,14 @@
             const input = document.querySelector(`[data-path="careers.${i}.career"]`);
             if (input) input.dataset.suggest = id;
         });
+    }
+
+    // The detail for the specialisation in "Lore (Heraldry)" or "Language (Mootish)", if the skill has one
+    function specDetail(skill, value) {
+        const spec = (String(value).match(/\(([^)]*)\)\s*$/) || [])[1];
+        if (!spec || !skill.details) return null;
+        const s = spec.trim().toLowerCase();
+        return skill.details.find(d => d.name.toLowerCase() === s || (d.aliases || []).some(a => a.toLowerCase() === s)) || null;
     }
 
     // "Impale, Reload 2, Inflict (Entangled 50)" → one line per quality with its rule
