@@ -426,7 +426,7 @@
             });
             box.append(el('div', { class: 'career-row' }, [
                 field('Class', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.class`, 'data-suggest': 'ref-classes', 'data-ref': 'classes' })),
-                field('Career', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.career`, 'data-suggest': 'ref-careers', 'data-ref': 'careers' })),
+                field('Career', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.career`, 'data-suggest': 'ref-careers-any-any', 'data-ref': 'careers' })),
                 field('pg.', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.pg` }), 'pg'),
                 tracker,
                 field('Status', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.status` }))
@@ -880,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells'].forEach(k => {
+                ['species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 buildDatalists();
@@ -899,12 +899,8 @@
     }
 
     function buildDatalists() {
-        const careers = [...reference.careers.values()];
-        const careerOptions = list => list.flatMap(c => [[c.name, `${c.class} – ${c.short}`]].concat(
-            c.levels.map((l, i) => [`${c.name} – ${l.name}`, `Level ${i + 1} · ${l.status}`])));
+        setSuggestions('ref-species', [...reference.species.values()].map(s => [s.name, s.short]));
         setSuggestions('ref-classes', [...reference.classes.values()].map(c => [c.name, c.short]));
-        setSuggestions('ref-careers', careerOptions(careers));
-        reference.classes.forEach(cls => setSuggestions(`ref-careers-${cls.name}`, careerOptions(careers.filter(c => c.class === cls.name))));
 
         setSuggestions('ref-skills', [...reference.skills.values()].flatMap(s => s.specialisations
             ? s.specialisations.map(spec => [`${s.name} (${spec})`, `${s.characteristic} · ${s.short}`])
@@ -953,6 +949,9 @@
                 c.levels.map((l, i) => `${i + 1}. ${l.name} – ${l.status}`).join('\n');
         } else if (kind === 'skills' && found) {
             text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
+        } else if (kind === 'species' && found) {
+            text = [`${found.name} – ${found.short}`, found.description, `Mutation: ${found.mutation}`,
+                `Careers (${found.careers.length}): ${found.careers.join(', ')}`].join('\n\n');
         } else if (kind === 'mutations' && found) {
             text = `${found.name} (${found.type}, d100 ${found.roll}) – ${found.short}\n\nEffect: ${found.effect}`;
         } else if (kind === 'weapons' && found) {
@@ -981,12 +980,29 @@
         input.title = text;
         setInfoButton(input, text);
 
-        // The career suggestions follow the class picked on the same row
-        if (kind === 'classes') {
-            const row = input.dataset.path.split('.')[1];
-            const careerInput = document.querySelector(`[data-path="careers.${row}.career"]`);
-            careerInput.dataset.suggest = found ? `ref-careers-${found.name}` : 'ref-careers';
-        }
+        if (kind === 'classes' || kind === 'species') updateCareerSuggestions();
+    }
+
+    // Career suggestions: each career plus its four levels
+    function careerOptions(list) {
+        return list.flatMap(c => [[c.name, `${c.class} – ${c.short}`]].concat(
+            c.levels.map((l, i) => [`${c.name} – ${l.name}`, `Level ${i + 1} · ${l.status}`])));
+    }
+
+    // The career suggestions on each row follow the class picked on that row and the species.
+    function updateCareerSuggestions() {
+        if (!reference) return;
+        const species = findEntry('species', character.species);
+        character.careers.forEach((row, i) => {
+            const cls = findEntry('classes', row.class);
+            const id = `ref-careers-${cls ? cls.name : 'any'}-${species ? species.name : 'any'}`;
+            if (!suggestions.has(id)) {
+                setSuggestions(id, careerOptions([...reference.careers.values()].filter(c =>
+                    (!cls || c.class === cls.name) && (!species || c.species.includes(species.name)))));
+            }
+            const input = document.querySelector(`[data-path="careers.${i}.career"]`);
+            if (input) input.dataset.suggest = id;
+        });
     }
 
     // "Impale, Reload 2, Inflict (Entangled 50)" → one line per quality with its rule
@@ -1114,7 +1130,7 @@
     }
 
     function setInfoButton(input, text) {
-        const cell = input.closest('.cell');
+        const cell = input.closest('.cell, .field');
         if (!cell) return;
         let btn = cell.querySelector('.field-info');
         if (!text) {

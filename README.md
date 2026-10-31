@@ -15,6 +15,7 @@ The site is a Warhammer Fantasy Roleplay character sheet (https://warhammer.no/)
 - The Spells and Prayers name field suggests the 5th edition petty, arcane, colour-lore, witch and dark spells (146) and the blessings and miracles of each cult (79). Picking one fills in the row's empty CN, range, target, duration and effect.
 - The Mutation field suggests the 40 mutations from the 5th edition Physical and Mental Corruption tables (with their d100 roll). Picking one fills in an empty Type and Effect. Under the corruption skulls the sheet shows when to test for mutation (more Corruption Points than WP Bonus + T Bonus) and the mutation limits (physical up to T Bonus, mental up to WP Bonus), in red when one is exceeded.
 - Text fields grow downwards as you type, up to 10 lines; longer text scrolls inside the field. Fields that are one line on the printed sheet wrap but don't take line breaks (Enter does nothing).
+- The Species field suggests the five species (Dwarf, Halfling, High Elf, Human, Wood Elf); the description lists which careers each can take and how it mutates. Once a species is chosen, the career suggestions only offer careers open to it (combined with the class picked on that row).
 - Class, career, talent, advanced skill, language and skill specialisation fields offer drop-down suggestions from `data/reference.yaml` (WFRP 5th edition classes, careers, skills and talents, each with a short and a longer description). The drop-down is the page's own (not a browser `<datalist>`), so these fields wrap and grow like the others: it opens when the field gets focus, filters as you type, and works with the arrow keys, Enter, Escape and the mouse. You can still type anything. Picking a career fills in an empty class and status, picking a talent fills in an empty description, and picking a skill fills in an empty characteristic. Hovering over a filled-in field shows its description, and the small ⓘ button in the field's corner shows the same text as a panel (for phones and tablets). Tap ⓘ again, tap elsewhere or press Escape to close it. The suggestions need the page to be served over http(s); opened as a local file the fields are plain text.
 
 Files:
@@ -24,5 +25,5 @@ Files:
 - `css/art.css` – theme artwork (backgrounds, corners, dividers); the pictures are `img/art/<theme>-tile|corner|divider.svg`
 - `js/sheet.js` – saving, loading, YAML and calculations
 - `img/default-portrait.svg` – default portrait
-- `data/reference.yaml` – classes, careers (with levels and status), skills, talents, mutations, weapons, armour, trappings, weapon/armour qualities, spells and prayers for the drop-down suggestions
+- `data/reference.yaml` – species, classes, careers (with levels and status), skills, talents, mutations, weapons, armour, trappings, weapon/armour qualities, spells and prayers for the drop-down suggestions
 - `js/vendor/js-yaml.min.js` – [js-yaml](https://github.com/nodeca/js-yaml) 4.1.0 (MIT)

@@ -541,8 +541,8 @@ button.danger { color: var(--warn); }
 .info-btn:hover, .info-btn[aria-expanded="true"] { background: var(--calc); border-color: var(--line-soft); }
 .info-pop[hidden] { display: none; }
 /* Fields with a description: small ⓘ in the bottom right corner of the field */
-.cell.has-info { position: relative; align-self: start; } /* no stretching, so the ⓘ stays in the field */
-.cell.has-info textarea { padding-right: 1.7rem; }
+.cell.has-info, .field.has-info { position: relative; align-self: start; } /* no stretching, so the ⓘ stays in the field */
+.cell.has-info textarea, .field.has-info textarea { padding-right: 1.7rem; }
 .info-btn.field-info { position: absolute; right: 3px; bottom: 4px; width: 1.35rem; height: 1.35rem; font-size: 0.9rem; }
 .info-pop.floating {
     position: absolute;
