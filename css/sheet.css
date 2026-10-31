@@ -531,6 +531,24 @@ button.danger { color: var(--warn); }
 .corruption-label output { min-width: 2.5rem; }
 /* Text with a hover tip */
 .has-tip { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
+/* ⓘ button that opens the same text as a panel, for touch screens */
+.info-btn {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 1.6rem; height: 1.6rem; padding: 0;
+    font-size: 1.05rem; line-height: 1; color: var(--accent);
+    background: none; border: 1px solid transparent; border-radius: 50%;
+}
+.info-btn:hover, .info-btn[aria-expanded="true"] { background: var(--calc); border-color: var(--line-soft); }
+.info-pop[hidden] { display: none; }
+.info-pop {
+    margin: 0 0 10px;
+    padding: 10px 12px;
+    font-size: 0.9rem;
+    white-space: pre-line;
+    background: var(--field);
+    border: 1px solid var(--line-soft);
+    border-radius: var(--radius);
+}
 .corruption-track { display: flex; flex-wrap: wrap; gap: 0; }
 .corruption-track .skull { width: 1.9rem; height: 1.9rem; }
 .corruption-limits { margin: -4px 0 10px; font-size: 0.85rem; color: var(--ink-soft); }
@@ -635,7 +653,7 @@ button.primary:hover { background: var(--accent); filter: brightness(1.1); }
 /* ---------- 7. Print ---------- */
 @media print {
     :root { --paper: #fff; --panel: #fff; --field: #fff; --calc: #fff; --font-size: 11px; }
-    .toolbar, .menu-btn, .dialog, .footer, .row-add, .row-remove, .hint, .suggest { display: none !important; }
+    .toolbar, .menu-btn, .dialog, .footer, .row-add, .row-remove, .hint, .suggest, .info-btn, .info-pop { display: none !important; }
     .sheet { padding: 0; }
     .panel { break-inside: avoid; }
 }

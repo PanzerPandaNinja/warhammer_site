@@ -1000,6 +1000,35 @@
         }
     }
 
+    /* ---------- ⓘ info panels ---------- */
+
+    // An ⓘ button (data-info = panel id) shows the hover tip of the panel's data-source element
+    // as a panel, so the text can also be read on touch screens.
+    function initInfo() {
+        document.querySelectorAll('.info-pop[data-source]').forEach(pop => {
+            pop.textContent = document.getElementById(pop.dataset.source).title;
+        });
+        const setOpen = (btn, open) => {
+            document.getElementById(btn.dataset.info).hidden = !open;
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        const openButtons = () => document.querySelectorAll('.info-btn[aria-expanded="true"]');
+        document.addEventListener('click', e => {
+            const btn = e.target.closest('.info-btn');
+            if (btn) {
+                setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
+                return;
+            }
+            // A click outside an open panel closes it
+            openButtons().forEach(b => {
+                if (!document.getElementById(b.dataset.info).contains(e.target)) setOpen(b, false);
+            });
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape') openButtons().forEach(b => setOpen(b, false));
+        });
+    }
+
     /* ---------- suggestion drop-down ---------- */
 
     // A drop-down list for text fields that name a suggestion list with data-suggest. Works like
@@ -1175,6 +1204,7 @@
         initTheme();
         initDraw();
         initSuggest();
+        initInfo();
         loadReference();
         renderCareers();
         renderCharacteristics();
