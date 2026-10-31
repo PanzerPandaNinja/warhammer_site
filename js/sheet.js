@@ -1082,12 +1082,15 @@
         const openButtons = () => document.querySelectorAll('.info-btn[data-info][aria-expanded="true"]');
         document.addEventListener('click', e => {
             const btn = e.target.closest('.info-btn');
+            // Opening one panel closes the others
+            if (btn) openButtons().forEach(b => { if (b !== btn) setOpen(b, false); });
             if (btn && btn.classList.contains('field-info')) {
                 if (btn === fieldInfoButton) closeFieldInfo();
                 else openFieldInfo(btn);
                 return;
             }
             if (btn) {
+                closeFieldInfo();
                 setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
                 return;
             }
