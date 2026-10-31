@@ -953,8 +953,14 @@
 
     // Tooltip with the description of whatever the field names.
     function describe(input) {
-        const kind = input.dataset.ref;
-        const found = findEntry(kind, input.value);
+        let kind = input.dataset.ref;
+        let found = findEntry(kind, input.value);
+        // A trapping may be a shop weapon or armour ("Hand Weapon (Axe)"), and may come from a career
+        const careerNote = kind === 'trappings' && reference ? careerTrappingNote(input.value) : '';
+        if (kind === 'trappings' && !found && reference) {
+            const item = findItem(input.value);
+            if (item) [kind, found] = item;
+        }
         let text = '';
         if (kind === 'careers' && found) {
             const c = found.career;
@@ -1003,6 +1009,7 @@
         } else if (found) {
             text = `${found.name} – ${found.short}\n\n${found.description}`;
         }
+        if (careerNote) text = (text || input.value.trim()) + '\n\n' + careerNote;
         input.title = text;
         setInfoButton(input, text);
 
@@ -1040,6 +1047,55 @@
             const status = document.querySelector(`[data-path="careers.${i}.status"]`);
             if (status) status.dataset.suggest = statusId;
         });
+        updateTrappingSuggestions();
+    }
+
+    // The trappings of the character's careers, level by level, come first in the trappings list.
+    function updateTrappingSuggestions() {
+        const careers = [...new Map(character.careers.map(r => findCareer(r.career)).filter(Boolean)
+            .map(f => [f.career.name, f.career])).values()];
+        const id = careers.length ? `ref-trappings-${careers.map(c => c.name).join('|')}` : 'ref-trappings';
+        if (!suggestions.has(id)) {
+            const own = new Map();
+            careers.forEach(c => c.levels.forEach((l, i) => (l.trappings || []).forEach(t => {
+                if (own.has(t)) return;
+                const item = findItem(t);
+                own.set(t, `${c.name} level ${i + 1}: ${l.name}` + (item ? ` · ${item[1].short}` : ''));
+            })));
+            const shop = (suggestions.get('ref-trappings') || []).filter(o => !own.has(o.value)).map(o => [o.value, o.label]);
+            setSuggestions(id, [...own].concat(shop));
+        }
+        document.querySelectorAll('[data-ref="trappings"]').forEach(input => { input.dataset.suggest = id; });
+    }
+
+    // A shop item for a trapping name: trappings first, then weapons and armour.
+    // Also tries "Hand Weapon (Axe)" → Hand Weapon, "Bow with 10 Arrows" → Bow, "Book (Law)" → Book, Law.
+    function findItem(value) {
+        const v = String(value || '').trim().toLowerCase();
+        if (!v || !reference) return null;
+        const names = [v, baseName(v), v.replace(/\s+with\s.*$/, ''), v.replace(/^book \((.*)\)$/, 'book, $1')];
+        for (const kind of ['trappings', 'weapons', 'armour']) {
+            for (const n of names) {
+                const entry = reference[kind].get(n);
+                if (entry) return [kind, entry];
+            }
+        }
+        return null;
+    }
+
+    // "Career trapping: Thief level 2 (Thief)" for trappings of the character's careers
+    function careerTrappingNote(value) {
+        const v = String(value || '').trim().toLowerCase();
+        if (!v) return '';
+        const sources = [];
+        character.careers.forEach(r => {
+            const f = findCareer(r.career);
+            if (!f) return;
+            f.career.levels.forEach((l, i) => {
+                if ((l.trappings || []).some(t => t.toLowerCase() === v)) sources.push(`${f.career.name} level ${i + 1} (${l.name})`);
+            });
+        });
+        return sources.length ? `Career trapping: ${[...new Set(sources)].join(', ')}` : '';
     }
 
     // Every status from Brass 0 to Gold 7, with a career's own levels first when given
@@ -1142,7 +1198,7 @@
     }
 
     function applyReference(input) {
-        const found = findEntry(input.dataset.ref, input.value);
+        const found = findEntry(input.dataset.ref, input.value) || (input.dataset.ref === 'trappings' && findItem(input.value));
         if (!found) return;
         const kind = input.dataset.ref;
         if (kind === 'careers') {
@@ -1174,7 +1230,8 @@
             fillIfEmpty(`${row}.duration`, found.duration, true);
             fillIfEmpty(`${row}.effect`, found.effect, true);
         } else if (kind === 'trappings') {
-            fillIfEmpty(`trappings.${input.dataset.listField.split('.')[1]}.enc`, found.enc, true);
+            const item = findItem(input.value);
+            if (item) fillIfEmpty(`trappings.${input.dataset.listField.split('.')[1]}.enc`, item[1].enc, true);
         } else if (kind === 'mutations') {
             const row = input.dataset.listField.split('.')[1];
             fillIfEmpty(`mutations.${row}.type`, found.type, true);

@@ -470,12 +470,23 @@ careers:
   levels:
   - name: Aide
     status: Silver 1
+    trappings:
+    - Writing Kit
   - name: Adviser
     status: Silver 3
+    trappings:
+    - Livery
   - name: Counsellor
     status: Silver 5
+    trappings:
+    - Aide
+    - Quality Clothing
   - name: Chancellor
     status: Gold 3
+    trappings:
+    - Quality Courtly Garb
+    - Riding Horse
+    - Staff of Advisers and Aides
 - name: Agitator
   class: Burgher
   species:
@@ -488,12 +499,27 @@ careers:
   levels:
   - name: Pamphleteer
     status: Brass 1
+    trappings:
+    - Hammer and Nails
+    - Pile of Leaflets
+    - Writing Kit
   - name: Agitator
     status: Brass 2
+    trappings:
+    - Leather Jack
+    - Sturdy Crate
   - name: Rabble Rouser
     status: Brass 3
+    trappings:
+    - Hand Weapon
+    - Pamphleteer
   - name: Demagogue
     status: Brass 5
+    trappings:
+    - Impressive Hat
+    - 3 Pamphleteers
+    - Patron
+    - Printing Press
 - name: Apothecary
   class: Academic
   species:
@@ -507,12 +533,26 @@ careers:
   levels:
   - name: Apothecary's Apprentice
     status: Brass 3
+    trappings:
+    - Book (Blank)
+    - Leather Jerkin
+    - Pestle and Mortar
   - name: Apothecary
     status: Silver 1
+    trappings:
+    - Guild Licence
+    - Trade Tools (Apothecary)
   - name: Master Apothecary
     status: Silver 3
+    trappings:
+    - Apprentice
+    - Book (Apothecary)
+    - Workshop (Apothecary)
   - name: Apothecary General
     status: Gold 1
+    trappings:
+    - Commission Papers
+    - Large Workshop (Apothecary)
 - name: Artisan
   class: Burgher
   species:
@@ -527,12 +567,25 @@ careers:
   levels:
   - name: Apprentice Artisan
     status: Brass 2
+    trappings:
+    - Chalk
+    - Leather Jerkin
+    - 1d10 Rags
   - name: Artisan
     status: Silver 1
+    trappings:
+    - Guild Licence
+    - Trade Tools (as Trade)
   - name: Master Artisan
     status: Silver 3
+    trappings:
+    - Apprentice
+    - Workshop (as Trade)
   - name: Guildmaster
     status: Gold 1
+    trappings:
+    - Guild
+    - Quality Clothing
 - name: Artist
   class: Courtier
   species:
@@ -547,12 +600,24 @@ careers:
   levels:
   - name: Apprentice Artist
     status: Brass 2
+    trappings:
+    - Brush or Chisel or Writing Kit
   - name: Artist
     status: Silver 1
+    trappings:
+    - Sling Bag containing Trade Tools (Artist)
   - name: Master Artist
     status: Silver 4
+    trappings:
+    - Apprentice
+    - Patron
+    - Workshop (Artist)
   - name: Maestro
     status: Gold 2
+    trappings:
+    - 3 Apprentices
+    - Large Workshop (Artist)
+    - Library (Art)
 - name: Bailiff
   class: Peasant
   species:
@@ -565,12 +630,26 @@ careers:
   levels:
   - name: Tax Collector
     status: Silver 1
+    trappings:
+    - Hand Weapon
+    - Small Lock Box
   - name: Bailiff
     status: Silver 5
+    trappings:
+    - Leather Jack
+    - 3 Tax Collectors
   - name: Reeve
     status: Gold 1
+    trappings:
+    - Bailiff
+    - Breastplate
+    - Riding Horse
   - name: Magistrate
     status: Gold 2
+    trappings:
+    - Library (Law)
+    - Quality Robes
+    - Seal of Office
 - name: Beggar
   class: Burgher
   species:
@@ -583,12 +662,25 @@ careers:
   levels:
   - name: Pauper
     status: Brass 0
+    trappings:
+    - Cup
+    - Poor Quality Blanket
   - name: Beggar
     status: Brass 1
+    trappings:
+    - Bowl
+    - Crutch
   - name: Master Beggar
     status: Brass 4
+    trappings:
+    - Disguise Kit
+    - Hiding Place
+    - Pauper Follower
   - name: Beggar King
     status: Silver 2
+    trappings:
+    - Lair
+    - Large Group of Beggar Followers
 - name: Boatman
   class: Riverfolk
   species:
@@ -602,12 +694,26 @@ careers:
   levels:
   - name: Boathand
     status: Brass 3
+    trappings:
+    - Hand Weapon (Boat Hook)
+    - Leather Jack
+    - Pole
   - name: Boatman
     status: Silver 1
+    trappings:
+    - Rope
+    - Rowboat
   - name: Bargeswain
     status: Silver 2
+    trappings:
+    - Backpack
+    - Trade Tools (Carpenter)
+    - Trade Tools (Physician)
   - name: Barge Master
     status: Silver 5
+    trappings:
+    - Barge and Crew
+    - Hat
 - name: Bounty Hunter
   class: Ranger
   species:
@@ -622,12 +728,28 @@ careers:
   levels:
   - name: Thief-taker
     status: Silver 1
+    trappings:
+    - Hand Weapon
+    - Leather Jerkin
+    - Rope
   - name: Bounty Hunter
     status: Silver 3
+    trappings:
+    - 2 Bolas or Crossbow with 10 Bolts or Lasso
+    - Leather Coif
+    - Manacles
+    - Net
+    - Warrant Papers
   - name: Master Bounty Hunter
     status: Silver 5
+    trappings:
+    - Mail Shirt
+    - Riding Horse
   - name: Bounty Hunter General
     status: Gold 1
+    trappings:
+    - Draught Horse and Cart
+    - 4 Pairs of Manacles
 - name: Cavalryman
   class: Warrior
   species:
@@ -640,12 +762,24 @@ careers:
   levels:
   - name: Horseman
     status: Silver 3
+    trappings:
+    - Bow with 10 Arrows or Pistol with 10 Shots
+    - Leather Jack
+    - Light Warhorse
   - name: Cavalryman
     status: Silver 4
+    trappings:
+    - Breastplate
+    - Open Helm
   - name: Cavalry Sergeant
     status: Gold 1
+    trappings:
+    - Sash
   - name: Cavalry Officer
     status: Gold 2
+    trappings:
+    - Deck of Cards
+    - Quality Clothing
 - name: Charlatan
   class: Rogue
   species:
@@ -658,12 +792,27 @@ careers:
   levels:
   - name: Swindler
     status: Brass 3
+    trappings:
+    - Deck of Cards
+    - Dice
+    - 2 Sets of Clothing
   - name: Charlatan
     status: Brass 5
+    trappings:
+    - Forged Document
+    - Colourful Mixtures
+    - Trinkets and Charms
+    - 2 Sets of Quality Clothing
   - name: Con Artist
     status: Silver 2
+    trappings:
+    - Disguise Kit
+    - Multiple Forged Documents
   - name: Scoundrel
     status: Silver 4
+    trappings:
+    - Forged Seal
+    - Writing Kit
 - name: Coachman
   class: Ranger
   species:
@@ -676,12 +825,26 @@ careers:
   levels:
   - name: Postilion
     status: Silver 1
+    trappings:
+    - Coach Horn
+    - Hat
+    - Leather Jerkin
+    - Warm Coat
   - name: Coachman
     status: Silver 2
+    trappings:
+    - Blunderbuss with 10 Shots
+    - Whip
   - name: Coach Master
     status: Silver 3
+    trappings:
+    - Pistol with 10 Shots
+    - Quality Cloak
   - name: Route Master
     status: Gold 2
+    trappings:
+    - Fleet of Coaches and Horses
+    - Maps
 - name: Duellist
   class: Courtier
   species:
@@ -694,12 +857,25 @@ careers:
   levels:
   - name: Fencer
     status: Silver 3
+    trappings:
+    - Melee Weapon (Any)
+    - Sling Bag containing Clothing and 1d10 Bandages
   - name: Duellist
     status: Silver 4
+    trappings:
+    - Main Gauche or Sword-breaker
+    - Pistol with 10 Shots
   - name: Duelmaster
     status: Gold 1
+    trappings:
+    - Hand Weapon
+    - Quality Rapier
+    - Trusty Second
+    - 2 Wooden Training Swords
   - name: Judicial Champion
     status: Gold 2
+    trappings:
+    - 2 Quality Weapons
 - name: Engineer
   class: Academic
   species:
@@ -712,12 +888,24 @@ careers:
   levels:
   - name: Student Engineer
     status: Brass 4
+    trappings:
+    - Book (Engineer)
+    - Hammer and Spikes
   - name: Engineer
     status: Silver 3
+    trappings:
+    - Guild Licence
+    - Trade Tools (Engineer)
   - name: Master Engineer
     status: Silver 5
+    trappings:
+    - Workshop (Engineer)
   - name: Chartered Engineer
     status: Gold 2
+    trappings:
+    - Library (Engineering)
+    - Quality Trade Tools (Engineer)
+    - Large Workshop (Engineer)
 - name: Entertainer
   class: Ranger
   species:
@@ -732,12 +920,26 @@ careers:
   levels:
   - name: Busker
     status: Brass 3
+    trappings:
+    - Bowl
+    - Musical Instrument
   - name: Entertainer
     status: Brass 5
+    trappings:
+    - Costume
+    - Instrument
+    - 5 Throwing Knives
   - name: Troubadour
     status: Silver 3
+    trappings:
+    - Trained Animal
+    - Writing Kit
   - name: Troupe Leader
     status: Gold 1
+    trappings:
+    - Draught Horses and Wagon (Stage)
+    - Troupe of Entertainers
+    - Wardrobe of Costumes and Props
 - name: Envoy
   class: Courtier
   species:
@@ -752,12 +954,27 @@ careers:
   levels:
   - name: Herald
     status: Silver 2
+    trappings:
+    - Leather Jack
+    - Livery
+    - Scroll Case
   - name: Envoy
     status: Silver 4
+    trappings:
+    - 10 Sheets of Parchment
+    - Writing Kit
   - name: Diplomat
     status: Gold 2
+    trappings:
+    - Aide
+    - Quality Clothes
+    - Map
   - name: Ambassador
     status: Gold 5
+    trappings:
+    - Best Quality Courtly Clothes
+    - Herald
+    - Staff of Diplomats
 - name: Fence
   class: Rogue
   species:
@@ -771,12 +988,26 @@ careers:
   levels:
   - name: Broker
     status: Brass 5
+    trappings:
+    - Hand Weapon
+    - Stolen Goods worth 1d10 Shillings
   - name: Fence
     status: Silver 1
+    trappings:
+    - Eyeglass
+    - Trade Tools (Engraver)
+    - Writing Kit
   - name: Trafficker
     status: Silver 3
+    trappings:
+    - Horse and Cart
+    - Pawnbroker’s Shop
   - name: Black Marketeer
     status: Gold 1
+    trappings:
+    - Gang of Racketeers
+    - Network of Informers
+    - Warehouse
 - name: Flagellant
   class: Ranger
   species:
@@ -787,12 +1018,23 @@ careers:
   levels:
   - name: Penitent
     status: Brass 0
+    trappings:
+    - Flail
+    - Tattered Robes
   - name: Flagellant
     status: Brass 0
+    trappings:
+    - Military Flail
+    - Religious Symbol
   - name: Zealot
     status: Brass 0
+    trappings:
+    - Religious Relic
   - name: Prophet of Doom
     status: Brass 0
+    trappings:
+    - Book (Religion)
+    - Followers (including Penitents, Flagellants, and Zealots)
 - name: Grave Robber
   class: Rogue
   species:
@@ -804,12 +1046,35 @@ careers:
   levels:
   - name: Penny Thief
     status: Brass 2
+    trappings:
+    - Crowbar
+    - Hooded Cloak
+    - Sack
+    - Shovel
   - name: Grave Robber
     status: Brass 4
+    trappings:
+    - Backpack
+    - Handcart
+    - Hand Weapon
+    - Storm Lantern and Oil
+    - Tarpaulin
+    - Trade Tools (Thief)
   - name: Tomb Robber
     status: Silver 3
+    trappings:
+    - Horse and Cart
+    - Leather Jack
+    - Pick
+    - Rope
   - name: Treasure Hunter
     status: Silver 5
+    trappings:
+    - Bedroll
+    - Maps
+    - Tent
+    - Trade Tools (Engineer)
+    - Writing Kit
 - name: Guard
   class: Warrior
   species:
@@ -824,12 +1089,28 @@ careers:
   levels:
   - name: Sentry
     status: Brass 5
+    trappings:
+    - Buckler
+    - Leather Jerkin
+    - Storm Lantern with Oil
   - name: Guard
     status: Silver 2
+    trappings:
+    - Bow with 10 Arrows
+    - Sleeved Mail Shirt
+    - Shield
+    - Spear
   - name: Honour Guard
     status: Silver 4
+    trappings:
+    - Great Weapon or Halberd
+    - Helmet
+    - Uniform
   - name: Guard Officer
     status: Gold 1
+    trappings:
+    - Breastplate
+    - Squad of Guards
 - name: Hedge Witch
   class: Peasant
   species:
@@ -840,12 +1121,25 @@ careers:
   levels:
   - name: Hedge Apprentice
     status: Brass 1
+    trappings:
+    - Amulet
+    - Hand Weapon (Sickle)
+    - Quarterstaff
   - name: Hedge Witch
     status: Brass 4
+    trappings:
+    - Healing Poultice
+    - Trade Tools (Herbalist)
   - name: Hedge Master
     status: Brass 5
+    trappings:
+    - Apprentice
+    - Isolated Hut
   - name: Hedgewise
     status: Silver 2
+    trappings:
+    - Assortment of Animal Skulls
+    - Ceremonial Cloak and Garland
 - name: Herbalist
   class: Peasant
   species:
@@ -860,12 +1154,26 @@ careers:
   levels:
   - name: Herb Gatherer
     status: Brass 1
+    trappings:
+    - Boots
+    - Cloak
+    - Hand Weapon (Sickle)
+    - Sling Bag containing Assortment of Herbs
   - name: Herbalist
     status: Brass 4
+    trappings:
+    - Trade Tools (Herbalist)
   - name: Herb Master
     status: Brass 5
+    trappings:
+    - 3 Herbal Remedies
+    - Herb Gatherer
+    - Workshop (Herbalist)
   - name: Herbwise
     status: Silver 2
+    trappings:
+    - Book (Herbs)
+    - Pony and Cart
 - name: Hunter
   class: Peasant
   species:
@@ -880,12 +1188,27 @@ careers:
   levels:
   - name: Trapper
     status: Brass 2
+    trappings:
+    - Hand Weapon (Axe)
+    - Selection of Animal Traps
+    - Sturdy Boots and Cloak
   - name: Hunter
     status: Brass 4
+    trappings:
+    - Hunting Dog
+    - Ranged Weapon (Any One)
+    - Spear
   - name: Tracker
     status: Silver 1
+    trappings:
+    - Backpack
+    - Bedroll
+    - Tent
   - name: Huntsmaster
     status: Silver 4
+    trappings:
+    - Hawk Mews or Kennel of Hunting Dogs
+    - Riding Horse
 - name: Investigator
   class: Burgher
   species:
@@ -899,12 +1222,28 @@ careers:
   levels:
   - name: Enquirer
     status: Silver 1
+    trappings:
+    - Lamp Oil
+    - Lantern
+    - Journal
+    - Writing Kit
   - name: Investigator
     status: Silver 2
+    trappings:
+    - Leather Jack
+    - Hand Weapon
+    - Magnifying Glass
+    - Lockpick
   - name: Sleuth
     status: Silver 3
+    trappings:
+    - Assistant
+    - Office
   - name: Detective
     status: Silver 5
+    trappings:
+    - Network of Informers
+    - Spyglass
 - name: Knave
   class: Rogue
   species:
@@ -917,12 +1256,22 @@ careers:
   levels:
   - name: Hustler
     status: Brass 2
+    trappings:
+    - Flask of Spirits
   - name: Knave
     status: Brass 3
+    trappings:
+    - Dose of Weirdroot
+    - Quality Clothing
   - name: Procurer
     status: Silver 1
+    trappings:
+    - A Ring of Hustlers
   - name: Ringleader
     status: Silver 3
+    trappings:
+    - A Ring of Knaves
+    - Townhouse with Discreet Back Entrance
 - name: Knight
   class: Warrior
   species:
@@ -935,12 +1284,31 @@ careers:
   levels:
   - name: Squire
     status: Silver 3
+    trappings:
+    - Leather Jack
+    - Mail Shirt
+    - Riding Horse
+    - Shield
+    - Trade Tools (Farrier)
   - name: Knight
     status: Silver 5
+    trappings:
+    - Destrier
+    - Melee Weapon (Any)
+    - Lance
+    - Plate Armour
+    - Sword
   - name: First Knight
     status: Gold 2
+    trappings:
+    - Barding
+    - Small Unit of Knights
   - name: Knight of the Inner Circle
     status: Gold 4
+    trappings:
+    - Large Unit of Knights or Several Small Units of Knights
+    - Plumed Great Helm
+    - Squire
 - name: Lawyer
   class: Academic
   species:
@@ -954,12 +1322,25 @@ careers:
   levels:
   - name: Student Lawyer
     status: Brass 4
+    trappings:
+    - Book (Law)
+    - Magnifying Glass
   - name: Lawyer
     status: Silver 3
+    trappings:
+    - Court Robes
+    - Guild Licence
+    - Writing Kit
   - name: Barrister
     status: Gold 1
+    trappings:
+    - Assistant (Student or Servant)
+    - Office
   - name: Judge
     status: Gold 2
+    trappings:
+    - Gavel
+    - Ostentatious Wig
 - name: Merchant
   class: Burgher
   species:
@@ -973,12 +1354,31 @@ careers:
   levels:
   - name: Trader
     status: Silver 2
+    trappings:
+    - Abacus
+    - Canvas Tarpaulin
+    - Mule and Cart
+    - 3d10 Shillings
   - name: Merchant
     status: Silver 5
+    trappings:
+    - Barge or 2 Wagons
+    - 20 GC
+    - Guild Licence
   - name: Master Merchant
     status: Gold 1
+    trappings:
+    - 100 GC
+    - Townhouse with Servants
+    - Warehouse
   - name: Merchant Prince
     status: Gold 3
+    trappings:
+    - 2 Barges and 4 Wagons
+    - Large Town Estate
+    - 1000 GC
+    - Quality Clothing
+    - 2 Warehouses
 - name: Messenger
   class: Ranger
   species:
@@ -993,12 +1393,26 @@ careers:
   levels:
   - name: Runner
     status: Brass 3
+    trappings:
+    - Scroll Case
   - name: Messenger
     status: Silver 2
+    trappings:
+    - Hand Weapon
+    - Leather Jack
+    - Riding Horse
   - name: Courier
     status: Silver 3
+    trappings:
+    - Backpack
+    - Saddlebags
+    - Shield
   - name: Courier-captain
     status: Silver 5
+    trappings:
+    - Couriers
+    - Mail Shirt
+    - Writing Kit
 - name: Miner
   class: Peasant
   species:
@@ -1011,12 +1425,29 @@ careers:
   levels:
   - name: Prospector
     status: Brass 2
+    trappings:
+    - Charcoal Stick
+    - Crude Map
+    - Hand Weapon (Pick)
+    - Pan
+    - Spade
+    - Two-handed Pick
   - name: Miner
     status: Brass 3
+    trappings:
+    - Davrich Lamp
+    - Lamp Oil
+    - Leather Jack
+    - Open Helm (Miner’s Helm)
   - name: Master Miner
     status: Brass 5
+    trappings:
+    - Trade Tools (Engineer)
   - name: Mine Foreman
     status: Silver 3
+    trappings:
+    - Crew of Miners
+    - Writing Kit
 - name: Mystic
   class: Peasant
   species:
@@ -1029,12 +1460,21 @@ careers:
   levels:
   - name: Fortune Teller
     status: Brass 1
+    trappings:
+    - Cheap Jewellery
+    - Deck of Cards or Dice
   - name: Mystic
     status: Brass 3
+    trappings:
+    - Selection of Amulets
   - name: Augur
     status: Silver 1
+    trappings:
+    - Writing Kit
   - name: Seer
     status: Silver 2
+    trappings:
+    - Trade Tools (Astrology)
 - name: Noble
   class: Courtier
   species:
@@ -1049,12 +1489,34 @@ careers:
   levels:
   - name: Scion
     status: Gold 1
+    trappings:
+    - Courtly Garb
+    - Foil or Hand Mirror
+    - Velvet Cloak
+    - Jewellery worth 3d10 GC
+    - Personal Servant
   - name: Noble
     status: Gold 2
+    trappings:
+    - Coach or Riding Horse
+    - 4 Household Servants
+    - Jewellery worth 50 GC
+    - Main-gauche or Pistol with 10 Shots
+    - Quality Courtly Garb
   - name: Grandee
     status: Gold 5
+    trappings:
+    - Fiefdom
+    - 200 GC
+    - Jewellery worth 200 GC
+    - 2 sets of Quality Courtly Garb
+    - Signet Ring
   - name: Noble Lord
     status: Gold 7
+    trappings:
+    - 500 GC
+    - Jewellery worth 500 GC
+    - Province
 - name: Nun
   class: Academic
   species:
@@ -1065,12 +1527,23 @@ careers:
   levels:
   - name: Novice
     status: Brass 1
+    trappings:
+    - Religious Symbol
+    - Robes
   - name: Nun
     status: Silver 1
+    trappings:
+    - Book (Religion)
+    - Religious Relic
   - name: Abbess
     status: Gold 1
+    trappings:
+    - Abbey
+    - Library (Theology)
   - name: Prioress General
     status: Gold 4
+    trappings:
+    - Religious Order
 - name: Outlaw
   class: Rogue
   species:
@@ -1085,12 +1558,27 @@ careers:
   levels:
   - name: Brigand
     status: Brass 3
+    trappings:
+    - Bedroll
+    - Hand Weapon
+    - Leather Jerkin
+    - Tinderbox
   - name: Outlaw
     status: Brass 5
+    trappings:
+    - Bow with 10 Arrows or Crossbow with 10 Bolts or Shield
+    - Tent
   - name: Outlaw Chief
     status: Silver 3
+    trappings:
+    - Band of Outlaws
+    - Helmet
+    - Sleeved Mail Shirt
   - name: Bandit King
     status: Gold 1
+    trappings:
+    - ‘Fiefdom’ of Outlaw Chiefs
+    - Lair
 - name: Pedlar
   class: Ranger
   species:
@@ -1103,12 +1591,31 @@ careers:
   levels:
   - name: Vagabond
     status: Brass 1
+    trappings:
+    - Basket
+    - Blanket
+    - Goods worth 2d10 Pennies
+    - Small Tent
   - name: Pedlar
     status: Brass 4
+    trappings:
+    - Backpack or Handcart
+    - Bedroll
+    - Goods worth 8d10 Pennies
+    - Pots and Pans
+    - Trade Tools (Tinker)
   - name: Carter
     status: Silver 2
+    trappings:
+    - Mule and Cart
+    - Goods worth at least 2d10 Shillings
+    - Sling with 10 Bullets
   - name: Wandering Trader
     status: Silver 3
+    trappings:
+    - Draught Horse and Wagon
+    - Goods worth at least 3d10 Shillings
+    - 4d10 Shillings
 - name: Physician
   class: Academic
   species:
@@ -1122,12 +1629,25 @@ careers:
   levels:
   - name: Physician's Apprentice
     status: Brass 4
+    trappings:
+    - Bandages
+    - Vitality Draught
   - name: Physician
     status: Silver 3
+    trappings:
+    - Book (Medicine)
+    - Guild Licence
+    - Trade Tools (Physician)
   - name: Doktor
     status: Silver 5
+    trappings:
+    - Apprentice
+    - Workshop (Physician)
   - name: Court Physician
     status: Gold 1
+    trappings:
+    - Courtly Attire
+    - Letter of Appointment
 - name: Pilot
   class: Riverfolk
   species:
@@ -1141,12 +1661,24 @@ careers:
   levels:
   - name: Riverguide
     status: Brass 4
+    trappings:
+    - Hand Weapon (Boat Hook)
   - name: Pilot
     status: Silver 1
+    trappings:
+    - Leather Jerkin
+    - Rope
+    - Rowboat
   - name: Navigator
     status: Silver 3
+    trappings:
+    - Pole
+    - Storm Lantern and Oil
   - name: Master Pilot
     status: Silver 5
+    trappings:
+    - Boathand
+    - Small Riverboat
 - name: Pit Fighter
   class: Warrior
   species:
@@ -1161,12 +1693,25 @@ careers:
   levels:
   - name: Pugilist
     status: Brass 4
+    trappings:
+    - Bandages
+    - Knuckledusters
+    - Leather Jack
   - name: Pit Fighter
     status: Silver 2
+    trappings:
+    - Flail or Great Weapon
+    - Net or Whip
+    - Shield
   - name: Pit Champion
     status: Silver 5
+    trappings:
+    - Breastplate
+    - Helmet
   - name: Pit Legend
     status: Gold 2
+    trappings:
+    - Quality Helmet
 - name: Priest
   class: Academic
   species:
@@ -1177,12 +1722,26 @@ careers:
   levels:
   - name: Initiate
     status: Brass 2
+    trappings:
+    - Religious Symbol
+    - Robes
   - name: Priest
     status: Silver 2
+    trappings:
+    - Book (Religion)
+    - Ceremonial Robes
   - name: High Priest
     status: Gold 1
+    trappings:
+    - Quality Robes
+    - Religious Relic
+    - Subordinate Priests
+    - Temple
   - name: Lector
     status: Gold 4
+    trappings:
+    - Library (Theology)
+    - Subordinate High Priests
 - name: Protagonist
   class: Warrior
   species:
@@ -1196,12 +1755,27 @@ careers:
   levels:
   - name: Braggart
     status: Brass 3
+    trappings:
+    - Hood or Mask
+    - Knuckledusters
+    - Leather Jack
   - name: Protagonist
     status: Brass 5
+    trappings:
+    - Mail Shirt
+    - Riding Horse
+    - Shield
   - name: Hitman
     status: Silver 4
+    trappings:
+    - Cloak
+    - Crossbow with 10 Bolts or Pistol with 10 Shots or 5 Throwing Knives
+    - Garotte
+    - Poison
   - name: Assassin
     status: Gold 1
+    trappings:
+    - Disguise Kit
 - name: Racketeer
   class: Rogue
   species:
@@ -1214,12 +1788,27 @@ careers:
   levels:
   - name: Thug
     status: Brass 3
+    trappings:
+    - Hand Weapon
+    - Knuckledusters
+    - Leather Jack
   - name: Racketeer
     status: Brass 5
+    trappings:
+    - Hat
+    - Mail Shirt
   - name: Gang Boss
     status: Silver 3
+    trappings:
+    - Crossbow Pistol with 10 Bolts
+    - Gang of Thugs and Racketeers
+    - Lair
   - name: Crime Lord
     status: Gold 1
+    trappings:
+    - Network of Informers
+    - Quality Clothing and Hat
+    - Subordinate Gang Bosses
 - name: Rat Catcher
   class: Burgher
   species:
@@ -1232,12 +1821,27 @@ careers:
   levels:
   - name: Rat Hunter
     status: Brass 3
+    trappings:
+    - Hand Weapon
+    - Sack
+    - Small Animal Traps
+    - Small but Vicious Dog
   - name: Rat Catcher
     status: Brass 5
+    trappings:
+    - Pole for Dead Rats
+    - Rat Poison
   - name: Sewer Jack
     status: Silver 2
+    trappings:
+    - Crossbow with 10 Bolts
+    - Feinkopf Lantern
+    - Leather Jack
   - name: Exterminator
     status: Silver 3
+    trappings:
+    - Assistant
+    - Sack of Poisoned Bait
 - name: Riverwarden
   class: Riverfolk
   species:
@@ -1250,12 +1854,27 @@ careers:
   levels:
   - name: River Recruit
     status: Brass 4
+    trappings:
+    - Hand Weapon
+    - Leather Jack
+    - Uniform
   - name: Riverwarden
     status: Silver 2
+    trappings:
+    - Lantern and Oil
+    - Pistol with 10 Shots
+    - Shield
   - name: Shipsword
     status: Silver 3
+    trappings:
+    - Grappling Hook
+    - Helmet
+    - Mail Shirt
   - name: Shipsword Master
     status: Gold 1
+    trappings:
+    - Patrol Boats and Crew
+    - Symbol of Rank
 - name: Riverwoman
   class: Riverfolk
   species:
@@ -1268,12 +1887,26 @@ careers:
   levels:
   - name: Greenfish
     status: Brass 2
+    trappings:
+    - Bucket
+    - Fishing Rod and Bait
+    - Leather Leggings
   - name: Riverwoman
     status: Brass 3
+    trappings:
+    - Eel Trap
+    - Leather Jerkin
+    - Net
+    - Spear
   - name: Riverwise
     status: Brass 5
+    trappings:
+    - Rowboat
+    - Storm Lantern and Oil
   - name: River Elder
     status: Silver 2
+    trappings:
+    - Barge or Hut
 - name: Roadwarden
   class: Ranger
   species:
@@ -1285,12 +1918,27 @@ careers:
   levels:
   - name: Toll Keeper
     status: Brass 5
+    trappings:
+    - Crossbow with 10 Bolts
+    - Hand Weapon
+    - Leather Jack
   - name: Roadwarden
     status: Silver 3
+    trappings:
+    - Light Warhorse
+    - Mail Shirt
+    - Pistol with 10 Shots
+    - Rope
   - name: Road Sergeant
     status: Silver 5
+    trappings:
+    - Squad of Roadwardens
+    - Symbol of Rank
   - name: Road Captain
     status: Gold 1
+    trappings:
+    - Quality Hat and Cloak
+    - Unit of Roadwardens
 - name: Sailor
   class: Riverfolk
   species:
@@ -1304,12 +1952,27 @@ careers:
   levels:
   - name: Landsman
     status: Brass 4
+    trappings:
+    - Brush
+    - Bucket
+    - Mop
   - name: Sailor
     status: Silver 2
+    trappings:
+    - Hand Weapon (Boat Hook)
+    - Leather Jerkin
   - name: Boatswain
     status: Silver 3
+    trappings:
+    - Trade Tools (Carpenter)
+    - Trade Tools (Physician)
   - name: Ship's Master
     status: Gold 2
+    trappings:
+    - Sailing Ship and Crew
+    - Sextant
+    - Shipping Charts
+    - Spyglass
 - name: Scholar
   class: Academic
   species:
@@ -1324,12 +1987,23 @@ careers:
   levels:
   - name: Student
     status: Brass 3
+    trappings:
+    - Alcohol
+    - Book
   - name: Scholar
     status: Silver 1
+    trappings:
+    - Access to a Library
+    - Degree
   - name: Fellow
     status: Silver 5
+    trappings:
+    - Mortarboard
+    - Robes
   - name: Professor
     status: Gold 1
+    trappings:
+    - Study
 - name: Scout
   class: Peasant
   species:
@@ -1344,12 +2018,28 @@ careers:
   levels:
   - name: Guide
     status: Brass 3
+    trappings:
+    - Hand Weapon
+    - Leather Jack
+    - Sturdy Boots and Cloak
+    - Rope
   - name: Scout
     status: Brass 5
+    trappings:
+    - Bow with 10 Arrows or Crossbow with 10 Bolts or Sling with 10 Lead Bullets
+    - Mail Shirt
   - name: Pathfinder
     status: Silver 1
+    trappings:
+    - Map
+    - Riding Horse
+    - Saddlebags with 2 weeks’ Rations
+    - Tent
   - name: Explorer
     status: Silver 5
+    trappings:
+    - Selection of Maps
+    - Trade Tools (Cartographer)
 - name: Servant
   class: Courtier
   species:
@@ -1362,12 +2052,25 @@ careers:
   levels:
   - name: Menial
     status: Brass 3
+    trappings:
+    - Floor Brush
   - name: Servant
     status: Brass 4
+    trappings:
+    - Livery
   - name: Attendant
     status: Silver 3
+    trappings:
+    - Lamp Oil
+    - Quality Livery
+    - Storm Lantern
+    - Tinderbox
   - name: Steward
     status: Gold 1
+    trappings:
+    - Hand Weapon
+    - Fine Clothes
+    - Servant
 - name: Slayer
   class: Warrior
   species:
@@ -1378,12 +2081,22 @@ careers:
   levels:
   - name: Troll Slayer
     status: Brass 2
+    trappings:
+    - Flask of Spirits
+    - Hand Weapon (Dwarf Axe)
+    - Tattoos
   - name: Giant Slayer
     status: Brass 2
+    trappings:
+    - Great Weapon (Greataxe)
   - name: Dragon Slayer
     status: Brass 2
+    trappings:
+    - 2 Dwarf Throwing Axes
   - name: Daemon Slayer
     status: Brass 2
+    trappings:
+    - Rune Axe
 - name: Smuggler
   class: Riverfolk
   species:
@@ -1397,12 +2110,28 @@ careers:
   levels:
   - name: River Runner
     status: Brass 4
+    trappings:
+    - Large Sack
+    - Mask or Scarves
+    - Storm Lantern and Oil
+    - Tinderbox
   - name: Smuggler
     status: Silver 1
+    trappings:
+    - 2 Barrels
+    - Hand Weapon
+    - Rowboat
   - name: Master Smuggler
     status: Silver 5
+    trappings:
+    - Pistol with 10 Shots
+    - River Runners
+    - Speedy Barge
   - name: Smuggler King
     status: Gold 3
+    trappings:
+    - Disguise Kit
+    - Small Fleet of Barges
 - name: Soldier
   class: Warrior
   species:
@@ -1417,12 +2146,30 @@ careers:
   levels:
   - name: Recruit
     status: Brass 5
+    trappings:
+    - Leather Jack
+    - Uniform
+    - Weapon (Crossbow, Handgun, Halberd, Spear, or Sword)
   - name: Soldier
     status: Silver 2
+    trappings:
+    - Breastplate
+    - Helmet
   - name: Sergeant
     status: Silver 3
+    trappings:
+    - Symbol of Rank
+    - Regiment of Recruits
   - name: Officer
     status: Gold 1
+    trappings:
+    - Letter of Commission
+    - Light Warhorse
+    - Map
+    - Orders
+    - Quality Uniform
+    - Symbol of Rank
+    - Regiment of Soldiers
 - name: Spy
   class: Courtier
   species:
@@ -1437,12 +2184,26 @@ careers:
   levels:
   - name: Informer
     status: Brass 4
+    trappings:
+    - Charcoal Stick
+    - Sling Bag containing 2 different sets of Clothing and Hooded Cloak
   - name: Spy
     status: Silver 3
+    trappings:
+    - Disguise Kit
+    - Informer
+    - Telescope
   - name: Agent
     status: Gold 1
+    trappings:
+    - Book (Cryptography)
+    - Loft of Homing Pigeons
+    - Ring of Spies and Informers
+    - Writing Kit
   - name: Spymaster
     status: Gold 3
+    trappings:
+    - Office and Staff
 - name: Stevedore
   class: Riverfolk
   species:
@@ -1455,12 +2216,26 @@ careers:
   levels:
   - name: Dockhand
     status: Brass 3
+    trappings:
+    - Hand Weapon (Boat Hook)
+    - Leather Gloves
   - name: Stevedore
     status: Brass 5
+    trappings:
+    - Guild Licence
+    - Leather Jerkin
+    - Pipe and Tobacco
+    - Porter Cap
   - name: Foreman
     status: Silver 3
+    trappings:
+    - Gang of Stevedores
+    - Whistle
   - name: Dock Master
     status: Silver 5
+    trappings:
+    - Office and Staff
+    - Writing Kit
 - name: Thief
   class: Rogue
   species:
@@ -1473,12 +2248,27 @@ careers:
   levels:
   - name: Prowler
     status: Brass 3
+    trappings:
+    - Crowbar
+    - Leather Jerkin
+    - Sack
   - name: Thief
     status: Brass 4
+    trappings:
+    - Fence Contact
+    - Rope
+    - Trade Tools (Thief)
   - name: Master Thief
     status: Brass 5
+    trappings:
+    - Crossbow Pistol with 10 Bolts
+    - Grappling Hook
+    - Several Fence Contacts
   - name: Cat Burglar
     status: Silver 3
+    trappings:
+    - Calling Card
+    - Dark Clothing
 - name: Townsman
   class: Burgher
   species:
@@ -1492,12 +2282,25 @@ careers:
   levels:
   - name: Clerk
     status: Brass 5
+    trappings:
+    - Lodgings
   - name: Townsman
     status: Silver 1
+    trappings:
+    - Modest Shop
   - name: Proprietor
     status: Silver 3
+    trappings:
+    - Blunderbuss with 10 Shots
+    - Inn or Townhouse
+    - Staff
   - name: Burgomeister
     status: Gold 3
+    trappings:
+    - Chains of Office
+    - Coach and Footman
+    - Large Townhouse with Gardens and Servants
+    - Quality Clothing
 - name: Villager
   class: Peasant
   species:
@@ -1510,12 +2313,24 @@ careers:
   levels:
   - name: Peasant
     status: Brass 2
+    trappings: []
   - name: Villager
     status: Brass 3
+    trappings:
+    - Hand Weapon (Axe)
+    - Lasso or Sling with 10 Stone Bullets
+    - Leather Jerkin
+    - Trade Tools (as Trade)
   - name: Councillor
     status: Brass 5
+    trappings:
+    - Cottage
+    - Mule and Cart
+    - Workshop (as Trade)
   - name: Village Elder
     status: Silver 2
+    trappings:
+    - The Respect of the Village
 - name: Warden
   class: Courtier
   species:
@@ -1530,12 +2345,29 @@ careers:
   levels:
   - name: Custodian
     status: Brass 4
+    trappings:
+    - Keys
+    - Lamp Oil
+    - Lantern
+    - Livery
   - name: Warden
     status: Silver 3
+    trappings:
+    - Bow with 10 Arrows or Hand Weapon
+    - Leather Jack
+    - Riding Horse
   - name: Seneschal
     status: Gold 1
+    trappings:
+    - Breastplate
+    - Rod of Office
+    - Staff of Custodians
   - name: Governor
     status: Gold 4
+    trappings:
+    - Aide
+    - Governor’s Residence
+    - Servant
 - name: Warrior Priest
   class: Warrior
   species:
@@ -1546,12 +2378,25 @@ careers:
   levels:
   - name: Neophyte
     status: Brass 2
+    trappings:
+    - Book (Religion)
+    - Melee Weapon (Any)
+    - Leather Jerkin
+    - Religious Symbol
+    - Robes
   - name: Warrior Priest
     status: Silver 3
+    trappings:
+    - Breastplate
+    - Weapon (Any)
   - name: Priest Sergeant
     status: Silver 5
+    trappings:
+    - Light Warhorse
   - name: Priest Captain
     status: Gold 1
+    trappings:
+    - Religious Relic
 - name: Watchman
   class: Burgher
   species:
@@ -1565,12 +2410,29 @@ careers:
   levels:
   - name: Watch Recruit
     status: Brass 3
+    trappings:
+    - Hand Weapon
+    - Leather Jack
+    - Uniform
   - name: Watchman
     status: Silver 1
+    trappings:
+    - Copper Badge
+    - Lamp Oil
+    - Lantern and Pole
   - name: Watch Sergeant
     status: Silver 3
+    trappings:
+    - Breastplate
+    - Open Helm
+    - Symbol of Rank
   - name: Watch Captain
     status: Gold 1
+    trappings:
+    - Quality Hand Weapon
+    - Quality Hat
+    - Quality Symbol of Rank
+    - Riding Horse
 - name: Witch
   class: Rogue
   species:
@@ -1581,12 +2443,26 @@ careers:
   levels:
   - name: Dabbler
     status: Brass 3
+    trappings:
+    - Notes Stuffed in Locked Drawer
+    - Writing Kit
   - name: Witch
     status: Silver 1
+    trappings:
+    - Grimoire
+    - Hand Weapon or Quarterstaff
   - name: Enchanter
     status: Silver 4
+    trappings:
+    - Assistant
+    - Enchanted Staff
+    - Tomes of Forbidden Knowledge
   - name: Warlock
     status: Gold 1
+    trappings:
+    - Minions
+    - Library (Magic)
+    - Remote Lair
 - name: Witch Hunter
   class: Ranger
   species:
@@ -1597,12 +2473,28 @@ careers:
   levels:
   - name: Interrogator
     status: Silver 1
+    trappings:
+    - Hand Weapon
+    - Instruments of Torture
   - name: Witch Hunter
     status: Silver 3
+    trappings:
+    - Crossbow with 10 Bolts or Pistol with 10 Shots
+    - Hat
+    - Leather Jack
+    - Riding Horse
+    - Rope
+    - Sword
   - name: Witch Hunter Captain
     status: Gold 1
+    trappings:
+    - Quality Clothing
+    - Subordinate Interrogators
   - name: Witchfinder General
     status: Gold 2
+    trappings:
+    - Quality Courtly Garb
+    - Subordinate Witch Hunters
 - name: Wizard
   class: Academic
   species:
@@ -1615,12 +2507,26 @@ careers:
   levels:
   - name: Wizard's Apprentice
     status: Brass 3
+    trappings:
+    - Grimoire
+    - Quarterstaff
   - name: Wizard
     status: Silver 3
+    trappings:
+    - Enchanted Staff
+    - Magic Licence
+    - Robes
   - name: Master Wizard
     status: Gold 1
+    trappings:
+    - Apprentice
+    - Light Warhorse
+    - Magical Item
   - name: Wizard Lord
     status: Gold 2
+    trappings:
+    - Library (Magic)
+    - Workshop (Magic)
 - name: Wrecker
   class: Riverfolk
   species:
@@ -1634,12 +2540,27 @@ careers:
   levels:
   - name: Cargo Scavenger
     status: Brass 2
+    trappings:
+    - Crowbar
+    - Large Sack
+    - Leather Gloves
   - name: Wrecker
     status: Brass 3
+    trappings:
+    - Hand Weapon (Boat Hook)
+    - Leather Jack
+    - Storm Lantern and Oil
   - name: River Pirate
     status: Brass 5
+    trappings:
+    - Crossbow with 10 Bolts or Javelin
+    - Grappling Hook and Rope
   - name: Wrecker Captain
     status: Silver 5
+    trappings:
+    - Barge and Wrecker Crew
+    - Keg of Ale
+    - Manacles
 skills:
 - name: Animal Care
   characteristic: Int
