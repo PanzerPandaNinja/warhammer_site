@@ -1035,19 +1035,19 @@ characters:
     range: Willpower yards
     target: '1'
     duration: Instant
-    effect: A dart of light strikes the target as a magic missile.
+    effect: A small magic missile with Damage +0.
   - name: Light
     cn: 0
-    range: Touch
-    target: 1 object
-    duration: Willpower Bonus hours
-    effect: The object glows as bright as a torch.
+    range: You
+    target: You
+    duration: Willpower minutes
+    effect: A torch-like light from your hand or staff, which you can brighten or dim.
   - name: Protection from Rain
     cn: 0
-    range: Touch
-    target: '1'
+    range: You
+    target: You
     duration: Willpower Bonus hours
-    effect: Keeps the target dry in the rain.
+    effect: You and your belongings stay dry in any weather.
 - name: Caelith Thornwhisper
   species: Wood Elf
   appearance: Lean and watchful, leaf-green cloak, braids threaded with feathers.

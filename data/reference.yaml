@@ -1,6 +1,6 @@
-# Reference data for the character sheet: classes, careers, skills, talents, mutations and equipment.
-source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills, talents, mutations and equipment. Descriptions
-  are short summaries, see the rulebook for the full rules.
+# Reference data for the character sheet: classes, careers, skills, talents, mutations, equipment, spells and prayers.
+source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills, talents, mutations, equipment, spells and prayers.
+  Descriptions are short summaries, see the rulebook for the full rules.
 classes:
 - name: Academic
   short: Educated folk whose power comes from learning.
@@ -4499,3 +4499,2152 @@ qualities:
 - name: Weakpoints
   kind: armour flaw
   description: A Critical Hit from an Impale weapon ignores its AP.
+lores:
+- name: Petty Spells
+  kind: magic
+  description: Simple cantrips (CN 0) learned with the Petty Magic talent.
+- name: Arcane Spells
+  kind: magic
+  description: Extra spells available to every Lore of Magic, flavoured by the caster's lore.
+- name: Lore of Beasts
+  kind: magic
+  description: Ghur, the Amber Wind — primal, savage magic of animals.
+- name: Lore of Death
+  kind: magic
+  description: Shyish, the Purple Wind — magic of endings, souls and the undead.
+- name: Lore of Fire
+  kind: magic
+  description: Aqshy, the Bright Wind — passionate, destructive flame.
+- name: Lore of Heavens
+  kind: magic
+  description: Azyr, the Celestial Wind — storms, stars, fate and fortune.
+- name: Lore of Life
+  kind: magic
+  description: Ghyran, the Jade Wind — growth, healing and the land.
+- name: Lore of Light
+  kind: magic
+  description: Hysh, the White Wind — illumination, banishment and clarity.
+- name: Lore of Metal
+  kind: magic
+  description: Chamon, the Golden Wind — metal, transmutation and alchemy.
+- name: Lore of Shadows
+  kind: magic
+  description: Ulgu, the Grey Wind — illusion, deception and concealment.
+- name: Lore of Hedgecraft
+  kind: magic
+  description: 'Witch magic of the Hedgefolk: charms, remedies and the spirit world.'
+- name: Lore of Witchcraft
+  kind: magic
+  description: Witch magic of curses, hexes and blight.
+- name: Lore of Daemonology
+  kind: magic
+  description: Dark magic for summoning, binding and banishing daemons.
+- name: Lore of Necromancy
+  kind: magic
+  description: Dark magic for raising and commanding the dead.
+- name: Lore of Nurgle
+  kind: magic
+  description: Chaos magic of disease and decay.
+- name: Lore of Slaanesh
+  kind: magic
+  description: Chaos magic of sensation, excess and seduction.
+- name: Lore of Tzeentch
+  kind: magic
+  description: Chaos magic of change, deceit and mutation.
+spells:
+- name: Animal Friend
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: 1 yard
+  target: '1'
+  duration: 1 hour
+  short: Petty Spells · CN 0 · A smaller beast trusts you completely and treats you as a friend.
+  effect: A smaller beast trusts you completely and treats you as a friend.
+- name: Bearings
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Instant
+  short: Petty Spells · CN 0 · You know which way is north.
+  effect: You know which way is north.
+- name: Careful Step
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Agility minutes
+  short: Petty Spells · CN 0 · Your feet leave plants undisturbed; trackers suffer −3 SL to follow you over rural ground.
+  effect: Your feet leave plants undisturbed; trackers suffer −3 SL to follow you over rural ground.
+- name: Conserve
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: 1 yard
+  target: Special
+  duration: Willpower Bonus days
+  short: Petty Spells · CN 0 · A day's rations stay fresh for the duration.
+  effect: A day's rations stay fresh for the duration.
+- name: Dart
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Willpower yards
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · A small magic missile with Damage +0.
+  effect: A small magic missile with Damage +0.
+- name: Dazzle
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · The target is Blinded, gaining another Blinded each Round.
+  effect: The target is Blinded, gaining another Blinded each Round.
+- name: Drain
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · A touch that is a Damage +0 magic missile ignoring AP; you heal 1 Wound.
+  effect: A touch that is a Damage +0 magic missile ignoring AP; you heal 1 Wound.
+- name: Eavesdrop
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Initiative yards
+  target: '1'
+  duration: Willpower Bonus minutes
+  short: Petty Spells · CN 0 · Hear the target as if you were standing beside them.
+  effect: Hear the target as if you were standing beside them.
+- name: Gust
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: 'Petty Spells · CN 0 · A brief gust of wind: blows out candles, slams doors, scatters papers.'
+  effect: 'A brief gust of wind: blows out candles, slams doors, scatters papers.'
+- name: Light
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Willpower minutes
+  short: Petty Spells · CN 0 · A torch-like light from your hand or staff, which you can brighten or dim.
+  effect: A torch-like light from your hand or staff, which you can brighten or dim.
+- name: Magic Flame
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · A small flame in your palm that does not burn you but lights other things.
+  effect: A small flame in your palm that does not burn you but lights other things.
+- name: Marsh Lights
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Willpower yards
+  target: Special
+  duration: Willpower minutes
+  short: Petty Spells · CN 0 · Up to Intelligence Bonus floating lights that you can steer.
+  effect: Up to Intelligence Bonus floating lights that you can steer.
+- name: Murmured Whisper
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Willpower yards
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · Throw your voice to a point within range, even out of sight.
+  effect: Throw your voice to a point within range, even out of sight.
+- name: Open Lock
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · One non-magical lock you touch opens.
+  effect: One non-magical lock you touch opens.
+- name: Produce Small Animal
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: Special
+  duration: Instant
+  short: Petty Spells · CN 0 · Pull a small local animal (rabbit, dove, rat…) out of a bag, hat or burrow.
+  effect: Pull a small local animal (rabbit, dove, rat…) out of a bag, hat or burrow.
+- name: Protection from Rain
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Willpower Bonus hours
+  short: Petty Spells · CN 0 · You and your belongings stay dry in any weather.
+  effect: You and your belongings stay dry in any weather.
+- name: Purify Water
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: 1 yard
+  target: Special
+  duration: Instant
+  short: Petty Spells · CN 0 · Makes the water (or watery drink) in a container clean and drinkable — and non-alcoholic.
+  effect: Makes the water (or watery drink) in a container clean and drinkable — and non-alcoholic.
+- name: Rot
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: 1 yard
+  target: Special
+  duration: Instant
+  short: Petty Spells · CN 0 · A fist-sized lump of organic material rots instantly (leather loses 1 AP).
+  effect: A fist-sized lump of organic material rots instantly (leather loses 1 AP).
+- name: Shock
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · A touch that Stuns the target until the end of your next Turn.
+  effect: A touch that Stuns the target until the end of your next Turn.
+- name: Sleep
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · Put a touched target to sleep; if Prone they fall Unconscious, otherwise they fall Prone.
+  effect: Put a touched target to sleep; if Prone they fall Unconscious, otherwise they fall Prone.
+- name: Sly Hands
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: You
+  target: You
+  duration: Instant
+  short: Petty Spells · CN 0 · Teleport a small object from your person into your hand.
+  effect: Teleport a small object from your person into your hand.
+- name: Sounds
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Willpower yards
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · Faint noises (footsteps, whispers, howls) come from a point you choose.
+  effect: Faint noises (footsteps, whispers, howls) come from a point you choose.
+- name: Spring
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Touch
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Petty Spells · CN 0 · Water bubbles from the ground, a pint per Round.
+  effect: Water bubbles from the ground, a pint per Round.
+- name: Twitch
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: Half Willpower yards
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · Nudge a small object; someone holding it must pass Dexterity or drop it.
+  effect: Nudge a small object; someone holding it must pass Dexterity or drop it.
+- name: Warning
+  kind: Petty spell
+  lore: Petty Spells
+  cn: 0
+  range: 1 yard
+  target: '1'
+  duration: Instant
+  short: Petty Spells · CN 0 · Learn at once whether an object is poisoned, infected or trapped.
+  effect: Learn at once whether an object is poisoned, infected or trapped.
+- name: Aethyric Armour
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 2
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 2 · +1 Armour Point on all locations.
+  effect: +1 Armour Point on all locations.
+- name: Aethyric Arms
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 3
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 3 · Conjure a Magical melee weapon of your choice.
+  effect: Conjure a Magical melee weapon of your choice.
+- name: Arrow Shield
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 3
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 3 · Arrows and other missiles with wooden parts are destroyed as they enter the area.
+  effect: Arrows and other missiles with wooden parts are destroyed as they enter the area.
+- name: Blast
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Instant
+  short: Arcane Spells · CN 4 · A Damage +3 magic missile hitting everyone in the area.
+  effect: A Damage +3 magic missile hitting everyone in the area.
+- name: Bolt
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: Willpower yards
+  target: '1'
+  duration: Instant
+  short: Arcane Spells · CN 4 · A Damage +4 magic missile.
+  effect: A Damage +4 magic missile.
+- name: Breath
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 6
+  range: Special
+  target: Special
+  duration: Instant
+  short: Arcane Spells · CN 6 · Breathe magic over a target and those near them (they may Dodge), for Willpower Bonus Damage.
+  effect: Breathe magic over a target and those near them (they may Dodge), for Willpower Bonus Damage.
+- name: Bridge
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: Willpower yards
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 4 · Create a bridge of magical energy, Willpower Bonus yards long and wide.
+  effect: Create a bridge of magical energy, Willpower Bonus yards long and wide.
+- name: Chain Attack
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 6
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: Arcane Spells · CN 6 · A Damage +4 magic missile that jumps to further targets when it wounds badly.
+  effect: A Damage +4 magic missile that jumps to further targets when it wounds badly.
+- name: Corrosive Blood
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 2
+  range: You
+  target: You
+  duration: Toughness Bonus Rounds or hours
+  short: Arcane Spells · CN 2 · Gain the Corrosive Blood trait, or kill parasites that bite you for hours.
+  effect: Gain the Corrosive Blood trait, or kill parasites that bite you for hours.
+- name: Dark Vision
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 1
+  range: You
+  target: You
+  duration: Initiative Bonus Rounds
+  short: Arcane Spells · CN 1 · Gain the Dark Vision trait.
+  effect: Gain the Dark Vision trait.
+- name: Distracting
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 4 · Swirling magic gives you the Distracting trait.
+  effect: Swirling magic gives you the Distracting trait.
+- name: Dome
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 7
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 7 · A dome giving everyone inside Ward 6+ against magic and ranged attacks from outside.
+  effect: A dome giving everyone inside Ward 6+ against magic and ranged attacks from outside.
+- name: Drop
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 1
+  range: Willpower yards
+  target: '1'
+  duration: Instant
+  short: Arcane Spells · CN 1 · The target must pass Dexterity or drop what they are holding.
+  effect: The target must pass Dexterity or drop what they are holding.
+- name: Entangle
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 3
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 3 · Entangle the target with Strength equal to your Willpower.
+  effect: Entangle the target with Strength equal to your Willpower.
+- name: Fearsome
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 2
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 2 · Gain Fear (1), +1 per +3 SL.
+  effect: Gain Fear (1), +1 per +3 SL.
+- name: Flight
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 8
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 8 · Gain the Fly trait.
+  effect: Gain the Fly trait.
+- name: Magic Shield
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 4 · Add your Willpower Bonus to SL when dispelling.
+  effect: Add your Willpower Bonus to SL when dispelling.
+- name: Move Object
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: Willpower yards
+  target: '1'
+  duration: 1 Round
+  short: Arcane Spells · CN 4 · Move a non-living object with your will (Strength equal to your Willpower).
+  effect: Move a non-living object with your will (Strength equal to your Willpower).
+- name: Mundane Aura
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: You
+  target: You
+  duration: Willpower minutes
+  short: Arcane Spells · CN 4 · Hide all trace of magic in you and your belongings — but you cannot use magic either.
+  effect: Hide all trace of magic in you and your belongings — but you cannot use magic either.
+- name: Push
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 6
+  range: You
+  target: AoE (Willpower Bonus yards, maximum)
+  duration: Instant
+  short: Arcane Spells · CN 6 · Everyone around you is hurled back, takes 1d10 Damage ignoring AP and falls Prone.
+  effect: Everyone around you is hurled back, takes 1d10 Damage ignoring AP and falls Prone.
+- name: Silence
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 4
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus minutes
+  short: Arcane Spells · CN 4 · No sound enters or leaves the area; casting there is harder.
+  effect: No sound enters or leaves the area; casting there is harder.
+- name: Teleport
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 3
+  range: You
+  target: You
+  duration: Instant
+  short: Arcane Spells · CN 3 · Teleport up to Willpower Bonus + SL yards.
+  effect: Teleport up to Willpower Bonus + SL yards.
+- name: Terrifying
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 6
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 6 · Gain Terror (1), +1 per +3 SL.
+  effect: Gain Terror (1), +1 per +3 SL.
+- name: Ward
+  kind: Arcane spell
+  lore: Arcane Spells
+  cn: 6
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Arcane Spells · CN 6 · Gain the Ward 7+ trait.
+  effect: Gain the Ward 7+ trait.
+- name: Amber Talons
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 3
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Beasts · CN 3 · Your nails become amber talons: Magical, SB+4, cause Bleeding; and you can scale sheer surfaces.'
+  effect: 'Your nails become amber talons: Magical, SB+4, cause Bleeding; and you can scale sheer surfaces.'
+- name: Beast Form
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 5
+  range: You
+  target: You
+  duration: Toughness minutes
+  short: Lore of Beasts · CN 5 · Turn into an animal and gain its traits.
+  effect: Turn into an animal and gain its traits.
+- name: Beast Master
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 10
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Willpower Bonus days
+  short: Lore of Beasts · CN 10 · A beast accepts you as its pack master and fights to the death for you.
+  effect: A beast accepts you as its pack master and fights to the death for you.
+- name: Beast Tongue
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 3
+  range: You
+  target: You
+  duration: Willpower minutes
+  short: Lore of Beasts · CN 3 · Speak with animals, who will usually hear you out.
+  effect: Speak with animals, who will usually hear you out.
+- name: Flock of Doom
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 8
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Beasts · CN 8 · A flock of birds attacks everyone in the area each Round, blinding them.
+  effect: A flock of birds attacks everyone in the area each Round, blinding them.
+- name: Hunter’s Hide
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 6
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Beasts · CN 6 · +20 Toughness, Acute Sense (Smell), Dark Vision and Fear (1).
+  effect: +20 Toughness, Acute Sense (Smell), Dark Vision and Fear (1).
+- name: The Amber Spear
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 10
+  range: Strength yards
+  target: 1 (maximum)
+  duration: Instant
+  short: Lore of Beasts · CN 10 · A Damage +8 magic missile to a location you choose, ignoring leather and fur armour, causing
+    Bleeding.
+  effect: A Damage +8 magic missile to a location you choose, ignoring leather and fur armour, causing Bleeding.
+- name: Wyssan’s Wildform
+  kind: Lore spell
+  lore: Lore of Beasts
+  cn: 8
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Beasts · CN 8 · Become a savage beast: +1 Movement, +30 Strength and Toughness, Bite, Fear, Frenzy and more.'
+  effect: 'Become a savage beast: +1 Movement, +30 Strength and Toughness, Bite, Fear, Frenzy and more.'
+- name: Caress of Laniph
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 6
+  range: Touch
+  target: 1 (maximum)
+  duration: Instant
+  short: Lore of Death · CN 6 · A touch that is a Damage +6 magic missile ignoring TB and AP, permanently lowering the target's
+    maximum Wounds.
+  effect: A touch that is a Damage +6 magic missile ignoring TB and AP, permanently lowering the target's maximum Wounds.
+- name: Dying Words
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 2
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Death · CN 2 · Talk with the soul of someone who died within the last day.
+  effect: Talk with the soul of someone who died within the last day.
+- name: Purple Pall of Shyish
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 9
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Death · CN 9 · +Willpower Bonus Armour Points and Fear (1).
+  effect: +Willpower Bonus Armour Points and Fear (1).
+- name: Sanctify
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 10
+  range: Touch
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower minutes
+  short: Lore of Death · CN 10 · A magic circle that undead cannot enter or leave.
+  effect: A magic circle that undead cannot enter or leave.
+- name: Scythe of Shyish
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 6
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Death · CN 6 · Conjure a Magical scythe (as a halberd, SB + WPB + 4); undead gain no Momentum against you.
+  effect: Conjure a Magical scythe (as a halberd, SB + WPB + 4); undead gain no Momentum against you.
+- name: Soul Vortex
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 10
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Instant
+  short: Lore of Death · CN 10 · Everyone in the area is Broken; undead also take a Damage +8 magic missile.
+  effect: Everyone in the area is Broken; undead also take a Damage +8 magic missile.
+- name: Steal Life
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 8
+  range: Willpower yards
+  target: '1'
+  duration: Instant
+  short: Lore of Death · CN 8 · A Damage +6 magic missile ignoring AP; you lose Fatigue and heal 1 Wound per 2 caused.
+  effect: A Damage +6 magic missile ignoring AP; you lose Fatigue and heal 1 Wound per 2 caused.
+- name: Swift Passing
+  kind: Lore spell
+  lore: Lore of Death
+  cn: 2
+  range: Touch
+  target: Special
+  duration: Instant
+  short: Lore of Death · CN 2 · A dying creature at 0 Wounds dies at once and cannot be raised as undead.
+  effect: A dying creature at 0 Wounds dies at once and cannot be raised as undead.
+- name: Aqshy’s Aegis
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 5
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Fire · CN 5 · Immune to normal fire and Ablaze; Ward 7+ against magical fire.
+  effect: Immune to normal fire and Ablaze; Ward 7+ against magical fire.
+- name: Cauterise
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 2
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Lore of Fire · CN 2 · Heal 1 Wound, stop all Bleeding and prevent infection.
+  effect: Heal 1 Wound, stop all Bleeding and prevent infection.
+- name: Crown of Flame
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 8
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Fire · CN 8 · Gain War Leader and Fear (2), and +1 SL to cast and channel Aqshy.
+  effect: Gain War Leader and Fear (2), and +1 SL to cast and channel Aqshy.
+- name: Firewall
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 6
+  range: Willpower yards
+  target: AoE (Special)
+  duration: Willpower Bonus Rounds
+  short: Lore of Fire · CN 6 · A wall of fire; anyone crossing it catches fire and takes a Damage +4 magic missile.
+  effect: A wall of fire; anyone crossing it catches fire and takes a Damage +4 magic missile.
+- name: Flaming Hearts
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 5
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Instant
+  short: Lore of Fire · CN 5 · Allies lose Broken and Fatigued and may test for Frenzy.
+  effect: Allies lose Broken and Fatigued and may test for Frenzy.
+- name: Flaming Sword of Rhuin
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 8
+  range: Willpower yards
+  target: 1 sword
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Fire · CN 8 · A sword bursts into flame: SB+6, Damaging, Magical, sets targets Ablaze.'
+  effect: 'A sword bursts into flame: SB+6, Damaging, Magical, sets targets Ablaze.'
+- name: Great Fires of U’Zhul
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 12
+  range: Willpower yards
+  target: 1 (maximum) + AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Fire · CN 12 · A Damage +10 fiery blast that ignores AP and sets the target Ablaze and Prone; the area around
+    burns too.
+  effect: A Damage +10 fiery blast that ignores AP and sets the target Ablaze and Prone; the area around burns too.
+- name: Purge
+  kind: Lore spell
+  lore: Lore of Fire
+  cn: 10
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Fire · CN 10 · Set the area alight to burn away corruption such as warpstone or Chaos-tainted objects.
+  effect: Set the area alight to burn away corruption such as warpstone or Chaos-tainted objects.
+- name: Cerulean Shield
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 7
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Heavens · CN 7 · +3 AP against metal weapons; whoever strikes you with metal takes Damage.
+  effect: +3 AP against metal weapons; whoever strikes you with metal takes Damage.
+- name: Comet of Casandora
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 18
+  range: Initiative yards
+  target: AoE (2 x Willpower Bonus yards)
+  duration: Special
+  short: Lore of Heavens · CN 18 · Call down a comet that strikes an area at the end of the next Round.
+  effect: Call down a comet that strikes an area at the end of the next Round.
+- name: Coruscating Arc
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 12
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: 'Lore of Heavens · CN 12 · Chain lightning: like Chain Attack but Damage +10, and it Blinds.'
+  effect: 'Chain lightning: like Chain Attack but Damage +10, and it Blinds.'
+- name: Fate’s Fickle Fingers
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 6
+  range: You
+  target: AoE (Initiative Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Heavens · CN 6 · Allies nearby pool their Fortune Points and draw from the shared pool.
+  effect: Allies nearby pool their Fortune Points and draw from the shared pool.
+- name: Starcrossed
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 7
+  range: Initiative yards
+  target: '1'
+  duration: Initiative Bonus Rounds
+  short: Lore of Heavens · CN 7 · Spend Fortune Points to make the target reroll Tests.
+  effect: Spend Fortune Points to make the target reroll Tests.
+- name: The First Portent of Amul
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 3
+  range: You
+  target: You
+  duration: Initiative Bonus Rounds
+  short: Lore of Heavens · CN 3 · Gain +1 Fortune Point for the duration (+1 per +2 SL).
+  effect: Gain +1 Fortune Point for the duration (+1 per +2 SL).
+- name: The Second Portent of Amul
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 6
+  range: You
+  target: You
+  duration: Initiative Bonus Rounds
+  short: Lore of Heavens · CN 6 · Gain 3 Fortune Points for the duration (+1 per +2 SL).
+  effect: Gain 3 Fortune Points for the duration (+1 per +2 SL).
+- name: The Third Portent of Amul
+  kind: Lore spell
+  lore: Lore of Heavens
+  cn: 12
+  range: You
+  target: You
+  duration: Initiative Rounds
+  short: Lore of Heavens · CN 12 · Gain +1 Fate Point for the duration.
+  effect: Gain +1 Fate Point for the duration.
+- name: Barkskin
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 3
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Life · CN 3 · The target''s skin turns to bark: +2 Toughness Bonus, but −10 Agility and Dexterity.'
+  effect: 'The target''s skin turns to bark: +2 Toughness Bonus, but −10 Agility and Dexterity.'
+- name: Earthblood
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 6
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Life · CN 6 · Living creatures touching the earth in the area heal Willpower Bonus Wounds each Round.
+  effect: Living creatures touching the earth in the area heal Willpower Bonus Wounds each Round.
+- name: Earthpool
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 7
+  range: Willpower yards
+  target: You
+  duration: Instant
+  short: Lore of Life · CN 7 · Sink into the ground and burst out elsewhere in range next Round, throwing back anyone above.
+  effect: Sink into the ground and burst out elsewhere in range next Round, throwing back anyone above.
+- name: Fare of the Land
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 4
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus days
+  short: Lore of Life · CN 4 · The target needs no food or drink for days.
+  effect: The target needs no food or drink for days.
+- name: Forest of Thorns
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 6
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Life · CN 6 · A thicket of thorns covers the area, hard and painful to cross.
+  effect: A thicket of thorns covers the area, hard and painful to cross.
+- name: Lie of the Land
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 5
+  range: Initiative Bonus miles
+  target: You
+  duration: Special
+  short: Lore of Life · CN 5 · Gain a mental map of the natural features around you.
+  effect: Gain a mental map of the natural features around you.
+- name: Lifebloom
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 8
+  range: Willpower Bonus yards
+  target: Special
+  duration: Instant
+  short: 'Lore of Life · CN 8 · Bring a blighted place back to life: a river flows, a well runs clean, a field grows.'
+  effect: 'Bring a blighted place back to life: a river flows, a well runs clean, a field grows.'
+- name: Regenerate
+  kind: Lore spell
+  lore: Lore of Life
+  cn: 6
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Life · CN 6 · The target gains the Regeneration trait.
+  effect: The target gains the Regeneration trait.
+- name: Banishment
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 12
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Instant
+  short: Lore of Light · CN 12 · Daemons and undead nearby with lower Toughness than your Willpower become Unstable.
+  effect: Daemons and undead nearby with lower Toughness than your Willpower become Unstable.
+- name: Blinding Light
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 5
+  range: You
+  target: You
+  duration: Instant
+  short: Lore of Light · CN 5 · A flash that Blinds (3) everyone looking at you.
+  effect: A flash that Blinds (3) everyone looking at you.
+- name: Clarity of Thought
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 6
+  range: Touch
+  target: '1'
+  duration: Intelligence minutes
+  short: 'Lore of Light · CN 6 · The target ignores penalties to thinking: Stunned, mental mutations, psychology.'
+  effect: 'The target ignores penalties to thinking: Stunned, mental mutations, psychology.'
+- name: Daemonbane
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 10
+  range: Willpower Bonus yards
+  target: 1 Daemon
+  duration: Instant
+  short: Lore of Light · CN 10 · Banish a daemon outright, or halve its Wounds if it is too strong.
+  effect: Banish a daemon outright, or halve its Wounds if it is too strong.
+- name: Healing Light
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 8
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Instant
+  short: Lore of Light · CN 8 · Heal Intelligence Bonus Wounds and remove poisons; may also cleanse fresh Corruption.
+  effect: Heal Intelligence Bonus Wounds and remove poisons; may also cleanse fresh Corruption.
+- name: Net of Amyntok
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 8
+  range: Intelligence Bonus yards
+  target: '1'
+  duration: Intelligence Bonus Rounds
+  short: 'Lore of Light · CN 8 · A net of puzzles paralyses the target: no Move, and Stunned while it lasts.'
+  effect: 'A net of puzzles paralyses the target: no Move, and Stunned while it lasts.'
+- name: Phâ’s Protection
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 10
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Light · CN 10 · Daemons, undead and mutants cannot enter the area, and no one inside gains Corruption.
+  effect: Daemons, undead and mutants cannot enter the area, and no one inside gains Corruption.
+- name: Speed of Thought
+  kind: Lore spell
+  lore: Lore of Light
+  cn: 8
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: Lore of Light · CN 8 · +20 Intelligence and Initiative.
+  effect: +20 Intelligence and Initiative.
+- name: Crucible of Chamon
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 7
+  range: Willpower Bonus yards
+  target: 1 object
+  duration: Instant
+  short: Lore of Metal · CN 7 · Melt a non-magical metal object — painful if someone is wearing it.
+  effect: Melt a non-magical metal object — painful if someone is wearing it.
+- name: Enchant Weapon
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 6
+  range: 1 yard
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Lore of Metal · CN 6 · A weapon gains +Willpower Bonus Damage, Magical and Unbreakable.
+  effect: A weapon gains +Willpower Bonus Damage, Magical and Unbreakable.
+- name: Feather of Lead
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 5
+  range: Willpower yards
+  target: Area of Effect (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Metal · CN 5 · Make everyone's gear in the area much heavier, or weightless.
+  effect: Make everyone's gear in the area much heavier, or weightless.
+- name: Fool’s Gold
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 4
+  range: Touch
+  target: '1'
+  duration: Willpower minutes
+  short: Lore of Metal · CN 4 · A metal object truly turns to gold for a while.
+  effect: A metal object truly turns to gold for a while.
+- name: Forge of Chamon
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 9
+  range: Willpower Bonus yards
+  target: Special
+  duration: Willpower minutes
+  short: Lore of Metal · CN 9 · Add a quality to a metal item or remove a flaw.
+  effect: Add a quality to a metal item or remove a flaw.
+- name: Glittering Robe
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 6
+  range: You
+  target: You
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Metal · CN 6 · A dazzling robe of scales: +2 AP, and foes in melee may be Blinded.'
+  effect: 'A dazzling robe of scales: +2 AP, and foes in melee may be Blinded.'
+- name: Mutable Metal
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 5
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Metal · CN 5 · Bend and reshape a metal object with your bare hands.
+  effect: Bend and reshape a metal object with your bare hands.
+- name: Transmutation of Chamon
+  kind: Lore spell
+  lore: Lore of Metal
+  cn: 12
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Metal · CN 12 · Turn foes'' flesh briefly to metal: a Damage +9 magic missile ignoring TB and AP, Blinding,
+    Deafening and Stunning.'
+  effect: 'Turn foes'' flesh briefly to metal: a Damage +9 magic missile ignoring TB and AP, Blinding, Deafening and Stunning.'
+- name: Choking Shadows
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 6
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: 'Lore of Shadows · CN 6 · Shadows strangle the target: Fatigued, silenced and suffocating.'
+  effect: 'Shadows strangle the target: Fatigued, silenced and suffocating.'
+- name: Doppelganger
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 10
+  range: You
+  target: You
+  duration: Intelligence Bonus minutes
+  short: Lore of Shadows · CN 10 · Take on the likeness of someone you know.
+  effect: Take on the likeness of someone you know.
+- name: Illusion
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 8
+  range: Willpower yards
+  target: AoE (Intelligence Bonus yards)
+  duration: Intelligence minutes
+  short: Lore of Shadows · CN 8 · Create an illusory image over the area that fools anyone without Second Sight.
+  effect: Create an illusory image over the area that fools anyone without Second Sight.
+- name: Mindslip
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 6
+  range: 1 yard
+  target: '1'
+  duration: Intelligence minutes
+  short: Lore of Shadows · CN 6 · The target forgets you — possibly for good.
+  effect: The target forgets you — possibly for good.
+- name: Mystifying Miasma
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 6
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Shadows · CN 6 · A shadowy mist Blinds, Deafens and Fatigues those inside.
+  effect: A shadowy mist Blinds, Deafens and Fatigues those inside.
+- name: Shadowsteed
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 6
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Until the next dawn
+  short: Lore of Shadows · CN 6 · Summon a shadowy horse that lasts until dawn.
+  effect: Summon a shadowy horse that lasts until dawn.
+- name: Shadowstep
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 8
+  range: Willpower yards
+  target: You
+  duration: Instant
+  short: Lore of Shadows · CN 8 · Step through the shadows to a point up to Willpower yards away; foes in melee with you are
+    Surprised.
+  effect: Step through the shadows to a point up to Willpower yards away; foes in melee with you are Surprised.
+- name: Shroud of Invisibility
+  kind: Lore spell
+  lore: Lore of Shadows
+  cn: 8
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Shadows · CN 8 · The target becomes invisible to ordinary senses.
+  effect: The target becomes invisible to ordinary senses.
+- name: Goodwill
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Willpower Bonus minutes
+  short: Lore of Hedgecraft · CN 0 · +1 SL to Fellowship Tests in the area; Animosity and Hatred have no effect.
+  effect: +1 SL to Fellowship Tests in the area; Animosity and Hatred have no effect.
+- name: Halétha’s Joy
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus hours
+  short: Lore of Hedgecraft · CN 0 · Bless the target with fertility; they will conceive if possible.
+  effect: Bless the target with fertility; they will conceive if possible.
+- name: Mirkride
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: You
+  target: You
+  duration: Willpower Bonus minutes
+  short: Lore of Hedgecraft · CN 0 · Your spirit steps into the Hedge to watch the world unseen.
+  effect: Your spirit steps into the Hedge to watch the world unseen.
+- name: Nepenthe
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: Touch
+  target: Special
+  duration: Willpower Bonus hours
+  short: Lore of Hedgecraft · CN 0 · Brew a draught that lets the drinker forget one person forever.
+  effect: Brew a draught that lets the drinker forget one person forever.
+- name: Nostrum
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: Touch
+  target: Special
+  duration: Dexterity Bonus hours
+  short: Lore of Hedgecraft · CN 0 · Enchant a draught that heals Dexterity Bonus Wounds and cures a disease.
+  effect: Enchant a draught that heals Dexterity Bonus Wounds and cures a disease.
+- name: Part the Branches
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: You
+  target: You
+  duration: Initiative minutes
+  short: Lore of Hedgecraft · CN 0 · See into the spirit world, including invisible creatures.
+  effect: See into the spirit world, including invisible creatures.
+- name: Protective Charm
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: Touch
+  target: Special
+  duration: Willpower Bonus days
+  short: Lore of Hedgecraft · CN 0 · A charm giving its bearer +2 SL to resist magic and Corruption.
+  effect: A charm giving its bearer +2 SL to resist magic and Corruption.
+- name: Shepherd’s Eye
+  kind: Lore spell
+  lore: Lore of Hedgecraft
+  cn: 0
+  range: Special
+  target: Special
+  duration: Instant
+  short: Lore of Hedgecraft · CN 0 · Scry for a lost creature using something from its body.
+  effect: Scry for a lost creature using something from its body.
+- name: Blight
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 14
+  range: Willpower Bonus yards
+  target: Special
+  duration: Instant
+  short: 'Lore of Witchcraft · CN 14 · Blight a place or animal: spoil food, foul a well, wither a field.'
+  effect: 'Blight a place or animal: spoil food, foul a well, wither a field.'
+- name: Creeping Menace
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 6
+  range: Willpower yards
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Witchcraft · CN 6 · A swarm of rats, spiders or similar engages the target.
+  effect: A swarm of rats, spiders or similar engages the target.
+- name: Curse of Crippling Pain
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 10
+  range: Willpower yards
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Witchcraft · CN 10 · Stab a doll to cause the target crippling pain in a chosen body part.
+  effect: Stab a doll to cause the target crippling pain in a chosen body part.
+- name: Curse of Ill Fortune
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 8
+  range: Willpower yards or Willpower Bonus miles (with ingredient)
+  target: '1'
+  duration: Willpower Bonus minutes or days (with ingredient)
+  short: 'Lore of Witchcraft · CN 8 · The target suffers bad luck: −1 SL to all Tests and no Fortune.'
+  effect: 'The target suffers bad luck: −1 SL to all Tests and no Fortune.'
+- name: Glamour
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 4
+  range: Touch
+  target: 1 adult
+  duration: Willpower Bonus hours
+  short: Lore of Witchcraft · CN 4 · Make an adult look any adult age you like.
+  effect: Make an adult look any adult age you like.
+- name: Haunting Horror
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 8
+  range: Touch
+  target: Special
+  duration: Willpower days
+  short: Lore of Witchcraft · CN 8 · Haunt a place with nightmares and eerie whispers.
+  effect: Haunt a place with nightmares and eerie whispers.
+- name: Make Hale
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 4
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Lore of Witchcraft · CN 4 · Heal Willpower Bonus Wounds and remove 1 Fatigued and 1 Stunned.
+  effect: Heal Willpower Bonus Wounds and remove 1 Fatigued and 1 Stunned.
+- name: The Evil Eye
+  kind: Lore spell
+  lore: Lore of Witchcraft
+  cn: 6
+  range: 10 yards (maximum)
+  target: 1 (maximum)
+  duration: Instant
+  short: 'Lore of Witchcraft · CN 6 · Wither the target''s nerve: Fear and Fatigue, more if you win by a lot.'
+  effect: 'Wither the target''s nerve: Fear and Fatigue, more if you win by a lot.'
+- name: Destroy Lesser Daemon
+  kind: Lore spell
+  lore: Lore of Daemonology
+  cn: 6
+  range: Willpower Bonus yards
+  target: 1 Size (Average) or smaller Daemon
+  duration: Willpower Bonus Rounds
+  short: Lore of Daemonology · CN 6 · Destroy a lesser daemon and draw on its power.
+  effect: Destroy a lesser daemon and draw on its power.
+- name: Detect Daemon
+  kind: Lore spell
+  lore: Lore of Daemonology
+  cn: 4
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: Lore of Daemonology · CN 4 · Know whether a daemon is present in range.
+  effect: Know whether a daemon is present in range.
+- name: Manifest Lesser Daemon
+  kind: Lore spell
+  lore: Lore of Daemonology
+  cn: 8
+  range: Willpower Bonus yards
+  target: Special
+  duration: Willpower Bonus Rounds
+  short: Lore of Daemonology · CN 8 · Summon a lesser daemon and try to bind it to your will.
+  effect: Summon a lesser daemon and try to bind it to your will.
+- name: Octagram
+  kind: Lore spell
+  lore: Lore of Daemonology
+  cn: 10
+  range: Touch
+  target: AoE (Intelligence Bonus yards across, maximum)
+  duration: Willpower minutes
+  short: Lore of Daemonology · CN 10 · A warded octagram that daemons cannot enter or leave.
+  effect: A warded octagram that daemons cannot enter or leave.
+- name: Raise Dead
+  kind: Lore spell
+  lore: Lore of Necromancy
+  cn: 7
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Until sunrise
+  short: Lore of Necromancy · CN 7 · Raise 1 + SL skeletons until sunrise.
+  effect: Raise 1 + SL skeletons until sunrise.
+- name: Reanimate
+  kind: Lore spell
+  lore: Lore of Necromancy
+  cn: 8
+  range: Willpower yards
+  target: AoE (Willpower Bonus yards)
+  duration: Until sunrise
+  short: Lore of Necromancy · CN 8 · Reanimate nearby corpses as zombies or skeletons until sunrise.
+  effect: Reanimate nearby corpses as zombies or skeletons until sunrise.
+- name: Screaming Skull
+  kind: Lore spell
+  lore: Lore of Necromancy
+  cn: 8
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: Lore of Necromancy · CN 8 · A flying, screaming skull tears through everything in its path.
+  effect: A flying, screaming skull tears through everything in its path.
+- name: Vanhel’s Call
+  kind: Lore spell
+  lore: Lore of Necromancy
+  cn: 6
+  range: Willpower yards
+  target: Special
+  duration: Instant
+  short: Lore of Necromancy · CN 6 · Undead under your command gain a free Move or Action.
+  effect: Undead under your command gain a free Move or Action.
+- name: Festering Inflammation
+  kind: Lore spell
+  lore: Lore of Nurgle
+  cn: 5
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Instant
+  short: Lore of Nurgle · CN 5 · One of the target's wounds becomes a Festering Wound.
+  effect: One of the target's wounds becomes a Festering Wound.
+- name: Miasma of Pestilence
+  kind: Lore spell
+  lore: Lore of Nurgle
+  cn: 6
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Nurgle · CN 6 · A sickly mist; the living nearby may suffer Nausea.
+  effect: A sickly mist; the living nearby may suffer Nausea.
+- name: Stream of Corruption
+  kind: Lore spell
+  lore: Lore of Nurgle
+  cn: 9
+  range: Special
+  target: Special
+  duration: Instant
+  short: 'Lore of Nurgle · CN 9 · Vomit a stream of filth: a Breath attack ignoring Armour Points.'
+  effect: 'Vomit a stream of filth: a Breath attack ignoring Armour Points.'
+- name: Acquiescence
+  kind: Lore spell
+  lore: Lore of Slaanesh
+  cn: 5
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Slaanesh · CN 5 · The target may lose their Move and Action each Round, overwhelmed by bliss.
+  effect: The target may lose their Move and Action each Round, overwhelmed by bliss.
+- name: From Pain, Pleasure
+  kind: Lore spell
+  lore: Lore of Slaanesh
+  cn: 6
+  range: Touch
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Slaanesh · CN 6 · The target feels pain as pleasure and becomes Painless.
+  effect: The target feels pain as pleasure and becomes Painless.
+- name: Phantasmagoria
+  kind: Lore spell
+  lore: Lore of Slaanesh
+  cn: 8
+  range: You
+  target: AoE (Willpower Bonus yards)
+  duration: Willpower Bonus Rounds
+  short: Lore of Slaanesh · CN 8 · Beguiling visions give you and your allies the Distracting trait.
+  effect: Beguiling visions give you and your allies the Distracting trait.
+- name: Boon of Tzeentch
+  kind: Lore spell
+  lore: Lore of Tzeentch
+  cn: 9
+  range: You
+  target: You
+  duration: Intelligence Bonus days
+  short: Lore of Tzeentch · CN 9 · Cast one spell from any Lore for a few days as if you knew it.
+  effect: Cast one spell from any Lore for a few days as if you knew it.
+- name: Transformation of Tzeentch
+  kind: Lore spell
+  lore: Lore of Tzeentch
+  cn: 12
+  range: Willpower Bonus yards
+  target: '1'
+  duration: Willpower Bonus Rounds
+  short: Lore of Tzeentch · CN 12 · Wrap the target in a cocoon of magic that may mutate them.
+  effect: Wrap the target in a cocoon of magic that may mutate them.
+- name: Treason of Tzeentch
+  kind: Lore spell
+  lore: Lore of Tzeentch
+  cn: 6
+  range: Willpower yards
+  target: AoE (Initiative Bonus yards)
+  duration: Intelligence Bonus Rounds
+  short: Lore of Tzeentch · CN 6 · Targets turn on their friends and allies (Hatred).
+  effect: Targets turn on their friends and allies (Hatred).
+- name: Blessing of Battle
+  kind: Blessing
+  gods:
+  - Manann
+  - Myrmidia
+  - Sigmar
+  - Taal
+  - Ulric
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Manann, Myrmidia, Sigmar, Taal, Ulric) · The target gains +10 Weapon Skill.
+  effect: The target gains +10 Weapon Skill.
+- name: Blessing of Breath
+  kind: Blessing
+  gods:
+  - Manann
+  - Morr
+  - Rhya
+  - Shallya
+  - Taal
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Manann, Morr, Rhya, Shallya, Taal) · The target does not need to breathe and ignores the rules for suffocation.
+  effect: The target does not need to breathe and ignores the rules for suffocation.
+- name: Blessing of Charisma
+  kind: Blessing
+  gods:
+  - Ranald
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Ranald) · The target gains +10 Fellowship.
+  effect: The target gains +10 Fellowship.
+- name: Blessing of Conscience
+  kind: Blessing
+  gods:
+  - Myrmidia
+  - Ranald
+  - Rhya
+  - Shallya
+  - Taal
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Myrmidia, Ranald, Rhya, Shallya, Taal, Verena) · The target must pass an Average (+2 SL) Cool Test to break
+    your god's strictures; on a failure, shame stops them.
+  effect: The target must pass an Average (+2 SL) Cool Test to break your god's strictures; on a failure, shame stops them.
+- name: Blessing of Courage
+  kind: Blessing
+  gods:
+  - Manann
+  - Morr
+  - Myrmidia
+  - Sigmar
+  - Ulric
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Manann, Morr, Myrmidia, Sigmar, Ulric, Verena) · The target gains +10 Willpower.
+  effect: The target gains +10 Willpower.
+- name: Blessing of Finesse
+  kind: Blessing
+  gods:
+  - Ranald
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Ranald) · The target gains +10 Dexterity.
+  effect: The target gains +10 Dexterity.
+- name: Blessing of Fortune
+  kind: Blessing
+  gods:
+  - Morr
+  - Myrmidia
+  - Ranald
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Morr, Myrmidia, Ranald, Verena) · The target may reroll their next failed Test; the reroll stands.
+  effect: The target may reroll their next failed Test; the reroll stands.
+- name: Blessing of Grace
+  kind: Blessing
+  gods:
+  - Rhya
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Rhya) · The target gains +10 Agility.
+  effect: The target gains +10 Agility.
+- name: Blessing of Hardiness
+  kind: Blessing
+  gods:
+  - Manann
+  - Sigmar
+  - Taal
+  - Ulric
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Manann, Sigmar, Taal, Ulric) · The target gains +10 Toughness.
+  effect: The target gains +10 Toughness.
+- name: Blessing of Healing
+  kind: Blessing
+  gods:
+  - Rhya
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Blessing (Rhya, Shallya) · The target heals 1 Wound.
+  effect: The target heals 1 Wound.
+- name: Blessing of Might
+  kind: Blessing
+  gods:
+  - Sigmar
+  - Ulric
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Sigmar, Ulric) · The target gains +10 Strength.
+  effect: The target gains +10 Strength.
+- name: Blessing of Protection
+  kind: Blessing
+  gods:
+  - Myrmidia
+  - Ranald
+  - Rhya
+  - Shallya
+  - Sigmar
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Myrmidia, Ranald, Rhya, Shallya, Sigmar) · Enemies must pass an Average (+2 SL) Cool Test to attack the
+    target, or pick another target or Action.
+  effect: Enemies must pass an Average (+2 SL) Cool Test to attack the target, or pick another target or Action.
+- name: Blessing of Recuperation
+  kind: Blessing
+  gods:
+  - Rhya
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Blessing (Rhya, Shallya) · Shortens one of the target's diseases by 1 day (once per disease).
+  effect: Shortens one of the target's diseases by 1 day (once per disease).
+- name: Blessing of Righteousness
+  kind: Blessing
+  gods:
+  - Morr
+  - Myrmidia
+  - Sigmar
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Morr, Myrmidia, Sigmar, Verena) · The target's weapon counts as Magical.
+  effect: The target's weapon counts as Magical.
+- name: Blessing of Savagery
+  kind: Blessing
+  gods:
+  - Manann
+  - Taal
+  - Ulric
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Manann, Taal, Ulric) · The next time the target inflicts a Critical Wound, they roll twice and choose.
+  effect: The next time the target inflicts a Critical Wound, they roll twice and choose.
+- name: Blessing of Tenacity
+  kind: Blessing
+  gods:
+  - Manann
+  - Morr
+  - Shallya
+  - Ulric
+  range: 6 yards
+  target: '1'
+  duration: Instant
+  short: Blessing (Manann, Morr, Shallya, Ulric) · The target removes 1 Condition (not Besmirched).
+  effect: The target removes 1 Condition (not Besmirched).
+- name: Blessing of The Hunt
+  kind: Blessing
+  gods:
+  - Taal
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Taal) · The target gains +10 Ballistic Skill.
+  effect: The target gains +10 Ballistic Skill.
+- name: Blessing of Wisdom
+  kind: Blessing
+  gods:
+  - Morr
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Morr, Verena) · The target gains +10 Intelligence.
+  effect: The target gains +10 Intelligence.
+- name: Blessing of Wit
+  kind: Blessing
+  gods:
+  - Ranald
+  - Verena
+  range: 6 yards
+  target: '1'
+  duration: 6 Rounds
+  short: Blessing (Ranald, Verena) · The target gains +10 Initiative.
+  effect: The target gains +10 Initiative.
+- name: Becalm
+  kind: Miracle
+  gods:
+  - Manann
+  range: Fellowship Bonus miles
+  target: 1 sailing vessel within line of sight
+  duration: 1 hour
+  short: Miracle of Manann · Takes the wind out of a ship's sails; it sits in an area of eerie calm even in a storm.
+  effect: Takes the wind out of a ship's sails; it sits in an area of eerie calm even in a storm.
+- name: Drowned Man’s Face
+  kind: Miracle
+  gods:
+  - Manann
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: 'Miracle of Manann · The target''s lungs fill with holy saltwater: they are Fatigued and drown (even daemons and
+    undead), then are Stunned for a Round.'
+  effect: 'The target''s lungs fill with holy saltwater: they are Fatigued and drown (even daemons and undead), then are Stunned
+    for a Round.'
+- name: Fair Winds
+  kind: Miracle
+  gods:
+  - Manann
+  range: Initiative Bonus miles
+  target: 1 sailing vessel within line of sight
+  duration: 1 hour
+  short: Miracle of Manann · A vessel sails at top speed whatever the wind or current, with +1 SL to Sail Tests.
+  effect: A vessel sails at top speed whatever the wind or current, with +1 SL to Sail Tests.
+- name: Manalt’s Bounty
+  kind: Miracle
+  gods:
+  - Manann
+  range: Special
+  target: Special
+  duration: Instant
+  short: Miracle of Manann · Catch enough fish to feed 1 person (2 from the sea), +1 person per +2 SL.
+  effect: Catch enough fish to feed 1 person (2 from the sea), +1 person per +2 SL.
+- name: Sea Legs
+  kind: Miracle
+  gods:
+  - Manann
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: 'Miracle of Manann · The target reels as if on a storm-tossed deck: Blinded, Deafened and Fatigued, and must pass
+    Athletics to move or fall Prone.'
+  effect: 'The target reels as if on a storm-tossed deck: Blinded, Deafened and Fatigued, and must pass Athletics to move
+    or fall Prone.'
+- name: Waterwalk
+  kind: Miracle
+  gods:
+  - Manann
+  range: You
+  target: You
+  duration: Fellowship Bonus minutes
+  short: Miracle of Manann · Walk across open water (at least 10 yards wide) as if it were solid ground.
+  effect: Walk across open water (at least 10 yards wide) as if it were solid ground.
+- name: Death Mask
+  kind: Miracle
+  gods:
+  - Morr
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Morr · Your face turns corpse-like and you gain Fear (2) — even undead are affected.
+  effect: Your face turns corpse-like and you gain Fear (2) — even undead are affected.
+- name: Destroy Undead
+  kind: Miracle
+  gods:
+  - Morr
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Instant
+  short: Miracle of Morr · Black fire bursts from you; undead around you lose 1d10 Wounds (+1 per SL), ignoring TB and AP,
+    and can never be raised again.
+  effect: Black fire bursts from you; undead around you lose 1d10 Wounds (+1 per SL), ignoring TB and AP, and can never be
+    raised again.
+- name: Dooming
+  kind: Miracle
+  gods:
+  - Morr
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Miracle of Morr · See a vision of the target's death. Once per person; afterwards they can buy the Doomed talent.
+  effect: See a vision of the target's death. Once per person; afterwards they can buy the Doomed talent.
+- name: Last Rites
+  kind: Miracle
+  gods:
+  - Morr
+  range: 1 yard
+  target: '1'
+  duration: Instant
+  short: Miracle of Morr · Sends a corpse's soul to Morr, so it can never be raised by necromancy. Destroys a construct undead.
+  effect: Sends a corpse's soul to Morr, so it can never be raised by necromancy. Destroys a construct undead.
+- name: Portal’s Threshold
+  kind: Miracle
+  gods:
+  - Morr
+  range: Touch
+  target: Special
+  duration: Until sunrise
+  short: Miracle of Morr · Draw a line up to 8 yards long that undead must pass a Cool Test to cross (constructed undead cannot
+    cross at all).
+  effect: Draw a line up to 8 yards long that undead must pass a Cool Test to cross (constructed undead cannot cross at all).
+- name: Stay Morr’s Hand
+  kind: Miracle
+  gods:
+  - Morr
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus hours
+  short: Miracle of Morr · A willing dying target (at 0 Wounds) falls Unconscious and stops getting worse until healed or
+    the Miracle ends.
+  effect: A willing dying target (at 0 Wounds) falls Unconscious and stops getting worse until healed or the Miracle ends.
+- name: Blazing Sun
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: Special
+  target: Special
+  duration: Instant
+  short: Miracle of Myrmidia · A flash of golden light Blinds everyone who is not a Myrmidian looking your way (+1 Blinded
+    per +2 SL).
+  effect: A flash of golden light Blinds everyone who is not a Myrmidian looking your way (+1 Blinded per +2 SL).
+- name: Eagle’s Eye
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: Fellowship yards
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Myrmidia · A spectral eagle appears; you see through its eyes and steer its flight to scout the battlefield.
+  effect: A spectral eagle appears; you see through its eyes and steer its flight to scout the battlefield.
+- name: Fury’s Call
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Myrmidia · Allies around you gain the Frenzy trait.
+  effect: Allies around you gain the Frenzy trait.
+- name: Inspiring
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Myrmidia · Allies around you gain the Drilled talent.
+  effect: Allies around you gain the Drilled talent.
+- name: Shield of Myrmidia
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: Fellowship yards
+  target: Fellowship Bonus
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Myrmidia · Shimmering light gives allies +1 Armour Point on every location.
+  effect: Shimmering light gives allies +1 Armour Point on every location.
+- name: Spear of Myrmidia
+  kind: Miracle
+  gods:
+  - Myrmidia
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Myrmidia · Your spear gains Damaging and counts as Magical.
+  effect: Your spear gains Damaging and counts as Magical.
+- name: An Invitation
+  kind: Miracle
+  gods:
+  - Ranald
+  range: 1 yard
+  target: '1'
+  duration: Instant
+  short: Miracle of Ranald · One lock, latch or knot on a door, window or hatch comes undone (+1 per +2 SL).
+  effect: One lock, latch or knot on a door, window or hatch comes undone (+1 per +2 SL).
+- name: Cat’s Eyes
+  kind: Miracle
+  gods:
+  - Ranald
+  range: Fellowship yards
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ranald · A cat-shaped divine servant appears; you perceive what it perceives and steer it.
+  effect: A cat-shaped divine servant appears; you perceive what it perceives and steer it.
+- name: Cheat the Odds
+  kind: Miracle
+  gods:
+  - Ranald
+  range: You
+  target: You
+  duration: Special
+  short: Miracle of Ranald · Gain +1 Fortune Point for the session (+1 per +2 SL). Only usable again at 0 Fortune.
+  effect: Gain +1 Fortune Point for the session (+1 per +2 SL). Only usable again at 0 Fortune.
+- name: Ranald’s Grace
+  kind: Miracle
+  gods:
+  - Ranald
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus Minutes
+  short: Miracle of Ranald · The target gains +10 Agility, +10 Stealth and the Catfall talent.
+  effect: The target gains +10 Agility, +10 Stealth and the Catfall talent.
+- name: Trickster’s Glamour
+  kind: Miracle
+  gods:
+  - Ranald
+  range: 1 yard
+  target: '1'
+  duration: Fellowship Bonus minutes
+  short: Miracle of Ranald · Make a purse look empty or full, clothes look cheap or rich, or hide one valuable item.
+  effect: Make a purse look empty or full, clothes look cheap or rich, or hide one valuable item.
+- name: You Saw Nothing
+  kind: Miracle
+  gods:
+  - Ranald
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ranald · The target goes unnoticed as long as they do nothing to draw attention. Only works when no one
+    is looking at you.
+  effect: The target goes unnoticed as long as they do nothing to draw attention. Only works when no one is looking at you.
+- name: Rhya’s Children
+  kind: Miracle
+  gods:
+  - Rhya
+  range: You
+  target: AoE (Fellowship yards)
+  duration: Fellowship Bonus Rounds
+  short: 'Miracle of Rhya · Outdoors and away from towns: sense every living creature in the area.'
+  effect: 'Outdoors and away from towns: sense every living creature in the area.'
+- name: Rhya’s Harvest
+  kind: Miracle
+  gods:
+  - Rhya
+  range: Touch
+  target: Special
+  duration: 1 Round
+  short: Miracle of Rhya · Food grows where you touch — enough for 1 person each Round.
+  effect: Food grows where you touch — enough for 1 person each Round.
+- name: Rhya’s Shelter
+  kind: Miracle
+  gods:
+  - Rhya
+  range: You
+  target: You
+  duration: Special
+  short: 'Miracle of Rhya · Outdoors: find a perfect natural camp sheltered from wind and rain.'
+  effect: 'Outdoors: find a perfect natural camp sheltered from wind and rain.'
+- name: Rhya’s Succour
+  kind: Miracle
+  gods:
+  - Rhya
+  range: Fellowship yards
+  target: Fellowship Bonus
+  duration: Instant
+  short: Miracle of Rhya · All targets remove 1 Condition; if that clears them all, they also get +1 SL next Turn.
+  effect: All targets remove 1 Condition; if that clears them all, they also get +1 SL next Turn.
+- name: Rhya’s Touch
+  kind: Miracle
+  gods:
+  - Rhya
+  range: Touch
+  target: '1'
+  duration: Special
+  short: Miracle of Rhya · After at least 10 minutes of prayer, heal Fellowship Bonus Wounds or cure 1 natural disease (+1
+    effect per +2 SL).
+  effect: After at least 10 minutes of prayer, heal Fellowship Bonus Wounds or cure 1 natural disease (+1 effect per +2 SL).
+- name: Rhya’s Union
+  kind: Miracle
+  gods:
+  - Rhya
+  range: Touch
+  target: Special
+  duration: Fellowship Bonus hours
+  short: Miracle of Rhya · A couple who are able to will conceive a child.
+  effect: A couple who are able to will conceive a child.
+- name: Anchorite’s Endurance
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Shallya · The target feels no pain (Painless) and suffers no penalties from Conditions.
+  effect: The target feels no pain (Painless) and suffers no penalties from Conditions.
+- name: Balm to a Wounded Mind
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus minutes
+  short: Miracle of Shallya · Removes the target's psychology traits, then they sleep deeply until sunrise.
+  effect: Removes the target's psychology traits, then they sleep deeply until sunrise.
+- name: Bitter Catharsis
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Miracle of Shallya · Draw a poison or disease out of the target (+1 per +2 SL); you take 1d10 − Fellowship Bonus
+    Wounds for each.
+  effect: Draw a poison or disease out of the target (+1 per +2 SL); you take 1d10 − Fellowship Bonus Wounds for each.
+- name: Martyr
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Shallya · You suffer the target's Damage instead, adding your Fellowship Bonus to your Toughness Bonus
+    against it.
+  effect: You suffer the target's Damage instead, adding your Fellowship Bonus to your Toughness Bonus against it.
+- name: Shallya’s Tears
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Special
+  short: Miracle of Shallya · After praying for 10 − Fellowship Bonus Rounds, heal 1 Critical Wound (+1 per +2 SL). Cannot
+    reattach lost limbs.
+  effect: After praying for 10 − Fellowship Bonus Rounds, heal 1 Critical Wound (+1 per +2 SL). Cannot reattach lost limbs.
+- name: Unblemished Innocence
+  kind: Miracle
+  gods:
+  - Shallya
+  range: Touch
+  target: '1'
+  duration: Instant
+  short: Miracle of Shallya · Remove 1 Corruption Point gained last session (+1 per +2 SL). A Fumble gives you both 1d10 Corruption.
+  effect: Remove 1 Corruption Point gained last session (+1 per +2 SL). A Fumble gives you both 1d10 Corruption.
+- name: Beacon of Righteous Virtue
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Sigmar · Allies who can see you shake off Broken and become Fearless; orcs and goblins fear you.
+  effect: Allies who can see you shake off Broken and become Fearless; orcs and goblins fear you.
+- name: Heed Not the Witch
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: You
+  target: You with AoE (Fellowship Bonus yards)
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Sigmar · Spells aimed into the area around you suffer −2 SL to cast.
+  effect: Spells aimed into the area around you suffer −2 SL to cast.
+- name: Sigmar’s Fiery Hammer
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Sigmar · Your warhammer gains Inflict (Ablaze) and Magical, and deals +Fellowship Bonus Damage.
+  effect: Your warhammer gains Inflict (Ablaze) and Magical, and deals +Fellowship Bonus Damage.
+- name: Soulfire
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Instant
+  short: 'Miracle of Sigmar · Holy fire bursts from you: 1d10 Wounds to everyone around you, ignoring TB and AP; daemons and
+    undead catch fire.'
+  effect: 'Holy fire bursts from you: 1d10 Wounds to everyone around you, ignoring TB and AP; daemons and undead catch fire.'
+- name: Twin-tailed Comet
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: Fellowship yards
+  target: AoE (Fellowship Bonus yards, maximum)
+  duration: Instant
+  short: Miracle of Sigmar · A comet strikes an area of Sigmar's enemies for 1d10 + SL Wounds, ignoring TB and AP, setting
+    them Ablaze.
+  effect: A comet strikes an area of Sigmar's enemies for 1d10 + SL Wounds, ignoring TB and AP, setting them Ablaze.
+- name: Vanquish the Unrighteous
+  kind: Miracle
+  gods:
+  - Sigmar
+  range: You
+  target: AoE (Fellowship Bonus yards)
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Sigmar · Allies gain Hatred of orcs, goblins, undead and Chaos, growing to +2 SL after slaying one.
+  effect: Allies gain Hatred of orcs, goblins, undead and Chaos, growing to +2 SL after slaying one.
+- name: Animal Instincts
+  kind: Miracle
+  gods:
+  - Taal
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus hours
+  short: Miracle of Taal · Gain an Acute Sense talent, and wake if a threat comes near while you rest.
+  effect: Gain an Acute Sense talent, and wake if a threat comes near while you rest.
+- name: King of the Wild
+  kind: Miracle
+  gods:
+  - Taal
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus minutes
+  short: Miracle of Taal · A local wild animal comes and obeys you.
+  effect: A local wild animal comes and obeys you.
+- name: Leaping Stag
+  kind: Miracle
+  gods:
+  - Taal
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Taal · Gain +1 Movement and Strong Legs, and automatically pass Athletics Tests to leap.
+  effect: Gain +1 Movement and Strong Legs, and automatically pass Athletics Tests to leap.
+- name: Lord of the Hunt
+  kind: Miracle
+  gods:
+  - Taal
+  range: You
+  target: You
+  duration: Fellowship Bonus hours
+  short: Miracle of Taal · You cannot lose your quarry's trail (except by magic or in a town) and gain +1 SL on Tests about
+    it.
+  effect: You cannot lose your quarry's trail (except by magic or in a town) and gain +1 SL on Tests about it.
+- name: Tanglefoot
+  kind: Miracle
+  gods:
+  - Taal
+  range: Fellowship yards
+  target: AoE (Fellowship Bonus yards)
+  duration: Instant
+  short: Miracle of Taal · Roots and vines Entangle everyone in the area, with Strength equal to your Fellowship.
+  effect: Roots and vines Entangle everyone in the area, with Strength equal to your Fellowship.
+- name: Tooth and Claw
+  kind: Miracle
+  gods:
+  - Taal
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Taal · Gain the Bite and Magical traits, and your unarmed attacks are no longer Undamaging.
+  effect: Gain the Bite and Magical traits, and your unarmed attacks are no longer Undamaging.
+- name: Hoarfrost’s Chill
+  kind: Miracle
+  gods:
+  - Ulric
+  range: You
+  target: AoE (Fellowship yards)
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ulric · You cause Fear (2), and everyone else nearby loses Momentum each Round from the cold.
+  effect: You cause Fear (2), and everyone else nearby loses Momentum each Round from the cold.
+- name: Howl of the Wolf
+  kind: Miracle
+  gods:
+  - Ulric
+  range: Fellowship yards
+  target: Special
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ulric · A white wolf servant of Ulric fights for you.
+  effect: A white wolf servant of Ulric fights for you.
+- name: Pelt of the Winter Wolf
+  kind: Miracle
+  gods:
+  - Ulric
+  range: Touch
+  target: '1'
+  duration: Fellowship Bonus hours
+  short: Miracle of Ulric · The target suffers no penalties from cold or wintry weather.
+  effect: The target suffers no penalties from cold or wintry weather.
+- name: The Snow King’s Judgement
+  kind: Miracle
+  gods:
+  - Ulric
+  range: Fellowship yards
+  target: '1'
+  duration: Instant
+  short: 'Miracle of Ulric · Freeze a weak, cowardly or deceitful target: 1d10 Wounds (+1 per SL) ignoring TB and AP, and
+    Stunned. If they are none of those, it hits you instead.'
+  effect: 'Freeze a weak, cowardly or deceitful target: 1d10 Wounds (+1 per SL) ignoring TB and AP, and Stunned. If they are
+    none of those, it hits you instead.'
+- name: Ulric’s Fury
+  kind: Miracle
+  gods:
+  - Ulric
+  range: Fellowship yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ulric · An ally may test for Frenzy each Turn; it adds 1d10 Damage (exploding on 10) to their first melee
+    hit.
+  effect: An ally may test for Frenzy each Turn; it adds 1d10 Damage (exploding on 10) to their first melee hit.
+- name: Winter’s Bite
+  kind: Miracle
+  gods:
+  - Ulric
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Ulric · Your axe gains Inflict (Fatigued) and Magical, deals +SL Damage, and stops all bleeding.
+  effect: Your axe gains Inflict (Fatigued) and Magical, deals +SL Damage, and stops all bleeding.
+- name: As Verena Is My Witness
+  kind: Miracle
+  gods:
+  - Verena
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Verena · As long as you speak only the truth, listeners believe you.
+  effect: As long as you speak only the truth, listeners believe you.
+- name: Blind Justice
+  kind: Miracle
+  gods:
+  - Verena
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Verena · Test to see through illusions, and to tell whether someone believes they are lying to you.
+  effect: Test to see through illusions, and to tell whether someone believes they are lying to you.
+- name: Shackles of Truth
+  kind: Miracle
+  gods:
+  - Verena
+  range: Fellowship Bonus yards
+  target: '1'
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Verena · A criminal who denies their crime is Entangled; if you accused them falsely, you face the Wrath
+    of the Gods.
+  effect: A criminal who denies their crime is Entangled; if you accused them falsely, you face the Wrath of the Gods.
+- name: Sword of Justice
+  kind: Miracle
+  gods:
+  - Verena
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Verena · Your sword ignores Armour Points and is Magical; struck criminals may be knocked Unconscious.
+  effect: Your sword ignores Armour Points and is Magical; struck criminals may be knocked Unconscious.
+- name: Truth Will Out
+  kind: Miracle
+  gods:
+  - Verena
+  range: Fellowship Bonus yards
+  target: '1'
+  duration: Instant
+  short: Miracle of Verena · Ask one question that the target must answer truthfully, unless they resist with Cool.
+  effect: Ask one question that the target must answer truthfully, unless they resist with Cool.
+- name: Wisdom of the Owl
+  kind: Miracle
+  gods:
+  - Verena
+  range: You
+  target: You
+  duration: Fellowship Bonus Rounds
+  short: Miracle of Verena · Gain +20 Intelligence, Acute Sense (Sight), Menacing and Night Vision, and ask the GM the likeliest
+    outcome of one decision.
+  effect: Gain +20 Intelligence, Acute Sense (Sight), Menacing and Night Vision, and ask the GM the likeliest outcome of one
+    decision.

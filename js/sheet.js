@@ -132,7 +132,7 @@
             rows: 5,
             cols: '1.5fr 3rem 1fr 1fr 1fr 2.5fr',
             fields: [
-                { key: 'name', label: 'Name', wide: true },
+                { key: 'name', label: 'Name', wide: true, ref: 'spells' },
                 { key: 'cn', label: 'CN', type: 'number' },
                 { key: 'range', label: 'Range' },
                 { key: 'target', label: 'Target' },
@@ -880,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities'].forEach(k => {
+                ['classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 buildDatalists();
@@ -914,7 +914,7 @@
         });
         const language = reference.skills.get('language');
         setSuggestions('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
-        ['weapons', 'armour', 'trappings'].forEach(k => setSuggestions(`ref-${k}`, [...reference[k].values()].map(e => [e.name, e.short])));
+        ['weapons', 'armour', 'trappings', 'spells'].forEach(k => setSuggestions(`ref-${k}`, [...reference[k].values()].map(e => [e.name, e.short])));
         setSuggestions('ref-mutations', [...reference.mutations.values()].map(m => [m.name, `${m.type} · ${m.roll} · ${m.short}`]));
         setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
             [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
@@ -965,6 +965,12 @@
                 `Price ${found.price} · Enc ${found.enc} · ${found.availability}`,
                 `${found.locations ? found.locations + ' · ' : ''}AP ${found.ap}${found.penalty ? ' · ' + found.penalty : ''}`,
                 found.note, qualityLines(found.qualities)].filter(Boolean).join('\n\n');
+        } else if (kind === 'spells' && found) {
+            const source = found.kind === 'Blessing' ? `Blessing (${found.gods.join(', ')})`
+                : found.kind === 'Miracle' ? `Miracle of ${found.gods.join(', ')}` : `${found.kind}, ${found.lore}`;
+            text = [`${found.name} – ${source}`,
+                [found.cn !== undefined ? `CN ${found.cn}` : '', `Range ${found.range}`, `Target ${found.target}`, `Duration ${found.duration}`].filter(Boolean).join(' · '),
+                found.effect].join('\n\n');
         } else if (kind === 'trappings' && found) {
             text = [`${found.name} – ${found.category}`,
                 `Price ${found.price} · Enc ${found.enc ?? '–'}${found.carries !== undefined ? ' · Carries ' + found.carries : ''} · ${found.availability}`,
@@ -1007,6 +1013,7 @@
         const input = document.querySelector(isListField ? `[data-list-field="${path}"]` : `[data-path="${path}"]`);
         if (input) {
             input.value = value;
+            if (input.tagName === 'TEXTAREA') autosize(input);
             if (input.dataset.ref) describe(input);
         }
     }
@@ -1036,6 +1043,13 @@
             fillIfEmpty(`${row}.enc`, found.enc, true);
             fillIfEmpty(`${row}.ap`, found.ap, true);
             fillIfEmpty(`${row}.qualities`, [found.qualities, found.penalty].filter(Boolean).join('; '), true);
+        } else if (kind === 'spells') {
+            const row = `spells.${input.dataset.listField.split('.')[1]}`;
+            fillIfEmpty(`${row}.cn`, found.cn, true);
+            fillIfEmpty(`${row}.range`, found.range, true);
+            fillIfEmpty(`${row}.target`, found.target, true);
+            fillIfEmpty(`${row}.duration`, found.duration, true);
+            fillIfEmpty(`${row}.effect`, found.effect, true);
         } else if (kind === 'trappings') {
             fillIfEmpty(`trappings.${input.dataset.listField.split('.')[1]}.enc`, found.enc, true);
         } else if (kind === 'mutations') {
@@ -1170,8 +1184,10 @@
         document.addEventListener('focusout', e => {
             if (e.target === suggestField) closeSuggest();
         });
+        // Typing reopens the list, also after Escape or a pick
         document.addEventListener('input', e => {
-            if (e.target === suggestField && !suggestPicking) openSuggest(e.target, e.target.value);
+            const t = e.target;
+            if (t.dataset && t.dataset.suggest && t === document.activeElement && !suggestPicking) openSuggest(t, t.value);
         });
         document.addEventListener('keydown', onSuggestKey);
         // mousedown, not click, so the field keeps focus
