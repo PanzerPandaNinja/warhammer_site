@@ -38,7 +38,7 @@
         { id: 'melee1', name: 'Melee', char: 'WS', grouped: true },
         { id: 'melee2', name: 'Melee', char: 'WS', grouped: true },
         { id: 'meleeBasic', name: 'Melee (Basic)', char: 'WS' },
-        { id: 'navigation', name: 'Navigation', char: 'Int' },
+        { id: 'navigation', name: 'Navigation', char: 'I' },
         { id: 'outdoorSurvival', name: 'Outdoor Survival', char: 'Int' },
         { id: 'perception', name: 'Perception', char: 'I' },
         { id: 'ride', name: 'Ride', char: 'Ag', grouped: true },

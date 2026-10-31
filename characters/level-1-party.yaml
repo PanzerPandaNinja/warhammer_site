@@ -5,13 +5,13 @@ version: 1
 characters:
 - name: Ottilie Brandt
   species: Human (Reiklander)
-  appearance: Broad-shouldered, cropped red hair, a drummer's calloused hands.
+  appearance: Broad-shouldered, cropped red hair, a sword-callused grip.
   portrait: ''
   careers:
-  - class: Warriors
+  - class: Warrior
     career: Soldier – Recruit
     pg: ''
-    status: Silver 1
+    status: Brass 5
     tracker:
     - '----------'
     - '------------'
@@ -53,13 +53,13 @@ characters:
       advances: 2
     BS:
       initial: 29
-      advances: null
+      advances: 2
     S:
       initial: 33
-      advances: null
+      advances: 1
     T:
       initial: 35
-      advances: 2
+      advances: null
     I:
       initial: 28
       advances: null
@@ -74,7 +74,7 @@ characters:
       advances: null
     WP:
       initial: 30
-      advances: 1
+      advances: null
     Fel:
       initial: 29
       advances: null
@@ -123,8 +123,8 @@ characters:
       tick: false
       adv: null
     gamble:
-      tick: false
-      adv: null
+      tick: true
+      adv: 5
     gossip:
       tick: false
       adv: 5
@@ -184,51 +184,47 @@ characters:
     hardy: null
   armourPoints:
     head: null
-    leftArm: null
-    rightArm: null
+    leftArm: 1
+    rightArm: 1
     body: 1
     rightLeg: null
     leftLeg: null
     shield: null
   wealth:
     gc: null
-    ss: 6
-    d: null
+    ss: null
+    d: 55
   encumbrance:
     other: null
   corruption: 0
-  notes: Joined the state troops to escape her father's debts. Beats the march on her old drum.
+  notes: Joined the state troops to escape her father's debts. Picked the sword as her weapon.
   sin: 0
   languages:
   - tick: false
     name: Reikspiel
     adv: null
   - tick: true
-    name: Battle Tongue
+    name: Battle
     adv: 5
-  customSkills:
-  - tick: true
-    name: Play (Drum)
-    char: Dex
-    adv: 5
+  customSkills: []
   talents:
   - name: Doomed
-    description: A soothsayer foretold how she will die.
+    description: Agree a Doom with the GM. If you die as foretold, allies refresh Fortune and your next character gains a Fate Point.
     pg: ''
   - name: Savvy
-    description: +5 Intelligence (already added to Initial).
+    description: +5 Intelligence (does not count as Advances). Already added to Initial.
     pg: ''
   - name: Luck
-    description: Maximum Fortune is one higher than Fate.
+    description: +1 maximum Fortune. Can be taken up to three times.
     pg: ''
   - name: Orientation
-    description: Always knows which way is north.
+    description: Advantage on Navigation Tests, and you always know which way is north.
     pg: ''
   - name: Strong Legs
-    description: Jumps further than most.
+    description: Advantage on Athletics Tests to jump, and deliberate falls count as 1 yard shorter.
     pg: ''
   - name: Warrior Born
-    description: +5 Weapon Skill (already added to Initial).
+    description: +5 Weapon Skill (does not count as Advances). Already added to Initial.
     pg: ''
   mutations: []
   weapons:
@@ -245,8 +241,8 @@ characters:
     damage: +SB+2
     qualities: ''
   armour:
-  - name: Leather Breastplate
-    locations: Body
+  - name: Leather Jack
+    locations: Arms, Body
     enc: 1
     ap: 1
     qualities: ''
@@ -255,15 +251,13 @@ characters:
     enc: 0
   - name: Pouch
     enc: 0
-  - name: Drum
-    enc: 1
   spells: []
 - name: Durgin Ashenbeard
   species: Dwarf
   appearance: Orange crest of hair, tattoos from scalp to waist, missing two fingers.
   portrait: ''
   careers:
-  - class: Warriors
+  - class: Warrior
     career: Slayer – Troll Slayer
     pg: ''
     status: Brass 2
@@ -344,8 +338,8 @@ characters:
       tick: false
       adv: null
     athletics:
-      tick: false
-      adv: null
+      tick: true
+      adv: 5
     bribery:
       tick: false
       adv: null
@@ -378,8 +372,8 @@ characters:
       tick: false
       adv: null
     gamble:
-      tick: true
-      adv: 5
+      tick: false
+      adv: null
     gossip:
       tick: false
       adv: null
@@ -472,26 +466,26 @@ characters:
     adv: 5
   talents:
   - name: Magic Resistance
-    description: Spells aimed at him are harder to cast.
+    description: Spells affecting you lose 3 SL. You can never learn magic or priestly talents, or Channelling.
     pg: ''
   - name: Night Vision
-    description: Sees well in dim light.
+    description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
     pg: ''
   - name: Read/Write
-    description: Can read and write the languages he speaks.
+    description: You can read and write every language you speak.
     pg: ''
   - name: Resolute
-    description: Hits harder on the turn he charges.
+    description: When you gain a Condition, a Cool Test lets you keep your Momentum.
     pg: ''
   - name: Sturdy
-    description: Can carry more before being encumbered.
+    description: Count your Strength Bonus twice when working out your Encumbrance limit.
     pg: ''
   - name: Frenzy
-    description: 'Can work himself into a battle rage: fearless, but cannot retreat.'
+    description: 'A Willpower Test lets you Frenzy: extra attacks, more Damage and immunity to most psychology.'
     pg: ''
   mutations: []
   weapons:
-  - name: Axe
+  - name: Hand Weapon (Dwarf Axe)
     group: Basic
     enc: 1
     range: Average
@@ -507,6 +501,8 @@ characters:
   trappings:
   - name: Flask of Spirits
     enc: 0
+  - name: Tattoos
+    enc: 0
   - name: Pouch
     enc: 0
   spells: []
@@ -515,10 +511,10 @@ characters:
   appearance: Curly brown hair, an innocent smile and very quick fingers.
   portrait: ''
   careers:
-  - class: Rogues
+  - class: Rogue
     career: Thief – Prowler
     pg: ''
-    status: Brass 1
+    status: Brass 3
     tracker:
     - '----------'
     - '------------'
@@ -563,25 +559,25 @@ characters:
       advances: null
     S:
       initial: 19
-      advances: null
+      advances: 1
     T:
       initial: 31
       advances: null
     I:
       initial: 33
-      advances: 1
+      advances: null
     Ag:
       initial: 35
       advances: 3
     Dex:
       initial: 40
-      advances: null
+      advances: 1
     Int:
       initial: 29
       advances: null
     WP:
       initial: 41
-      advances: 1
+      advances: null
     Fel:
       initial: 42
       advances: null
@@ -623,8 +619,8 @@ characters:
       tick: false
       adv: null
     endurance:
-      tick: true
-      adv: 5
+      tick: false
+      adv: null
     entertain:
       spec: ''
       tick: false
@@ -642,8 +638,8 @@ characters:
       tick: false
       adv: null
     intuition:
-      tick: true
-      adv: 8
+      tick: false
+      adv: 3
     leadership:
       tick: false
       adv: null
@@ -691,8 +687,8 @@ characters:
     hardy: null
   armourPoints:
     head: null
-    leftArm: 1
-    rightArm: 1
+    leftArm: null
+    rightArm: null
     body: 1
     rightLeg: null
     leftLeg: null
@@ -700,11 +696,11 @@ characters:
   wealth:
     gc: null
     ss: null
-    d: 13
+    d: 33
   encumbrance:
     other: null
   corruption: 0
-  notes: Halflings do not add Strength Bonus to Wounds, so the sheet shows one more than his true 10.
+  notes: 'Wounds: in 4th edition Halflings do not add Strength Bonus, which gives 10 (the sheet adds it and shows 12). Check the 5th edition species rules.'
   sin: 0
   languages:
   - tick: false
@@ -714,31 +710,35 @@ characters:
     name: Reikspiel
     adv: null
   customSkills:
-  - tick: false
+  - tick: true
     name: Sleight of Hand
+    char: Dex
+    adv: 10
+  - tick: true
+    name: Pick Lock
     char: Dex
     adv: 5
   talents:
   - name: Acute Sense (Taste)
-    description: Can tell what is in any dish – or any poison.
+    description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
     pg: ''
   - name: Night Vision
-    description: Sees well in dim light.
+    description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
     pg: ''
-  - name: Resistance (Chaos)
-    description: Hard for the Ruinous Powers to corrupt.
+  - name: Resistant (Corruption)
+    description: Once per session automatically pass a Test against the chosen threat (disease, poison, magic…), with Advantage on later Tests.
     pg: ''
   - name: Small
     description: 'Halfling sized: shorter reach and slower on foot.'
     pg: ''
   - name: Mimic
-    description: Copies accents and voices with ease.
+    description: Advantage on Entertain (Acting, Comedy) and Perform (Clowning), and you can pick up any accent you hear for a day.
     pg: ''
   - name: Sixth Sense
-    description: Gets a prickle of warning before danger.
+    description: Before springing a trap or ambush, test Intuition to notice it at the last moment.
     pg: ''
   - name: Alley Cat
-    description: Moves unseen through streets and alleys.
+    description: Advantage on Stealth (Urban) Tests, and you know the quickest or quietest way across a town you are familiar with.
     pg: ''
   mutations: []
   weapons:
@@ -749,8 +749,8 @@ characters:
     damage: +SB+2
     qualities: ''
   armour:
-  - name: Leather Jack
-    locations: Arms, Body
+  - name: Leather Jerkin
+    locations: Body
     enc: 1
     ap: 1
     qualities: ''
@@ -767,7 +767,7 @@ characters:
   appearance: Tall and pale, silver-blond hair bound with white ribbons.
   portrait: ''
   careers:
-  - class: Academics
+  - class: Academic
     career: Wizard – Wizard's Apprentice
     pg: ''
     status: Brass 3
@@ -809,7 +809,7 @@ characters:
   characteristics:
     WS:
       initial: 37
-      advances: 1
+      advances: null
     BS:
       initial: 39
       advances: null
@@ -821,7 +821,7 @@ characters:
       advances: null
     I:
       initial: 52
-      advances: null
+      advances: 1
     Ag:
       initial: 41
       advances: null
@@ -869,8 +869,8 @@ characters:
       tick: true
       adv: 8
     dodge:
-      tick: true
-      adv: 3
+      tick: false
+      adv: null
     drive:
       tick: false
       adv: null
@@ -878,7 +878,7 @@ characters:
       tick: false
       adv: null
     entertain:
-      spec: Sing
+      spec: Singing
       tick: false
       adv: 3
     gamble:
@@ -894,8 +894,8 @@ characters:
       tick: false
       adv: null
     intuition:
-      tick: true
-      adv: 3
+      tick: false
+      adv: null
     leadership:
       tick: false
       adv: null
@@ -968,6 +968,9 @@ characters:
   - tick: true
     name: Magick
     adv: 10
+  - tick: true
+    name: Classical
+    adv: 3
   customSkills:
   - tick: true
     name: Channelling (Hysh)
@@ -977,28 +980,32 @@ characters:
     name: Lore (Magic)
     char: Int
     adv: 5
+  - tick: true
+    name: Research
+    char: Int
+    adv: 3
   - tick: false
     name: Evaluate
     char: Int
     adv: 3
   talents:
   - name: Acute Sense (Sight)
-    description: Spots small details at a distance.
+    description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
     pg: ''
   - name: Coolheaded
-    description: +5 Willpower (already added to Initial).
+    description: +5 Willpower (does not count as Advances). Already added to Initial.
     pg: ''
   - name: Night Vision
-    description: Sees well in dim light.
+    description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
     pg: ''
   - name: Second Sight
-    description: Can see the Winds of Magic.
+    description: You can perceive the Winds of Magic.
     pg: ''
   - name: Read/Write
-    description: Can read and write the languages she speaks.
+    description: You can read and write every language you speak.
     pg: ''
   - name: Petty Magic
-    description: Knows a few petty spells (CN 0).
+    description: Gain three petty spells of your choice, and learn more with XP.
     pg: ''
   mutations: []
   weapons:
@@ -1041,18 +1048,12 @@ characters:
     target: '1'
     duration: Willpower Bonus hours
     effect: Keeps the target dry in the rain.
-  - name: Sounds
-    cn: 0
-    range: Willpower yards
-    target: Special
-    duration: Willpower Bonus rounds
-    effect: Creates small, harmless noises nearby.
 - name: Caelith Thornwhisper
   species: Wood Elf
   appearance: Lean and watchful, leaf-green cloak, braids threaded with feathers.
   portrait: ''
   careers:
-  - class: Rangers
+  - class: Peasant
     career: Hunter – Trapper
     pg: ''
     status: Brass 2
@@ -1100,22 +1101,22 @@ characters:
       advances: null
     S:
       initial: 28
-      advances: 1
+      advances: null
     T:
       initial: 31
-      advances: 2
+      advances: null
     I:
       initial: 50
-      advances: null
+      advances: 1
     Ag:
       initial: 43
-      advances: null
+      advances: 2
     Dex:
       initial: 39
-      advances: 2
+      advances: null
     Int:
       initial: 37
-      advances: null
+      advances: 2
     WP:
       initial: 38
       advances: null
@@ -1212,8 +1213,8 @@ characters:
       tick: false
       adv: null
     stealthRural:
-      tick: false
-      adv: 5
+      tick: true
+      adv: 10
     stealthUrban:
       tick: false
       adv: null
@@ -1252,57 +1253,43 @@ characters:
     adv: null
   customSkills:
   - tick: true
-    name: Lore (Beasts)
-    char: Int
-    adv: 5
-  - tick: true
-    name: Ranged (Sling)
-    char: BS
-    adv: 5
-  - tick: true
     name: Set Trap
     char: Dex
     adv: 5
+  - tick: true
+    name: Track
+    char: I
+    adv: 8
   - tick: false
     name: Ranged (Bow)
     char: BS
     adv: 5
-  - tick: false
-    name: Track
-    char: I
-    adv: 3
   talents:
   - name: Acute Sense (Sight)
-    description: Spots small details at a distance.
+    description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again for another sense.
     pg: ''
   - name: Hardy
-    description: Extra Wounds equal to Toughness Bonus (entered as Hardy).
+    description: Add your Toughness Bonus to your Wounds a second time. Entered in the Hardy box.
     pg: ''
   - name: Night Vision
-    description: Sees well in dim light.
+    description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
     pg: ''
   - name: Read/Write
-    description: Can read and write the languages they speak.
+    description: You can read and write every language you speak.
     pg: ''
   - name: Rover
-    description: Moves quietly through the wilds.
+    description: Advantage on Stealth (Rural), and you can find the easiest route, game, water and shelter.
     pg: ''
-  - name: Strider (Woodlands)
-    description: Ignores difficult terrain in forests.
+  - name: Striding Gait (Woodland)
+    description: Ignore movement penalties in your chosen terrain and gain +2 SL in Pursuits there. Can be taken again.
     pg: ''
   mutations: []
   weapons:
-  - name: Hand Weapon (Hatchet)
+  - name: Hand Weapon (Axe)
     group: Basic
     enc: 1
     range: Average
     damage: +SB+4
-    qualities: ''
-  - name: Sling
-    group: Sling
-    enc: 0
-    range: '60'
-    damage: '+6'
     qualities: ''
   - name: Dagger
     group: Basic
@@ -1312,10 +1299,8 @@ characters:
     qualities: ''
   armour: []
   trappings:
-  - name: Animal Traps
+  - name: Selection of Animal Traps
     enc: 2
-  - name: Sling Stones (10)
-    enc: 0
   - name: Sturdy Boots and Cloak
     enc: 1
   spells: []
