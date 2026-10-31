@@ -529,6 +529,8 @@ button.danger { color: var(--warn); }
 .corruption { display: flex; flex-wrap: wrap; align-items: center; gap: 8px; margin-bottom: 10px; }
 .corruption-label { display: flex; align-items: center; gap: 6px; color: var(--ink-soft); }
 .corruption-label output { min-width: 2.5rem; }
+/* Text with a hover tip */
+.has-tip { cursor: help; text-decoration: underline dotted; text-underline-offset: 3px; }
 .corruption-track { display: flex; flex-wrap: wrap; gap: 0; }
 .corruption-track .skull { width: 1.9rem; height: 1.9rem; }
 .corruption-limits { margin: -4px 0 10px; font-size: 0.85rem; color: var(--ink-soft); }
