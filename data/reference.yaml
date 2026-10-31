@@ -1,6 +1,25 @@
-# Reference data for the character sheet: species, classes, careers, skills, talents, mutations, equipment, spells and prayers.
-source: Warhammer Fantasy Roleplay 5th edition – species, classes, careers, skills, talents, mutations, equipment, spells
-  and prayers. Descriptions are short summaries, see the rulebook for the full rules.
+# Reference data for the character sheet: status, species, classes, careers, skills, talents, mutations, equipment, spells and prayers.
+source: Warhammer Fantasy Roleplay 5th edition – status, species, classes, careers, skills, talents, mutations, equipment,
+  spells and prayers. Descriptions are short summaries, see the rulebook for the full rules.
+status:
+- name: Brass
+  description: Labourers, peasants, unskilled workers and the poor — and many criminals and drifters.
+  income: 2d10 brass pennies (d) per Standing
+  standing:
+  - 0
+  - 5
+- name: Silver
+  description: 'Skilled professionals, merchants, artisans and respected tradesfolk: comfortable and respectable, not rich.'
+  income: 1d10 silver shillings (ss) per Standing
+  standing:
+  - 1
+  - 5
+- name: Gold
+  description: The rulers of society, their advisers, protectors and magistrates, and the independently wealthy.
+  income: 1 gold crown (GC) per Standing
+  standing:
+  - 1
+  - 7
 species:
 - name: Dwarf
   short: Stout, stubborn, long-lived mountain folk who never forget a grudge.

@@ -429,7 +429,7 @@
                 field('Career', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.career`, 'data-suggest': 'ref-careers-any-any', 'data-ref': 'careers' })),
                 field('pg.', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.pg` }), 'pg'),
                 tracker,
-                field('Status', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.status` }))
+                field('Status', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.status`, 'data-suggest': 'ref-status', 'data-ref': 'status' }))
             ]));
         }
     }
@@ -880,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells', 'lores'].forEach(k => {
+                ['status', 'species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells', 'lores'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 // Languages come from the Language skill's details, also found by their other names (Mootish…)
@@ -905,6 +905,7 @@
     }
 
     function buildDatalists() {
+        setSuggestions('ref-status', statusOptions(null));
         setSuggestions('ref-species', [...reference.species.values()].map(s => [s.name, s.short]));
         setSuggestions('ref-classes', [...reference.classes.values()].map(c => [c.name, c.short]));
 
@@ -945,6 +946,7 @@
     function findEntry(kind, value) {
         if (!reference || !value) return null;
         if (kind === 'careers') return findCareer(value);
+        if (kind === 'status') return findStatus(value);
         const map = reference[kind];
         return map ? map.get(String(value).trim().toLowerCase()) || map.get(baseName(value)) || null : null;
     }
@@ -965,6 +967,8 @@
         } else if (kind === 'languages' && found) {
             text = `${found.name}${found.aliases ? ' (' + found.aliases.join(', ') + ')' : ''} – spoken by ${found.description.charAt(0).toLowerCase() + found.description.slice(1)}` +
                 (found.related ? `\n\nRelated languages: ${found.related}. Native speakers of these can hold a basic conversation in it.` : '');
+        } else if (kind === 'status' && found) {
+            text = statusText(found, input);
         } else if (kind === 'species' && found) {
             const pr = found.profile || {};
             const stats = CHARACTERISTICS.map(k => `${k} ${pr[k]}`).join(' · ');
@@ -1002,7 +1006,11 @@
         input.title = text;
         setInfoButton(input, text);
 
-        if (kind === 'classes' || kind === 'species') updateCareerSuggestions();
+        if (kind === 'classes' || kind === 'species' || kind === 'careers') updateCareerSuggestions();
+        if (kind === 'careers') {
+            const status = document.querySelector(`[data-path="careers.${input.dataset.path.split('.')[1]}.status"]`);
+            if (status) describe(status); // its tooltip lists this career's levels
+        }
     }
 
     // Career suggestions: each career plus its four levels
@@ -1024,7 +1032,51 @@
             }
             const input = document.querySelector(`[data-path="careers.${i}.career"]`);
             if (input) input.dataset.suggest = id;
+
+            // Status: the levels of this row's career first
+            const career = findCareer(row.career);
+            const statusId = career ? `ref-status-${career.career.name}` : 'ref-status';
+            if (!suggestions.has(statusId)) setSuggestions(statusId, statusOptions(career && career.career));
+            const status = document.querySelector(`[data-path="careers.${i}.status"]`);
+            if (status) status.dataset.suggest = statusId;
         });
+    }
+
+    // Every status from Brass 0 to Gold 7, with a career's own levels first when given
+    function statusOptions(career) {
+        const levels = career ? career.levels.map((l, i) => [l.status, `${career.name} level ${i + 1}: ${l.name}`]) : [];
+        const all = [...reference.status.values()].flatMap(t => {
+            const out = [];
+            for (let n = t.standing[0]; n <= t.standing[1]; n++) out.push([`${t.name} ${n}`, t.description]);
+            return out;
+        });
+        const seen = new Set(levels.map(l => l[0]));
+        return levels.concat(all.filter(o => !seen.has(o[0])));
+    }
+
+    // "Silver 3" → { tier, standing }
+    function findStatus(value) {
+        const m = String(value || '').trim().match(/^(brass|silver|gold)\s*(\d+)?/i);
+        const tier = m && reference.status.get(m[1].toLowerCase());
+        return tier ? { tier, standing: m[2] === undefined ? null : Number(m[2]) } : null;
+    }
+
+    function statusText(found, input) {
+        const { tier, standing: n } = found;
+        const income = n === null ? tier.income
+            : tier.name === 'Brass' ? `${2 * n}d10 brass pennies`
+            : tier.name === 'Silver' ? `${n}d10 silver shillings` : `${n} gold crown${n === 1 ? '' : 's'}`;
+        const row = character.careers[input.dataset.path.split('.')[1]];
+        const career = row && findCareer(row.career);
+        const levels = career ? career.career.levels.map((l, i) => `${i + 1}. ${l.name} – ${l.status}`).join('\n') : '';
+        return [`${tier.name}${n === null ? '' : ' ' + n} – ${tier.description}`,
+            `The number is your Standing: your place among others of the ${tier.name} tier.`,
+            n === 0 ? 'Income Endeavour: with Standing 0 you earn nothing.'
+                : `Income Endeavour: an Average (+2 SL) Test with your career's earning skill earns ${income} (half on a failure).`,
+            'Social Tests: Charm, Gossip and most Fellowship Tests suffer −1 SL per tier between you and the other person. ' +
+            'You gain Advantage on Leadership over lower Status, and Gold gains Advantage on Intimidate against lower Status in civilised places.',
+            'Without the trappings of your career level you count as the highest level whose trappings you have.',
+            levels ? `${career.career.name}:\n${levels}` : ''].filter(Boolean).join('\n\n');
     }
 
     // The detail for the specialisation in "Lore (Heraldry)" or "Language (Mootish)", if the skill has one
