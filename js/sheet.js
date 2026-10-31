@@ -958,6 +958,7 @@
             text = `${found.name} – ${found.short}\n\n${found.description}`;
         }
         input.title = text;
+        setInfoButton(input, text);
 
         // The career suggestions follow the class picked on the same row
         if (kind === 'classes') {
@@ -968,6 +969,7 @@
     }
 
     function describeAll() {
+        closeFieldInfo(); // the fields may have been re-rendered
         if (reference) document.querySelectorAll('[data-ref]').forEach(describe);
     }
 
@@ -1004,17 +1006,30 @@
 
     // An ⓘ button (data-info = panel id) shows the hover tip of the panel's data-source element
     // as a panel, so the text can also be read on touch screens.
+    // Fields described by the reference data get their own ⓘ button (class field-info), which
+    // shows the field's tip in one shared panel floating under the field.
+    let fieldInfo = null;
+    let fieldInfoButton = null;
+
     function initInfo() {
         document.querySelectorAll('.info-pop[data-source]').forEach(pop => {
             pop.textContent = document.getElementById(pop.dataset.source).title;
         });
+        fieldInfo = el('div', { id: 'fieldInfo', class: 'info-pop floating', role: 'note', hidden: true });
+        document.body.append(fieldInfo);
+
         const setOpen = (btn, open) => {
             document.getElementById(btn.dataset.info).hidden = !open;
             btn.setAttribute('aria-expanded', open ? 'true' : 'false');
         };
-        const openButtons = () => document.querySelectorAll('.info-btn[aria-expanded="true"]');
+        const openButtons = () => document.querySelectorAll('.info-btn[data-info][aria-expanded="true"]');
         document.addEventListener('click', e => {
             const btn = e.target.closest('.info-btn');
+            if (btn && btn.classList.contains('field-info')) {
+                if (btn === fieldInfoButton) closeFieldInfo();
+                else openFieldInfo(btn);
+                return;
+            }
             if (btn) {
                 setOpen(btn, btn.getAttribute('aria-expanded') !== 'true');
                 return;
@@ -1023,10 +1038,70 @@
             openButtons().forEach(b => {
                 if (!document.getElementById(b.dataset.info).contains(e.target)) setOpen(b, false);
             });
+            if (!fieldInfo.contains(e.target)) closeFieldInfo();
         });
         document.addEventListener('keydown', e => {
-            if (e.key === 'Escape') openButtons().forEach(b => setOpen(b, false));
+            if (e.key === 'Escape') {
+                openButtons().forEach(b => setOpen(b, false));
+                closeFieldInfo();
+            }
         });
+        // Editing the field may change its description
+        document.addEventListener('input', e => {
+            if (fieldInfoButton && fieldInfoButton.parentElement.contains(e.target)) closeFieldInfo();
+        });
+        window.addEventListener('resize', positionFieldInfo);
+    }
+
+    function setInfoButton(input, text) {
+        const cell = input.closest('.cell');
+        if (!cell) return;
+        let btn = cell.querySelector('.field-info');
+        if (!text) {
+            if (btn) {
+                if (btn === fieldInfoButton) closeFieldInfo();
+                btn.remove();
+            }
+            cell.classList.remove('has-info');
+            return;
+        }
+        if (!btn) {
+            btn = el('button', {
+                type: 'button', class: 'info-btn field-info', 'aria-expanded': 'false', 'aria-controls': 'fieldInfo',
+                'aria-label': 'Show description', title: 'Show description', html: '&#9432;'
+            });
+            cell.append(btn);
+            cell.classList.add('has-info');
+        }
+    }
+
+    function openFieldInfo(btn) {
+        closeFieldInfo();
+        const input = btn.parentElement.querySelector('[data-ref]');
+        fieldInfo.textContent = input.title;
+        fieldInfo.hidden = false;
+        fieldInfoButton = btn;
+        btn.setAttribute('aria-expanded', 'true');
+        positionFieldInfo();
+    }
+
+    function closeFieldInfo() {
+        if (!fieldInfoButton) return;
+        fieldInfoButton.setAttribute('aria-expanded', 'false');
+        fieldInfoButton = null;
+        fieldInfo.hidden = true;
+    }
+
+    // Under the field, kept inside the window horizontally (like the suggestion drop-down).
+    function positionFieldInfo() {
+        if (!fieldInfoButton) return;
+        const input = fieldInfoButton.parentElement.querySelector('[data-ref]');
+        const r = input.getBoundingClientRect();
+        const width = Math.min(Math.max(r.width, 280), 448, window.innerWidth - 16);
+        const left = Math.max(8, Math.min(r.left, window.innerWidth - width - 8));
+        fieldInfo.style.width = width + 'px';
+        fieldInfo.style.left = (left + window.scrollX) + 'px';
+        fieldInfo.style.top = (r.bottom + window.scrollY + 2) + 'px';
     }
 
     /* ---------- suggestion drop-down ---------- */
