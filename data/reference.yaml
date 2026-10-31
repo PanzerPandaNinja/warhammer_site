@@ -1,6 +1,10 @@
 # Reference data for the character sheet: status, species, classes, careers, skills, talents, mutations, equipment, spells and prayers.
 source: Warhammer Fantasy Roleplay 5th edition – status, species, classes, careers, skills, talents, mutations, equipment,
   spells and prayers. Descriptions are short summaries, see the rulebook for the full rules.
+everyone_trappings:
+- name: Clothing
+- name: Dagger
+- name: Pouch
 status:
 - name: Brass
   description: Labourers, peasants, unskilled workers and the poor — and many criminals and drifters.
@@ -355,6 +359,11 @@ classes:
   short: Educated folk whose power comes from learning.
   description: Scholars, lawyers, physicians, engineers, priests and wizards. Academics have studied for their place in the
     world, often at a university, temple or college, and solve problems with knowledge rather than muscle.
+  trappings:
+  - name: Sling Bag
+  - name: Writing Kit
+  - name: Parchment (1d10 sheets)
+    item: Parchment/sheet
   careers:
   - Apothecary
   - Engineer
@@ -368,6 +377,11 @@ classes:
   short: Town and city dwellers who keep urban life running.
   description: Traders, craftsfolk, townsmen, watchmen, rat catchers and the street poor. Burghers know how towns work — the
     guilds, the markets, the gossip and the back alleys.
+  trappings:
+  - name: Cloak
+  - name: Hat
+  - name: Sling Bag
+  - name: Lunch
   careers:
   - Agitator
   - Artisan
@@ -381,6 +395,12 @@ classes:
   short: People who live in the orbit of the rich and powerful.
   description: Nobles and the advisers, envoys, spies, wardens, duellists, artists and servants around them. Courtiers deal
     in influence, etiquette and secrets.
+  trappings:
+  - name: Fine Clothing
+    item: Clothing
+  - name: Tweezers
+  - name: Ear Pick
+  - name: Comb
   careers:
   - Adviser
   - Artist
@@ -394,6 +414,11 @@ classes:
   short: Rural folk who work the land and live close to the wild.
   description: Villagers, hunters, miners, scouts, herbalists, bailiffs, mystics and hedge witches. Peasants are hardy and
     practical, and know the countryside and its dangers.
+  trappings:
+  - name: Cloak
+  - name: Sling Bag
+  - name: Rations (1 day)
+    item: Rations, 1 day
   careers:
   - Bailiff
   - Hedge Witch
@@ -407,6 +432,13 @@ classes:
   short: Travellers who make their living on the Empire's roads.
   description: Coachmen, messengers, pedlars, entertainers, roadwardens, bounty hunters, flagellants and witch hunters. Rangers
     are always on the move and used to the perils between settlements.
+  trappings:
+  - name: Cloak
+  - name: Backpack
+  - name: Tinderbox
+  - name: Blanket
+  - name: Rations (1 day)
+    item: Rations, 1 day
   careers:
   - Bounty Hunter
   - Coachman
@@ -420,6 +452,11 @@ classes:
   short: People of the rivers, docks and seas.
   description: Boatmen, pilots, sailors, stevedores, riverwardens and riverwomen — and the smugglers and wreckers who prey
     on them. The waterways are the arteries of the Empire, and Riverfolk know them best.
+  trappings:
+  - name: Cloak
+  - name: Sling Bag
+  - name: Flask of Spirits
+    item: Flask
   careers:
   - Boatman
   - Pilot
@@ -433,6 +470,13 @@ classes:
   short: Those who live outside — or just beyond — the law.
   description: Thieves, charlatans, fences, knaves, racketeers, outlaws, grave robbers and unsanctioned witches. Rogues get
     by on cunning, nerve and a talent for not getting caught.
+  trappings:
+  - name: Sling Bag
+  - name: Candles (2)
+    item: Candle (dozen)
+  - name: Matches (1d10)
+    item: Match
+  - name: Hood or Mask
   careers:
   - Charlatan
   - Fence
@@ -446,6 +490,8 @@ classes:
   short: Fighters who earn their keep with weapons.
   description: Soldiers, guards, knights, cavalry, pit fighters, hired muscle, warrior priests and dwarf slayers. Warriors
     are trained for violence and are the backbone of most adventuring parties.
+  trappings:
+  - name: Hand Weapon
   careers:
   - Cavalryman
   - Guard

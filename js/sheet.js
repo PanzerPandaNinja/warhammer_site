@@ -883,6 +883,11 @@
                 ['status', 'species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells', 'lores'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
+                // Beginning trappings: everyone's, and each class's; "Candles (2)" → the shop's Candle (dozen)
+                reference.everyone = data.everyone_trappings || [];
+                reference.itemAlias = new Map();
+                reference.everyone.concat(...(data.classes || []).map(c => c.trappings || []))
+                    .forEach(t => { if (t.item) reference.itemAlias.set(t.name.toLowerCase(), t.item.toLowerCase()); });
                 // Languages come from the Language skill's details, also found by their other names (Mootish…)
                 const language = reference.skills.get('language');
                 reference.languages = new Map();
@@ -1050,30 +1055,53 @@
         updateTrappingSuggestions();
     }
 
-    // The trappings of the character's careers, level by level, come first in the trappings list.
+    // The trappings list starts with what everyone begins with, then the trappings of the character's
+    // classes and careers (level by level), then the shop items.
     function updateTrappingSuggestions() {
-        const careers = [...new Map(character.careers.map(r => findCareer(r.career)).filter(Boolean)
-            .map(f => [f.career.name, f.career])).values()];
-        const id = careers.length ? `ref-trappings-${careers.map(c => c.name).join('|')}` : 'ref-trappings';
+        const careers = characterCareers();
+        const classes = characterClasses();
+        const id = `ref-trappings-${classes.map(c => c.name).join('|')}-${careers.map(c => c.name).join('|')}`;
         if (!suggestions.has(id)) {
             const own = new Map();
-            careers.forEach(c => c.levels.forEach((l, i) => (l.trappings || []).forEach(t => {
-                if (own.has(t)) return;
-                const item = findItem(t);
-                own.set(t, `${c.name} level ${i + 1}: ${l.name}` + (item ? ` · ${item[1].short}` : ''));
-            })));
+            const add = (name, source) => {
+                if (own.has(name)) return;
+                const item = findItem(name);
+                own.set(name, source + (item ? ` · ${item[1].short}` : ''));
+            };
+            reference.everyone.forEach(t => add(t.name, 'Everyone starts with this'));
+            classes.forEach(c => (c.trappings || []).forEach(t => add(t.name, `${c.name} class`)));
+            careers.forEach(c => c.levels.forEach((l, i) => (l.trappings || []).forEach(t => add(t, `${c.name} level ${i + 1}: ${l.name}`))));
             const shop = (suggestions.get('ref-trappings') || []).filter(o => !own.has(o.value)).map(o => [o.value, o.label]);
             setSuggestions(id, [...own].concat(shop));
         }
         document.querySelectorAll('[data-ref="trappings"]').forEach(input => { input.dataset.suggest = id; });
     }
 
+    function characterCareers() {
+        return [...new Map(character.careers.map(r => findCareer(r.career)).filter(Boolean)
+            .map(f => [f.career.name, f.career])).values()];
+    }
+
+    // Classes named on the career rows, or else the classes of the careers there
+    function characterClasses() {
+        const names = new Set();
+        character.careers.forEach(r => {
+            const cls = findEntry('classes', r.class);
+            const career = findCareer(r.career);
+            if (cls) names.add(cls.name);
+            else if (career) names.add(career.career.class);
+        });
+        return [...names].map(n => reference.classes.get(n.toLowerCase())).filter(Boolean);
+    }
+
     // A shop item for a trapping name: trappings first, then weapons and armour.
-    // Also tries "Hand Weapon (Axe)" → Hand Weapon, "Bow with 10 Arrows" → Bow, "Book (Law)" → Book, Law.
+    // Also tries "Hand Weapon (Axe)" → Hand Weapon, "Bow with 10 Arrows" → Bow, "Book (Law)" → Book, Law,
+    // and the beginning trappings' own names ("Candles (2)" → Candle (dozen)).
     function findItem(value) {
-        const v = String(value || '').trim().toLowerCase();
+        let v = String(value || '').trim().toLowerCase();
         if (!v || !reference) return null;
-        const names = [v, baseName(v), v.replace(/\s+with\s.*$/, ''), v.replace(/^book \((.*)\)$/, 'book, $1')];
+        v = reference.itemAlias.get(v) || v;
+        const names = [v, baseName(v), v.replace(/\s+with\s.*$/, ''), v.replace(/^(.*) \((.*)\)$/, '$1, $2')];
         for (const kind of ['trappings', 'weapons', 'armour']) {
             for (const n of names) {
                 const entry = reference[kind].get(n);
@@ -1083,10 +1111,15 @@
         return null;
     }
 
-    // "Career trapping: Thief level 2 (Thief)" for trappings of the character's careers
+    // Where a trapping comes from: "Everyone starts with this", "Class trapping: Rogue",
+    // "Career trapping: Thief level 2 (Thief)"
     function careerTrappingNote(value) {
         const v = String(value || '').trim().toLowerCase();
         if (!v) return '';
+        const notes = [];
+        if (reference.everyone.some(t => t.name.toLowerCase() === v)) notes.push('Everyone starts with this.');
+        const classes = characterClasses().filter(c => (c.trappings || []).some(t => t.name.toLowerCase() === v));
+        if (classes.length) notes.push(`Class trapping: ${classes.map(c => c.name).join(', ')}`);
         const sources = [];
         character.careers.forEach(r => {
             const f = findCareer(r.career);
@@ -1095,7 +1128,8 @@
                 if ((l.trappings || []).some(t => t.toLowerCase() === v)) sources.push(`${f.career.name} level ${i + 1} (${l.name})`);
             });
         });
-        return sources.length ? `Career trapping: ${[...new Set(sources)].join(', ')}` : '';
+        if (sources.length) notes.push(`Career trapping: ${[...new Set(sources)].join(', ')}`);
+        return notes.join('\n');
     }
 
     // Every status from Brass 0 to Gold 7, with a career's own levels first when given
