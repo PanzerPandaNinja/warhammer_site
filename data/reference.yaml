@@ -2113,9 +2113,10 @@ talents:
   short: Ranged hits deal extra Damage.
   description: Successful ranged attacks deal +1 Damage, or +2 if you took time to aim.
 - name: Acute Sense
-  examples:
+  specialisations:
   - Hearing
   - Sight
+  - Smell
   - Taste
   - Touch
   short: One sense is unusually sharp.
@@ -2136,16 +2137,36 @@ talents:
   short: Wild animals are at ease around you.
   description: As long as you are not aggressive, wild animals will not normally attack you.
 - name: Arcane Magic
-  examples:
+  specialisations:
+  - Beasts
+  - Death
+  - Fire
   - Heavens
+  - Life
+  - Light
+  - Metal
+  - Shadows
   - Hedgecraft
   - Witchcraft
+  - Daemonology
+  - Necromancy
   short: Learn spells from a Lore of Magic.
   description: Choose one Colour Lore, a witch lore or a dark lore. You gain one spell from it and can learn more with XP.
 - name: Argumentative
   short: Draws people into pointless arguments.
   description: Others must beat your Charm with Cool to escape the debate, and are distracted while arguing.
 - name: Artistic
+  specialisations:
+  - Drawing
+  - Engraving
+  - Mosaics
+  - Painting
+  - Sculpture
+  - Tattooing
+  - Weaving
+  - Writing
+  - Calligraphy
+  - Icons
   short: A natural talent for one form of art.
   description: You can always advance Art and gain Advantage on Art Tests in your chosen medium. Can be taken again for another
     medium.
@@ -2169,6 +2190,17 @@ talents:
   short: Talks their way out of being caught.
   description: When caught, an Opposed Charm vs Cool Test makes your excuse believed for a while.
 - name: Bless
+  specialisations:
+  - Manann
+  - Morr
+  - Myrmidia
+  - Ranald
+  - Rhya
+  - Shallya
+  - Sigmar
+  - Taal
+  - Ulric
+  - Verena
   short: Can call on a god's blessings.
   description: You gain all the Blessings of your deity. Cannot be combined with arcane magic talents or Channelling.
 - name: Bookish
@@ -2198,6 +2230,10 @@ talents:
   short: Lands like a cat.
   description: Every fall counts as deliberate, so you can test Athletics to reduce Damage, with Advantage.
 - name: Chaos Magic
+  specialisations:
+  - Nurgle
+  - Slaanesh
+  - Tzeentch
   short: Wields the forbidden magic of a Dark God.
   description: Gain spells from a Chaos Lore, gaining Corruption with each spell learned. Can never be unlearned.
 - name: Combat Aware
@@ -2227,14 +2263,30 @@ talents:
   description: With Drive, your animals can act and move without a Test, Drive Tests have Advantage, and your team is faster
     in a Pursuit.
 - name: Craftsman
-  examples:
+  specialisations:
   - Apothecary
+  - Calligrapher
+  - Chandler
+  - Carpenter
+  - Cook
+  - Embalmer
+  - Engineer
+  - Herbalist
+  - Shipwright
+  - Smith
+  - Tanner
+  - Art Supplies
   - Barber
   - Boatbuilder
+  - Brewer
   - Cartographer
-  - Engineer
+  - Engraver
   - Explosives
-  - Herbalist
+  - Farrier
+  - Gunsmith
+  - Poisoner
+  - Printing
+  - Tinker
   short: A true master of a craft.
   description: Advantage on Tests with your chosen Trade, which you may advance even outside your Career. Can be taken again
     for another Trade.
@@ -2281,14 +2333,14 @@ talents:
   short: Fights well in tight spaces.
   description: Ignore penalties for cramped spaces and use Dodge even where there is no room.
 - name: Etiquette
-  examples:
+  specialisations:
   - Criminals
   - Cultists
   - Guilders
   - Nobles
+  - Soldiers
   - Scholars
   - Servants
-  - Soldiers
   short: Fits in with a particular social group.
   description: Blend in with the chosen group (such as Nobles, Soldiers or Criminals) when dressed and behaving appropriately.
 - name: Fast Hands
@@ -2298,7 +2350,10 @@ talents:
   short: Draws and fires a pistol in a flash.
   description: If not Engaged, make one pistol attack before the first Turn of the Round.
 - name: Fearless
-  examples:
+  specialisations:
+  - Giants
+  - Skeletons
+  - Trolls
   - Beasts
   - Bounties
   - Criminals
@@ -2353,9 +2408,16 @@ talents:
   short: Tougher than most.
   description: Add your Toughness Bonus to your Wounds a second time.
 - name: Hatred
-  examples:
-  - Heretics
+  specialisations:
+  - Beastmen
+  - Goblins
+  - Monsters
+  - Orcs
   - Outlaws
+  - Sigmarites
+  - Undead
+  - Witches
+  - Heretics
   short: Consumed by hatred for a group.
   description: 'Gain Hatred for the group: +1 SL to attacks against them and immunity to their Intimidate and Fear, but you
     may be compelled to attack.'
@@ -2384,6 +2446,17 @@ talents:
   short: Speaks Magick swiftly and precisely.
   description: After a successful cast, reduce Minor Miscast rolls by 20, possibly avoiding them altogether.
 - name: Invoke
+  specialisations:
+  - Manann
+  - Morr
+  - Myrmidia
+  - Ranald
+  - Rhya
+  - Shallya
+  - Sigmar
+  - Taal
+  - Ulric
+  - Verena
   short: Can call on a god's miracles.
   description: Gain one Miracle of your god and learn more with XP. Cannot be combined with arcane magic talents or Channelling.
 - name: Iron Jaw
@@ -2433,11 +2506,30 @@ talents:
   short: Speaks clearly and convincingly on any topic.
   description: Advantage on Lore Tests to argue a case or a point before a court or crowd.
 - name: Master Tradesman
-  examples:
+  specialisations:
   - Apothecary
-  - Boatbuilder
+  - Calligrapher
+  - Chandler
+  - Carpenter
+  - Cook
+  - Embalmer
   - Engineer
   - Herbalist
+  - Shipwright
+  - Smith
+  - Tanner
+  - Art Supplies
+  - Barber
+  - Boatbuilder
+  - Brewer
+  - Cartographer
+  - Engraver
+  - Explosives
+  - Farrier
+  - Gunsmith
+  - Poisoner
+  - Printing
+  - Tinker
   short: A skilled and reliable artisan.
   description: With your chosen Trade, use the units die instead of SL on success. Can be taken again for another Trade.
 - name: Menacing
@@ -2503,8 +2595,10 @@ talents:
   short: Hard to escape.
   description: When an opponent Disengages you can test to chase them, and gain +1 SL as pursuer in a Pursuit.
 - name: Resistant
-  examples:
+  specialisations:
+  - Corruption
   - Disease
+  - Magic
   - Poison
   short: Resists a particular threat.
   description: Once per session automatically pass a Test against the chosen threat (disease, poison, magic…), with Advantage
@@ -2531,18 +2625,44 @@ talents:
   short: Moves quickly and quietly through the wilds.
   description: Advantage on Stealth (Rural), and you can find the easiest route, game, water and shelter.
 - name: Savant
-  examples:
-  - Art
-  - Chemistry
+  specialisations:
   - Engineering
-  - Folklore
-  - Herbs
+  - Geology
+  - Heraldry
+  - History
   - Law
   - Local
-  - Medicine
-  - Politics
-  - Riverways
+  - Magic
+  - Metallurgy
+  - Science
   - Theology
+  - Art
+  - Astrology
+  - Beasts
+  - Chaos
+  - Chemistry
+  - Daemons
+  - Dragons
+  - Folklore
+  - Genealogy
+  - Geography
+  - Giants
+  - Herbs
+  - Medicine
+  - Oceans
+  - Politics
+  - Prophecy
+  - Rats
+  - Riverways
+  - Routes
+  - Sigmar
+  - Spirits
+  - Taxes
+  - The Empire
+  - Trolls
+  - Warfare
+  - Witches
+  - Wrecks
   short: Deeply learned in one field.
   description: Advantage on Tests with your chosen Lore. Can be taken again for another Lore.
 - name: Savvy
@@ -2604,10 +2724,13 @@ talents:
   short: Keeps coming back for more.
   description: The first time in an encounter you would be Broken, gain one fewer Broken Condition.
 - name: Striding Gait
-  examples:
+  specialisations:
   - Coastal
+  - Desert
   - Rocky
+  - Tundra
   - Wetland
+  - Woodland
   short: Crosses difficult ground with ease.
   description: Ignore movement penalties in your chosen terrain and gain +2 SL in Pursuits there. Can be taken again.
 - name: Strike Mighty Blow

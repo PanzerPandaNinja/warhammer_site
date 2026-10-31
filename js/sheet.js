@@ -880,7 +880,7 @@
             .then(text => {
                 const data = jsyaml.load(text) || {};
                 reference = {};
-                ['species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells'].forEach(k => {
+                ['species', 'classes', 'careers', 'skills', 'talents', 'mutations', 'weapons', 'armour', 'trappings', 'qualities', 'spells', 'lores'].forEach(k => {
                     reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
                 });
                 // Languages come from the Language skill's details, also found by their other names (Mootish…)
@@ -924,7 +924,7 @@
         ['weapons', 'armour', 'trappings', 'spells'].forEach(k => setSuggestions(`ref-${k}`, [...reference[k].values()].map(e => [e.name, e.short])));
         setSuggestions('ref-mutations', [...reference.mutations.values()].map(m => [m.name, `${m.type} · ${m.roll} · ${m.short}`]));
         setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
-            [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
+            [[t.name, t.short]].concat((t.specialisations || []).map(x => [`${t.name} (${x})`, t.short]))));
     }
 
     // Accepts "Soldier", "Soldier – Recruit" or just a level name such as "Recruit".
@@ -994,6 +994,8 @@
             text = [`${found.name} – ${found.category}`,
                 `Price ${found.price} · Enc ${found.enc ?? '–'}${found.carries !== undefined ? ' · Carries ' + found.carries : ''} · ${found.availability}`,
                 found.note].filter(Boolean).join('\n\n');
+        } else if (kind === 'talents' && found) {
+            text = [`${found.name} – ${found.short}`, found.description, talentSpecDetail(found, input.value)].filter(Boolean).join('\n\n');
         } else if (found) {
             text = `${found.name} – ${found.short}\n\n${found.description}`;
         }
@@ -1031,6 +1033,31 @@
         if (!spec || !skill.details) return null;
         const s = spec.trim().toLowerCase();
         return skill.details.find(d => d.name.toLowerCase() === s || (d.aliases || []).some(a => a.toLowerCase() === s)) || null;
+    }
+
+    // What a talent's specialisation gives: the spells of an Arcane or Chaos lore, a god's blessings or
+    // miracles, or the description of a Lore for Savant.
+    function talentSpecDetail(talent, value) {
+        const spec = ((String(value).match(/\(([^)]*)\)\s*$/) || [])[1] || '').trim();
+        if (!spec) return '';
+        const lower = spec.toLowerCase();
+        const names = list => list.map(e => e.name).join(', ');
+        const spells = [...reference.spells.values()];
+        if (talent.name === 'Arcane Magic' || talent.name === 'Chaos Magic') {
+            const lore = reference.lores.get(`lore of ${lower}`);
+            const known = spells.filter(e => lore && e.lore === lore.name);
+            return lore ? `${lore.name}: ${lore.description}\nSpells: ${names(known)}` : '';
+        }
+        if (talent.name === 'Bless' || talent.name === 'Invoke') {
+            const kind = talent.name === 'Bless' ? 'Blessing' : 'Miracle';
+            const prayers = spells.filter(e => e.kind === kind && e.gods.some(g => g.toLowerCase() === lower));
+            return prayers.length ? `${kind === 'Blessing' ? 'Blessings' : 'Miracles'} of ${prayers[0].gods.find(g => g.toLowerCase() === lower)}: ${names(prayers)}` : '';
+        }
+        if (talent.name === 'Savant') {
+            const detail = specDetail(reference.skills.get('lore'), `(${spec})`);
+            return detail ? `Lore (${detail.name}): ${detail.description}` : '';
+        }
+        return '';
     }
 
     // "Impale, Reload 2, Inflict (Entangled 50)" → one line per quality with its rule
