@@ -950,7 +950,11 @@
         } else if (kind === 'skills' && found) {
             text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
         } else if (kind === 'species' && found) {
-            text = [`${found.name} – ${found.short}`, found.description, `Mutation: ${found.mutation}`,
+            const pr = found.profile || {};
+            const stats = CHARACTERISTICS.map(k => `${k} ${pr[k]}`).join(' · ');
+            text = [`${found.name} – ${found.short}`, found.description,
+                `Average (Bestiary): M ${pr.movement} · ${stats} · W ${pr.wounds}\nSkills: ${pr.skills}${pr.traits ? '\nTraits: ' + pr.traits : ''}`,
+                `Mutation: ${found.mutation}`,
                 `Careers (${found.careers.length}): ${found.careers.join(', ')}`].join('\n\n');
         } else if (kind === 'mutations' && found) {
             text = `${found.name} (${found.type}, d100 ${found.roll}) – ${found.short}\n\nEffect: ${found.effect}`;

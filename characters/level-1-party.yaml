@@ -310,7 +310,7 @@ characters:
       initial: 44
       advances: null
     I:
-      initial: 29
+      initial: 19
       advances: null
     Ag:
       initial: 18
@@ -561,10 +561,10 @@ characters:
       initial: 19
       advances: 1
     T:
-      initial: 31
+      initial: 21
       advances: null
     I:
-      initial: 33
+      initial: 53
       advances: null
     Ag:
       initial: 35
@@ -700,7 +700,7 @@ characters:
   encumbrance:
     other: null
   corruption: 0
-  notes: 'Wounds: in 4th edition Halflings do not add Strength Bonus, which gives 10 (the sheet adds it and shows 12). Check the 5th edition species rules.'
+  notes: Grew up in the Moot; came to Altdorf to cook and stayed to pick pockets.
   sin: 0
   languages:
   - tick: false

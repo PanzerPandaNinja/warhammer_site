@@ -3,9 +3,24 @@ source: Warhammer Fantasy Roleplay 5th edition – species, classes, careers, sk
   and prayers. Descriptions are short summaries, see the rulebook for the full rules.
 species:
 - name: Dwarf
-  short: Stout, long-lived mountain folk who never forget a grudge.
-  description: Dwarfs are proud, stubborn and enduring, master miners, smiths and engineers from the mountain holds. Many
-    live in Imperial towns as craftsfolk, merchants and soldiers.
+  short: Stout, stubborn, long-lived mountain folk who never forget a grudge.
+  description: Dwarfs are tough and strong-willed, master miners, smiths and engineers from the mountain holds; many live
+    in Imperial towns as craftsfolk, merchants and soldiers. They see in the dark, shrug off magic and hate orcs and goblins.
+  profile:
+    movement: 3
+    WS: 40
+    BS: 30
+    S: 30
+    T: 40
+    I: 20
+    Ag: 20
+    Dex: 40
+    Int: 30
+    WP: 50
+    Fel: 20
+    wounds: 16
+    skills: Consume Alcohol 45, Endurance 45, Evaluate 35, Lore (Dwarfs) 35, Melee (Basic) 45
+    traits: Hatred (Orcs and Goblins), Magic Resistance, Night Vision
   mutation: Body on d100 01–05, otherwise mind.
   careers:
   - Adviser
@@ -58,9 +73,24 @@ species:
   - Watchman
   - Wrecker
 - name: Halfling
-  short: Small, cheerful folk who love food, comfort and gossip.
+  short: Small, quick, sharp-eyed folk who love food, comfort and gossip.
   description: Halflings hail from the Moot but live all over the Empire, often as cooks, servants, traders and thieves. They
-    are tougher, luckier and sharper-eyed than most people expect.
+    are not strong or tough, but they are quick to react, good shots, hard to fool and able to see in the dark.
+  profile:
+    movement: 3
+    WS: 20
+    BS: 40
+    S: 20
+    T: 20
+    I: 50
+    Ag: 30
+    Dex: 40
+    Int: 30
+    WP: 40
+    Fel: 40
+    wounds: 10
+    skills: Charm 45, Dodge 35, Perception 55, Sleight of Hand 45, Stealth (Urban) 35
+    traits: Night Vision
   mutation: Body on d100 01–10, otherwise mind.
   careers:
   - Adviser
@@ -116,8 +146,23 @@ species:
   - Wrecker
 - name: High Elf
   short: Proud, ancient elves from Ulthuan across the sea.
-  description: High Elves are graceful, long-lived and gifted with magic. In the Old World they are mostly traders, envoys
-    and scholars, and often look down on the younger races.
+  description: High Elves are graceful, quick and keen-eyed, gifted with magic and fine navigators. In the Old World they
+    are mostly traders, envoys and scholars, and often look down on the younger races. They see in the dark.
+  profile:
+    movement: 5
+    WS: 40
+    BS: 40
+    S: 30
+    T: 30
+    I: 50
+    Ag: 40
+    Dex: 40
+    Int: 40
+    WP: 40
+    Fel: 30
+    wounds: 13
+    skills: Cool 45, Melee (Basic) 45, Navigation 55, Perception 55, Ranged (Bow) 45
+    traits: Night Vision
   mutation: Always mutates in mind, never body.
   careers:
   - Adviser
@@ -162,6 +207,20 @@ species:
   short: The most numerous people of the Empire — short-lived, ambitious and adaptable.
   description: Humans fill every walk of life in the Empire, from peasants and burghers to nobles, priests and wizards, and
     can take more careers than any other species.
+  profile:
+    movement: 4
+    WS: 30
+    BS: 30
+    S: 30
+    T: 30
+    I: 30
+    Ag: 30
+    Dex: 30
+    Int: 30
+    WP: 30
+    Fel: 30
+    wounds: 12
+    skills: Animal Care 35, Gossip 35, Haggle 35, Melee (Basic) 35, Ranged (Bow) 35
   mutation: Body on d100 01–50, otherwise mind.
   careers:
   - Adviser
@@ -229,8 +288,23 @@ species:
   - Wrecker
 - name: Wood Elf
   short: Reclusive elves of the deep forests.
-  description: Wood Elves guard woodland realms such as Athel Loren and Laurelorn. They are wary of outsiders, and make superb
-    hunters, scouts and warriors in the wilds.
+  description: Wood Elves guard woodland realms such as Athel Loren and Laurelorn. Quick and keen-eyed, they are wary of outsiders
+    and make superb hunters, scouts and warriors in the wilds. They see in the dark.
+  profile:
+    movement: 5
+    WS: 40
+    BS: 40
+    S: 30
+    T: 30
+    I: 50
+    Ag: 40
+    Dex: 40
+    Int: 40
+    WP: 40
+    Fel: 30
+    wounds: 13
+    skills: Cool 45, Melee (Basic) 45, Navigation 55, Perception 55, Ranged (Bow) 45
+    traits: Night Vision
   mutation: Always mutates in mind, never body.
   careers:
   - Adviser
