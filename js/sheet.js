@@ -424,8 +424,8 @@
                 }));
             });
             box.append(el('div', { class: 'career-row' }, [
-                field('Class', el('input', { type: 'text', 'data-path': `careers.${i}.class`, list: 'ref-classes', 'data-ref': 'classes' })),
-                field('Career', el('input', { type: 'text', 'data-path': `careers.${i}.career`, list: 'ref-careers', 'data-ref': 'careers' })),
+                field('Class', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.class`, 'data-suggest': 'ref-classes', 'data-ref': 'classes' })),
+                field('Career', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.career`, 'data-suggest': 'ref-careers', 'data-ref': 'careers' })),
                 field('pg.', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.pg` }), 'pg'),
                 tracker,
                 field('Status', el('textarea', { rows: 1, class: 'oneline', 'data-path': `careers.${i}.status` }))
@@ -459,9 +459,9 @@
         BASIC_SKILLS.forEach(s => {
             const name = el('span', { class: 'skill-name' }, [s.grouped ? s.name + '* (' : s.name]);
             if (s.grouped) {
-                name.append(el('input', {
-                    type: 'text', class: 'spec', 'data-path': `skills.${s.id}.spec`, 'aria-label': `${s.name} specialisation`,
-                    list: `ref-spec-${s.name}`
+                name.append(el('textarea', {
+                    rows: 1, class: 'spec oneline', 'data-path': `skills.${s.id}.spec`, 'aria-label': `${s.name} specialisation`,
+                    'data-suggest': `ref-spec-${s.name}`
                 }), ')');
             }
             box.append(el('div', { class: 'skill' }, [
@@ -493,7 +493,7 @@
             const rowEl = el('div', { class: 'list-row' });
             def.fields.forEach(f => {
                 const attrs = { 'data-list-field': `${name}.${index}.${f.key}`, 'aria-label': f.label };
-                if (f.ref) Object.assign(attrs, { list: `ref-${f.ref}`, 'data-ref': f.ref });
+                if (f.ref) Object.assign(attrs, { 'data-suggest': `ref-${f.ref}`, 'data-ref': f.ref });
                 let input;
                 if (f.type === 'check') input = el('input', Object.assign({ type: 'checkbox' }, attrs));
                 else if (f.type === 'number') input = el('input', Object.assign({ type: 'number' }, attrs));
@@ -502,7 +502,6 @@
                     input = el('select', attrs, [el('option', { value: '', text: '–' })].concat(
                         CHARACTERISTICS.map(k => el('option', { value: k, text: k }))));
                 } else if (f.multiline) input = el('textarea', Object.assign({ rows: 1 }, attrs));
-                else if (f.ref) input = el('input', Object.assign({ type: 'text' }, attrs)); // keeps its drop-down
                 else input = el('textarea', Object.assign({ rows: 1, class: 'oneline' }, attrs));
 
                 const cls = ['cell', f.wide ? 'wide' : '', f.type === 'check' ? 'check' : ''].join(' ').trim();
@@ -851,8 +850,9 @@
 
     /* ---------- reference data (classes, careers, skills, talents) ---------- */
 
-    // Loaded from data/reference.yaml and offered as drop-down suggestions (<datalist>) on the
-    // matching fields. The fields stay free text, and without the file they work as before.
+    // Loaded from data/reference.yaml and offered as drop-down suggestions (see the suggestion
+    // drop-down below) on the matching fields. The fields stay free text, and without the file
+    // they work as before.
     let reference = null;
 
     function loadReference() {
@@ -870,11 +870,8 @@
             .catch(() => { /* no suggestions; the fields still take free text */ });
     }
 
-    function datalist(id, options) {
-        let list = document.getElementById(id);
-        if (!list) list = document.body.appendChild(el('datalist', { id }));
-        list.innerHTML = '';
-        options.forEach(([value, label]) => list.append(el('option', { value, label })));
+    function setSuggestions(id, options) {
+        suggestions.set(id, options.map(([value, label]) => ({ value, label })));
     }
 
     // "Lore (History)" → "lore", "Soldier – Recruit" → "soldier"
@@ -886,19 +883,19 @@
         const careers = [...reference.careers.values()];
         const careerOptions = list => list.flatMap(c => [[c.name, `${c.class} – ${c.short}`]].concat(
             c.levels.map((l, i) => [`${c.name} – ${l.name}`, `Level ${i + 1} · ${l.status}`])));
-        datalist('ref-classes', [...reference.classes.values()].map(c => [c.name, c.short]));
-        datalist('ref-careers', careerOptions(careers));
-        reference.classes.forEach(cls => datalist(`ref-careers-${cls.name}`, careerOptions(careers.filter(c => c.class === cls.name))));
+        setSuggestions('ref-classes', [...reference.classes.values()].map(c => [c.name, c.short]));
+        setSuggestions('ref-careers', careerOptions(careers));
+        reference.classes.forEach(cls => setSuggestions(`ref-careers-${cls.name}`, careerOptions(careers.filter(c => c.class === cls.name))));
 
-        datalist('ref-skills', [...reference.skills.values()].flatMap(s => s.specialisations
+        setSuggestions('ref-skills', [...reference.skills.values()].flatMap(s => s.specialisations
             ? s.specialisations.map(spec => [`${s.name} (${spec})`, `${s.characteristic} · ${s.short}`])
             : [[s.name, `${s.characteristic} · ${s.short}`]]));
         reference.skills.forEach(s => {
-            if (s.specialisations) datalist(`ref-spec-${s.name}`, s.specialisations.map(spec => [spec, null]));
+            if (s.specialisations) setSuggestions(`ref-spec-${s.name}`, s.specialisations.map(spec => [spec, null]));
         });
         const language = reference.skills.get('language');
-        datalist('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
-        datalist('ref-talents', [...reference.talents.values()].flatMap(t =>
+        setSuggestions('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
+        setSuggestions('ref-talents', [...reference.talents.values()].flatMap(t =>
             [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
     }
 
@@ -944,7 +941,7 @@
         if (kind === 'classes') {
             const row = input.dataset.path.split('.')[1];
             const careerInput = document.querySelector(`[data-path="careers.${row}.career"]`);
-            careerInput.setAttribute('list', found ? `ref-careers-${found.name}` : 'ref-careers');
+            careerInput.dataset.suggest = found ? `ref-careers-${found.name}` : 'ref-careers';
         }
     }
 
@@ -977,6 +974,155 @@
         }
     }
 
+    /* ---------- suggestion drop-down ---------- */
+
+    // A drop-down list for text fields that name a suggestion list with data-suggest. Works like
+    // a <datalist> (which only exists for one-line inputs), so the fields can still wrap and grow.
+    // Anything may be typed; the list only offers matches.
+    const suggestions = new Map(); // list id -> [{ value, label }]
+    const MAX_SUGGESTIONS = 80;
+    let suggestBox = null;
+    let suggestField = null;
+    let suggestItems = [];
+    let suggestActive = -1;
+    let suggestPicking = false;
+
+    function initSuggest() {
+        suggestBox = el('ul', { id: 'suggestBox', class: 'suggest', role: 'listbox', 'aria-label': 'Suggestions', hidden: true });
+        document.body.append(suggestBox);
+
+        document.addEventListener('focusin', e => {
+            if (e.target.dataset && e.target.dataset.suggest) openSuggest(e.target, '');
+        });
+        document.addEventListener('focusout', e => {
+            if (e.target === suggestField) closeSuggest();
+        });
+        document.addEventListener('input', e => {
+            if (e.target === suggestField && !suggestPicking) openSuggest(e.target, e.target.value);
+        });
+        document.addEventListener('keydown', onSuggestKey);
+        // mousedown, not click, so the field keeps focus
+        suggestBox.addEventListener('mousedown', e => {
+            e.preventDefault();
+            const li = e.target.closest('li[data-index]');
+            if (li) pickSuggestion(Number(li.dataset.index));
+        });
+        window.addEventListener('resize', positionSuggest);
+    }
+
+    // Matches at the start come first, then matches at the start of a word, then anywhere.
+    function matchSuggestions(list, query) {
+        const q = query.trim().toLowerCase();
+        if (!q) return list;
+        const rank = item => {
+            const v = item.value.toLowerCase();
+            if (v.startsWith(q)) return 0;
+            if (v.includes(' ' + q) || v.includes('(' + q)) return 1;
+            return v.includes(q) ? 2 : 3;
+        };
+        return list.map(item => [rank(item), item]).filter(([r]) => r < 3)
+            .sort((a, b) => a[0] - b[0]).map(([, item]) => item);
+    }
+
+    function openSuggest(field, query) {
+        const list = suggestions.get(field.dataset.suggest) || [];
+        const matches = matchSuggestions(list, query);
+        if (suggestField !== field) {
+            closeSuggest();
+            suggestField = field;
+            field.setAttribute('role', 'combobox');
+            field.setAttribute('aria-autocomplete', 'list');
+            field.setAttribute('aria-controls', 'suggestBox');
+        }
+        suggestItems = matches.slice(0, MAX_SUGGESTIONS);
+        suggestActive = -1;
+        suggestBox.innerHTML = '';
+        if (!suggestItems.length) {
+            suggestBox.hidden = true;
+            field.setAttribute('aria-expanded', 'false');
+            return;
+        }
+        suggestItems.forEach((item, i) => {
+            suggestBox.append(el('li', { id: `suggest-${i}`, role: 'option', 'data-index': i, 'aria-selected': 'false' }, [
+                el('span', { class: 'suggest-value', text: item.value }),
+                item.label ? el('span', { class: 'suggest-label', text: item.label }) : ''
+            ]));
+        });
+        if (matches.length > suggestItems.length) {
+            suggestBox.append(el('li', { class: 'suggest-more', text: `${matches.length - suggestItems.length} more – keep typing to narrow the list` }));
+        }
+        suggestBox.hidden = false;
+        suggestBox.scrollTop = 0;
+        field.setAttribute('aria-expanded', 'true');
+        field.removeAttribute('aria-activedescendant');
+        positionSuggest();
+    }
+
+    function closeSuggest() {
+        if (suggestBox) suggestBox.hidden = true;
+        if (suggestField) {
+            suggestField.setAttribute('aria-expanded', 'false');
+            suggestField.removeAttribute('aria-activedescendant');
+        }
+        suggestField = null;
+        suggestItems = [];
+        suggestActive = -1;
+    }
+
+    // Under the field, kept inside the window horizontally.
+    function positionSuggest() {
+        if (!suggestField || suggestBox.hidden) return;
+        const r = suggestField.getBoundingClientRect();
+        const width = Math.min(Math.max(r.width, 240), window.innerWidth - 16);
+        const left = Math.max(8, Math.min(r.left, window.innerWidth - width - 8));
+        suggestBox.style.width = width + 'px';
+        suggestBox.style.left = (left + window.scrollX) + 'px';
+        suggestBox.style.top = (r.bottom + window.scrollY) + 'px';
+    }
+
+    function setActiveSuggestion(i) {
+        const items = suggestBox.querySelectorAll('li[data-index]');
+        if (suggestActive >= 0) items[suggestActive].setAttribute('aria-selected', 'false');
+        suggestActive = i;
+        items[i].setAttribute('aria-selected', 'true');
+        items[i].scrollIntoView({ block: 'nearest' });
+        suggestField.setAttribute('aria-activedescendant', items[i].id);
+    }
+
+    function pickSuggestion(i) {
+        const field = suggestField;
+        field.value = suggestItems[i].value;
+        closeSuggest();
+        // A plain input event (no inputType) counts as picking from the list, see onInput
+        suggestPicking = true;
+        field.dispatchEvent(new Event('input', { bubbles: true }));
+        suggestPicking = false;
+    }
+
+    function onSuggestKey(e) {
+        const field = e.target;
+        if (!field.dataset || !field.dataset.suggest) return;
+        const open = suggestField === field && !suggestBox.hidden;
+        if (e.key === 'ArrowDown' || e.key === 'ArrowUp') {
+            if (!open) {
+                openSuggest(field, '');
+            } else {
+                const n = suggestItems.length;
+                const next = e.key === 'ArrowDown' ? Math.min(suggestActive + 1, n - 1) : Math.max(suggestActive - 1, 0);
+                setActiveSuggestion(next);
+            }
+            e.preventDefault();
+        } else if (e.key === 'Enter' && open && suggestActive >= 0) {
+            pickSuggestion(suggestActive);
+            e.preventDefault();
+        } else if (e.key === 'Escape' && open) {
+            closeSuggest();
+            e.preventDefault();
+        } else if (e.key === 'Tab') {
+            closeSuggest();
+        }
+    }
+
     // Draw button: opens a FlockMod drawing room named after the text field.
     // The name is shown in red until it is at least 8 letters long.
     const DRAW_URL = 'https://flockmod.com/r/';
@@ -1002,6 +1148,7 @@
         });
         initTheme();
         initDraw();
+        initSuggest();
         loadReference();
         renderCareers();
         renderCharacteristics();

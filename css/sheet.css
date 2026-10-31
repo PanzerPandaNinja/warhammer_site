@@ -285,6 +285,28 @@ button.danger { color: var(--warn); }
 .toolbar-status { font-size: 0.9rem; color: var(--bar-ink); }
 .toolbar-status.error { color: var(--bar-error); }
 
+/* Suggestion drop-down under a text field (see the suggestion drop-down in sheet.js) */
+.suggest[hidden] { display: none; }
+.suggest {
+    position: absolute;
+    z-index: 30;
+    max-height: 18rem;
+    margin: 2px 0 0;
+    padding: 4px 0;
+    overflow-y: auto;
+    list-style: none;
+    background: var(--panel);
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+}
+.suggest li { padding: 4px 10px; line-height: 1.25; cursor: pointer; }
+.suggest li:hover, .suggest li[aria-selected="true"] { background: var(--calc); }
+.suggest-label { display: block; font-size: 0.8rem; color: var(--ink-soft); }
+.suggest li.suggest-more { font-size: 0.8rem; color: var(--ink-soft); cursor: default; }
+.suggest li.suggest-more:hover { background: none; }
+
 /* ---------- 4. Layout ---------- */
 /* Mobile first: one column. Panels get wider spans as the screen grows.
    span-md-* applies from 700px, span-lg-* from 1100px (12 column grid). */
@@ -609,7 +631,7 @@ button.primary:hover { background: var(--accent); filter: brightness(1.1); }
 /* ---------- 7. Print ---------- */
 @media print {
     :root { --paper: #fff; --panel: #fff; --field: #fff; --calc: #fff; --font-size: 11px; }
-    .toolbar, .menu-btn, .dialog, .footer, .row-add, .row-remove, .hint { display: none !important; }
+    .toolbar, .menu-btn, .dialog, .footer, .row-add, .row-remove, .hint, .suggest { display: none !important; }
     .sheet { padding: 0; }
     .panel { break-inside: avoid; }
 }
