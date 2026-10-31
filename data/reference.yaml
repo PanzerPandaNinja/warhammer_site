@@ -1,0 +1,2283 @@
+# Reference data for the character sheet: classes, careers, skills and talents.
+source: Warhammer Fantasy Roleplay 5th edition – classes, careers, skills and talents. Descriptions are short summaries, see
+  the rulebook for the full rules.
+classes:
+- name: Academic
+  short: Educated folk whose power comes from learning.
+  description: Scholars, lawyers, physicians, engineers, priests and wizards. Academics have studied for their place in the
+    world, often at a university, temple or college, and solve problems with knowledge rather than muscle.
+  careers:
+  - Apothecary
+  - Engineer
+  - Lawyer
+  - Nun
+  - Physician
+  - Priest
+  - Scholar
+  - Wizard
+- name: Burgher
+  short: Town and city dwellers who keep urban life running.
+  description: Traders, craftsfolk, townsmen, watchmen, rat catchers and the street poor. Burghers know how towns work — the
+    guilds, the markets, the gossip and the back alleys.
+  careers:
+  - Agitator
+  - Artisan
+  - Beggar
+  - Investigator
+  - Merchant
+  - Rat Catcher
+  - Townsman
+  - Watchman
+- name: Courtier
+  short: People who live in the orbit of the rich and powerful.
+  description: Nobles and the advisers, envoys, spies, wardens, duellists, artists and servants around them. Courtiers deal
+    in influence, etiquette and secrets.
+  careers:
+  - Adviser
+  - Artist
+  - Duellist
+  - Envoy
+  - Noble
+  - Servant
+  - Spy
+  - Warden
+- name: Peasant
+  short: Rural folk who work the land and live close to the wild.
+  description: Villagers, hunters, miners, scouts, herbalists, bailiffs, mystics and hedge witches. Peasants are hardy and
+    practical, and know the countryside and its dangers.
+  careers:
+  - Bailiff
+  - Hedge Witch
+  - Herbalist
+  - Hunter
+  - Miner
+  - Mystic
+  - Scout
+  - Villager
+- name: Ranger
+  short: Travellers who make their living on the Empire's roads.
+  description: Coachmen, messengers, pedlars, entertainers, roadwardens, bounty hunters, flagellants and witch hunters. Rangers
+    are always on the move and used to the perils between settlements.
+  careers:
+  - Bounty Hunter
+  - Coachman
+  - Entertainer
+  - Flagellant
+  - Messenger
+  - Pedlar
+  - Roadwarden
+  - Witch Hunter
+- name: Riverfolk
+  short: People of the rivers, docks and seas.
+  description: Boatmen, pilots, sailors, stevedores, riverwardens and riverwomen — and the smugglers and wreckers who prey
+    on them. The waterways are the arteries of the Empire, and Riverfolk know them best.
+  careers:
+  - Boatman
+  - Pilot
+  - Riverwarden
+  - Riverwoman
+  - Sailor
+  - Smuggler
+  - Stevedore
+  - Wrecker
+- name: Rogue
+  short: Those who live outside — or just beyond — the law.
+  description: Thieves, charlatans, fences, knaves, racketeers, outlaws, grave robbers and unsanctioned witches. Rogues get
+    by on cunning, nerve and a talent for not getting caught.
+  careers:
+  - Charlatan
+  - Fence
+  - Grave Robber
+  - Knave
+  - Outlaw
+  - Racketeer
+  - Thief
+  - Witch
+- name: Warrior
+  short: Fighters who earn their keep with weapons.
+  description: Soldiers, guards, knights, cavalry, pit fighters, hired muscle, warrior priests and dwarf slayers. Warriors
+    are trained for violence and are the backbone of most adventuring parties.
+  careers:
+  - Cavalryman
+  - Guard
+  - Knight
+  - Pit Fighter
+  - Protagonist
+  - Slayer
+  - Soldier
+  - Warrior Priest
+careers:
+- name: Adviser
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Gives counsel and guidance to a powerful patron.
+  description: Advisers are trusted with secrets and political insight, serving nobles, merchants or crime lords. They rise
+    from Aide to Chancellor, but a patron's fall can take them down too. Good at reading people, politics and court.
+  levels:
+  - name: Aide
+    status: Silver 1
+  - name: Adviser
+    status: Silver 3
+  - name: Counsellor
+    status: Silver 5
+  - name: Chancellor
+    status: Gold 3
+- name: Agitator
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Stirs up crowds for a political or religious cause.
+  description: Agitators spread their message with pamphlets, protests and speeches, and often have to move on one step ahead
+    of the authorities. Some truly believe; others exploit discontent. Strong at persuasion, city life and winning arguments.
+  levels:
+  - name: Pamphleteer
+    status: Brass 1
+  - name: Agitator
+    status: Brass 2
+  - name: Rabble Rouser
+    status: Brass 3
+  - name: Demagogue
+    status: Brass 5
+- name: Apothecary
+  class: Academic
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Mixes medicines, remedies — and poisons.
+  description: Apothecaries brew pills, draughts and salves in workshops full of strange equipment. Guild rules often keep
+    them out of towns, so many travel in search of customers and rare ingredients. They can heal or harm with equal skill.
+  levels:
+  - name: Apothecary's Apprentice
+    status: Brass 3
+  - name: Apothecary
+    status: Silver 1
+  - name: Master Apothecary
+    status: Silver 3
+  - name: Apothecary General
+    status: Gold 1
+- name: Artisan
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A skilled craftsperson who makes goods to sell.
+  description: From bakers and smiths to clockmakers and shipwrights, Artisans learn their trade as apprentices and rise through
+    their guild. Their skills are wanted almost everywhere, and a masterpiece can win powerful patrons.
+  levels:
+  - name: Apprentice Artisan
+    status: Brass 2
+  - name: Artisan
+    status: Silver 1
+  - name: Master Artisan
+    status: Silver 3
+  - name: Guildmaster
+    status: Gold 1
+- name: Artist
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Creates art — to uplift the soul or pay the bills.
+  description: Painters, sculptors, writers and similar talents. A lucky few win rich patrons and acclaim; most struggle,
+    taking odd jobs such as caricatures or copying better-known work. Artists often travel in search of inspiration and patronage.
+  levels:
+  - name: Apprentice Artist
+    status: Brass 2
+  - name: Artist
+    status: Silver 1
+  - name: Master Artist
+    status: Silver 4
+  - name: Maestro
+    status: Gold 2
+- name: Bailiff
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Enforces a lord's law and collects their dues.
+  description: Bailiffs represent a noble on their lands, collecting taxes, settling disputes and keeping order — fairly or
+    by force. They rise from Tax Collector to Magistrate, and are often sent to deal with problems beyond the estate.
+  levels:
+  - name: Tax Collector
+    status: Silver 1
+  - name: Bailiff
+    status: Silver 5
+  - name: Reeve
+    status: Gold 1
+  - name: Magistrate
+    status: Gold 2
+- name: Beggar
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Lives on the charity of others, using wit and charm.
+  description: Beggars plead for alms on street corners or wander the countryside picking up scraps and odd jobs. They know
+    the streets, the hidden places to sleep, and who really runs the town.
+  levels:
+  - name: Pauper
+    status: Brass 0
+  - name: Beggar
+    status: Brass 1
+  - name: Master Beggar
+    status: Brass 4
+  - name: Beggar King
+    status: Silver 2
+- name: Boatman
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Carries people, goods and news along the rivers.
+  description: Boatmen crew barges and ferries on the Empire's rivers and canals, from lowly Boathand to Barge Master. Tough
+    and weather-beaten, they can handle rough water and rough taverns, and a boat makes a fine mobile base for a party.
+  levels:
+  - name: Boathand
+    status: Brass 3
+  - name: Boatman
+    status: Silver 1
+  - name: Bargeswain
+    status: Silver 2
+  - name: Barge Master
+    status: Silver 5
+- name: Bounty Hunter
+  class: Ranger
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Hunts fugitives for justice, reward, or both.
+  description: Bounty Hunters track down outlaws and runaways for the authorities or private clients, starting out as Thief-takers.
+    Their work takes them across the Empire, and they bring a mix of tracking, social and combat skills.
+  levels:
+  - name: Thief-taker
+    status: Silver 1
+  - name: Bounty Hunter
+    status: Silver 3
+  - name: Master Bounty Hunter
+    status: Silver 5
+  - name: Bounty Hunter General
+    status: Gold 1
+- name: Cavalryman
+  class: Warrior
+  species:
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A dashing light horseman, swift and versatile in war.
+  description: Pistoliers, outriders, horse archers and similar mounted troops who scout, raid and harass the enemy. Cavalrymen
+    have a horse, strong riding and fighting skills, and fairly high status.
+  levels:
+  - name: Horseman
+    status: Silver 3
+  - name: Cavalryman
+    status: Silver 4
+  - name: Cavalry Sergeant
+    status: Gold 1
+  - name: Cavalry Officer
+    status: Gold 2
+- name: Charlatan
+  class: Rogue
+  species:
+  - Halfling
+  - High Elf
+  - Human
+  short: A smooth-talking con artist who preys on the gullible.
+  description: Charlatans win their marks' trust, then sell them something too good to be true — fake relics, miracle cures,
+    worthless mines. They live by charm, quick wits and leaving town at the right moment.
+  levels:
+  - name: Swindler
+    status: Brass 3
+  - name: Charlatan
+    status: Brass 5
+  - name: Con Artist
+    status: Silver 2
+  - name: Scoundrel
+    status: Silver 4
+- name: Coachman
+  class: Ranger
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Drives coaches through the dangers of the Empire's roads.
+  description: Starting as Postilions riding the lead horse, Coachmen carry passengers and goods between towns, defending
+    them from bandits and beastmen. Skilled with horses, vehicles and blackpowder weapons.
+  levels:
+  - name: Postilion
+    status: Silver 1
+  - name: Coachman
+    status: Silver 2
+  - name: Coach Master
+    status: Silver 3
+  - name: Route Master
+    status: Gold 2
+- name: Duellist
+  class: Courtier
+  species:
+  - Dwarf
+  - High Elf
+  - Human
+  short: Fights duels on behalf of others, bound by tradition.
+  description: Duellists settle matters of honour or stand in for others in trials by combat. Some are elegant artists of
+    the blade, others brutal and quick. Their reputation is their fortune, so they travel to seek challenges.
+  levels:
+  - name: Fencer
+    status: Silver 3
+  - name: Duellist
+    status: Silver 4
+  - name: Duelmaster
+    status: Gold 1
+  - name: Judicial Champion
+    status: Gold 2
+- name: Engineer
+  class: Academic
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Builds machines and structures — useful, bizarre or deadly.
+  description: Engineers design bridges, canals, fortifications and fantastical inventions, often trained at the Imperial
+    Engineers School or a dwarf guild. They solve problems with ingenuity and, when all else fails, blackpowder.
+  levels:
+  - name: Student Engineer
+    status: Brass 4
+  - name: Engineer
+    status: Silver 3
+  - name: Master Engineer
+    status: Silver 5
+  - name: Chartered Engineer
+    status: Gold 2
+- name: Entertainer
+  class: Ranger
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Performs for crowds, from village greens to grand theatres.
+  description: Singers, actors, jesters, acrobats and stranger acts. Welcome everywhere but never quite respectable, Entertainers
+    often tour the roads with a troupe, earning their keep and charming their way through doors.
+  levels:
+  - name: Busker
+    status: Brass 3
+  - name: Entertainer
+    status: Brass 5
+  - name: Troubadour
+    status: Silver 3
+  - name: Troupe Leader
+    status: Gold 1
+- name: Envoy
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A diplomat who negotiates pacts and treaties.
+  description: Envoys represent the Empire, a noble house, a guild or a foreign power, starting as Heralds and rising to Ambassador.
+    Travel and intrigue are part of the job, and one careless word can start a war.
+  levels:
+  - name: Herald
+    status: Silver 2
+  - name: Envoy
+    status: Silver 4
+  - name: Diplomat
+    status: Gold 2
+  - name: Ambassador
+    status: Gold 5
+- name: Fence
+  class: Rogue
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Buys and sells stolen goods for a tidy profit.
+  description: Fences turn thieves' loot into coin, often behind a respectable front such as a pawnshop or import business.
+    Shrewd judges of value, they have contacts on both sides of the law.
+  levels:
+  - name: Broker
+    status: Brass 5
+  - name: Fence
+    status: Silver 1
+  - name: Trafficker
+    status: Silver 3
+  - name: Black Marketeer
+    status: Gold 1
+- name: Flagellant
+  class: Ranger
+  species:
+  - Human
+  short: A fanatic who whips themselves in penance for the world's sins.
+  description: Convinced that the End Times are near, Flagellants roam the Empire in bands, usually devoted to Sigmar. Most
+    folk fear them. Their fearless fury in battle is matched only by how difficult they are as companions.
+  levels:
+  - name: Penitent
+    status: Brass 0
+  - name: Flagellant
+    status: Brass 0
+  - name: Zealot
+    status: Brass 0
+  - name: Prophet of Doom
+    status: Brass 0
+- name: Grave Robber
+  class: Rogue
+  species:
+  - Halfling
+  - Human
+  short: Steals from the dead to line their own pockets.
+  description: Grave Robbers dig up graves and break into tombs by night, and some sell bodies to anatomists with few questions
+    asked. At the higher levels they become tomb robbers and treasure hunters.
+  levels:
+  - name: Penny Thief
+    status: Brass 2
+  - name: Grave Robber
+    status: Brass 4
+  - name: Tomb Robber
+    status: Silver 3
+  - name: Treasure Hunter
+    status: Silver 5
+- name: Guard
+  class: Warrior
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Protects a person or place and keeps undesirables out.
+  description: Guards are everywhere — at palace gates, temples, warehouses and tavern doors, or escorting caravans. Much
+    of the job is standing around looking tough, which is why many leave to seek adventure.
+  levels:
+  - name: Sentry
+    status: Brass 5
+  - name: Guard
+    status: Silver 2
+  - name: Honour Guard
+    status: Silver 4
+  - name: Guard Officer
+    status: Gold 1
+- name: Hedge Witch
+  class: Peasant
+  species:
+  - Human
+  short: Keeps the old rural magic and guides their community.
+  description: Hedge Witches live on the edge of villages, practising herb-lore, midwifery and healing, warding off evil and
+    bargaining with spirits. Locals value them and keep their secret from witch hunters.
+  levels:
+  - name: Hedge Apprentice
+    status: Brass 1
+  - name: Hedge Witch
+    status: Brass 4
+  - name: Hedge Master
+    status: Brass 5
+  - name: Hedgewise
+    status: Silver 2
+- name: Herbalist
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Turns plants into remedies, salves and other preparations.
+  description: Herbalists treat the sick and injured in places where apothecaries are too rare or expensive. They also know
+    plants that can harm or intoxicate. Halflings and wood elves are especially famed for their herb-lore.
+  levels:
+  - name: Herb Gatherer
+    status: Brass 1
+  - name: Herbalist
+    status: Brass 4
+  - name: Herb Master
+    status: Brass 5
+  - name: Herbwise
+    status: Silver 2
+- name: Hunter
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A tough, independent hunter of wild beasts.
+  description: Hunters live off fur and meat, and some turn to poaching in hard times. The best become a noble's Huntsmaster.
+    Skilled at tracking, trapping, shooting and surviving in the wild.
+  levels:
+  - name: Trapper
+    status: Brass 2
+  - name: Hunter
+    status: Brass 4
+  - name: Tracker
+    status: Silver 1
+  - name: Huntsmaster
+    status: Silver 4
+- name: Investigator
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Digs into unsolved mysteries to find the truth.
+  description: Investigators look into thefts, missing persons and murders — or dig up stories and blackmail material. More
+    a calling than a trade, it suits the curious and the clever; the best become famous Detectives.
+  levels:
+  - name: Enquirer
+    status: Silver 1
+  - name: Investigator
+    status: Silver 2
+  - name: Sleuth
+    status: Silver 3
+  - name: Detective
+    status: Silver 5
+- name: Knave
+  class: Rogue
+  species:
+  - Halfling
+  - High Elf
+  - Human
+  short: Guides visitors to the seedier pleasures of town.
+  description: Knaves latch on to out-of-towners, promising the best taverns, gambling dens and houses of vice — and protection
+    from rip-offs, for a price. Streetwise and well connected.
+  levels:
+  - name: Hustler
+    status: Brass 2
+  - name: Knave
+    status: Brass 3
+  - name: Procurer
+    status: Silver 1
+  - name: Ringleader
+    status: Silver 3
+- name: Knight
+  class: Warrior
+  species:
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A heavily armoured warrior on a great warhorse.
+  description: Knights belong to secular or templar orders such as the Reiksguard or Knights Panther, usually drawn from the
+    nobility. A charging knight dominates the battlefield. Some are honourable champions, others arrogant bullies.
+  levels:
+  - name: Squire
+    status: Silver 3
+  - name: Knight
+    status: Silver 5
+  - name: First Knight
+    status: Gold 2
+  - name: Knight of the Inner Circle
+    status: Gold 4
+- name: Lawyer
+  class: Academic
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Navigates the Empire's tangled laws for clients.
+  description: Lawyers argue cases, draft contracts and laws, and debate legal precedent in a system of contradictory codes
+    where power often matters more than law. They rise from Student Lawyer to Judge.
+  levels:
+  - name: Student Lawyer
+    status: Brass 4
+  - name: Lawyer
+    status: Silver 3
+  - name: Barrister
+    status: Gold 1
+  - name: Judge
+    status: Gold 2
+- name: Merchant
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Buys low and sells high, hoping to make a fortune.
+  description: Merchants trade in goods from wool and salt to exotic spices, or in services such as banking. Merchant guilds
+    rival the nobility for influence, and the richest become Merchant Princes.
+  levels:
+  - name: Trader
+    status: Silver 2
+  - name: Merchant
+    status: Silver 5
+  - name: Master Merchant
+    status: Gold 1
+  - name: Merchant Prince
+    status: Gold 3
+- name: Messenger
+  class: Ranger
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Delivers messages and parcels quickly and reliably.
+  description: Messengers carry letters for merchants, armies, criminals and anyone who needs speed and discretion. The secrets
+    they carry can be worth killing for, which often starts an adventure.
+  levels:
+  - name: Runner
+    status: Brass 3
+  - name: Messenger
+    status: Silver 2
+  - name: Courier
+    status: Silver 3
+  - name: Courier-captain
+    status: Silver 5
+- name: Miner
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Toils in dark tunnels digging out ore and stone.
+  description: Miners are tough, close-knit crews who know how to shore up tunnels and spot dangers from gas to goblins. Prospectors
+    search for new seams above ground. Among dwarfs, mining is a respected craft.
+  levels:
+  - name: Prospector
+    status: Brass 2
+  - name: Miner
+    status: Brass 3
+  - name: Master Miner
+    status: Brass 5
+  - name: Mine Foreman
+    status: Silver 3
+- name: Mystic
+  class: Peasant
+  species:
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Divines the future — or convinces people they can.
+  description: Fortune tellers at carnivals, augurs in remote hermitages and cult seers all offer glimpses of what is to come.
+    Some have true insight; others are clever frauds.
+  levels:
+  - name: Fortune Teller
+    status: Brass 1
+  - name: Mystic
+    status: Brass 3
+  - name: Augur
+    status: Silver 1
+  - name: Seer
+    status: Silver 2
+- name: Noble
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Born into privilege, set apart from the common folk.
+  description: Nobles claim the right to rule through their bloodline. Some inherit land and wealth; younger children may
+    have little but a name. Many seek riches or excitement through adventure.
+  levels:
+  - name: Scion
+    status: Gold 1
+  - name: Noble
+    status: Gold 2
+  - name: Grandee
+    status: Gold 5
+  - name: Noble Lord
+    status: Gold 7
+- name: Nun
+  class: Academic
+  species:
+  - Human
+  short: Devoted to the service of a god in a religious order.
+  description: Nuns and monks live in convents and monasteries, praying and working as their deity demands — tending the sick,
+    copying manuscripts or serving the Empire. Some are sent on pilgrimages or to recover relics.
+  levels:
+  - name: Novice
+    status: Brass 1
+  - name: Nun
+    status: Silver 1
+  - name: Abbess
+    status: Gold 1
+  - name: Prioress General
+    status: Gold 4
+- name: Outlaw
+  class: Rogue
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Preys on travellers from hideouts in the wild.
+  description: Outlaws rob caravans and travellers on the roads, living hard lives in camps and remote farmsteads. Some see
+    themselves as common folk driven outside the law; the most ruthless become Bandit Kings.
+  levels:
+  - name: Brigand
+    status: Brass 3
+  - name: Outlaw
+    status: Brass 5
+  - name: Outlaw Chief
+    status: Silver 3
+  - name: Bandit King
+    status: Gold 1
+- name: Pedlar
+  class: Ranger
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: A travelling seller of cheap goods and small services.
+  description: Pedlars wander from village to village selling trinkets, sharpening knives and mending pots, and carrying news
+    and gossip. Always on the move, they take naturally to adventuring.
+  levels:
+  - name: Vagabond
+    status: Brass 1
+  - name: Pedlar
+    status: Brass 4
+  - name: Carter
+    status: Silver 2
+  - name: Wandering Trader
+    status: Silver 3
+- name: Physician
+  class: Academic
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Practises the art of medicine and surgery.
+  description: Physicians diagnose illness, prescribe remedies and operate, though their science is young and mixed with astrology
+    and folk belief. They train as apprentices or at university, and the best serve at court.
+  levels:
+  - name: Physician's Apprentice
+    status: Brass 4
+  - name: Physician
+    status: Silver 3
+  - name: Doktor
+    status: Silver 5
+  - name: Court Physician
+    status: Gold 1
+- name: Pilot
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Guides vessels through treacherous waters.
+  description: Pilots know the currents, sandbanks and rocks of the rivers and coasts, and are hired to bring boats through
+    safely. Their local knowledge is worth every penny.
+  levels:
+  - name: Riverguide
+    status: Brass 4
+  - name: Pilot
+    status: Silver 1
+  - name: Navigator
+    status: Silver 3
+  - name: Master Pilot
+    status: Silver 5
+- name: Pit Fighter
+  class: Warrior
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Fights for money, glory and the crowd's entertainment.
+  description: Pit Fighters brawl, wrestle and duel in arenas while the crowd bets on the outcome. Victory brings coin and
+    fame; defeat brings broken bones or worse.
+  levels:
+  - name: Pugilist
+    status: Brass 4
+  - name: Pit Fighter
+    status: Silver 2
+  - name: Pit Champion
+    status: Silver 5
+  - name: Pit Legend
+    status: Gold 2
+- name: Priest
+  class: Academic
+  species:
+  - Human
+  short: Preaches a god's word and tends to the faithful.
+  description: Priests serve a temple or wander to minister wherever they are needed, embodying their god's teachings. They
+    can call on their deity's blessings and, in time, miracles.
+  levels:
+  - name: Initiate
+    status: Brass 2
+  - name: Priest
+    status: Silver 2
+  - name: High Priest
+    status: Gold 1
+  - name: Lector
+    status: Gold 4
+- name: Protagonist
+  class: Warrior
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Muscle for hire who bullies, fights and kills for coin.
+  description: Protagonists intimidate rivals, scare off suitors and teach lessons for whoever pays. Some keep a code; others
+    are simply thugs. The most capable become hitmen and assassins.
+  levels:
+  - name: Braggart
+    status: Brass 3
+  - name: Protagonist
+    status: Brass 5
+  - name: Hitman
+    status: Silver 4
+  - name: Assassin
+    status: Gold 1
+- name: Racketeer
+  class: Rogue
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: An organised criminal who extorts and collects debts.
+  description: Racketeers sell "protection" and other dubious services to businesses that dare not refuse. They rise from
+    Thug to Crime Lord, ruling through fear.
+  levels:
+  - name: Thug
+    status: Brass 3
+  - name: Racketeer
+    status: Brass 5
+  - name: Gang Boss
+    status: Silver 3
+  - name: Crime Lord
+    status: Gold 1
+- name: Rat Catcher
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Keeps towns free of vermin, with a trusty dog at their side.
+  description: Rat Catchers clear cellars and sewers of rats and whatever else lurks below. Experienced ones become Sewer
+    Jacks, hunting bigger and stranger prey.
+  levels:
+  - name: Rat Hunter
+    status: Brass 3
+  - name: Rat Catcher
+    status: Brass 5
+  - name: Sewer Jack
+    status: Silver 2
+  - name: Exterminator
+    status: Silver 3
+- name: Riverwarden
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Patrols the rivers hunting pirates and lawbreakers.
+  description: Riverwardens of the Imperial River Patrol keep the waterways safe for trade — though some fine innocent crews
+    to line their pockets. Elite Shipswords defend the largest patrol boats.
+  levels:
+  - name: River Recruit
+    status: Brass 4
+  - name: Riverwarden
+    status: Silver 2
+  - name: Shipsword
+    status: Silver 3
+  - name: Shipsword Master
+    status: Gold 1
+- name: Riverwoman
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Makes a living from the river and those who pass along it.
+  description: Riverwomen fish, tend eel traps, dredge, keep wharfs and repair boats. Living by the water, they see everyone
+    and everything that floats by, and hear all the news.
+  levels:
+  - name: Greenfish
+    status: Brass 2
+  - name: Riverwoman
+    status: Brass 3
+  - name: Riverwise
+    status: Brass 5
+  - name: River Elder
+    status: Silver 2
+- name: Roadwarden
+  class: Ranger
+  species:
+  - Halfling
+  - Human
+  short: Enforces the law on the Empire's dangerous highways.
+  description: Roadwardens protect travellers from bandits and beastmen and collect road tolls — a temptation not all resist.
+    Honest ones are welcome at every coaching inn.
+  levels:
+  - name: Toll Keeper
+    status: Brass 5
+  - name: Roadwarden
+    status: Silver 3
+  - name: Road Sergeant
+    status: Silver 5
+  - name: Road Captain
+    status: Gold 1
+- name: Sailor
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Crews ocean-going ships on the Sea of Claws and beyond.
+  description: Sailors serve on merchant ships and in the Imperial Navy, sailing from northern ports to distant lands. At
+    home on deck in any weather, they have seen much of the world.
+  levels:
+  - name: Landsman
+    status: Brass 4
+  - name: Sailor
+    status: Silver 2
+  - name: Boatswain
+    status: Silver 3
+  - name: Ship's Master
+    status: Gold 2
+- name: Scholar
+  class: Academic
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Devoted to the pursuit of knowledge wherever it leads.
+  description: Scholars study at universities and libraries, rising from Student to Professor. Their learning can prove decisive
+    — knowing where to strike a monster can matter as much as the sword.
+  levels:
+  - name: Student
+    status: Brass 3
+  - name: Scholar
+    status: Silver 1
+  - name: Fellow
+    status: Silver 5
+  - name: Professor
+    status: Gold 1
+- name: Scout
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Guides others safely through the wilds.
+  description: Scouts know the wilderness, find safe routes and watch for danger. Armies hire them to track the enemy; Pathfinders
+    and Explorers venture into unmapped lands.
+  levels:
+  - name: Guide
+    status: Brass 3
+  - name: Scout
+    status: Brass 5
+  - name: Pathfinder
+    status: Silver 1
+  - name: Explorer
+    status: Silver 5
+- name: Servant
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Serves a master or mistress in a great household.
+  description: Servants cook, clean, tend horses and see to every need of their employers, and the best become Stewards running
+    whole estates. They pass unnoticed and hear a great deal.
+  levels:
+  - name: Menial
+    status: Brass 3
+  - name: Servant
+    status: Brass 4
+  - name: Attendant
+    status: Silver 3
+  - name: Steward
+    status: Gold 1
+- name: Slayer
+  class: Warrior
+  species:
+  - Dwarf
+  short: A shamed dwarf seeking a glorious death to restore their honour.
+  description: Dwarfs who suffer unbearable shame take the Slayer Oath, dye and spike their hair, and go out unarmoured, axe
+    in hand, to hunt the mightiest monsters. Other dwarfs treat them with respectful distance.
+  levels:
+  - name: Troll Slayer
+    status: Brass 2
+  - name: Giant Slayer
+    status: Brass 2
+  - name: Dragon Slayer
+    status: Brass 2
+  - name: Daemon Slayer
+    status: Brass 2
+- name: Smuggler
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Moves contraband past taxmen and the law.
+  description: Smugglers slip cargo along lonely waterways by night, using false bottoms and corrupt officials. The successful
+    build networks of buyers and crews and become Smuggler Kings.
+  levels:
+  - name: River Runner
+    status: Brass 4
+  - name: Smuggler
+    status: Silver 1
+  - name: Master Smuggler
+    status: Silver 5
+  - name: Smuggler King
+    status: Gold 3
+- name: Soldier
+  class: Warrior
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A trained fighter who marches into battle with comrades.
+  description: Soldiers serve in the State Armies, militias and mercenary companies, rising from Recruit to Sergeant and Officer.
+    Garrison duty, leave or desertion often leads them into adventure.
+  levels:
+  - name: Recruit
+    status: Brass 5
+  - name: Soldier
+    status: Silver 2
+  - name: Sergeant
+    status: Silver 3
+  - name: Officer
+    status: Gold 1
+- name: Spy
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Gathers secrets through deception and infiltration.
+  description: Spies work for noble houses, armies, guilds and cults, watching rivals and stealing information. Many spend
+    years building false identities to get inside courts and organisations.
+  levels:
+  - name: Informer
+    status: Brass 4
+  - name: Spy
+    status: Silver 3
+  - name: Agent
+    status: Gold 1
+  - name: Spymaster
+    status: Gold 3
+- name: Stevedore
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: Loads and unloads cargo — and rules the docks.
+  description: Stevedores do heavy, dangerous dock work, and their guilds can slow or stop trade at will. They have a reputation
+    for muscle, intimidation and looking after their own.
+  levels:
+  - name: Dockhand
+    status: Brass 3
+  - name: Stevedore
+    status: Brass 5
+  - name: Foreman
+    status: Silver 3
+  - name: Dock Master
+    status: Silver 5
+- name: Thief
+  class: Rogue
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  - Wood Elf
+  short: Steals for a living, and is rather good at it.
+  description: Thieves prefer living by their wits and quick fingers to honest work, from lowly Prowler to daring Cat Burglar.
+  levels:
+  - name: Prowler
+    status: Brass 3
+  - name: Thief
+    status: Brass 4
+  - name: Master Thief
+    status: Brass 5
+  - name: Cat Burglar
+    status: Silver 3
+- name: Townsman
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: A hardworking, ambitious member of town society.
+  description: Shopkeepers, clerks, publicans, moneylenders and officials keep towns running and are slowly gaining power
+    at the nobility's expense. They know their way around commerce, politics and local personalities.
+  levels:
+  - name: Clerk
+    status: Brass 5
+  - name: Townsman
+    status: Silver 1
+  - name: Proprietor
+    status: Silver 3
+  - name: Burgomeister
+    status: Gold 3
+- name: Villager
+  class: Peasant
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  short: One of the rural workers who feed the Empire.
+  description: Villagers plough the fields, tend flocks and work as millers, herders and craftsfolk. Some rise to sit on the
+    village council or become a respected Elder.
+  levels:
+  - name: Peasant
+    status: Brass 2
+  - name: Villager
+    status: Brass 3
+  - name: Councillor
+    status: Brass 5
+  - name: Village Elder
+    status: Silver 2
+- name: Warden
+  class: Courtier
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  - Wood Elf
+  short: Oversees and protects a landowner's territory.
+  description: Wardens patrol estates, watching for poachers, trespassers and neglect. The trusted rise to Seneschal or Governor,
+    managing vast holdings for their lord with considerable freedom.
+  levels:
+  - name: Custodian
+    status: Brass 4
+  - name: Warden
+    status: Silver 3
+  - name: Seneschal
+    status: Gold 1
+  - name: Governor
+    status: Gold 4
+- name: Warrior Priest
+  class: Warrior
+  species:
+  - Human
+  short: Brings holy fury to the battlefield.
+  description: Warrior Priests of Sigmar, Ulric, Myrmidia and other war gods fight in the front line, leading soldiers in
+    prayer and keeping their faith strong. Some rise in their cult; others roam the Old World.
+  levels:
+  - name: Neophyte
+    status: Brass 2
+  - name: Warrior Priest
+    status: Silver 3
+  - name: Priest Sergeant
+    status: Silver 5
+  - name: Priest Captain
+    status: Gold 1
+- name: Watchman
+  class: Burgher
+  species:
+  - Dwarf
+  - Halfling
+  - High Elf
+  - Human
+  short: Keeps the peace and holds back crime in town.
+  description: Watchmen patrol the streets, investigate crimes and keep order, rising to Watch Sergeant and Captain. Many
+    are corrupt, and honest officers often clash with their own colleagues.
+  levels:
+  - name: Watch Recruit
+    status: Brass 3
+  - name: Watchman
+    status: Silver 1
+  - name: Watch Sergeant
+    status: Silver 3
+  - name: Watch Captain
+    status: Gold 1
+- name: Witch
+  class: Rogue
+  species:
+  - Human
+  short: Practises magic on their own terms, outside the law.
+  description: Anyone born with magic must by law train at the Colleges of Magic. Witches hide or flee instead — out of defiance,
+    older traditions or fear — and risk both witch hunters and their own power.
+  levels:
+  - name: Dabbler
+    status: Brass 3
+  - name: Witch
+    status: Silver 1
+  - name: Enchanter
+    status: Silver 4
+  - name: Warlock
+    status: Gold 1
+- name: Witch Hunter
+  class: Ranger
+  species:
+  - Human
+  short: Hunts witches and servants of darkness by any means.
+  description: Armed with silvered blades and pistols, Witch Hunters pursue unsanctioned magic users and those who shelter
+    them, usually in the service of Sigmar's cult. Feared and respected — but not above the law.
+  levels:
+  - name: Interrogator
+    status: Silver 1
+  - name: Witch Hunter
+    status: Silver 3
+  - name: Witch Hunter Captain
+    status: Gold 1
+  - name: Witchfinder General
+    status: Gold 2
+- name: Wizard
+  class: Academic
+  species:
+  - High Elf
+  - Human
+  - Wood Elf
+  short: A licensed user of dangerous magic, distrusted by common folk.
+  description: Wizards study one of the eight Winds of Magic at the Colleges in Altdorf and are bound by the Articles of Imperial
+    Magic. They rise from Apprentice to Wizard Lord.
+  levels:
+  - name: Wizard's Apprentice
+    status: Brass 3
+  - name: Wizard
+    status: Silver 3
+  - name: Master Wizard
+    status: Gold 1
+  - name: Wizard Lord
+    status: Gold 2
+- name: Wrecker
+  class: Riverfolk
+  species:
+  - Dwarf
+  - Halfling
+  - Human
+  - Wood Elf
+  short: Lures boats onto the rocks and loots their cargo.
+  description: Wreckers use false signals and traps to wreck vessels, then plunder them. The bolder become river pirates;
+    the successful command crews of their own.
+  levels:
+  - name: Cargo Scavenger
+    status: Brass 2
+  - name: Wrecker
+    status: Brass 3
+  - name: River Pirate
+    status: Brass 5
+  - name: Wrecker Captain
+    status: Silver 5
+skills:
+- name: Animal Care
+  characteristic: Int
+  type: advanced
+  short: Look after animals and treat their illnesses and injuries.
+  description: With an Advance you keep animals healthy without testing. Test to diagnose problems or treat an injured animal.
+- name: Animal Training
+  characteristic: Int
+  type: advanced
+  specialisations:
+  - Demigryph
+  - Dog
+  - Hawk
+  - Horse
+  - Pigeon
+  short: Train a particular kind of animal.
+  description: Covers understanding and training one type of animal, such as dogs, hawks or horses. Training is done between
+    adventures.
+- name: Art
+  characteristic: Dex
+  type: basic
+  specialisations:
+  - Drawing
+  - Engraving
+  - Mosaics
+  - Painting
+  - Sculpture
+  - Tattooing
+  - Weaving
+  - Writing
+  - Calligraphy
+  - Icons
+  short: Create works of art in a chosen medium.
+  description: Painting, sculpture, writing, tattooing and similar. More SL means a better piece; large works may need an
+    Extended Test.
+- name: Athletics
+  characteristic: Ag
+  type: basic
+  short: Run, jump and move with general physical skill.
+  description: Used for running, jumping and most general physical activity.
+- name: Bribery
+  characteristic: Fel
+  type: basic
+  short: Find who can be bribed, and for how much.
+  description: Get guards, clerks and officials to look the other way. Also judges whether someone is open to a bribe and
+    their likely price.
+- name: Channelling
+  characteristic: WP
+  type: advanced
+  specialisations:
+  - Aqshy
+  - Azyr
+  - Chamon
+  - Dhar
+  - Ghur
+  - Ghyran
+  - Hysh
+  - Shyish
+  - Ulgu
+  - Magick
+  short: Gather and control a Wind of Magic.
+  description: Used only by spellcasters to draw on one of the Winds of Magic (Aqshy, Azyr, Hysh and so on).
+- name: Charm
+  characteristic: Fel
+  type: basic
+  short: Make people think well of you and your ideas.
+  description: A successful Charm does not force anyone to obey, but they will give you fair consideration.
+- name: Charm Animal
+  characteristic: WP
+  type: basic
+  short: Befriend, calm or cow animals.
+  description: Convince a wild animal to back off, or a guard dog to take the meat instead of your arm.
+- name: Climb
+  characteristic: S
+  type: basic
+  short: Scale steep or vertical surfaces.
+  description: Cliffs, walls and similar. Can also matter when fighting very large monsters.
+- name: Consume Alcohol
+  characteristic: T
+  type: basic
+  short: Hold your drink without losing your wits.
+  description: Resist the effects of alcohol — and impress those who admire heavy drinking.
+- name: Cool
+  characteristic: WP
+  type: basic
+  short: Stay calm under pressure and resist fear.
+  description: Used to resist Charm and Intimidate, and to shrug off fear and other psychological effects.
+- name: Dodge
+  characteristic: Ag
+  type: basic
+  short: Get out of the way of danger.
+  description: Duck and sidestep falling rocks, blows and other hazards. Often used to defend in combat.
+- name: Drive
+  characteristic: Ag
+  type: basic
+  short: Drive carts, coaches and other vehicles.
+  description: Steer vehicles along the Empire's roads with as little trouble as possible.
+- name: Endurance
+  characteristic: T
+  type: basic
+  short: Withstand hardship, exhaustion and harsh conditions.
+  description: Used to resist and recover from many Conditions, and helps you regain lost Wounds.
+- name: Entertain
+  characteristic: Fel
+  type: basic
+  specialisations:
+  - Acting
+  - Comedy
+  - Singing
+  - Storytelling
+  - Fortunetelling
+  - Lecture
+  - Rhetoric
+  - Speeches
+  - Taunt
+  short: Entertain a crowd with voice and wit.
+  description: Singing, acting, comedy and storytelling — performances anyone can attempt without formal training.
+- name: Evaluate
+  characteristic: Int
+  type: advanced
+  short: Judge the value of goods.
+  description: Price unusual items, spot forgeries and find flaws.
+- name: Gamble
+  characteristic: Int
+  type: basic
+  short: Play games of chance and judge the odds.
+  description: Weigh up bets and play dice, cards and other games.
+- name: Gossip
+  characteristic: Fel
+  type: basic
+  short: Pick up news and spread rumours.
+  description: Find out what people are talking about, best done in inns, markets and other gathering places.
+- name: Haggle
+  characteristic: Fel
+  type: basic
+  short: Get a better price when buying or selling.
+  description: Usually an Opposed Test against the other party.
+- name: Heal
+  characteristic: Int
+  type: advanced
+  short: Treat wounds and illnesses.
+  description: Diagnose and treat disease, heal wounds and stop bleeding.
+- name: Intimidate
+  characteristic: S
+  type: basic
+  short: Frighten or coerce others.
+  description: Through open threats, subtle hints or just a look.
+- name: Intuition
+  characteristic: I
+  type: basic
+  short: Sense when something is wrong or someone is lying.
+  description: A feel for your surroundings and for reading people.
+- name: Language
+  characteristic: Int
+  type: advanced
+  specialisations:
+  - Bretonnian
+  - Reikspiel
+  - Wastelander
+  - Battle
+  - Classical
+  - Guilder
+  - Khazalid
+  - Magick
+  - Thieves Tongue
+  short: Speak a language other than your native tongue.
+  description: One Advance lets you make yourself understood; complex conversations may need a Test. With 4 Advances you are
+    fluent and need not test.
+- name: Leadership
+  characteristic: Fel
+  type: basic
+  short: Lead others and command respect.
+  description: Direct troops in battle, organise a response to a crisis, or command those beneath you.
+- name: Lore
+  characteristic: Int
+  type: advanced
+  specialisations:
+  - Engineering
+  - Geology
+  - Heraldry
+  - History
+  - Law
+  - Local
+  - Magic
+  - Metallurgy
+  - Science
+  - Theology
+  - Art
+  - Astrology
+  - Beasts
+  - Chaos
+  - Chemistry
+  - Daemons
+  - Dragons
+  - Folklore
+  - Genealogy
+  - Geography
+  - Giants
+  - Herbs
+  - Medicine
+  - Oceans
+  - Politics
+  - Prophecy
+  - Rats
+  - Riverways
+  - Routes
+  - Sigmar
+  - Spirits
+  - Taxes
+  - The Empire
+  - Trolls
+  - Warfare
+  - Witches
+  - Wrecks
+  short: Knowledge of a particular subject.
+  description: Basic facts are known without testing; obscure or unusual details need a Test. For Lore (Local), pick a place
+    you know well.
+- name: Melee
+  characteristic: WS
+  type: basic
+  specialisations:
+  - Basic
+  - Brawling
+  - Cavalry
+  - Fencing
+  - Flail
+  - Polearm
+  - Two-handed
+  short: Fight with a particular type of close-combat weapon.
+  description: Each specialisation covers one group of weapons. Using a weapon without the right specialisation usually brings
+    a penalty.
+- name: Navigation
+  characteristic: I
+  type: basic
+  short: Find your way using landmarks, stars and maps.
+  description: Keep your bearings in the wilderness or at sea.
+- name: Outdoor Survival
+  characteristic: Int
+  type: basic
+  short: Survive in the wild.
+  description: Fish, hunt, forage, make fire and shelter, read the weather and spot signs of local beasts.
+- name: Perception
+  characteristic: I
+  type: basic
+  short: Notice things with your senses.
+  description: Sight, hearing, smell, touch, taste — and any unusual senses you may have.
+- name: Perform
+  characteristic: Ag
+  type: advanced
+  specialisations:
+  - Acrobatics
+  - Clowning
+  - Dancing
+  - Firebreathing
+  - Juggling
+  - Miming
+  - Rope Walking
+  - Fight
+  short: A trained physical performance art.
+  description: Acrobatics, dancing, juggling, fire-breathing and the like. Needs training to attempt at all.
+- name: Pick Lock
+  characteristic: Dex
+  type: advanced
+  short: Open locks without the key.
+  description: From simple locks to complex dwarf mechanisms.
+- name: Play
+  characteristic: Dex
+  type: advanced
+  specialisations:
+  - Bagpipe
+  - Lute
+  - Harpsichord
+  - Horn
+  - Violin
+  - Drum
+  - Flute
+  - Pennywhistle
+  - Trumpet
+  short: Play a musical instrument.
+  description: Each instrument is its own specialisation and needs training and practice.
+- name: Pray
+  characteristic: Fel
+  type: advanced
+  short: Call on a god for aid.
+  description: Used to ask your deity for blessings and miracles.
+- name: Ranged
+  characteristic: BS
+  type: advanced
+  specialisations:
+  - Blackpowder
+  - Bow
+  - Crossbow
+  - Engineering
+  - Entangling
+  - Explosives
+  - Sling
+  - Throwing
+  short: Use a particular type of ranged weapon.
+  description: Bows, crossbows, slings, blackpowder and more. Each specialisation covers one group of weapons.
+- name: Research
+  characteristic: Int
+  type: advanced
+  short: Find useful information in libraries and archives.
+  description: Requires the Read/Write talent.
+- name: Ride
+  characteristic: Ag
+  type: basic
+  specialisations:
+  - Demigryph
+  - Griffon
+  - Horse
+  - Pegasus
+  short: Ride a particular kind of mount.
+  description: Ride (Horse) covers horses, mules, donkeys and similar animals. Also used when fighting from the saddle.
+- name: Row
+  characteristic: S
+  type: basic
+  short: Row a boat.
+  description: Usually only tested when racing, in rapids or in other difficult situations.
+- name: Sail
+  characteristic: Ag
+  type: advanced
+  short: Handle a sailing vessel.
+  description: Knots, steering, reading the wind and everything else needed to sail, alone or with a crew.
+- name: Secret Signs
+  characteristic: Int
+  type: advanced
+  specialisations:
+  - Grey Order
+  - Guild
+  - Ranger
+  - Scout
+  - Thief
+  - Vagabond
+  - Guilder
+  - Hedgefolk
+  - Knightly Order
+  - Miner
+  - Smuggler
+  short: Read and leave the hidden marks of a group.
+  description: Thieves, scouts, vagabonds and others use secret markings to share warnings and information.
+- name: Set Trap
+  characteristic: Dex
+  type: advanced
+  short: Set and disarm traps.
+  description: From simple snares to elaborate mechanical devices.
+- name: Sleight of Hand
+  characteristic: Dex
+  type: advanced
+  short: Pick pockets, palm objects and cheat at games.
+  description: Usually opposed by the target's Perception.
+- name: Stealth
+  characteristic: Ag
+  type: basic
+  specialisations:
+  - Rural
+  - Underground
+  - Urban
+  short: Move and hide without being noticed.
+  description: Sneak, hide and blend into a crowd. Specialised for rural, urban or underground surroundings.
+- name: Swim
+  characteristic: S
+  type: advanced
+  short: Swim and stay afloat.
+  description: With this skill you can swim normally without testing; strong currents, races and other dangers need a Test.
+- name: Track
+  characteristic: I
+  type: advanced
+  short: Follow trails — and hide your own.
+  description: Find and follow your quarry, or cover your own tracks.
+- name: Trade
+  characteristic: Dex
+  type: advanced
+  specialisations:
+  - Apothecary
+  - Calligrapher
+  - Chandler
+  - Carpenter
+  - Cook
+  - Embalmer
+  - Engineer
+  - Herbalist
+  - Shipwright
+  - Smith
+  - Tanner
+  - Art Supplies
+  - Barber
+  - Boatbuilder
+  - Brewer
+  - Cartographer
+  - Engraver
+  - Explosives
+  - Farrier
+  - Gunsmith
+  - Poisoner
+  - Printing
+  - Tinker
+  short: Practise a craft or trade.
+  description: Make things or provide a service, and know the lore that goes with your trade.
+talents:
+- name: Accurate Shot
+  short: Ranged hits deal extra Damage.
+  description: Successful ranged attacks deal +1 Damage, or +2 if you took time to aim.
+- name: Acute Sense
+  examples:
+  - Hearing
+  - Sight
+  - Taste
+  - Touch
+  short: One sense is unusually sharp.
+  description: You can make Perception Tests to notice things others could not detect with that sense. Can be taken again
+    for another sense.
+- name: Aethyric Attunement
+  short: Better control of magic; safer miscasts.
+  description: When you must roll on the Minor Miscast table after a successful Casting or Channelling Test, roll twice and
+    pick. Take it again to do the same for Major Miscasts.
+- name: Alley Cat
+  short: At home in towns and cities.
+  description: Advantage on Stealth (Urban) Tests, and you know the quickest or quietest way across a town you are familiar
+    with.
+- name: Ambidextrous
+  short: Equally skilled with either hand.
+  description: You ignore the penalty for using your off hand, including for attacks.
+- name: Animal Affinity
+  short: Wild animals are at ease around you.
+  description: As long as you are not aggressive, wild animals will not normally attack you.
+- name: Arcane Magic
+  examples:
+  - Heavens
+  - Hedgecraft
+  - Witchcraft
+  short: Learn spells from a Lore of Magic.
+  description: Choose one Colour Lore, a witch lore or a dark lore. You gain one spell from it and can learn more with XP.
+- name: Argumentative
+  short: Draws people into pointless arguments.
+  description: Others must beat your Charm with Cool to escape the debate, and are distracted while arguing.
+- name: Artistic
+  short: A natural talent for one form of art.
+  description: You can always advance Art and gain Advantage on Art Tests in your chosen medium. Can be taken again for another
+    medium.
+- name: Attractive
+  short: Knows how to use their looks.
+  description: When successfully charming someone attracted to you, you may use the units die instead of your SL.
+- name: Battle Rage
+  short: Always on the edge of a violent frenzy.
+  description: Enter Frenzy without a Test when another ability allows it, and you are not Fatigued when it ends.
+- name: Beat Blade
+  short: Strikes the enemy's weapon to open their guard.
+  description: Give up Damage on a hit to stop the enemy defending with Melee and give attacks against them Advantage until
+    your next Turn.
+- name: Beneath Notice
+  short: Fades into the background among their betters.
+  description: Properly dressed and behaving, most people assume you belong wherever you are.
+- name: Berserk Charge
+  short: Charges with reckless force.
+  description: Add +2 Damage when you Charge.
+- name: Blather
+  short: Talks their way out of being caught.
+  description: When caught, an Opposed Charm vs Cool Test makes your excuse believed for a while.
+- name: Bless
+  short: Can call on a god's blessings.
+  description: You gain all the Blessings of your deity. Cannot be combined with arcane magic talents or Channelling.
+- name: Bookish
+  short: An avid reader at home in libraries.
+  description: Advantage on Research Tests.
+- name: Break and Enter
+  short: Finds the best way into any building.
+  description: You can spot the fastest, quietest way in, and gain Advantage on Pick Lock Tests and Strength Tests to force
+    doors or windows.
+- name: Briber
+  short: Knows who can be bought, and for how much.
+  description: Advantage on Bribery Tests.
+- name: Cardsharp
+  short: Wins at games — not always fairly.
+  description: On a double in an Opposed Gamble Test you may make your opponent reroll, cancelling any Sleight of Hand advantage
+    they had.
+- name: Careful Strike
+  short: Hits exactly where they aim in melee.
+  description: Called Shots in melee have a smaller penalty, or none if you have Advantage.
+- name: Carouser
+  short: A seasoned drinker.
+  description: No ill effects from moderate drinking, and Advantage on Consume Alcohol Tests and Endurance Tests against poison.
+- name: Cat-tongued
+  short: Lies as easily as telling the truth.
+  description: Advantage on Charm Tests to lie convincingly.
+- name: Catfall
+  short: Lands like a cat.
+  description: Every fall counts as deliberate, so you can test Athletics to reduce Damage, with Advantage.
+- name: Chaos Magic
+  short: Wields the forbidden magic of a Dark God.
+  description: Gain spells from a Chaos Lore, gaining Corruption with each spell learned. Can never be unlearned.
+- name: Combat Aware
+  short: Reads the battlefield quickly.
+  description: Test Perception to avoid being Surprised; succeed automatically where the GM would allow a Test.
+- name: Combat Master
+  short: Fights like two people.
+  description: You count as two people when working out who is outnumbered.
+- name: Combat Reflexes
+  short: Reacts instantly when a fight starts.
+  description: Roll Combat Initiative twice and keep the better result.
+- name: Commanding Presence
+  short: A presence that turns the tide of battle.
+  description: When you succeed with Leadership in combat, you may use the units die instead of your SL.
+- name: Concoct
+  short: Brews potions on the go.
+  description: Once per session, make an apothecary, herbalist or poisoner item without a workshop; it spoils at the next
+    Downtime.
+- name: Contortionist
+  short: Bends the body in unnatural ways.
+  description: Squeeze through tiny gaps, and gain Advantage on Athletics Tests to escape bonds.
+- name: Coolheaded
+  short: Calm and strong-willed.
+  description: +5 Willpower (does not count as Advances).
+- name: Crack the Whip
+  short: Gets the most out of draught animals.
+  description: With Drive, your animals can act and move without a Test, Drive Tests have Advantage, and your team is faster
+    in a Pursuit.
+- name: Craftsman
+  examples:
+  - Apothecary
+  - Barber
+  - Boatbuilder
+  - Cartographer
+  - Engineer
+  - Explosives
+  - Herbalist
+  short: A true master of a craft.
+  description: Advantage on Tests with your chosen Trade, which you may advance even outside your Career. Can be taken again
+    for another Trade.
+- name: Criminal
+  short: An active, recognisable criminal.
+  description: Double coin from criminal Income. Law enforcers distrust you, and you can only enter Careers that include this
+    Talent.
+- name: Deadeye Shot
+  short: Shoots exactly where they aim.
+  description: Ranged Called Shots have a smaller penalty, or none when aiming.
+- name: Dealmaker
+  short: Knows how to close a deal.
+  description: Advantage on Haggle Tests, and you can tell when an offer is really final.
+- name: Detect Artefact
+  short: Senses magic in objects.
+  description: Touch tells you if an item is magical. With Second Sight you can test Intuition to learn its powers.
+- name: Dicer
+  short: Lucky and skilled at games of chance.
+  description: Advantage on Gamble Tests.
+- name: Dirty Fighting
+  short: Knows every dirty trick in a brawl.
+  description: An unarmed Called Shot to the body that wounds can inflict a low-blow Critical Wound instead of normal Damage.
+- name: Disarm
+  short: Knocks weapons out of opponents' hands.
+  description: On a strong melee hit you may give up Damage to send the opponent's weapon flying.
+- name: Distract
+  short: Startles opponents with feints and gestures.
+  description: Use your Move for an Opposed Test; if you win, the target loses Momentum and Advantage until your next Turn.
+- name: Doomed
+  short: A priest of Morr foretold your death.
+  description: Agree a Doom with the GM. If you die as foretold, allies refresh Fortune and your next character gains a Fate
+    Point.
+- name: Drilled
+  short: Trained to fight in formation.
+  description: Allies can freely Disengage from enemies you are also fighting, and you can share Momentum with drilled comrades
+    beside you.
+- name: Dual Wielder
+  short: Fights with a weapon in each hand.
+  description: Make the free off-hand attack without spending Momentum (you still need it), and daggers gain the Parry quality.
+- name: Embezzle
+  short: Skims money from employers.
+  description: 'Use Bribery or Evaluate to earn: success doubles your money, failure earns nothing.'
+- name: Enclosed Fighter
+  short: Fights well in tight spaces.
+  description: Ignore penalties for cramped spaces and use Dodge even where there is no room.
+- name: Etiquette
+  examples:
+  - Criminals
+  - Cultists
+  - Guilders
+  - Nobles
+  - Scholars
+  - Servants
+  - Soldiers
+  short: Fits in with a particular social group.
+  description: Blend in with the chosen group (such as Nobles, Soldiers or Criminals) when dressed and behaving appropriately.
+- name: Fast Hands
+  short: Quick, dexterous hands.
+  description: Advantage on Sleight of Hand Tests and on brawling Tests to touch an opponent.
+- name: Fast Shot
+  short: Draws and fires a pistol in a flash.
+  description: If not Engaged, make one pistol attack before the first Turn of the Round.
+- name: Fearless
+  examples:
+  - Beasts
+  - Bounties
+  - Criminals
+  - Everything
+  - Intruders
+  - Merchants
+  - Outlaws
+  - Paupers
+  - Rats
+  - Riverwardens
+  - Roadwardens
+  - Undead
+  - Watchmen
+  - Witches
+  - Wreckers
+  short: Unafraid of a particular kind of enemy.
+  description: Immune to Fear from the chosen group. Can be taken again for another group.
+- name: Feint
+  short: Uses false attacks to fool opponents.
+  description: If you have Momentum and they do not, force the opponent to defend with Intuition.
+- name: Field Dressing
+  short: Patches up wounds with whatever is at hand.
+  description: Advantage on Heal Tests, and you can make splints and bandages from ordinary materials.
+- name: Fisherman
+  short: Can always catch a meal.
+  description: With water and gear you catch enough fish for yourself plus others equal to your Initiative Bonus.
+- name: Flagellant
+  short: Pain only spurs them on.
+  description: Ignore penalties from Critical Wounds (except amputations), and can Frenzy whenever wounded.
+- name: Flee!
+  short: Runs remarkably fast when life is at stake.
+  description: Sprint away after Disengaging, avoid Broken when fleeing, and gain +1 SL as the quarry in a Pursuit.
+- name: Fleet-footed
+  short: Unusually fast on their feet.
+  description: +1 Movement.
+- name: Frenzy
+  short: Can unleash a battle fury.
+  description: 'A Willpower Test lets you Frenzy: extra attacks, more Damage and immunity to most psychology.'
+- name: Frightening
+  short: Strikes fear into enemies.
+  description: You gain the Fear trait (1, or 2 if Large). Enemies who have not overcome it cannot gain Momentum against you.
+- name: Furious Assault
+  short: Rains down blow after blow.
+  description: Once per Round, after a melee hit, lose Momentum to make an extra attack.
+- name: Gregarious
+  short: Loves talking to people, and they to them.
+  description: Advantage on Gossip Tests, and you know where gossip is exchanged.
+- name: Gunner
+  short: Handles blackpowder weapons safely.
+  description: Ignore the Dangerous flaw on blackpowder, engineering and explosive weapons.
+- name: Hardy
+  short: Tougher than most.
+  description: Add your Toughness Bonus to your Wounds a second time.
+- name: Hatred
+  examples:
+  - Heretics
+  - Outlaws
+  short: Consumed by hatred for a group.
+  description: 'Gain Hatred for the group: +1 SL to attacks against them and immunity to their Intimidate and Fear, but you
+    may be compelled to attack.'
+- name: Holy Hatred
+  short: Prayers burn with hatred for the enemy.
+  description: Miracles that cause Wounds deal +2 Wounds.
+- name: Holy Visions
+  short: Sees the works of the gods.
+  description: Sense holy ground, perceive Blessings, Miracles and Chaos spells cast nearby, and feel divine power in objects.
+- name: Hunter's Eye
+  short: Always finds game.
+  description: In well-stocked lands you hunt enough food for yourself plus others equal to your Initiative Bonus.
+- name: Impassioned Zeal
+  short: Burns with belief in a cause.
+  description: Advantage on Charm when speaking about your cause, but Disadvantage when lying about or denouncing it.
+- name: Implacable
+  short: Hard to finish off.
+  description: Gain one fewer Bleeding Condition whenever you would gain them.
+- name: In-fighter
+  short: Gets inside an opponent's reach.
+  description: Longer weapons give no bonus against you, and you can force in-fighting where long weapons become improvised.
+- name: Inspiring
+  short: Others naturally follow your lead.
+  description: People look to you in a crisis, and you gain Advantage on Leadership Tests.
+- name: Instinctive Diction
+  short: Speaks Magick swiftly and precisely.
+  description: After a successful cast, reduce Minor Miscast rolls by 20, possibly avoiding them altogether.
+- name: Invoke
+  short: Can call on a god's miracles.
+  description: Gain one Miracle of your god and learn more with XP. Cannot be combined with arcane magic talents or Channelling.
+- name: Iron Jaw
+  short: Shrugs off heavy blows.
+  description: The first time in an encounter you would be Stunned, gain one fewer Stunned Condition.
+- name: Iron Will
+  short: Will not bow to anyone.
+  description: Advantage on Cool Tests to resist influence, mundane or magical.
+- name: Jump Up
+  short: Springs back up when knocked down.
+  description: When Prone you can test Athletics or Perform (Acrobatics) to get up at once; Advantage on acrobatics outside
+    combat.
+- name: Kingpin
+  short: A respected criminal.
+  description: The Criminal talent no longer draws suspicion or limits your Careers, and most criminals respect you.
+- name: Lightning Reflexes
+  short: Exceptionally quick.
+  description: +5 Agility (does not count as Advances).
+- name: Linguistics
+  short: Picks up languages with ease.
+  description: Advantage on Language Tests, and Language Advances always cost 50 XP (not Magick).
+- name: Lip Reading
+  short: Understands speech by watching lips.
+  description: With a clear view of the speaker, test Intuition to follow what they say.
+- name: Luck
+  short: Blessed by Ranald.
+  description: +1 maximum Fortune. Can be taken up to three times.
+- name: Magic Resistance
+  short: Magic struggles to affect them.
+  description: Spells affecting you lose 3 SL. You can never learn magic or priestly talents, or Channelling.
+- name: Magical Sense
+  short: Feels the Winds of Magic stir.
+  description: You notice spellcasting nearby and its rough direction, and gain Advantage reading the Winds if you can see
+    them.
+- name: Magnum Opus
+  short: Creates a true masterpiece.
+  description: Make one extraordinary work of art or craft that impresses everyone and sells for at least ten times its value.
+    Can be taken again.
+- name: Marksman
+  short: A naturally good shot.
+  description: +5 Ballistic Skill (does not count as Advances).
+- name: Master of Disguise
+  short: Becomes someone else entirely.
+  description: Change your appearance with posture, expression and clothing; on successful acting use the units die instead
+    of SL.
+- name: Master Orator
+  short: Speaks clearly and convincingly on any topic.
+  description: Advantage on Lore Tests to argue a case or a point before a court or crowd.
+- name: Master Tradesman
+  examples:
+  - Apothecary
+  - Boatbuilder
+  - Engineer
+  - Herbalist
+  short: A skilled and reliable artisan.
+  description: With your chosen Trade, use the units die instead of SL on success. Can be taken again for another Trade.
+- name: Menacing
+  short: People steer clear of you.
+  description: Advantage on Intimidate Tests, and thieves and bandits usually pick another target.
+- name: Mimic
+  short: Copies accents and voices.
+  description: Advantage on Entertain (Acting, Comedy) and Perform (Clowning), and you can pick up any accent you hear for
+    a day.
+- name: Night Vision
+  short: Sees well in the dark.
+  description: With even faint light you see clearly for 20 yards, and light sources reach 20 yards further.
+- name: Nimble-fingered
+  short: Unusually dexterous.
+  description: +5 Dexterity (does not count as Advances).
+- name: Noble Blood
+  short: Of noble birth.
+  description: Count as at least one Status tier higher than commoners, and can enter the Noble Career as if in your own Class.
+- name: Nose for Trouble
+  short: Has a knack for finding — and escaping — trouble.
+  description: Advantage on Intuition Tests about danger, and you know where to find gambling, fights or drink.
+- name: Numismatics
+  short: Expert on coins and artefacts.
+  description: Advantage on Lore (Heraldry) to identify coins, medals and flags; use the units die on successful Evaluate
+    Tests.
+- name: Old Salt
+  short: An experienced seafarer.
+  description: Use the units die on successful Row or Sail Tests at sea, and count as two crew.
+- name: Orientation
+  short: An instinctive sense of direction.
+  description: Advantage on Navigation Tests, and you always know which way is north.
+- name: Panhandle
+  short: A skilled beggar.
+  description: Advantage on Charm when begging, and you know where to find shelter in town.
+- name: Perfect Pitch
+  short: Perfect musical ear.
+  description: Learn music after one hearing; Advantage on Entertain (Singing) and Play Tests.
+- name: Petty Magic
+  short: Has the spark of magic.
+  description: Gain three petty spells of your choice, and learn more with XP.
+- name: Pharmacist
+  short: Expert at making medicines.
+  description: Make one extra dose when creating a remedy.
+- name: Pilot
+  short: Steers vessels through danger.
+  description: Advantage on Row and Sail Tests.
+- name: Public Speaker
+  short: Rouses crowds of common folk.
+  description: Advantage on Charm to sway groups, after which you can use Leadership on them.
+- name: Pure Soul
+  short: Resists the taint of Chaos.
+  description: You can hold twice as many Corruption Points before testing for mutation.
+- name: Rapid Reload
+  short: Reloads with practised speed.
+  description: Reduce the Reload flaw of your ranged weapons by 1.
+- name: Reaction Strike
+  short: Strikes at chargers.
+  description: When Charged, test Initiative for a free attack against the charger (once per Round).
+- name: Read/Write
+  short: Can read and write.
+  description: You can read and write every language you speak.
+- name: Relentless
+  short: Hard to escape.
+  description: When an opponent Disengages you can test to chase them, and gain +1 SL as pursuer in a Pursuit.
+- name: Resistant
+  examples:
+  - Disease
+  - Poison
+  short: Resists a particular threat.
+  description: Once per session automatically pass a Test against the chosen threat (disease, poison, magic…), with Advantage
+    on later Tests.
+- name: Resolute
+  short: Grimly determined in danger.
+  description: When you gain a Condition, a Cool Test lets you keep your Momentum.
+- name: Reversal
+  short: Finds an edge in desperate fights.
+  description: Keep your Momentum when you are hit despite succeeding on your Test.
+- name: Riposte
+  short: Counter-attacks when defending.
+  description: Once per Round, when you win an Opposed Test as defender, deal Damage as if you were the attacker.
+- name: River Guide
+  short: Knows the tricks of dangerous rivers.
+  description: Only test to navigate the hardest waters; with the right Lore (Local) you never need to.
+- name: Robust
+  short: Recovers quickly from injury.
+  description: Heal 2 extra Wounds whenever you test to heal.
+- name: Roughrider
+  short: At home in the saddle.
+  description: With Ride your mount can act and move without a Test, Ride Tests have Advantage, and it is faster in a Pursuit.
+- name: Rover
+  short: Moves quickly and quietly through the wilds.
+  description: Advantage on Stealth (Rural), and you can find the easiest route, game, water and shelter.
+- name: Savant
+  examples:
+  - Art
+  - Chemistry
+  - Engineering
+  - Folklore
+  - Herbs
+  - Law
+  - Local
+  - Medicine
+  - Politics
+  - Riverways
+  - Theology
+  short: Deeply learned in one field.
+  description: Advantage on Tests with your chosen Lore. Can be taken again for another Lore.
+- name: Savvy
+  short: Sharp-witted.
+  description: +5 Intelligence (does not count as Advances).
+- name: Scale Sheer Surface
+  short: An exceptional climber.
+  description: Advantage on Climb Tests, and you can attempt near-impossible surfaces.
+- name: Schemer
+  short: A master of politics and rumour.
+  description: On successful Gossip or Lore (Politics) Tests, use the units die instead of SL.
+- name: Sea Legs
+  short: Never seasick.
+  description: No Tests for seasickness in normal conditions, and Advantage when one is required.
+- name: Seasoned Traveller
+  short: Picks up local knowledge quickly.
+  description: Always able to advance the Lore (Local) of the region you are in.
+- name: Second Sight
+  short: Sees the Winds of Magic.
+  description: You can perceive the Winds of Magic.
+- name: Secret Identity
+  short: Keeps a convincing second identity.
+  description: Pose as another Career, with its Class and Status, without testing to keep up the act.
+- name: Shadow
+  short: Follows people unseen.
+  description: Tail someone through crowds; if spotted, choose to be seen or to lose them while staying hidden.
+- name: Sharp
+  short: Quick to notice and react.
+  description: +5 Initiative (does not count as Advances).
+- name: Sharpshooter
+  short: Makes incredibly accurate shots.
+  description: No penalties for Prone or covered targets, and you can attempt trick shots others think impossible.
+- name: Shieldsman
+  short: Controls a fight with a shield.
+  description: Lose Momentum to share your shield's AP with an ally, or push an opponent back 2 yards when you win a melee
+    Test.
+- name: Sixth Sense
+  short: Feels when danger is near.
+  description: Before springing a trap or ambush, test Intuition to notice it at the last moment.
+- name: Slayer
+  short: Undaunted by huge enemies.
+  description: When Charged by a larger creature, you gain Momentum automatically.
+- name: Sniper
+  short: Hits distant targets with ease.
+  description: No penalty at Long Range and only a small one at Extreme Range.
+- name: Speedreader
+  short: Reads at an incredible pace.
+  description: Read a whole book in a day; double the SL from successful Extended Research Tests.
+- name: Sprinter
+  short: A fast runner.
+  description: Advantage on Athletics Tests to run, and no penalty for weaving through crowds.
+- name: Step Aside
+  short: Is never where the blow lands.
+  description: After a successful Dodge, move 2 yards away and stop being Engaged, without a free attack.
+- name: Stone Soup
+  short: Gets by on very little.
+  description: When the party forages you are always fed, even if the Test fails.
+- name: Stout-hearted
+  short: Keeps coming back for more.
+  description: The first time in an encounter you would be Broken, gain one fewer Broken Condition.
+- name: Striding Gait
+  examples:
+  - Coastal
+  - Rocky
+  - Wetland
+  short: Crosses difficult ground with ease.
+  description: Ignore movement penalties in your chosen terrain and gain +2 SL in Pursuits there. Can be taken again.
+- name: Strike Mighty Blow
+  short: Hits hard.
+  description: +1 Damage with melee weapons, or +2 if the attack had Advantage.
+- name: Strike to Injure
+  short: Strikes where it hurts most.
+  description: Roll twice on Critical Wound tables and choose; no Called Shot penalty for silent takedowns.
+- name: Strike to Stun
+  short: Knows how to knock out rather than kill.
+  description: Improvised weapons count as Pummel, and Advantage on silent takedowns.
+- name: Strong Back
+  short: Used to hard work and heavy loads.
+  description: +1 SL on Opposed Strength Tests and +1 Encumbrance. Take again for +3 SL and +3 Encumbrance.
+- name: Strong Legs
+  short: Jumps far.
+  description: Advantage on Athletics Tests to jump, and deliberate falls count as 1 yard shorter.
+- name: Strong Swimmer
+  short: An accomplished swimmer.
+  description: Advantage on Swim Tests and +2 SL in swimming Pursuits.
+- name: Strong-minded
+  short: Determined and resolute.
+  description: Once per session, take a Test ignoring all negative modifiers.
+- name: Sturdy
+  short: Brawny and used to carrying things.
+  description: Count your Strength Bonus twice when working out your Encumbrance limit.
+- name: Suave
+  short: Smooth and charming.
+  description: +5 Fellowship (does not count as Advances).
+- name: Super Numerate
+  short: A gift for calculation.
+  description: Advantage on Evaluate Tests, and you always know how much time has passed.
+- name: Supportive
+  short: Knows how to please superiors.
+  description: Ignore the penalty for charming higher Status, and gain Advantage when ingratiating yourself with them.
+- name: Sure Shot
+  short: Finds the gaps in armour.
+  description: Ranged attacks deal +1 Damage and ignore Partial armour (and Weakpoints with Impale weapons).
+- name: Surgery
+  short: A trained surgeon.
+  description: Use the units die on successful Heal Tests outside combat, and treat Critical Wounds that need surgery.
+- name: Tenacious
+  short: Vigorous and hard to tire.
+  description: The first time in an encounter you would be Fatigued, gain one fewer Fatigued Condition.
+- name: Tinker
+  short: Can repair almost anything.
+  description: Trade Skills count as Basic for repairs; with a Trade Advance, repairs have Advantage and take half the time.
+- name: Tower of Memories
+  short: Perfect recall through a mental technique.
+  description: On successful Lore Tests, use the units die instead of SL.
+- name: Trapper
+  short: Skilled with traps and snares.
+  description: Advantage on Set Trap Tests, and you can build a small trap or covered pit in an hour.
+- name: Trick Rider
+  short: Performs amazing feats in the saddle.
+  description: Use Perform Skills and your full Dodge while mounted.
+- name: Tunnel Fighter
+  short: At home underground.
+  description: Advantage on Stealth (Underground), and you know how far and how deep you have gone.
+- name: Unshakeable
+  short: A veteran of gunfire.
+  description: No Test to resist being Broken when shot at by blackpowder weapons.
+- name: Very Resilient
+  short: Unusually tough.
+  description: +5 Toughness (does not count as Advances).
+- name: Very Strong
+  short: Unusually strong.
+  description: +5 Strength (does not count as Advances).
+- name: War Leader
+  short: Keeps soldiers fighting to the end.
+  description: Allies you lead in battle may use your Leadership instead of their Cool to resist Fear.
+- name: War Wizard
+  short: Casts spells in the thick of battle.
+  description: As a Free Action, lose Momentum to cast a spell of CN 5 or less.
+- name: Warrior Born
+  short: A natural fighter.
+  description: +5 Weapon Skill (does not count as Advances).
+- name: Waterman
+  short: An experienced river sailor.
+  description: Use the units die on successful Row or Sail Tests on rivers and lakes, and count as two crew.
+- name: Wealthy
+  short: Rarely short of coin.
+  description: Earn 1 extra gold crown when earning money; take it again for 3.
+- name: Well-prepared
+  short: Always has the right thing in their pocket.
+  description: Once per session (more with Fortune), produce a small, cheap item you could have bought earlier, paying its
+    cost.
+- name: Witch!
+  short: Learned magic by trial and error.
+  description: Gain one spell from a Colour Lore or Witchcraft, treating its Channelling and Language (Magick) as Basic. Draws
+    witch hunters' attention.

@@ -11,6 +11,7 @@
     const THEME_KEY = 'wfrp-sheet-theme';
     const MAX_CHARACTERS = 50;
     const DEFAULT_PORTRAIT = 'img/default-portrait.svg';
+    const REFERENCE_URL = 'data/reference.yaml';
 
     const CHARACTERISTICS = ['WS', 'BS', 'S', 'T', 'I', 'Ag', 'Dex', 'Int', 'WP', 'Fel'];
 
@@ -60,7 +61,7 @@
             cols: '2rem 1fr 3.5rem 3.5rem 3.5rem',
             fields: [
                 { key: 'tick', label: '✓', type: 'check' },
-                { key: 'name', label: 'Name', wide: true },
+                { key: 'name', label: 'Name', wide: true, ref: 'languages' },
                 { key: 'int', label: 'Int', type: 'calc', calc: (r, c) => (r.name || num(r.adv) !== null) ? charValue(c, 'Int') : '' },
                 { key: 'adv', label: 'Adv', type: 'number' },
                 { key: 'skill', label: 'Skill', type: 'calc', calc: (r, c) => (r.name || num(r.adv) !== null) ? skillValue(c, 'Int', r.adv) : '' }
@@ -71,7 +72,7 @@
             cols: '2rem 1fr 4.5rem 3.5rem 3.5rem',
             fields: [
                 { key: 'tick', label: '✓', type: 'check' },
-                { key: 'name', label: 'Name', wide: true },
+                { key: 'name', label: 'Name', wide: true, ref: 'skills' },
                 { key: 'char', label: 'Char.', type: 'char' },
                 { key: 'adv', label: 'Adv', type: 'number' },
                 { key: 'skill', label: 'Skill', type: 'calc', calc: (r, c) => r.char ? skillValue(c, r.char, r.adv) : '' }
@@ -81,7 +82,7 @@
             rows: 8,
             cols: '1fr 2fr 3.5rem',
             fields: [
-                { key: 'name', label: 'Talent name', wide: true },
+                { key: 'name', label: 'Talent name', wide: true, ref: 'talents' },
                 { key: 'description', label: 'Description', wide: true, multiline: true },
                 { key: 'pg', label: 'pg.' }
             ]
@@ -422,8 +423,8 @@
                 }));
             });
             box.append(el('div', { class: 'career-row' }, [
-                field('Class', el('input', { type: 'text', 'data-path': `careers.${i}.class` })),
-                field('Career', el('input', { type: 'text', 'data-path': `careers.${i}.career` })),
+                field('Class', el('input', { type: 'text', 'data-path': `careers.${i}.class`, list: 'ref-classes', 'data-ref': 'classes' })),
+                field('Career', el('input', { type: 'text', 'data-path': `careers.${i}.career`, list: 'ref-careers', 'data-ref': 'careers' })),
                 field('pg.', el('input', { type: 'text', 'data-path': `careers.${i}.pg` }), 'pg'),
                 tracker,
                 field('Status', el('input', { type: 'text', 'data-path': `careers.${i}.status` }))
@@ -457,7 +458,10 @@
         BASIC_SKILLS.forEach(s => {
             const name = el('span', { class: 'skill-name' }, [s.grouped ? s.name + '* (' : s.name]);
             if (s.grouped) {
-                name.append(el('input', { type: 'text', class: 'spec', 'data-path': `skills.${s.id}.spec`, 'aria-label': `${s.name} specialisation` }), ')');
+                name.append(el('input', {
+                    type: 'text', class: 'spec', 'data-path': `skills.${s.id}.spec`, 'aria-label': `${s.name} specialisation`,
+                    list: `ref-spec-${s.name}`
+                }), ')');
             }
             box.append(el('div', { class: 'skill' }, [
                 el('input', { type: 'checkbox', 'data-path': `skills.${s.id}.tick`, 'aria-label': `${s.name} career skill` }),
@@ -488,6 +492,7 @@
             const rowEl = el('div', { class: 'list-row' });
             def.fields.forEach(f => {
                 const attrs = { 'data-list-field': `${name}.${index}.${f.key}`, 'aria-label': f.label };
+                if (f.ref) Object.assign(attrs, { list: `ref-${f.ref}`, 'data-ref': f.ref });
                 let input;
                 if (f.type === 'check') input = el('input', Object.assign({ type: 'checkbox' }, attrs));
                 else if (f.type === 'number') input = el('input', Object.assign({ type: 'number' }, attrs));
@@ -549,6 +554,7 @@
             btn.setAttribute('aria-pressed', character.careers[i].reached[s] ? 'true' : 'false');
         });
         updatePortrait();
+        describeAll();
         recalc();
     }
 
@@ -642,6 +648,11 @@
             character.careers[i].tracker[s] = chars.join('');
         } else {
             return;
+        }
+        if (t.dataset.ref) {
+            describe(t);
+            // Picking from the drop-down (or leaving the field) fills in related empty fields
+            if (e.type === 'change' || !e.inputType || e.inputType === 'insertReplacementText') applyReference(t);
         }
         recalc();
         scheduleSave();
@@ -816,6 +827,134 @@
         });
     }
 
+    /* ---------- reference data (classes, careers, skills, talents) ---------- */
+
+    // Loaded from data/reference.yaml and offered as drop-down suggestions (<datalist>) on the
+    // matching fields. The fields stay free text, and without the file they work as before.
+    let reference = null;
+
+    function loadReference() {
+        fetch(REFERENCE_URL)
+            .then(r => { if (!r.ok) throw new Error(r.status); return r.text(); })
+            .then(text => {
+                const data = jsyaml.load(text) || {};
+                reference = {};
+                ['classes', 'careers', 'skills', 'talents'].forEach(k => {
+                    reference[k] = new Map((data[k] || []).map(entry => [entry.name.toLowerCase(), entry]));
+                });
+                buildDatalists();
+                describeAll();
+            })
+            .catch(() => { /* no suggestions; the fields still take free text */ });
+    }
+
+    function datalist(id, options) {
+        let list = document.getElementById(id);
+        if (!list) list = document.body.appendChild(el('datalist', { id }));
+        list.innerHTML = '';
+        options.forEach(([value, label]) => list.append(el('option', { value, label })));
+    }
+
+    // "Lore (History)" → "lore", "Soldier – Recruit" → "soldier"
+    function baseName(value) {
+        return String(value || '').replace(/\s+[–-]\s.*$/, '').replace(/\s*\(.*$/, '').trim().toLowerCase();
+    }
+
+    function buildDatalists() {
+        const careers = [...reference.careers.values()];
+        const careerOptions = list => list.flatMap(c => [[c.name, `${c.class} – ${c.short}`]].concat(
+            c.levels.map((l, i) => [`${c.name} – ${l.name}`, `Level ${i + 1} · ${l.status}`])));
+        datalist('ref-classes', [...reference.classes.values()].map(c => [c.name, c.short]));
+        datalist('ref-careers', careerOptions(careers));
+        reference.classes.forEach(cls => datalist(`ref-careers-${cls.name}`, careerOptions(careers.filter(c => c.class === cls.name))));
+
+        datalist('ref-skills', [...reference.skills.values()].flatMap(s => s.specialisations
+            ? s.specialisations.map(spec => [`${s.name} (${spec})`, `${s.characteristic} · ${s.short}`])
+            : [[s.name, `${s.characteristic} · ${s.short}`]]));
+        reference.skills.forEach(s => {
+            if (s.specialisations) datalist(`ref-spec-${s.name}`, s.specialisations.map(spec => [spec, null]));
+        });
+        const language = reference.skills.get('language');
+        datalist('ref-languages', ((language && language.specialisations) || []).map(l => [l, null]));
+        datalist('ref-talents', [...reference.talents.values()].flatMap(t =>
+            [[t.name, t.short]].concat((t.examples || []).map(x => [`${t.name} (${x})`, t.short]))));
+    }
+
+    // Accepts "Soldier", "Soldier – Recruit" or just a level name such as "Recruit".
+    function findCareer(value) {
+        const v = String(value || '').trim().toLowerCase();
+        const career = reference.careers.get(baseName(v));
+        if (career) {
+            const levelName = /\s[–-]\s/.test(v) ? v.replace(/^.*?\s[–-]\s*/, '') : '';
+            return { career, level: Math.max(career.levels.findIndex(l => l.name.toLowerCase() === levelName), 0) };
+        }
+        for (const c of reference.careers.values()) {
+            const level = c.levels.findIndex(l => l.name.toLowerCase() === v);
+            if (level >= 0) return { career: c, level };
+        }
+        return null;
+    }
+
+    function findEntry(kind, value) {
+        if (!reference || !value) return null;
+        if (kind === 'careers') return findCareer(value);
+        const map = reference[kind]; // none for languages
+        return map ? map.get(String(value).trim().toLowerCase()) || map.get(baseName(value)) || null : null;
+    }
+
+    // Tooltip with the description of whatever the field names.
+    function describe(input) {
+        const kind = input.dataset.ref;
+        const found = findEntry(kind, input.value);
+        let text = '';
+        if (kind === 'careers' && found) {
+            const c = found.career;
+            text = `${c.name} (${c.class}) – ${c.short}\n\n${c.description}\n\n` +
+                c.levels.map((l, i) => `${i + 1}. ${l.name} – ${l.status}`).join('\n');
+        } else if (kind === 'skills' && found) {
+            text = `${found.name} (${found.characteristic}, ${found.type}) – ${found.short}\n\n${found.description}`;
+        } else if (found) {
+            text = `${found.name} – ${found.short}\n\n${found.description}`;
+        }
+        input.title = text;
+
+        // The career suggestions follow the class picked on the same row
+        if (kind === 'classes') {
+            const row = input.dataset.path.split('.')[1];
+            const careerInput = document.querySelector(`[data-path="careers.${row}.career"]`);
+            careerInput.setAttribute('list', found ? `ref-careers-${found.name}` : 'ref-careers');
+        }
+    }
+
+    function describeAll() {
+        if (reference) document.querySelectorAll('[data-ref]').forEach(describe);
+    }
+
+    function fillIfEmpty(path, value, isListField) {
+        if (getPath(character, path)) return;
+        setPath(character, path, value);
+        const input = document.querySelector(isListField ? `[data-list-field="${path}"]` : `[data-path="${path}"]`);
+        if (input) {
+            input.value = value;
+            if (input.dataset.ref) describe(input);
+        }
+    }
+
+    function applyReference(input) {
+        const found = findEntry(input.dataset.ref, input.value);
+        if (!found) return;
+        const kind = input.dataset.ref;
+        if (kind === 'careers') {
+            const row = input.dataset.path.split('.')[1];
+            fillIfEmpty(`careers.${row}.class`, found.career.class);
+            fillIfEmpty(`careers.${row}.status`, found.career.levels[found.level].status);
+        } else if (kind === 'talents') {
+            fillIfEmpty(`talents.${input.dataset.listField.split('.')[1]}.description`, found.description, true);
+        } else if (kind === 'skills') {
+            fillIfEmpty(`customSkills.${input.dataset.listField.split('.')[1]}.char`, found.characteristic, true);
+        }
+    }
+
     // Draw button: opens a FlockMod drawing room named after the text field.
     // The name is shown in red until it is at least 8 letters long.
     const DRAW_URL = 'https://flockmod.com/r/';
@@ -841,6 +980,7 @@
         });
         initTheme();
         initDraw();
+        loadReference();
         renderCareers();
         renderCharacteristics();
         renderBasicSkills();

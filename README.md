@@ -11,6 +11,7 @@ The site is a Warhammer Fantasy Roleplay character sheet (https://warhammer.no/)
 - The portrait comes from an optional image URL, set with the **Change picture** button in the menu; without one a default horned silhouette is shown.
 - The **Style** drop-down switches between Parchment (default, follows light/dark), Death, Forest, Water, Dessert and Bubblegum. The choice is remembered in the browser. Colours are blocks of variables at the top of `css/sheet.css`. The artwork (page background, panel corner ornaments, heading flourishes) is in `css/art.css` and the small SVG files in `img/art/`. To add a style, add a `:root[data-theme="name"]` block in both CSS files and an `<option>` in `index.html`.
 - Calculated values (current characteristics, skills, wounds, encumbrance, walk/run, XP total) update automatically.
+- Class, career, talent, advanced skill, language and skill specialisation fields offer drop-down suggestions from `data/reference.yaml` (WFRP 5th edition classes, careers, skills and talents, each with a short and a longer description). You can still type anything. Picking a career fills in an empty class and status, picking a talent fills in an empty description, and picking a skill fills in an empty characteristic. Hovering over a filled-in field shows its description. The suggestions need the page to be served over http(s); opened as a local file the fields are plain text.
 
 Files:
 
@@ -19,4 +20,5 @@ Files:
 - `css/art.css` – theme artwork (backgrounds, corners, dividers); the pictures are `img/art/<theme>-tile|corner|divider.svg`
 - `js/sheet.js` – saving, loading, YAML and calculations
 - `img/default-portrait.svg` – default portrait
+- `data/reference.yaml` – classes, careers (with levels and status), skills and talents for the drop-down suggestions
 - `js/vendor/js-yaml.min.js` – [js-yaml](https://github.com/nodeca/js-yaml) 4.1.0 (MIT)
