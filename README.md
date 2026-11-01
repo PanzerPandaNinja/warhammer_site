@@ -1,6 +1,15 @@
 # warhammer_site
 A page for warhammer.no
 
+This has been made by using Claude, mainly as a test of the tool, but I hope it will be usefull for me and others when playing warhammer fantasy roleplay.
+Please reach out if you find a bug, and I will try to fix it, or submit a pullrequest. I accept AI code on this project offcourse :)
+
+No data is saved anywhere except your own browser. I might look at trafic data in some way at some point.
+
+If you start using this actively and feel reliant on it, please let me know so I dont mess up your game when making changes.
+I would make a lokal copy or a fork, just to be safe.
+This is all made under the MIT-license.
+
 ## Character sheet
 
 The site is a Warhammer Fantasy Roleplay character sheet (https://warhammer.no/).
