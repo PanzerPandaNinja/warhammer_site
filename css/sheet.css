@@ -279,6 +279,9 @@ button.danger { color: var(--warn); }
 .toolbar-actions button { padding: 4px 10px; color: var(--ink); }
 .toolbar-actions button.danger { color: var(--warn); }
 .toolbar-draw { display: flex; gap: 6px; }
+/* Link styled like the menu buttons */
+.toolbar-link { display: inline-flex; align-items: center; padding: 4px 10px; color: var(--ink); background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); text-decoration: none; }
+.toolbar-link:hover { background: var(--calc); }
 .toolbar-draw input { width: 13rem; padding: 4px 8px; background: var(--field); color: var(--ink); }
 .toolbar-draw input::placeholder { color: #888; opacity: 1; }
 .toolbar-draw input.short { color: var(--warn); } /* fewer than 8 letters */
