@@ -15,6 +15,7 @@ This is all made under the MIT-license.
 The site is a Warhammer Fantasy Roleplay character sheet (https://warhammer.no/).
 
 - The menu (character selector, style, download/upload, print, delete, a link to the GitHub repository) is hidden by default; the menu icon in the top right corner shows and hides it.
+- A compass button in the bottom right corner opens a second menu along the bottom of the page with a link to every section; choosing one scrolls there and closes the menu (Esc also closes it).
 - Up to 50 characters are saved in the browser's localStorage. The drop-down at the top lists the saved characters plus one "+ New character" slot.
 - **Download all** saves every character in one YAML file. **Upload all** loads such a file and replaces all saved characters (after asking). A YAML file with a single character, as made by earlier versions, is added as a new character instead.
 - The portrait comes from an optional image URL, set with the **Change picture** button in the menu; without one a default horned silhouette is shown.

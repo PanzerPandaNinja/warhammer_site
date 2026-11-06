@@ -83,7 +83,7 @@
     <main class="sheet">
 
         <!-- Name, species, appearance and portrait -->
-        <section class="panel identity span-lg-6 span-md-12">
+        <section id="sec-character" class="panel identity span-lg-6 span-md-12">
             <figure class="portrait">
                 <img id="portraitImg" src="img/default-portrait.svg" alt="Character portrait">
             </figure>
@@ -94,7 +94,7 @@
             </div>
         </section>
 
-        <section class="panel span-lg-3 span-md-6">
+        <section id="sec-xp" class="panel span-lg-3 span-md-6">
             <h2>XP</h2>
             <div class="trio">
                 <label class="field"><span>Current</span><input type="number" data-path="xp.current"></label>
@@ -103,7 +103,7 @@
             </div>
         </section>
 
-        <section class="panel span-lg-3 span-md-6">
+        <section id="sec-fate" class="panel span-lg-3 span-md-6">
             <h2>Fate &amp; Movement</h2>
             <div class="trio">
                 <label class="field"><span>Fate</span><input type="number" data-path="fate"></label>
@@ -123,23 +123,23 @@
             </div>
         </section>
 
-        <section class="panel span-lg-12">
+        <section id="sec-careers" class="panel span-lg-12">
             <h2>Careers</h2>
             <div id="careers" class="careers"></div>
             <p class="hint">Tick a box on the Career Advancement Tracker when you: purchase a Talent, Skill Advance, or Characteristic Advance, or acquire a Trapping from the <u>next</u> Career Level. Click a skull to mark that level as reached.</p>
         </section>
 
-        <section class="panel span-lg-8 span-md-12">
+        <section id="sec-characteristics" class="panel span-lg-8 span-md-12">
             <h2>Characteristics</h2>
             <div id="characteristics" class="characteristics"></div>
         </section>
 
-        <section class="panel span-lg-4 span-md-12">
+        <section id="sec-languages" class="panel span-lg-4 span-md-12">
             <h2>Known Languages</h2>
             <div class="list" data-list="languages"></div>
         </section>
 
-        <section class="panel span-lg-12">
+        <section id="sec-skills" class="panel span-lg-12">
             <h2>Skills</h2>
             <div id="basicSkills" class="skills"></div>
             <h3>Other skills</h3>
@@ -147,13 +147,13 @@
             <p class="hint">Printed skills are Basic — anyone may attempt them. *These skills are Grouped — they are advanced only as specialisations, such as Ride (Horse) or Art (Painting).</p>
         </section>
 
-        <section class="panel span-lg-6 span-md-12">
+        <section id="sec-talents" class="panel span-lg-6 span-md-12">
             <h2>Talents</h2>
             <div class="list" data-list="talents"></div>
         </section>
 
         <div class="stack span-lg-3 span-md-6">
-            <section class="panel">
+            <section id="sec-ambitions" class="panel">
                 <h2>Personal Ambition</h2>
                 <textarea rows="3" data-path="ambitions.personal" aria-label="Personal ambition"></textarea>
             </section>
@@ -161,7 +161,7 @@
                 <h2>Party Ambition</h2>
                 <textarea rows="3" data-path="ambitions.party" aria-label="Party ambition"></textarea>
             </section>
-            <section class="panel">
+            <section id="sec-wounds" class="panel">
                 <h2>Current Wounds</h2>
                 <div class="wounds-current">
                     <input type="number" data-path="wounds.current" aria-label="Current wounds">
@@ -178,7 +178,7 @@
             </section>
         </div>
 
-        <section class="panel span-lg-3 span-md-6">
+        <section id="sec-armour-points" class="panel span-lg-3 span-md-6">
             <h2>Armour Points</h2>
             <div class="armour-points">
                 <label class="ap ap-head"><small>01–09</small><input type="number" data-path="armourPoints.head"><span>Head</span></label>
@@ -195,7 +195,7 @@
             </div>
         </section>
 
-        <section class="panel span-lg-2 span-md-6">
+        <section id="sec-wealth" class="panel span-lg-2 span-md-6">
             <h2>Wealth</h2>
             <div class="wealth">
                 <label class="field"><span>GC</span><input type="number" data-path="wealth.gc"></label>
@@ -205,7 +205,7 @@
             <p class="hint">1 Gold Crown (GC) = 20 Silver Shillings = 240 Brass Pennies (D)</p>
         </section>
 
-        <section class="panel span-lg-3 span-md-6">
+        <section id="sec-encumbrance" class="panel span-lg-3 span-md-6">
             <h2>Encumbrance</h2>
             <dl class="enc">
                 <dt>Weapons</dt><dd><output data-calc="enc.weapons"></output></dd>
@@ -218,7 +218,7 @@
             <p class="hint">Weapons, armour and trappings are summed from their ENC columns. Worn clothing, armour and bags count 1 less — enter the reduced value.</p>
         </section>
 
-        <section class="panel span-lg-7 span-md-12">
+        <section id="sec-corruption" class="panel span-lg-7 span-md-12">
             <h2>Corruption &amp; Mutation</h2>
             <div class="corruption">
                 <span class="corruption-label"><span class="has-tip" id="corruptionTip" title="Corruption Tests: at the end of a session the GM picks your worst exposure and calls for one Challenging (+0 SL) Test — Endurance for physical corruption, Cool for spiritual.&#10;Exposure: touching the source for 1 Turn, or 1 hour near it. Prolonged exposure: touching it for 1 hour, or 6 hours near it.&#10;&#10;Minor — fail: +1 point.&#10;Exposure to Corruption (Minor) creatures, refined warpstone or a profane artefact; prolonged exposure to cultists, cult temples, skaven or mutant lairs.&#10;&#10;Moderate — fail: +2, +0 SL: +1, 1+ SL: none.&#10;Exposure to Corruption (Moderate) creatures or warpstone; prolonged exposure to refined warpstone or a Chaos-tainted artefact.&#10;&#10;Major — fail: +3, +0 SL: +2, 1–3 SL: +1, 4+ SL: none.&#10;Exposure to Corruption (Major) creatures; prolonged exposure to warpstone; a deal with a daemon; eating refined warpstone.&#10;&#10;Mutation: with more points than WP Bonus + T Bonus, make a Challenging (+0 SL) Endurance Test. On a failure, lose points equal to your WP Bonus and roll d100 for body or mind — body on 01–50 for Humans, 01–10 for Halflings, 01–05 for Dwarfs; Elves always mutate in mind. Then roll on the Physical or Mental Corruption table. It shows within 3d10 days.&#10;&#10;Absolution is up to the GM: cleansing a Chaos temple, a holy pilgrimage, destroying an unholy artefact, or joining a holy order.">Corruption Points</span> <button type="button" class="info-btn" data-info="corruptionInfo" aria-expanded="false" aria-controls="corruptionInfo" aria-label="Corruption rules" title="Corruption rules">&#9432;</button> <output data-calc="corruption"></output></span>
@@ -229,27 +229,27 @@
             <div class="list" data-list="mutations"></div>
         </section>
 
-        <section class="panel span-lg-12">
+        <section id="sec-weapons" class="panel span-lg-12">
             <h2>Weapons</h2>
             <div class="list" data-list="weapons"></div>
         </section>
 
-        <section class="panel span-lg-12">
+        <section id="sec-armour" class="panel span-lg-12">
             <h2>Armour</h2>
             <div class="list" data-list="armour"></div>
         </section>
 
-        <section class="panel span-lg-6 span-md-12">
+        <section id="sec-trappings" class="panel span-lg-6 span-md-12">
             <h2>Trappings</h2>
             <div class="list list-columns" data-list="trappings"></div>
         </section>
 
-        <section class="panel span-lg-6 span-md-12">
+        <section id="sec-notes" class="panel span-lg-6 span-md-12">
             <h2>Notes</h2>
             <textarea class="notes" rows="10" data-path="notes" aria-label="Notes"></textarea>
         </section>
 
-        <section class="panel span-lg-12">
+        <section id="sec-spells" class="panel span-lg-12">
             <h2><span class="has-tip" id="magicTip" title="MAGIC&#10;Casting: a Challenging (+0 SL) Language (Magick) Test. The spell works if your SL is at least its CN.&#10;Doubles on a success: a Critical Cast — roll on the Minor Miscast table, but also pick Critical Damage, Total Power (add the tens die to SL for Overcasting) or Unstoppable Force (cannot be dispelled). Petty spells never miscast this way.&#10;Doubles on a failure: a Fumble — roll on the Minor Miscast table.&#10;&#10;Channelling: spend your Action on a Challenging (+0 SL) Channelling Test for one Wind. The SL build a pool you add to your next Casting Test for that lore. Doubles on a success add your WP Bonus; doubles on a failure lose 1d10 SL and miscast. Taking damage or a Condition while channelling: Hard (−2 SL) Cool Test or the same happens.&#10;&#10;Overcasting: spare SL (up to Int Bonus + WP Bonus) add range, area, targets, duration or magic-missile Damage. Not for petty or unmemorised spells, Range You or Touch, or Duration Instant.&#10;Magic missiles: Damage is the spell&#x27;s Damage + your WP Bonus; reverse the casting dice for the hit location.&#10;Ingredients: lower a miscast one step (Major to Minor, Minor to none); about half the CN in shillings, 10d for CN 0.&#10;Armour: −1 SL to cast and channel per AP on your most armoured location (no penalty for metal with Chamon or leather with Ghur).&#10;Dispelling: once per Round, an Opposed Language (Magick) Test against a caster within Willpower yards. A lasting spell needs an Extended Test until your SL reach its CN.&#10;Corrupting influences and warpstone turn Minor Miscasts into Major ones.&#10;&#10;PRAYERS&#10;Blessings and Miracles: a Challenging (+0 SL) Pray Test. A Fumble brings the Wrath of the Gods. Each prayer can only be in effect once at a time.&#10;Blessings: each +2 SL adds +6 yards, +1 target or +6 Rounds.&#10;Miracles: each +2 SL adds the listed range, targets or duration again (Range You and Duration Instant cannot be extended).&#10;Sin: if the units die of a Pray Test is equal to or lower than your Sin Points, you suffer the Wrath of the Gods even on a success — roll d100 + 10 per Sin Point, then lose 1 Sin Point.">Spells and Prayers</span> <button type="button" class="info-btn" data-info="magicInfo" aria-expanded="false" aria-controls="magicInfo" aria-label="Magic and prayer rules" title="Magic and prayer rules">&#9432;</button></h2>
             <div id="magicInfo" class="info-pop" data-source="magicTip" hidden></div>
             <div class="list" data-list="spells"></div>
@@ -261,6 +261,32 @@
         Characters are stored in this browser only. Use <em>Download all</em> to keep a backup.
         Warhammer Fantasy Roleplay is © Games Workshop / Cubicle 7 Entertainment. Unofficial fan page.
     </footer>
+
+    <!-- Section navigation: hidden until the compass button is pressed -->
+    <nav id="sectionNav" class="section-nav" aria-label="Sections" hidden>
+        <a href="#sec-character">Character</a>
+        <a href="#sec-xp">XP</a>
+        <a href="#sec-fate">Fate</a>
+        <a href="#sec-careers">Careers</a>
+        <a href="#sec-characteristics">Characteristics</a>
+        <a href="#sec-languages">Languages</a>
+        <a href="#sec-skills">Skills</a>
+        <a href="#sec-talents">Talents</a>
+        <a href="#sec-ambitions">Ambitions</a>
+        <a href="#sec-wounds">Wounds</a>
+        <a href="#sec-armour-points">Armour Points</a>
+        <a href="#sec-wealth">Wealth</a>
+        <a href="#sec-encumbrance">Encumbrance</a>
+        <a href="#sec-corruption">Corruption</a>
+        <a href="#sec-weapons">Weapons</a>
+        <a href="#sec-armour">Armour</a>
+        <a href="#sec-trappings">Trappings</a>
+        <a href="#sec-notes">Notes</a>
+        <a href="#sec-spells">Spells</a>
+    </nav>
+    <button type="button" id="navBtn" class="nav-btn" aria-controls="sectionNav" aria-expanded="false" aria-label="Go to section" title="Go to section">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M15.8 8.2l-2.2 5.4-5.4 2.2 2.2-5.4z"/></svg>
+    </button>
 
     <script src="js/vendor/js-yaml.min.js"></script>
     <script src="js/sheet.js"></script>

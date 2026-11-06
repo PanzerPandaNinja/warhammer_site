@@ -1587,7 +1587,38 @@
         document.getElementById('drawBtn').addEventListener('click', open);
     }
 
+    // Compass button and the bar of links to the sections at the bottom of the page.
+    function initSectionNav() {
+        const nav = document.getElementById('sectionNav');
+        const btn = document.getElementById('navBtn');
+        const setNav = open => {
+            nav.hidden = !open;
+            btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        };
+        btn.addEventListener('click', () => setNav(nav.hidden));
+
+        // Keep sections from stopping underneath the menu bar when that is open
+        const toolbar = document.getElementById('toolbar');
+        const measure = () => document.documentElement.style.setProperty('--toolbar-h', toolbar.hidden ? '0px' : toolbar.offsetHeight + 'px');
+        if (window.ResizeObserver) new ResizeObserver(measure).observe(toolbar);
+        document.getElementById('menuBtn').addEventListener('click', () => setTimeout(measure));
+        window.addEventListener('resize', measure);
+        nav.addEventListener('click', e => {
+            const link = e.target.closest('a[href^="#"]');
+            const target = link && document.getElementById(link.getAttribute('href').slice(1));
+            if (!target) return;
+            e.preventDefault(); // keep the address bar clean
+            const calm = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+            target.scrollIntoView({ behavior: calm ? 'auto' : 'smooth', block: 'start' });
+            setNav(false);
+        });
+        document.addEventListener('keydown', e => {
+            if (e.key === 'Escape' && !nav.hidden) { setNav(false); btn.focus(); }
+        });
+    }
+
     function init() {
+        initSectionNav();
         document.getElementById('menuBtn').addEventListener('click', () => {
             setMenu(document.getElementById('toolbar').hidden);
         });
