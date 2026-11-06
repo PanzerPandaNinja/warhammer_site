@@ -377,6 +377,43 @@ button.danger { color: var(--warn); }
     .sheet > .span-lg-12 { grid-column: span 12; }
 }
 
+/* Wide windows: the sheet uses nearly the whole window (up to --sheet-width) and the
+   panels are spread out so that every row adds up to 12 columns.
+   Ids are used so these rules win over the span classes in the HTML. */
+@media (min-width: 1500px) {
+    :root { --sheet-width: 3200px; --gap: 16px; --pad: 14px; }
+    .sheet > #sec-character { grid-column: span 5; }
+    .sheet > #sec-xp { grid-column: span 3; }
+    .sheet > #sec-fate { grid-column: span 4; }
+    .sheet > #sec-talents { grid-column: span 5; }
+    .sheet > .stack { grid-column: span 4; }
+    .sheet > #sec-armour-points { grid-column: span 3; }
+    .sheet > #sec-encumbrance,
+    .sheet > #sec-wealth { grid-column: span 3; }
+    .sheet > #sec-corruption { grid-column: span 6; }
+    .sheet > #sec-weapons,
+    .sheet > #sec-armour { grid-column: span 6; }
+    .sheet .skills { columns: 4 320px; }
+}
+@media (min-width: 2000px) {
+    .sheet > #sec-character { grid-column: span 3; }
+    .sheet > #sec-xp,
+    .sheet > #sec-fate { grid-column: span 2; }
+    .sheet > #sec-careers { grid-column: span 5; }
+    .sheet > #sec-talents { grid-column: span 4; }
+    .sheet > .stack { grid-column: span 3; }
+    .sheet > #sec-armour-points { grid-column: span 2; }
+    .sheet > #sec-encumbrance { grid-column: span 3; }
+    .sheet > #sec-wealth { grid-column: span 2; }
+    .sheet > #sec-corruption { grid-column: span 4; }
+    .sheet > #sec-weapons { grid-column: span 6; }
+    .sheet > #sec-armour,
+    .sheet > #sec-trappings,
+    .sheet > #sec-notes { grid-column: span 4; }
+    .sheet > #sec-spells { grid-column: span 12; }
+    .sheet .skills { columns: 5 320px; }
+}
+
 .panel {
     background: var(--panel);
     border: 2px solid var(--line);
